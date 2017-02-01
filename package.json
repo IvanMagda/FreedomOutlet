@@ -1,0 +1,9 @@
+{
+  "name": "freedom-azure",
+  "version": "0.0.0",
+  "description": "FreedomAzure",
+  "main": "server.js",
+  "author": {
+    "name": "viacheslav"
+  }
+}
