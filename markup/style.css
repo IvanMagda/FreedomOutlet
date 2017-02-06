@@ -1,0 +1,220 @@
+@font-face {
+    font-family: RobotoLight;
+    src: url(fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
+}
+
+* {
+    color: #e8ebef;
+}
+
+body {
+    display: block;
+    margin: 0;
+}
+
+.wrapper {
+    position: fixed;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    /*background: gold;*/
+}
+
+#header {
+    position: absolute;
+    width: 100%;
+    height: 11%;
+    background: #292929;
+}
+
+#header-content {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    height: 100%;
+    background: #292929;
+    /*outline: 1px solid red;*/
+}
+
+#logo, .global-nav {
+    vertical-align: top;
+}
+
+.global-nav {
+    margin-left: 20px;
+}
+
+#logo {
+    position: relative;
+    display: inline-block;
+    top: 0;
+    bottom: 0;
+    width: 261px;
+    height: 100%;
+    /*outline: 1px solid blue;*/
+}
+
+#logo .logo_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*outline: magenta 1px solid;*/
+    height: 139px;
+    width: 261px;
+    background: url("img/logo2.png")no-repeat;
+    background-position-x: -41px;
+    background-position-y: -152px;
+}
+
+a {
+    text-decoration: none;
+    color: #e8ebef;
+    font-size: 65%;
+}
+
+/*.li {*/
+    /*position: static;*/
+    /*float: left;*/
+    /*display: none;*/
+    /*outline: 1px solid yellow;*/
+/*}*/
+
+.global-nav {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+}
+
+#login {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    /*outline: gold 1px solid;*/
+}
+
+#about_company {
+    position: absolute;
+    left: 0;
+    width: 300px;
+    height: 49%;
+    text-align: justify;
+    text-align-last: justify;
+}
+
+#about_company .li,
+#nav-menu .li {
+    margin-top: 10px;
+    display: inline-block;
+    font-family: RobotoLight;
+    font-size: 19px;
+}
+
+#about_company .li {
+    margin-top: 14px;
+}
+
+#about_company .li a {
+    color: #9ba3aa;
+}
+
+.search_block {
+    right: 0;
+    top: 5px;
+    position: absolute;
+    width: 200px;
+    height: 50%;
+}
+
+#nav-menu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50%;
+    text-align: justify;
+    text-align-last: justify;
+}
+
+#login .enter {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    height: 50%;
+    /*outline: 1px solid red;*/
+    font-family: RobotoLight;
+    font-size: 20px;
+}
+
+#login .enter a:first-child {
+    padding-right: 12px;
+    border-right: 1px solid #e8ebef;
+    margin-right: 7px;
+}
+
+#login .heart {
+    position: absolute;
+    right: 0;
+    top: 15px;
+}
+
+#login .phone {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50%;
+    margin-bottom: -10px;
+    /*outline: 1px solid green;*/
+    font-family: RobotoLight;
+    font-size: 22px;
+}
+
+#login .heart .heart1 {
+    display: inline-block;
+}
+#login .heart .heart2 {
+    display: none;
+}
+
+#login .heart:hover .heart1 {
+    display: none;
+}
+
+#login .heart:hover .heart2 {
+    display: inline-block;
+}
+
+.search_block form {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.search_block button {
+    position: absolute;
+    background-color: white;
+    border: 0;
+    outline: none;
+    right: 3px;
+    top: 15px;
+    height: 20px;
+}
+
+.search_block input {
+    position: absolute;
+    top: 10px;
+    font-size: 13px;
+    padding-right: 50px;
+    width: 71%;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
