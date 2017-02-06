@@ -206,7 +206,14 @@ a {
     right: 3px;
     top: 15px;
     height: 20px;
+    cursor: pointer;
 }
+
+.search_block button img {
+    cursor: pointer;
+}
+
+
 
 .search_block input {
     position: absolute;
@@ -217,4 +224,5 @@ a {
     padding-top: 5px;
     padding-left: 5px;
     padding-bottom: 5px;
+    color: black;
 }
