@@ -4,6 +4,13 @@
         <meta charset="UTF-8">
         <title>Title</title>
         <link rel="stylesheet" href="style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+        <!-- docs: http://sorgalla.com/jcarousel/docs/ -->
+        <script type="text/javascript" src="js/libs/jcarousel.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+
     </head>
     <body>
         <div class="wrapper">
@@ -51,43 +58,33 @@
                     </div>
                 </div>
             </div>
-            <div id="content-wrapper"></div>
+            <div id="content-wrapper">
+                <div class="new">
+                    <div class="title">
+
+                    </div>
+                    <div class="gallery">
+                        <div class="jcarousel">
+                            <ul>
+                                <li style="width: 200px;"><img src="img/new-carousel/gostinnaya.png" alt="Image 1"></li>
+                                <li style="width: 200px;"><img src="img/new-carousel/divan.png" alt="Image 1"></li>
+                                <li style="width: 200px;"><img src="img/new-carousel/spalnya.png" alt="Image 1"></li>
+                                <li style="width: 200px;"><img src="img/new-carousel/gostinnaya.png" alt="Image 1"></li>
+                                <li style="width: 200px;"><img src="img/new-carousel/divan.png" alt="Image 1"></li>
+                                <li style="width: 200px;"><img src="img/new-carousel/spalnya.png" alt="Image 1"></li>
+                            </ul>
+                        </div>
+                        <!--<p class="jcarousel-pagination"><a href="#1" class="active">1</a><a href="#2">2</a><a href="#3">3</a><a href="#4">4</a><a href="#5">5</a><a href="#6">6</a></p>-->
+                    </div>
+                </div>
+                <div class="big_img"></div>
+                <div class="categories"></div>
+                <div class="about_us"></div>
+                <div class="contacts_text"></div>
+                <div class="contacts_map"></div>
+                <div class="contacts_feedback"></div>
+            </div>
             <div id="footer"></div>
         </div>
-
-
-
-
-    <script>
-        function doBeat() {
-            var heart1 = document.getElementsByClassName('heart1')[0];
-            var heart2 = document.getElementsByClassName('heart2')[0];
-
-            heart1.style.display = "none";
-            heart2.style.display = "inline-block";
-
-            setTimeout(() => {
-                heart1.style.display = "inline-block";
-                heart2.style.display = "none";
-
-                setTimeout(() => {
-                    heart1.style.display = "none";
-                    heart2.style.display = "inline-block";
-
-                    setTimeout(() => {
-                        heart1.style.display = "inline-block";
-                        heart2.style.display = "none";
-
-                        setTimeout(() => {
-                            heart1.style.display = "none";
-                            heart2.style.display = "inline-block";
-                        }, 200);
-                    }, 1000);
-                }, 200);
-            }, 200);
-        }
-
-        //setInterval(doBeat, 2000);
-    </script>
     </body>
 </html>

@@ -73,13 +73,6 @@ a {
     font-size: 65%;
 }
 
-/*.li {*/
-    /*position: static;*/
-    /*float: left;*/
-    /*display: none;*/
-    /*outline: 1px solid yellow;*/
-/*}*/
-
 .global-nav {
     position: relative;
     display: inline-block;
@@ -212,8 +205,6 @@ a {
 .search_block button img {
     cursor: pointer;
 }
-
-
 
 .search_block input {
     position: absolute;
