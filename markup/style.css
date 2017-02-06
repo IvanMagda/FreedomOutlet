@@ -217,3 +217,27 @@ a {
     padding-bottom: 5px;
     color: black;
 }
+
+
+.new {
+    position: relative;
+    top: 300px;
+}
+
+.new-carousel .item {
+    margin: 20px;
+
+}
+
+.new-carousel .item img {
+    /*width: 300px;*/
+    width: 98%;
+}
+
+
+
+.slick-dots li button:before {
+    content: "\25A0" !important;
+    font-size: 36px !important;
+}
+
