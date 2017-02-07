@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+
+        <style>
+            .container {
+                position: absolute;
+                left: 100px;
+                top: 100px;
+                width: 500px;
+                height: 500px;
+                outline: 5px solid gold;
+            }
+
+            .img {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                outline: 1px solid red;
+                background: red;
+            }
+
+            .border {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 200px;
+                outline: 1px solid blue;
+                background: lightgray;
+                /*display: none;*/
+            }
+
+            .text {
+                position: absolute;
+                left: 0;
+                right: 0;
+                height: 50px;
+                bottom: 0px;
+                display: none;
+            }
+
+            .img:hover .text {
+                display: block;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="img">
+                <div class="text">asdf</div>
+            </div>
+            <div class="border"></div>
+        </div>
+    </body>
+</html>
