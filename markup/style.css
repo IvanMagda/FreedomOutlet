@@ -78,11 +78,19 @@ a {
 }
 
 #login {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
+    position: relative;
     width: 200px;
+    height: 100%;
+    /*outline: 5px solid red;*/
+    display: inline-block;
+    right: -267px;
+
+
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*bottom: 0;*/
+    /*right: 0;*/
+    /*width: 200px;*/
 }
 
 #about_company {
