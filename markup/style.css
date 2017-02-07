@@ -33,6 +33,7 @@ body {
     right: 10%;
     height: 100%;
     background: #292929;
+    white-space: nowrap;
 }
 
 #logo, .global-nav {
@@ -70,6 +71,7 @@ a {
     position: relative;
     display: inline-block;
     width: 50%;
+    min-width: 680px;
     top: 0;
     bottom: 0;
     height: 100%;
