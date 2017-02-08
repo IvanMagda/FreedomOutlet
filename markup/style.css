@@ -3,6 +3,10 @@
     src: url(fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
 }
 
+html {
+    overflow-x: hidden;
+}
+
 * {
     color: #e8ebef;
 }
@@ -13,27 +17,45 @@ body {
 }
 
 .wrapper {
-    position: absolute;
-    width: 100%;
-    padding: 0;
+    position: relative;
+    width: 1908px;
     margin: 0;
-    height: 100%;
+
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*padding: 0;*/
+    /*margin: 0;*/
+    /*height: 100%;*/
 }
 
 #header {
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: 11%;
+    height: 110px;
     background: #292929;
+
+
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*height: 11%;*/
+    /*background: #292929;*/
 }
 
 #header-content {
-    position: absolute;
-    left: 10%;
-    right: 10%;
+    position: relative;
+    margin-left: 197px;
+    margin-right: 192px;
     height: 100%;
     background: #292929;
     white-space: nowrap;
+
+
+    /*position: absolute;*/
+    /*left: 10%;*/
+    /*right: 10%;*/
+    /*height: 100%;*/
+    /*background: #292929;*/
+    /*white-space: nowrap;*/
 }
 
 #logo, .global-nav {
@@ -238,7 +260,8 @@ a {
 }
 
 .new-carousel .item img {
-    width: 98%;
+    /*width: 98%;*/
+    width: 100%;
 }
 
 
@@ -249,15 +272,21 @@ a {
 }
 
 #content-wrapper {
-    position: absolute;
-    left: 10%;
-    right: 10%;
-    top: 11%;
-    padding: 0;
-    margin: 0;
-    /*height: 100%;*/
+    position: relative;
+    margin-top: 20px;
+    margin-left: 170px;
+    margin-right: 170px;
     min-width: 1518px;
-    /*outline: gold 5px solid;*/
+
+    /*position: absolute;*/
+    /*left: 10%;*/
+    /*right: 10%;*/
+    /*top: 11%;*/
+    /*padding: 0;*/
+    /*margin: 0;*/
+    /*!*height: 100%;*!*/
+    /*min-width: 1518px;*/
+    /*!*outline: gold 5px solid;*!*/
 }
 
 .gallery-title {
@@ -269,6 +298,33 @@ a {
     top: -70px;
     margin: -56px;
     border-bottom: 2px solid red;
+}
+
+.gallery .item span {
+    color: #3e4546;
+}
+
+.gallery .item span.tit {
+    font-size: 32px;
+    font-family: Georgia;
+}
+
+.gallery .item span.vendor {
+    font-size: 15px;
+    /*color: #e8ebef;*/
+    color: #898f90;
+    font-family: RobotoLight;
+}
+
+.gallery .item span.price {
+    font-size: 22px;
+    font-family: RobotoLight;
+}
+
+.gallery .title-new-product {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #e8ebef;
 }
 
 .text-new {
@@ -322,7 +378,7 @@ a {
 
 .title-categories-container {
     position: relative;
-    height: 100px;
+    height: 115px;
     /*outline: 5px dashed red;*/
     margin-top: 20px;
 }
@@ -333,7 +389,6 @@ a {
     left: 50%;
     width: 100px;
     height: 120px;
-    top: 10%;
     margin: -56px;
     border-bottom: 2px solid red;
 }
@@ -370,7 +425,7 @@ a {
 .categories-img .categories__row1,
 .categories-img .categories__row2,
 .categories-img .categories__row3 {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .stub {
@@ -382,9 +437,31 @@ a {
 
 .about_us {
     position: relative;
-    height: 50px;
+    height: 500px;
     outline: 1px solid blanchedalmond;
 }
+
+.title-about-us {
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    width: 100px;
+    height: 120px;
+    margin: -56px;
+    border-bottom: 2px solid red;
+}
+
+.text-about-us {
+    font-family: Georgia;
+    margin-left: -48px;
+    top: 50%;
+    font-size: 40px;
+    color: #3e4546;
+    position: absolute;
+}
+
+
+
 
 .contacts_text {
     position: relative;
@@ -400,4 +477,74 @@ a {
     position: relative;
     height: 50px;
     outline: 1px solid blanchedalmond;
+}
+
+
+
+
+#footer {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    background: #292929;
+}
+
+.footer-content {
+    position: relative;
+    margin-left: 197px;
+    margin-right: 192px;
+    height: 100%;
+    background: #292929;
+    white-space: nowrap;
+    outline: 1px solid red;
+}
+
+.footer-logo {
+    outline: 1px solid green;
+    position: relative;
+    display: inline-block;
+    top: 0;
+    bottom: 0;
+    width: 261px;
+    height: 100%;
+}
+
+.footer-logo_img {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    height: 139px;
+    width: 261px;
+}
+
+.footer-global-nav {
+    position: absolute;
+    display: inline-block;
+    width: 500px;
+    min-width: 680px;
+    height: 195px;
+    outline: 2px solid blue;
+    margin-top: 35px;
+}
+
+#footer-nav-menu {
+    position: absolute;
+    left: 100px;
+    height: 200px;
+    display: inline-block;
+    outline: 2px solid white;
+    top: 16px;
+    font-size: 19px;
+    /* padding: 10px; */
+    line-height: 16px;
+}
+
+#footer-about_company {
+    position: absolute;
+    left: 35px;
+    height: 140px;
+    display: inline-block;
+    outline: 2px solid magenta;
+    /*top: 40px;*/
+    font-size: 15px;
 }
