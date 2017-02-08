@@ -497,16 +497,21 @@ a {
     background: #292929;
     white-space: nowrap;
     outline: 1px solid red;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .footer-logo {
     outline: 1px solid green;
-    position: relative;
+    /*position: relative;*/
     display: inline-block;
     top: 0;
     bottom: 0;
     width: 261px;
     height: 100%;
+
 }
 
 .footer-logo_img {
@@ -518,32 +523,46 @@ a {
 }
 
 .footer-global-nav {
-    position: absolute;
-    display: inline-block;
+    /*position: absolute;*/
+    /*display: inline-block;*/
     width: 500px;
     min-width: 680px;
     height: 195px;
     outline: 2px solid blue;
-    margin-top: 35px;
+    margin-top: 55px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 #footer-nav-menu {
-    position: absolute;
-    left: 100px;
-    height: 200px;
+    /*position: absolute;*/
+    /*left: 100px;*/
+    /*height: 200px;*/
+
+    /*position: relative;*/
     display: inline-block;
+
+    margin-left: 100px;
+
     outline: 2px solid white;
-    top: 16px;
+    /*top: 16px;*/
     font-size: 19px;
     /* padding: 10px; */
     line-height: 16px;
 }
 
 #footer-about_company {
-    position: absolute;
-    left: 35px;
-    height: 140px;
+    /*position: absolute;*/
+    /*left: 35px;*/
+    /*height: 140px;*/
+    /*position: relative;*/
     display: inline-block;
+
+    /*flex: 1;*/
+    margin-left: 100px;
+
     outline: 2px solid magenta;
     /*top: 40px;*/
     font-size: 15px;
