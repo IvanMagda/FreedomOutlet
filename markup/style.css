@@ -558,15 +558,50 @@ a {
     color: #3e4546;
     position: absolute;
 }
-.table-contacts1,
-.table-contacts2 {
-    position: relative;
+/*.table-contacts1,*/
+/*.table-contacts2 {*/
+    /*position: relative;*/
+    /*display: inline-block;*/
+    /*width: 49%;*/
+    /*height: 550px;*/
+    /*outline: 1px solid red;*/
+    /*text-align: justify;*/
+    /*text-align-last: justify;*/
+/*}*/
+
+
+.contacts .contacts-contacts {
+    outline: 5px solid red;
+    width: 100%;
+    /*height: 300px;*/
+
+
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.contacts .contacts-contacts p {
+    color: #3e4546;
+}
+
+
+
+.contacts .contacts-contacts .kiev,
+.contacts .contacts-contacts .kharkiv,
+.contacts .contacts-contacts .dnepr {
+    outline: green solid 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contacts .contacts-contacts .cont-item {
     display: inline-block;
-    width: 49%;
-    height: 550px;
-    outline: 1px solid red;
-    text-align: justify;
-    text-align-last: justify;
+    flex: 1 0 50%;
+}
+
+.contacts .contacts-contacts .kharkiv .cont-item {
+    flex: 1 0 100%;
 }
 
 
