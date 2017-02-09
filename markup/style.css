@@ -465,6 +465,7 @@ a {
 
 .categories-img .cat-cont:hover .cat-cont__border {
     display: block;
+    /*transition-duration: 0.1s;*/
 }
 
 
@@ -571,10 +572,28 @@ a {
 
 .about-comp-picture,
 .idea-for-home-picture {
-    position: absolute;
-    top: 0;
-    height: 300px;
-    width: 770px;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*height: 300px;*/
+    width: 100%;
+}
+
+.about_us-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.about-img-cont {
+
+    /*flex: 1 0 45%;*/
+    /*width: 45%;*/
+    display: inline-block;
+    width: 45%;
+
+    outline: 5px solid red;
+    /*display: inline-block;*/
+    /*width: 50%;*/
 }
 
 
