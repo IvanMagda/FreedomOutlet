@@ -413,13 +413,49 @@ a {
     /*margin-bottom: 500px;*/
 }
 
-.categories-img .categories__row1 img {
+.categories-img .cat-cont {
+    display: inline-block;
+    position: relative;
+}
+
+.categories-img .dark-layer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: black;
+    opacity: 0.3;
+}
+
+.categories-img .cat-cont {
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-content: center;*/
+}
+
+.categories-img .cat-cont__text {
+    /*display: inline-block;*/
+}
+
+/*.categories-img .cat-cont__text span {*/
+    /*text-transform: uppercase;*/
+    /*font-size: 72px;*/
+    /*color: white;*/
+/*}*/
+
+
+
+.categories-img .categories__row1 .cat-cont,
+.categories-img .categories__row1 .cat-cont img {
     height: 400px;
 }
-.categories-img .categories__row2 img {
+.categories-img .categories__row2 .cat-cont,
+.categories-img .categories__row2 .cat-cont img {
     height: 375px;
 }
-.categories-img .categories__row3 img {
+.categories-img .categories__row3 .cat-cont,
+.categories-img .categories__row3 .cat-cont img {
     height: 428px;
 }
 .categories-img .categories__row1,
@@ -428,18 +464,18 @@ a {
     margin-bottom: 40px;
 }
 
-.dark-layer {
-    position: absolute;
-    display: inline-block;
-    width: 100px;
-    height: 400px;
-    background: black ;
-    opacity: 0.5;
-    z-index: 0;
-    outline: 1px solid gold;
-    text-align: justify;
-    text-align-last: justify;
-}
+/*.dark-layer {*/
+    /*position: absolute;*/
+    /*display: inline-block;*/
+    /*width: 100px;*/
+    /*height: 400px;*/
+    /*background: black ;*/
+    /*opacity: 0.5;*/
+    /*z-index: 0;*/
+    /*outline: 1px solid gold;*/
+    /*text-align: justify;*/
+    /*text-align-last: justify;*/
+/*}*/
 
 
 
@@ -593,14 +629,16 @@ a {
     outline: green solid 8px;
     display: flex;
     flex-wrap: wrap;
+
 }
 
-.contacts .contacts-contacts .cont-item {
+.contacts .contacts-contacts .kiev .cont-item {
     display: inline-block;
     flex: 1 0 50%;
 }
 
-.contacts .contacts-contacts .kharkiv .cont-item {
+.contacts .contacts-contacts .kharkiv .cont-item,
+.contacts .contacts-contacts .dnepr .cont-item {
     flex: 1 0 100%;
 }
 
