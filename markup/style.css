@@ -428,6 +428,25 @@ a {
     margin-bottom: 40px;
 }
 
+.dark-layer {
+    position: absolute;
+    display: inline-block;
+    width: 100px;
+    height: 400px;
+    background: black ;
+    opacity: 0.5;
+    z-index: 0;
+    outline: 1px solid gold;
+    text-align: justify;
+    text-align-last: justify;
+}
+
+
+
+
+
+
+
 .stub {
     position: relative;
     height: 100px;
@@ -468,25 +487,19 @@ a {
     position: absolute;
 }
 
-.about-comp {
+.about-comp,
+.idea-for-home {
     position: relative;
     display: inline-block;
     width: 49%;
     height: 550px;
     outline: 1px solid red;
-    margin-right: 25px;
     text-align: justify;
     text-align-last: justify;
 }
 
-.idea-for-home {
-    display: inline-block;
-    position: relative;
-    width: 49%;
-    height: 550px;
-    outline: 1px solid blue;
-    text-align: justify;
-    text-align-last: justify;
+.about-comp {
+    margin-right: 25px;
 }
 
 .img-about-comp,
@@ -513,21 +526,108 @@ a {
 
 
 
-.contacts_text {
+.contacts {
     position: relative;
-    height: 50px;
+    /*height: 50px;*/
     outline: 1px solid blanchedalmond;
 }
+
+#container-contacts-text {
+    position: relative;
+    height: 130px;
+    outline: 5px dashed green;
+    margin-top: 20px;
+}
+
+.title-contacts {
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    width: 80px;
+    height: 180px;
+    margin: -56px;
+    border-bottom: 2px solid red;
+    white-space: nowrap;
+}
+
+.text-contacts {
+    font-family: Georgia;
+    margin-left: -54px;
+    top: 125px;
+    font-size: 40px;
+    color: #3e4546;
+    position: absolute;
+}
+.table-contacts1,
+.table-contacts2 {
+    position: relative;
+    display: inline-block;
+    width: 49%;
+    height: 550px;
+    outline: 1px solid red;
+    text-align: justify;
+    text-align-last: justify;
+}
+
+
+
+
+
+
+
+
 .contacts_map {
     position: relative;
-    height: 50px;
+    width: 100%;
     outline: 1px solid blanchedalmond;
 }
+
+.contacts_map img {
+    position: relative;
+    width: 1899px;
+    margin-left: -170px;
+
+}
+
 .contacts_feedback {
     position: relative;
-    height: 50px;
+    height: 400px;
     outline: 1px solid blanchedalmond;
 }
+
+#container-title-feedback {
+    position: relative;
+    height: 130px;
+    outline: 5px dashed green;
+    margin-top: 20px;
+}
+
+.title-feedback {
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    width: 90px;
+    height: 180px;
+    margin: -56px;
+    border-bottom: 2px solid red;
+    white-space: nowrap;
+}
+
+.text-feedback {
+    font-family: Georgia;
+    margin-left: -120px;
+    top: 125px;
+    font-size: 40px;
+    color: #3e4546;
+    position: absolute;
+}
+
+
+
+
+
+
+
 
 
 

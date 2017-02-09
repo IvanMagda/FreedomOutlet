@@ -8,54 +8,54 @@
             .container {
                 position: absolute;
                 left: 100px;
+                right: 100px;
                 top: 100px;
-                width: 500px;
-                height: 500px;
-                outline: 5px solid gold;
+                bottom: 100px;
+                outline: 5px solid red;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+
             }
 
-            .img {
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 0;
-                bottom: 0;
-                outline: 1px solid red;
-                background: red;
+            .container .row {
+                display: flex;
+                justify-content: space-around;
+                /*align-content: space-around;*/
             }
 
-            .border {
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 0;
-                bottom: 200px;
-                outline: 1px solid blue;
-                background: lightgray;
-                /*display: none;*/
-            }
-
-            .text {
-                position: absolute;
-                left: 0;
-                right: 0;
+            .container .cell {
+                display: inline-block;
+                width: 50px;
                 height: 50px;
-                bottom: 0px;
-                display: none;
+                outline: darkorange 1px solid;
+                outline-width: 4px;
             }
-
-            .img:hover .text {
-                display: block;
-            }
-
         </style>
     </head>
     <body>
-        <div class="container">
-            <div class="img">
-                <div class="text">asdf</div>
-            </div>
-            <div class="border"></div>
+
+
+    <div class="container">
+        <div class="row title-row">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
         </div>
+        <br>
+        <div class="row">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+    </div>
+
     </body>
 </html>
