@@ -489,6 +489,28 @@ a {
     text-align-last: justify;
 }
 
+.img-about-comp,
+.img-idea-for-home {
+    position: absolute;
+    display: inline-block;
+    width: 768px;
+    height: 55%;
+}
+
+.about-comp-picture,
+.idea-for-home-picture {
+    position: absolute;
+    top: 0;
+    height: 300px;
+    width: 770px;
+}
+
+
+
+
+
+
+
 
 
 .contacts_text {
