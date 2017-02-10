@@ -488,29 +488,13 @@ a {
     margin-bottom: 40px;
 }
 
-/*.dark-layer {*/
-    /*position: absolute;*/
-    /*display: inline-block;*/
-    /*width: 100px;*/
-    /*height: 400px;*/
-    /*background: black ;*/
-    /*opacity: 0.5;*/
-    /*z-index: 0;*/
-    /*outline: 1px solid gold;*/
-    /*text-align: justify;*/
-    /*text-align-last: justify;*/
-/*}*/
-
-
-
-
-
-
 
 .stub {
     position: relative;
     height: 100px;
 }
+
+
 
 
 
@@ -558,25 +542,6 @@ a {
     text-align-last: justify;
 }
 
-/*.about-comp {*/
-    /*margin-right: 25px;*/
-/*}*/
-
-/*.img-about-comp,*/
-/*.img-idea-for-home {*/
-    /*position: absolute;*/
-    /*display: inline-block;*/
-    /*width: 768px;*/
-    /*height: 55%;*/
-/*}*/
-
-/*.about-comp-picture,*/
-/*.idea-for-home-picture {*/
-    /*!*position: absolute;*!*/
-    /*!*top: 0;*!*/
-    /*!*height: 300px;*!*/
-    /**/
-/*}*/
 .img-scale .about-img {
     width: 100%;
     max-width: 100%;
@@ -586,21 +551,8 @@ a {
 .img-scale:hover .about-img {
     transform: scale(1.1);
     transition-duration: 0.1s;
-    outline: 10px solid blue;
-}
-
-/*.about-img-cont .about-img {*/
-    /*width: 100%;*/
-    /*max-width: 100%;*/
-    /*max-height: 100%;*/
-/*}*/
-
-/*.about-img-cont:hover .about-img {*/
-    /*!*width: 100%;*!*/
-    /*transform: scale(1.1);*/
-    /*transition-duration: 0.1s;*/
     /*outline: 10px solid blue;*/
-/*}*/
+}
 
 .about_us-content {
     display: flex;
@@ -610,25 +562,82 @@ a {
 }
 
 .about-img-cont {
-
-    /*flex: 1 0 45%;*/
-    /*width: 45%;*/
     display: inline-block;
     width: 45%;
 
     outline: 5px solid red;
     overflow: hidden;
-    /*display: inline-block;*/
-    /*width: 50%;*/
 }
+
+
+
+
+
+
+
 
 .img-scale {
-    display: inline-block;
-    width: 100%;
-
-    outline: 5px solid black;
-    overflow: hidden;
+    position: relative;
 }
+
+.img-scale .about-img {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.img-scale:hover {
+    transform: scale(1.05);
+    transition-duration: 0.1s;
+    /*outline: 10px solid blue;*/
+}
+
+.img-scale:hover .about-img-border {
+    display: block;
+}
+
+.img-scale .about-img-border {
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    top: 30px;
+    bottom: 30px;
+    border: black 2px solid;
+    display: none;
+}
+
+.img-scale .about-img-button {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.img-scale .about-img-button .button {
+    border: white 2px solid;
+}
+
+.img-scale .about-img-button span {
+    color: white;
+}
+
+.img-scale .about-img-button .button:hover span {
+    color: red;
+}
+
+.img-scale .about-img-button .button:hover {
+    border-color: red;
+}
+
+
+
+
+
 
 
 
@@ -644,7 +653,7 @@ a {
 #container-contacts-text {
     position: relative;
     height: 130px;
-    outline: 5px dashed green;
+    /*outline: 5px dashed green;*/
     margin-top: 20px;
 }
 
@@ -677,13 +686,31 @@ a {
     /*text-align: justify;*/
     /*text-align-last: justify;*/
 /*}*/
+.title-city {
+    /*outline: 5px solid red;*/
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+}
 
+.title-city .text-city {
+    /*outline: green solid 8px;*/
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    color: #3e4546;
+    font-family: Georgia;
+}
 
 .contacts .contacts-contacts {
-    outline: 5px solid red;
+    /*outline: 5px solid red;*/
     width: 100%;
     /*height: 300px;*/
 
+    margin-top: 30px;
+    margin-bottom: 50px;
 
 
     display: flex;
@@ -692,6 +719,7 @@ a {
 
 .contacts .contacts-contacts p {
     color: #3e4546;
+    font-family: RobotoLight;
 }
 
 
@@ -699,7 +727,7 @@ a {
 .contacts .contacts-contacts .kiev,
 .contacts .contacts-contacts .kharkiv,
 .contacts .contacts-contacts .dnepr {
-    outline: green solid 8px;
+    /*outline: green solid 8px;*/
     display: flex;
     flex-wrap: wrap;
 
@@ -715,6 +743,18 @@ a {
     flex: 1 0 100%;
 }
 
+.contacts .contacts-contacts .dnepr {
+    align-items: stretch;
+}
+
+.contacts .contacts-contacts .dnepr .dnepr-cont {
+    /*outline: 20px solid red;*/
+}
+
+.contacts .contacts-contacts .dnepr .dnepr-cont span {
+    color: #3e4546;
+    white-space: nowrap;
+}
 
 
 
@@ -871,3 +911,48 @@ a {
     width: 620px;
 }
 
+.social-inst {
+    position: absolute;
+    display: inline-block;
+    right: 17%;
+   bottom: 45px;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    /*outline: 1px solid blue;*/
+    background: #777777;
+}
+
+.social-face {
+    position: absolute;
+    display: inline-block;
+    right: 22%;
+    bottom: 45px;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    /*outline: 1px solid blue;*/
+    background: #777777;
+}
+
+.img-inst {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /*outline: 1px solid green;*/
+}
+
+.img-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /*outline: 1px solid green;*/
+}
+
+.social-inst:hover {
+    background: #0484b9;
+}
+
+.social-face:hover {
+    background: #3B5998;
+}
