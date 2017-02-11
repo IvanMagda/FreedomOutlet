@@ -3,6 +3,11 @@
     src: url(fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
 }
 
+@font-face {
+    font-family: RobotoSlab;
+    src: url(fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
+}
+
 html {
     overflow-x: hidden;
 }
@@ -20,12 +25,6 @@ body {
     position: relative;
     width: 1908px;
     margin: 0;
-
-    /*position: absolute;*/
-    /*width: 100%;*/
-    /*padding: 0;*/
-    /*margin: 0;*/
-    /*height: 100%;*/
 }
 
 #header {
@@ -33,12 +32,6 @@ body {
     width: 100%;
     height: 110px;
     background: #292929;
-
-
-    /*position: absolute;*/
-    /*width: 100%;*/
-    /*height: 11%;*/
-    /*background: #292929;*/
 }
 
 #header-content {
@@ -48,14 +41,6 @@ body {
     height: 100%;
     background: #292929;
     white-space: nowrap;
-
-
-    /*position: absolute;*/
-    /*left: 10%;*/
-    /*right: 10%;*/
-    /*height: 100%;*/
-    /*background: #292929;*/
-    /*white-space: nowrap;*/
 }
 
 #logo, .global-nav {
@@ -106,13 +91,6 @@ a {
     /*outline: 5px solid red;*/
     display: inline-block;
     right: -267px;
-
-
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*bottom: 0;*/
-    /*right: 0;*/
-    /*width: 200px;*/
 }
 
 #about_company {
@@ -277,16 +255,6 @@ a {
     margin-left: 170px;
     margin-right: 170px;
     min-width: 1518px;
-
-    /*position: absolute;*/
-    /*left: 10%;*/
-    /*right: 10%;*/
-    /*top: 11%;*/
-    /*padding: 0;*/
-    /*margin: 0;*/
-    /*!*height: 100%;*!*/
-    /*min-width: 1518px;*/
-    /*!*outline: gold 5px solid;*!*/
 }
 
 .gallery-title {
@@ -618,21 +586,53 @@ a {
     align-items: center;
 }
 
-.img-scale .about-img-button .button {
-    border: white 2px solid;
+.about-img-button-border {
+    position: absolute;
+    left: 110px;
+    display: inline-block;
+    right: 110px;
+    height: 200px;
+    background: white;
 }
 
-.img-scale .about-img-button span {
+.img-scale .about-img-button .button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-scale .about-img-button a span {
+    color: black;
+    display: inline-block;
+    /*position: absolute;*/
+    font-size: 50px;
+    font-family: RobotoSlab;
+    cursor: pointer;
+}
+
+.button-text-border {
+    position: absolute;
+    top: 15px;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    outline: 2px solid black;
+}
+
+.img-scale .about-img-button .button:hover a span {
     color: white;
 }
 
-.img-scale .about-img-button .button:hover span {
-    color: red;
+.img-scale .about-img-button .button:hover {
+   background: black;
 }
 
-.img-scale .about-img-button .button:hover {
-    border-color: red;
+.img-scale .about-img-button .button:hover .button-text-border {
+    outline: 2px solid white;
 }
+
 
 
 
