@@ -468,14 +468,11 @@ a {
 
 .about_us {
     position: relative;
-    /*height: 500px;*/
-    outline: 1px solid blanchedalmond;
 }
 
 #title-container-about-us {
     position: relative;
     height: 100px;
-    outline: 5px dashed green;
     margin-top: 20px;
 }
 
@@ -499,13 +496,18 @@ a {
     position: absolute;
 }
 
+.about-cont {
+    position: relative;
+    border: 1px solid #9ba3aa;
+}
+
 .about-comp,
 .idea-for-home {
     position: relative;
     display: inline-block;
     width: 49%;
     height: 550px;
-    outline: 1px solid red;
+    /*outline: 1px solid red;*/
     text-align: justify;
     text-align-last: justify;
 }
@@ -519,7 +521,6 @@ a {
 .img-scale:hover .about-img {
     transform: scale(1.1);
     transition-duration: 0.1s;
-    /*outline: 10px solid blue;*/
 }
 
 .about_us-content {
@@ -531,18 +532,9 @@ a {
 
 .about-img-cont {
     display: inline-block;
-    width: 45%;
-
-    outline: 5px solid red;
+    width: 100%;
     overflow: hidden;
 }
-
-
-
-
-
-
-
 
 .img-scale {
     position: relative;
@@ -557,7 +549,6 @@ a {
 .img-scale:hover {
     transform: scale(1.05);
     transition-duration: 0.1s;
-    /*outline: 10px solid blue;*/
 }
 
 .img-scale:hover .about-img-border {
@@ -570,7 +561,7 @@ a {
     right: 40px;
     top: 30px;
     bottom: 30px;
-    border: black 2px solid;
+    border: white 2px solid;
     display: none;
 }
 
@@ -633,12 +624,54 @@ a {
     outline: 2px solid white;
 }
 
+.about-us-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+}
+
+.text-description {
+    color: #3e4546;
+    display: inline-block;
+    /*position: absolute;*/
+    font-size: 20px;
+    font-family: RobotoLight;
+    text-align: justify;
+}
 
 
+.read-all {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
 
+.button-read-all {
+    width: 240px;
+    height: 55px;
+    outline: 2px solid #9ba3aa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.button-read-all span {
+    text-align: justify;
+    color: #9ba3aa;
+    font-family: RobotoLight;
+    font-size: 20px;
+}
 
+.button-read-all:hover {
+    background: #9ba3aa;
+}
 
+.button-read-all:hover span {
+    color: white;
+}
 
 
 
