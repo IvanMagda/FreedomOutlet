@@ -107,7 +107,13 @@ a {
     margin-top: 10px;
     display: inline-block;
     font-family: RobotoLight;
-    font-size: 19px;
+    font-size: 21px;
+}
+
+#about_company .li:hover,
+#nav-menu .li:hover {
+    padding-bottom: 3px;
+    border-bottom: 2px solid red;
 }
 
 #about_company .li {
