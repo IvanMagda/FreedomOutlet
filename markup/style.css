@@ -9,7 +9,7 @@
 }
 
 html {
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
 }
 
 * {
@@ -23,7 +23,7 @@ body {
 
 .wrapper {
     position: relative;
-    width: 1908px;
+    width: 1903px;
     margin: 0;
 }
 
