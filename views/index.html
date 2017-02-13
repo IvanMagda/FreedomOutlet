@@ -1,112 +1,347 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    @{head('http://cdn.jsdelivr.net/jquery.slick/1.3.7/slick.css')}
-    @{head('http://code.jquery.com/jquery-1.11.0.min.js')}
-    @{head('http://code.jquery.com/jquery-migrate-1.2.1.min.js')}
-    @{head('http://cdn.jsdelivr.net/jquery.slick/1.3.7/slick.min.js')}
-
-    @{head('main.js')}
-</head>
-        <div id="content-wrapper">
-            <div class="stub"></div>
-            <div class="new">
-                <div class="gallery-title">
-                    <span class="text-new">Новое</span>
-                </div>
-                <div class="gallery">
-                    <div class="new-carousel">
-                        <div class="item">
-                            <img src="@{'new-carousel/gostinnaya.png'}" alt="Image 1">
-
-                        </div>
-                        <div class="item">
-                            <img src="@{'new-carousel/divan.png'}" alt="Image 1">
-                            <div class="title-new-product">
-                                <span class="tit">Диван</span>
-                                <span>AGATHA</span>
-                                <span>89 000 UAH</span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="@{'new-carousel/spalnya.png'}" alt="Image 1">
-                            <div class="title-new-product">
-                                <span class="tit">Спальня</span>
-                                <span>AGATHA</span>
-                                <span>89 000 UAH</span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="@{'new-carousel/gostinnaya.png'}" alt="Image 1">
-                            <div class="title-new-product">
-                                <span class="tit">Гостинная</span>
-                                <span>AGATHA</span>
-                                <span>89 000 UAH</span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="@{'new-carousel/divan.png'}" alt="Image 1">
-                            <div class="title-new-product">
-                                <span class="tit">Диван</span>
-                                <span>AGATHA</span>
-                                <span>89 000 UAH</span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="@{'new-carousel/spalnya.png'}" alt="Image 1">
-                            <div class="title-new-product">
-                                <span class="tit">Спальня</span>
-                                <span>AGATHA</span>
-                                <span>89 000 UAH</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="new-stub"></div>
-            </div>
-            <div class="big_img">
-                <a href="#">
-                    <img src="@{'first-mebelnyi-outlet-2.png'}">
-                    <div class="hover-border"></div>
-                </a>
-            </div>
-            <div class="categories">
-                <div class="title-categories-container">
-                    <div class="title-categories">
-                        <span class="text-categories">Категории</span>
-                    </div>
-                </div>
-
-                <div class="categories-img">
-                    <div class="categories__row1">
-                        <img class="soft-furnisings" src="img/categories/soft%20furnishings.png">
-                        <img class="bedroom" src="img/categories/bedroom.png">
-                        <img class="living-room" src="img/categories/living%20room.png">
-                    </div>
-                    <div class="categories__row2">
-                        <img class="dining-room" src="img/categories/dining%20room.png">
-                        <img class="kitchen" src="img/categories/kitchen.png">
-                        <img class="accessories" src="img/categories/accessories.png">
-                    </div>
-                    <div class="categories__row3">
-                        <img class="chandeliers" src="img/categories/chandeliers.png">
-                        <img class="plumbing" src="img/categories/plumbing.png">
-                    </div>
-                    <!--<img class="soft-furnisings" src="img/categories/soft%20furnishings.png">-->
-                    <!--<img class="bedroom" src="img/categories/bedroom.png">-->
-                    <!--<img class="living-room" src="img/categories/living%20room.png">-->
-                    <!--<img class="dining-room" src="img/categories/dining%20room.png">-->
-                    <!--<img class="kitchen" src="img/categories/kitchen.png">-->
-                    <!--<img class="accessories" src="img/categories/accessories.png">-->
-                    <!--<img class="chandeliers" src="img/categories/chandeliers.png">-->
-                    <!--<img class="plumbing" src="img/categories/plumbing.png">-->
+﻿<div class="stub"></div>
+<div class="new">
+    <div class="gallery-title">
+        <span class="text-new">Новое</span>
+    </div>
+    <div class="gallery">
+        <div class="new-carousel">
+            <div class="item">
+                <img src="img/new-carousel/living-room-carousel.png" alt="Image 1">
+                <div class="title-new-product">
+                    <span class="tit">Гостинная</span>
+                    <br>
+                    <span class="vendor">AGATHA</span>
+                    <br>
+                    <br>
+                    <span class="price">89 000 UAH</span>
                 </div>
             </div>
-            <div class="about_us"></div>
-            <div class="contacts_text"></div>
-            <div class="contacts_map"></div>
-            <div class="contacts_feedback"></div>
+            <div class="item">
+                <img src="img/new-carousel/sofa-carousel.png" alt="Image 1">
+                <div class="title-new-product">
+                    <span class="tit">Диван</span>
+                    <br>
+                    <span class="vendor">AGATHA</span>
+                    <br>
+                    <br>
+                    <span class="price">89 000 UAH</span>
+                </div>
+            </div>
+            <div class="item">
+                <img src="img/new-carousel/bedroom-carousel.png" alt="Image 1">
+                <div class="title-new-product">
+                    <span class="tit">Спальня</span>
+                    <br>
+                    <span class="vendor">AGATHA</span>
+                    <br>
+                    <br>
+                    <span class="price">89 000 UAH</span>
+                </div>
+            </div>
+            <div class="item">
+                <img src="img/new-carousel/living-room-carousel.png" alt="Image 1">
+                <div class="title-new-product">
+                    <span class="tit">Гостинная</span>
+                    <br>
+                    <span class="vendor">AGATHA</span>
+                    <br>
+                    <br>
+                    <span class="price">89 000 UAH</span>
+                </div>
+            </div>
+            <div class="item">
+                <img src="img/new-carousel/sofa-carousel.png" alt="Image 1">
+                <div class="title-new-product">
+                    <span class="tit">Диван</span>
+                    <br>
+                    <span class="vendor">AGATHA</span>
+                    <br>
+                    <br>
+                    <span class="price">89 000 UAH</span>
+                </div>
+            </div>
+            <div class="item">
+                <img src="img/new-carousel/bedroom-carousel.png" alt="Image 1">
+                <div class="title-new-product">
+                    <span class="tit">Спальня</span>
+                    <br>
+                    <span class="vendor">AGATHA</span>
+                    <br>
+                    <br>
+                    <span class="price">89 000 UAH</span>
+                </div>
+            </div>
         </div>
     </div>
-</html>
+
+    <div class="new-stub"></div>
+</div>
+<div class="big_img">
+    <a href="#">
+        <img src="img/first-big-outlet.png">
+        <div class="hover-border"></div>
+    </a>
+</div>
+<div class="categories">
+    <div class="title-categories-container">
+        <div class="title-categories">
+            <span class="text-categories">Категории</span>
+        </div>
+    </div>
+
+    <div class="categories-img">
+        <div class="categories__row1">
+            <div class="cat-cont">
+                <a href="#"><img class="soft-furnisings" src="img/categories/soft-furnishings.png"></a>
+                <div class="dark-layer"></div>
+                <div class="cat-cont__border"></div>
+                <div class="cat-cont__text"><span>Мягкая мебель</span></div>
+            </div>
+            <div class="cat-cont">
+                <a href="#"><img class="bedroom" src="img/categories/bedroom.png"></a>
+                <div class="dark-layer"></div>
+                <div class="cat-cont__border"></div>
+                <div class="cat-cont__text"><span>Спальни</span></div>
+            </div>
+            <div class="cat-cont">
+                <a href="#"><img class="living-room" src="img/categories/living-room.png"></a>
+
+                <div class="dark-layer"></div>
+                <div class="cat-cont__border"></div>
+                <div class="cat-cont__text"><span>Гостиные</span></div>
+            </div>
+        </div>
+        <div class="categories__row2">
+            <div class="cat-cont">
+                <a href="#"><img class="dining-room" src="img/categories/dining-room.png"></a>
+
+                <div class="dark-layer"></div>
+                <div class="cat-cont__border"></div>
+                <div class="cat-cont__text"><span>Столовые</span></div>
+            </div>
+            <div class="cat-cont">
+                <a href="#"><img class="kitchen" src="img/categories/kitchen.png"></a>
+
+                <div class="dark-layer"></div>
+                <div class="cat-cont__border"></div>
+                <div class="cat-cont__text"><span>Кухни</span></div>
+            </div>
+            <div class="cat-cont">
+                <a href="#"><img class="accessories" src="img/categories/accessories.png"></a>
+
+                <div class="dark-layer"></div>
+                <div class="cat-cont__border"></div>
+                <div class="cat-cont__text"><span>Аксессуары</span></div>
+            </div>
+        </div>
+        <div class="categories__row3">
+            <div class="cat-cont">
+                <a href="#"><img class="chandeliers" src="img/categories/chandeliers.png"></a>
+
+                <div class="dark-layer"></div>
+                <div class="cat-cont__border"></div>
+                <div class="cat-cont__text"><span>Люстры</span></div>
+            </div>
+            <div class="cat-cont">
+                <a href="#"><img class="plumbing" src="img/categories/plumbing.png"></a>
+
+                <div class="dark-layer"></div>
+                <div class="cat-cont__border"></div>
+                <div class="cat-cont__text"><span>Сантехника</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="about_us">
+    <div id="title-container-about-us">
+        <div class="title-about-us">
+            <span class="text-about-us">О нас</span>
+        </div>
+    </div>
+    <div class="about_us-content">
+        <div class="about-cont">
+            <div class="about-img-cont">
+                <div class="img-scale">
+                    <img class="about-img" src="img/about-us/picture1.png">
+                    <div class="about-img-border"></div>
+                    <div class="about-img-button">
+                        <div class="about-img-button-border">
+                            <div class="button">
+                                <div class="button-text-border"></div>
+                                <a href="#"><span>О КОМПАНИИ</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-us-description">
+                                <span class="text-description">
+                                    Салон элитных итальянских кухонь в ARDE предлагает<br>
+                                    богатый ассортимент гарнитуров от лучших
+                                </span>
+            </div>
+            <div class="read-all">
+                <a href="#">
+                    <div class="button-read-all">
+                        <span>ЧИТАТЬ ВСЕ</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="about-cont">
+            <div class="about-img-cont">
+                <div class="img-scale">
+                    <img class="about-img" src="img/about-us/picture2.png">
+                    <div class="about-img-border"></div>
+                    <div class="about-img-button">
+                        <div class="about-img-button-border">
+                            <div class="button">
+                                <div class="button-text-border"></div>
+                                <a href="#"><span>ИДЕИ ДЛЯ ДОМА</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-us-description">
+                                <span class="text-description">
+                                    Салон элитных итальянских кухонь в ARDE предлагает<br>
+                                    богатый ассортимент гарнитуров от лучших
+                                </span>
+            </div>
+            <div class="read-all">
+                <a href="#">
+                    <div class="button-read-all">
+                        <span>ЧИТАТЬ ВСЕ</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="contacts">
+    <div id="container-contacts-text">
+        <div class="title-contacts">
+            <span class="text-contacts">Контакты</span>
+        </div>
+    </div>
+    <div class="contacts-contacts">
+        <div class="kiev">
+            <div class="title-city">
+                <span class="text-city">КИЕВ</span>
+            </div>
+            <div class="cont-item">
+                <p>
+                    FREEDOM INTERIOR<br>
+                    пр. Победы, 7<br>
+                    +38 044 238 01 81<br>
+                    +38 067 325 41 80
+                </p>
+            </div>
+            <div class="cont-item">
+                <p>FREEDOM LUXURY HOME<br>
+                    Столичное шоссе, 101,<br>
+                    ТЦ "Домосфера"<br>
+                    +38 067 468 29 09<br>
+                    +38 044 259 31 10</p>
+            </div>
+            <div class="cont-item">
+                <p>Visionnaire Showroom<br>
+                    Столичное шоссе, 101,<br>
+                    ТЦ "Домосфера"<br>
+                    +38 067 571 85 90<br>
+                    +38 044 259 31 10</p>
+            </div>
+            <div class="cont-item">
+                <p>FREEDOM HOUSE<br>
+                    Днепровская ноб., 17/2<br>
+                    (напротив яхт-клуба)<br>
+                    +38 067 328 98 04</p>
+            </div>
+            <div class="cont-item">
+                <p>FREEDOM HOUSE сантехника<br>
+                    Днепровская наб., 14, 2 этаж<br>
+                    ЖК River Stone<br>
+                    +38 067 329 08 16</p>
+            </div>
+            <div class="cont-item">
+                <p>FREEDOM HOUSE<br>
+                    Столичное шоссе, 101,<br>
+                    ТЦ "Домосфера", 2 этаж<br>
+                    +38 067 329 08 48</p>
+            </div>
+        </div>
+        <div class="kharkiv">
+            <div class="title-city">
+                <span class="text-city">ХАРЬКОВ</span>
+            </div>
+            <div class="cont-item">
+                <p>FREEDOM LUXURY<br>
+                    ул. 23 Августа, 29<br>
+                    +38 057 751 92 29<br>
+                    +38 067 325 41 90</p>
+            </div>
+            <div class="cont-item">
+                <p>FREEDOM<br>
+                    ул. Веснина, 5<br>
+                    +38 057 757 44 00<br>
+                    +38 067 571 75 66<br>
+                    <br>
+                    отдел сантехники, 2 этаж<br>
+                    +38 057 751 92 28<br>
+                    +38 067 572 54 32
+                </p>
+            </div>
+            <div class="cont-item">
+                <p>DOMITALIA<br>
+                    пр. Московский, 257<br>
+                    +38 057 758 79 97<br>
+                    +38 067 539 18 53</p>
+            </div>
+        </div>
+        <div class="dnepr">
+            <div class="dnepr-cont">
+                <div class="title-city">
+                    <span class="text-city">ДНЕПР</span>
+                </div>
+                <div class="cont-item">
+                    <p><span>FREEDOM ГАЛЕРЕЯ ИНТЕРЬЕРОВ</span><br>
+                        пр. Гагарина 18<br>
+                        +38 056 713 55 15<br>
+                        +38 067 560 06 82<br>
+                        <br>
+                        отдел сантехники<br>
+                        +38 067 974 41 05
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contacts_map">
+        <img src="img/map.png">
+    </div>
+</div>
+<div class="contacts_feedback">
+    <div id="container-title-feedback">
+        <div class="title-feedback">
+            <span class="text-feedback">Свяжитесь с нами</span>
+        </div>
+    </div>
+    <div class="content-feedback">
+        <div class="form">
+            <form>
+                <div class="row1">
+                    <input class="neat-input" type="text" placeholder="ИМЯ"/>
+                    <input class="neat-input" type="text" placeholder="+38 (00) 000 00 00"/>
+                </div>
+                <div class="row2">
+                    <textarea class="neat-textarea" placeholder="&#013;&#010;&#013;&#010;СООБЩЕНИЕ"></textarea>
+                </div>
+                <div class="row3">
+                    <button class="neat-button" type="submit">ОТПРАВИТЬ СООБЩЕНИЕ</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
