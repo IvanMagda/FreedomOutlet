@@ -1,0 +1,11 @@
+<head>
+    @{import('temp_style.css')}
+</head>
+
+<div id="content-wrapper">
+    <table>
+        @{foreach product in model.products}
+        <tr><td><a href="/products/@{product.id}">@{product.name}</a></td><td>@{product.price}</td></tr>
+        @{end}
+    </table>
+</div>

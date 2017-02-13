@@ -5,5 +5,10 @@
   "main": "server.js",
   "author": {
     "name": "viacheslav"
+  },
+  "dependencies": {
+    "mysql": "^2.13.0",
+    "password-hash": "^1.2.2",
+    "total.js": "^2.4.0"
   }
 }
