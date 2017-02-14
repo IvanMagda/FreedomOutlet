@@ -13,13 +13,22 @@ Product.add = function (product) {
     Product.by_id[p.id] = p;
 }
 
+Product.upd = function (product) {
+    var p = Product.make(product);
+
+
+    var index = Product.list.indexOf(Product.by_id[product.id]);
+    if (index > -1) {
+        Product.list[index]=p;
+        console.log('updated');
+    }
+
+    Product.by_id[product.id] = p;
+}
+
 Product.dell = function (id) {
     var p = Product.by_id[id];
-    console.log(p);
-
     var index = Product.list.indexOf(p);
-    console.log(index);
-
     if (index > -1) {
         Product.list.splice(index, 1);
         console.log('removed!')
@@ -47,6 +56,29 @@ Product.create_new = function (product, callback) {
             result[1].forEach(function (e) {
                 Product.add(e);
             })
+
+            callback(SUCCESS(true));
+        });
+    });
+}
+
+Product.update = function (product, callback) {
+    console.log('product update to db', product);
+
+    DATABASE(function (err, connection) {
+        if (err != null) {
+            console.log(err);
+            return;
+        }
+
+        connection.query('UPDATE products SET name=?, manufacturer=?, price=?, description=? WHERE id=?', [product.name, product.manufacturer, product.price, product.description, product.id], function (err, result) {
+
+            if (err != null) {
+                console.log(err);
+                return;
+            }
+
+            Product.upd(product);
 
             callback(SUCCESS(true));
         });

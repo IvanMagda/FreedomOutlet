@@ -8,7 +8,7 @@
     <table>
         <tr><td>Product info</td><td>Edit</td><td>Delete</td></tr>
         @{foreach product in model.products}
-        <tr><td><a href="/products/@{product.id}">@{product.name}</a></td><td>@{product.price}</td><td onclick="delete_p('@{product.id}')">X</td></tr>
+        <tr><td><a href="/products/@{product.id}">@{product.name}</a></td><td><a href="/products/update/@{product.id}">Edit</a></td><td onclick="delete_p('@{product.id}')">X</td></tr>
         @{end}
     </table>
     <a href="/products/create">Add New</a>

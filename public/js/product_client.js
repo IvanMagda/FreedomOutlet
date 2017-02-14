@@ -9,15 +9,15 @@ $(document).ready(function () {
         });
     });
 
-    //$('#login-form-container').find('button').click(function () {
-    //    $.post('/authorization', $('#login-form').serialize(), function (answer) {
-    //        if (answer.success) {
-    //            window.location.href = '/auth';
-    //            return;
-    //        }
-    //        console.log(answer);
-    //    });
-    //});
+    $('#edit-product').click(function () {
+        $.post('/products/update', $('#edit-product-form').serialize(), function (answer) {
+            if (answer.success) {
+                window.location.href = '/products';
+                return;
+            }
+            console.log(answer);
+        });
+    });
 });
 
 function delete_p(id) {
