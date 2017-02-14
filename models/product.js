@@ -13,6 +13,21 @@ Product.add = function (product) {
     Product.by_id[p.id] = p;
 }
 
+Product.dell = function (id) {
+    var p = Product.by_id[id];
+    console.log(p);
+
+    var index = Product.list.indexOf(p);
+    console.log(index);
+
+    if (index > -1) {
+        Product.list.splice(index, 1);
+        console.log('removed!')
+    }
+
+    delete Product.by_id[p.id];
+}
+
 Product.create_new = function (product, callback) {
     console.log('create product add to db', product);
 
@@ -32,6 +47,31 @@ Product.create_new = function (product, callback) {
             result[1].forEach(function (e) {
                 Product.add(e);
             })
+
+            callback(SUCCESS(true));
+        });
+    });
+}
+
+Product.delete_p = function (product_id, callback) {
+    console.log('delete product from db', product_id);
+
+
+
+    DATABASE(function (err, connection) {
+        if (err != null) {
+            console.log(err);
+            return;
+        }
+
+        connection.query('DELETE FROM products WHERE id=?', [product_id], function (err) {
+
+            if (err != null) {
+                console.log(err);
+                return;
+            }
+
+            Product.dell(product_id);
 
             callback(SUCCESS(true));
         });

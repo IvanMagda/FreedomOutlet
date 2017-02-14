@@ -7,7 +7,7 @@ exports.install = function () {
     F.route('/products/create', view_product_add);
     F.route('/products/create', view_product_create, ['post']);
     F.route('/products/update/{product_id}', view_product_update, ['put']);
-    F.route('/products/delete/{product_id}', view_product_delete, ['delete']);
+    F.route('/products/delete/{product_id}', view_product_delete, ['post']);
 };
 
 function view_products_list() {
@@ -43,6 +43,9 @@ function view_product_update() {
 
 }
 
-function view_product_delete() {
-
+function view_product_delete(product_id) {
+    var self = this;
+    Product.delete_p(product_id, function (result) {
+        self.json(SUCCESS(result));
+    });
 }

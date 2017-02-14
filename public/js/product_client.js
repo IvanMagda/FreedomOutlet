@@ -19,3 +19,9 @@ $(document).ready(function () {
     //    });
     //});
 });
+
+function delete_p(id) {
+    $.post('/products/delete/'+id, function () {
+        window.location.href = '/products';
+    })
+}
