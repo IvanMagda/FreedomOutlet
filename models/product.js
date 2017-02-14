@@ -7,16 +7,45 @@ Product.define('manufacturer', String);
 Product.define('price', Number);
 Product.define('description', String);
 
+Product.add = function (product) {
+    var p = Product.make(product);
+    Product.list.push(p);
+    Product.by_id[p.id] = p;
+}
+
+Product.create_new = function (product, callback) {
+    console.log('create product add to db', product);
+
+    DATABASE(function (err, connection) {
+        if (err != null) {
+            console.log(err);
+            return;
+        }
+
+        connection.query('INSERT INTO products (name, manufacturer, price, description) VALUES (?, ?, ?, ?); SELECT * FROM products ORDER BY id DESC LIMIT 1', [product.name, product.manufacturer, product.price, product.description], function (err, result) {
+
+            if (err != null) {
+                console.log(err);
+                return;
+            }
+
+            result[1].forEach(function (e) {
+                Product.add(e);
+            })
+
+            callback(SUCCESS(true));
+        });
+    });
+}
+
 exports.install = function () {
     F.on('initdb', function () {
         
-        // create a DB connection
         DATABASE(function (err, connection) {
             console.log('Outlet DB init.');
 
             if (err != null) {
                 console.log(err);
-                //self.throw500(err);
                 return;
             }
 
@@ -25,20 +54,15 @@ exports.install = function () {
 
                 if (err != null) {
                     console.log(err);
-                    //self.view500(err);
                     return;
                 }
 
                 Product.list = [];
                 Product.by_id = {};
                 rows.forEach(function (e) {
-                    var p = Product.make(e);
-                    Product.list.push(p);
-                    Product.by_id[p.id] = p;
+                    Product.add(e);
                 })
 
-
-                //console.log(Product.list[0]);
                 console.log('products init complete');
             });
         });

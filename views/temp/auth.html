@@ -10,18 +10,37 @@
 
 
 <div id="content-wrapper">
-    <a href="#" onclick="register(); return false">Register</a>
-    <div id="register-form">
-        <form id="reg-form" action="#">
-            <table>
-                <tr><td>Login: </td><td><input name="login" type="text" /></td></tr>
-                <tr><td>Password: </td><td><input name="pass" type="password" /></td></tr>
-                <tr><td>Password 2: </td><td><input name="pass2" type="password" /></td></tr>
-                <tr><td>Email: </td><td><input name="email" type="email" /></td></tr>
-                <tr><td>Common User: </td><td><input type="radio" name="group" value="user"></td></tr>
-                <tr><td>Designer: </td><td><input type="radio" name="group" value="designer"><br></td></tr>
-            </table>
-        </form>
-        <button>Submit</button>
-    </div>
+    <h2>
+        @{if user !== null}
+        <a href="/user/@{user.login}/">@{user.login}</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#" onclick="logout()">Logout</a>
+        @{else}
+        <a href="#" onclick="register(); return false">Register</a>
+        <div id="register-form">
+            <form id="reg-form" action="#">
+                <table>
+                    <tr><td>Login: </td><td><input name="login" type="text" /></td></tr>
+                    <tr><td>Password: </td><td><input name="pass" type="password" /></td></tr>
+                    <tr><td>Password 2: </td><td><input name="pass2" type="password" /></td></tr>
+                    <tr><td>Email: </td><td><input name="email" type="email" /></td></tr>
+                    <tr><td>Common User: </td><td><input type="radio" name="group" value="user"></td></tr>
+                    <tr><td>Designer: </td><td><input type="radio" name="group" value="designer"><br></td></tr>
+                </table>
+            </form>
+            <button>Submit</button>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#" onclick="login(); return false">Login</a>
+        <div id="login-form-container">
+            <form id="login-form" action="#">
+                <table>
+                    <tr><td>Login: </td><td><input name="login" type="text" /></td></tr>
+                    <tr><td>Password: </td><td><input name="pass" type="password" /></td></tr>
+                </table>
+            </form>
+            <button>Login</button>
+        </div>
+        @{fi}
+    </h2>
 </div>

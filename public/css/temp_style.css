@@ -14,3 +14,18 @@ td, th {
     left:200px;
     display:none;
 }
+
+#login-form-container {
+    position: fixed;
+    top: 200px;
+    left: 200px;
+    display: none;
+}
+
+h2{
+    color: black
+}
+
+a {
+    color: black
+}

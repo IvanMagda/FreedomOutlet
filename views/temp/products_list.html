@@ -4,8 +4,10 @@
 
 <div id="content-wrapper">
     <table>
+        <tr><td>Product info</td><td>Edit</td><td>Delete</td></tr>
         @{foreach product in model.products}
         <tr><td><a href="/products/@{product.id}">@{product.name}</a></td><td>@{product.price}</td></tr>
         @{end}
     </table>
+    <a href="/products/create">Add New</a>
 </div>

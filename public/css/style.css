@@ -3,9 +3,9 @@
     src: url(fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
 }
 
-* {
+/** {
     color: #e8ebef;
-}
+}*/
 
 body {
     display: block;
