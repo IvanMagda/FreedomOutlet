@@ -1,0 +1,26 @@
+@{layout('')}
+<head>
+    @{import('http://code.jquery.com/jquery-1.11.0.min.js')}
+    @{import('mail_client.js')}
+    @{import('temp_style.css')}
+</head>
+<!--<div id="content-wrapper">-->
+    @{if query.success}
+    <div style="background-color:#E0E0E0;padding:10px">E-mail was sent.</div>
+    <br />
+
+    @{else}
+
+    <form id="mail-form" action="#">
+        <table>
+            <tr><td>Name: </td><td><input name="name" type="text" /></td></tr>
+            <tr><td>Phone: </td><td><input name="phone" type="number" /></td></tr>
+            <tr><td>Message: </td><td><input name="message" type="text" /></td></tr>
+        </table>
+    </form>
+    <button id="mail-send">
+        Send
+    </button>
+
+    @{fi}
+<!--</div>-->
