@@ -1,11 +1,11 @@
-name                            : Total.js
+name                            : FreeDomOutlet
 author                          : You company name
 version                         : 1.0.0
 secret                          : secret-key-for-web
 
 // Mail settings
-mail.smtp                       : smtp.yourwebsite.com
-mail.smtp.options               : {"secure":false,"port":25,"user":"","password":"","timeout":10000}
-mail.address.from               : your@yourwebsite.com
-mail.address.reply              : your@yourwebsite.com
+mail.smtp                       : smtp.mail.ru
+mail.smtp.options               : {"secure":true,"port":465,"user":"ivan_madcat@mail.ru","password":"theonly","timeout":10000}
+mail.address.from               : ivan_madcat@mail.ru
+mail.address.reply              : ivan_madcat@mail.ru
 mail.address.bcc                :
