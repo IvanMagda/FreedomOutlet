@@ -13,6 +13,7 @@ F.database = function (callback) {
 };
 
 F.emit('initdb');*/
+var fs = require('fs');
 
 var config = {
     driver: 'msnodesqlv8',
@@ -20,4 +21,20 @@ var config = {
 };
 
 var sqlAgent = require('sqlagent/sqlserver').init(config, true);
-F.emit('initdb');
+
+fs.readFile('./definitions/db_script.sql', 'utf8', function (err, data) {
+    if (err) throw err;
+    //console.log(data);
+
+    var sql_query = data;
+
+    var sql = DATABASE(null);
+    sql.query(sql_query).make(function (builder) { console.log('query data'); });
+    sql.exec(function (err, response) {
+        console.log('exec data');
+        F.emit('initdb');
+        //console.log(response.allProducts);
+        console.log('initdb!');
+    });
+});
+
