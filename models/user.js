@@ -58,7 +58,8 @@ function checkPassword(err, user, pass, callback) {
 exports.install = function () {
     F.on('initdb', function () {
 
-        DATABASE(function (err, connection) {
+        DATABASE(null);
+        /*DATABASE(function (err, connection) {
             console.log('Outlet user init.');
 
             if (err != null) {
@@ -81,6 +82,6 @@ exports.install = function () {
                 })
                 console.log('users init complete');
             });
-        });
+        });*/
     });
 }

@@ -1,4 +1,4 @@
-name                            : FreeDomOutlet
+name                            : Total.js
 author                          : You company name
 version                         : 1.0.0
 secret                          : secret-key-for-web
@@ -9,3 +9,5 @@ mail.smtp.options               : {"secure":true,"port":465,"user":"ivan_madcat@
 mail.address.from               : ivan_madcat@mail.ru
 mail.address.reply              : ivan_madcat@mail.ru
 mail.address.bcc                :
+
+DEVSQLSERVER : Driver={SQL Server Native Client 11.0};Server={localhost,1433};Database=Freedom;Uid=sa;Pwd=sa

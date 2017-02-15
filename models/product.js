@@ -112,8 +112,12 @@ Product.delete_p = function (product_id, callback) {
 
 exports.install = function () {
     F.on('initdb', function () {
-        
-        DATABASE(function (err, connection) {
+        var sql = DATABASE(null);
+        sql.query('allProducts', 'SELECT * FROM products').make(function (builder) {});
+        sql.exec(function (err, response) {
+            console.log(response.allProducts);
+        });
+        /*DATABASE(function (err, connection) {
             console.log('Outlet DB init.');
 
             if (err != null) {
@@ -137,6 +141,6 @@ exports.install = function () {
 
                 console.log('products init complete');
             });
-        });
+        });*/
     })
 };
