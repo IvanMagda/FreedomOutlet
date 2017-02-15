@@ -8,22 +8,21 @@
     src: url(fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
 }
 
-html {
-    overflow-x: hidden;
-}
+/*html {*/
+    /*overflow-x: hidden;*/
+/*}*/
 
-* {
-    color: #e8ebef;
-}
+/** {*/
+/*color: #e8ebef;*/
+/*}*/
 
 body {
-    display: block;
-    margin: 0;
+    margin: 0 auto;
 }
 
 .wrapper {
     position: relative;
-    width: 1908px;
+    /*width: 1908px;*/
     margin: 0;
 }
 
@@ -36,61 +35,59 @@ body {
 
 #header-content {
     position: relative;
-    margin-left: 197px;
-    margin-right: 192px;
+    margin-left: 10%;
+    margin-right: 10%;
     height: 100%;
     background: #292929;
     white-space: nowrap;
 }
 
 #logo, .global-nav {
-    vertical-align: top;
-}
+     vertical-align: top;
+ }
 
 .global-nav {
-    margin-left: 20px;
+    margin-left: 2%;
 }
 
 #logo {
     position: relative;
     display: inline-block;
-    top: 0;
-    bottom: 0;
-    width: 261px;
+    /*top: 0;*/
+    /*bottom: 0;*/
+    width: 20%;
     height: 100%;
 }
 
 #logo .logo_img {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 139px;
-    width: 261px;
+    /*top: 0;*/
+    /*left: 0;*/
+    height: 150%;
+    width: 100%;
 }
 
 a {
     text-decoration: none;
     color: #e8ebef;
-    font-size: 65%;
 }
 
 .global-nav {
     position: relative;
     display: inline-block;
     width: 50%;
-    min-width: 680px;
-    top: 0;
-    bottom: 0;
+    /*top: 0;*/
+    /*bottom: 0;*/
     height: 100%;
 }
 
 #login {
     position: relative;
-    width: 200px;
+    width: 13%;
     height: 100%;
     /*outline: 5px solid red;*/
     display: inline-block;
-    right: -267px;
+    float: right;
 }
 
 #about_company {
@@ -108,10 +105,10 @@ a {
 
 #about_company .li,
 #nav-menu .li {
-    margin-top: 1%;
+    margin-top: 2%;
     display: inline-block;
     font-family: RobotoLight;
-    font-size: 21px;
+    font-size: 0.8vw;
 }
 
 #about_company .li:hover,
@@ -121,7 +118,7 @@ a {
 }
 
 #about_company .li {
-    margin-top: 14px;
+    margin-top: 6%;
 }
 
 #about_company .li a {
@@ -130,9 +127,9 @@ a {
 
 .search_block {
     right: 0;
-    top: 5px;
+    top: 1%;
     position: absolute;
-    width: 200px;
+    width: 28%;
     height: 50%;
 }
 
@@ -149,39 +146,44 @@ a {
 }
 
 #login .enter {
-    position: absolute;
-    left: 0;
-    top: 10px;
+    position: relative;
+    /*left: 0;*/
+    top: 10%;
     height: 50%;
     font-family: RobotoLight;
-    font-size: 20px;
+    font-size: 0.8vw;
 }
 
 #login .enter a:first-child {
-    padding-right: 12px;
+    padding-right: 5%;
     border-right: 1px solid #e8ebef;
-    margin-right: 7px;
+    margin-right: 5%;
 }
 
 #login .heart {
     position: absolute;
     right: 0;
-    top: 15px;
+    top: 10%;
+    width: 13%;
+    /*float: right;*/
+    /*margin-top: -20%;*/
 }
 
 #login .phone {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 50%;
-    margin-bottom: -10px;
+    position: relative;
+    /*left: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*height: 50%;*/
+    /*margin-bottom: -2%;*/
     font-family: RobotoLight;
-    font-size: 22px;
+    font-size: 1.1vw;
+    color: #e8ebef;
 }
 
 #login .heart .heart1 {
     display: inline-block;
+    width: 100%;
 }
 #login .heart .heart2 {
     display: none;
@@ -193,6 +195,7 @@ a {
 
 #login .heart:hover .heart2 {
     display: inline-block;
+    width: 100%;
 }
 
 .search_block form {
@@ -230,6 +233,13 @@ a {
     color: black;
 }
 
+#content-wrapper {
+    position: relative;
+    margin-top: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+    min-width: 900px;
+}
 
 .new {
     position: relative;
@@ -259,14 +269,6 @@ a {
 .slick-dots li button:before {
     content: "\25A0" !important;
     font-size: 36px !important;
-}
-
-#content-wrapper {
-    position: relative;
-    margin-top: 20px;
-    margin-left: 170px;
-    margin-right: 170px;
-    min-width: 1518px;
 }
 
 .gallery-title {
@@ -393,7 +395,9 @@ a {
     /*margin-bottom: 500px;*/
 }
 
-.categories-img .cat-cont {
+.categories-img .cat-cont1,
+.categories-img .cat-cont2,
+.categories-img .cat-cont3 {
     display: inline-block;
     position: relative;
 }
@@ -428,7 +432,7 @@ a {
 
 .categories-img .cat-cont__text span {
     text-transform: uppercase;
-    font-size: 45px;
+    font-size: 2vw;
     color: white;
 
 }
@@ -449,23 +453,41 @@ a {
     /*transition-duration: 0.1s;*/
 }
 
+.categories-img .categories__row1 .cat-cont1 {width: 44%}
+.categories-img .categories__row1 .cat-cont2 {width: 26.1%}
+.categories-img .categories__row1 .cat-cont3 {width: 25.2%}
+
+.categories-img .categories__row2 .cat-cont1 {width: 24%}
+.categories-img .categories__row2 .cat-cont2 {width: 49%}
+.categories-img .categories__row2 .cat-cont3 {width: 22.5%}
+
+.categories-img .categories__row3 .cat-cont1 {width: 51.4%}
+.categories-img .categories__row3 .cat-cont2 {width: 46.2%}
+
+.categories-img img {
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
 
 
-.categories-img .categories__row1 .cat-cont,
-.categories-img .categories__row1 .cat-cont a img {
-    height: 400px;
-    cursor: pointer;
-}
-.categories-img .categories__row2 .cat-cont,
-.categories-img .categories__row2 .cat-cont a img {
-    height: 375px;
-    cursor: pointer;
-}
-.categories-img .categories__row3 .cat-cont,
-.categories-img .categories__row3 .cat-cont a img {
-    height: 436px;
-    cursor: pointer;
-}
+
+
+/*.categories-img .categories__row1 .cat-cont,*/
+/*.categories-img .categories__row1 .cat-cont a img {*/
+    /*height: 400px;*/
+    /*cursor: pointer;*/
+/*}*/
+/*.categories-img .categories__row2 .cat-cont,*/
+/*.categories-img .categories__row2 .cat-cont a img {*/
+    /*height: 375px;*/
+    /*cursor: pointer;*/
+/*}*/
+/*.categories-img .categories__row3 .cat-cont,*/
+/*.categories-img .categories__row3 .cat-cont a img {*/
+    /*height: 436px;*/
+    /*cursor: pointer;*/
+/*}*/
 .categories-img .categories__row1,
 .categories-img .categories__row2,
 .categories-img .categories__row3 {
@@ -521,6 +543,7 @@ a {
 .about-cont {
     position: relative;
     border: 1px solid #9ba3aa;
+    width: 49%;
 }
 
 .about-comp,
@@ -601,9 +624,9 @@ a {
 
 .about-img-button-border {
     position: absolute;
-    left: 110px;
+    left: 10%;
     display: inline-block;
-    right: 110px;
+    right: 10%;
     height: 200px;
     background: white;
 }
@@ -620,9 +643,10 @@ a {
     color: black;
     display: inline-block;
     /*position: absolute;*/
-    font-size: 50px;
+    font-size: 2.5vw;
     font-family: RobotoSlab;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .button-text-border {
@@ -657,7 +681,7 @@ a {
     color: #3e4546;
     display: inline-block;
     /*position: absolute;*/
-    font-size: 20px;
+    font-size: 1.2vw;
     font-family: RobotoLight;
     text-align: justify;
 }
@@ -731,23 +755,14 @@ a {
     color: #3e4546;
     position: absolute;
 }
-/*.table-contacts1,*/
-/*.table-contacts2 {*/
-    /*position: relative;*/
-    /*display: inline-block;*/
-    /*width: 49%;*/
-    /*height: 550px;*/
-    /*outline: 1px solid red;*/
-    /*text-align: justify;*/
-    /*text-align-last: justify;*/
-/*}*/
+
 .title-city {
     /*outline: 5px solid red;*/
     width: 100%;
     height: 60px;
     display: flex;
     justify-content: space-between;
-    font-size: 24px;
+    font-size: 150%;
 }
 
 .title-city .text-city {
@@ -764,8 +779,8 @@ a {
     width: 100%;
     /*height: 300px;*/
 
-    margin-top: 30px;
-    margin-bottom: 50px;
+    margin-top: 3%;
+    margin-bottom: 5%;
 
 
     display: flex;
@@ -775,6 +790,7 @@ a {
 .contacts .contacts-contacts p {
     color: #3e4546;
     font-family: RobotoLight;
+    font-size: 1vw;
 }
 
 
@@ -825,8 +841,8 @@ a {
 
 .contacts_map img {
     position: relative;
-    width: 1899px;
-    margin-left: -170px;
+    width: 125.5%;
+    margin-left: -13%;
 
 }
 

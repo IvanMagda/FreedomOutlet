@@ -1,0 +1,87 @@
+@font-face {
+    font-family: RobotoLight;
+    src: url(fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
+}
+
+body {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: #e8ebef;
+}
+
+
+#header {
+    position: relative;
+    width: 100%;
+    height: 85px;
+    background: #292929;
+}
+
+.header-content {
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 100%;
+    background: #292929;
+    white-space: nowrap;
+    outline: 2px solid red;
+}
+
+.logo {
+    position: relative;
+    display: inline-block;
+    width: 16%;
+    height: 100%;
+}
+
+.logo .logo_img {
+    position: absolute;
+    height: 150%;
+    width: 100%;
+}
+
+.global-nav {
+    position: relative;
+    display: inline-block;
+    float: right;
+    width: 71%;
+    min-width: 680px;
+    height: 100%;
+    outline: 1px solid blue;
+}
+
+#nav-menu {
+    position: relative;
+    width: 50%;
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+
+#nav-menu .li {
+    margin-top: 5%;
+    display: inline-block;
+    font-family: RobotoLight;
+    font-size: 100%;
+}
+
+.logo, .global-nav {
+    vertical-align: top;
+}
+
+#nav-menu .li:hover {
+    padding-bottom: 3px;
+    border-bottom: 2px solid red;
+}
+
+.search_block {
+    right: 0;
+    top: 1%;
+    position: absolute;
+    width: 28%;
+    height: 50%;
+}
