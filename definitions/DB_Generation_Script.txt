@@ -21,6 +21,24 @@ USE `outlet` ;
 -- Table `outlet`.`products`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `outlet`.`products` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL DEFAULT NULL,
+  `manufacturer` VARCHAR(45) NULL DEFAULT NULL,
+  `price` INT(11) NULL DEFAULT NULL,
+  `description` LONGTEXT NULL DEFAULT NULL,
+  `image_name` VARCHAR(45) NULL DEFAULT NULL,
+  `is_new` BIT(1) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
+ENGINE = InnoDB
+AUTO_INCREMENT = 9
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `outlet`.`test`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `outlet`.`test` (
   `id` INT(11) NOT NULL,
   `name` VARCHAR(45) NULL DEFAULT NULL,
   `manufacturer` VARCHAR(45) NULL DEFAULT NULL,
@@ -44,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `outlet`.`users` (
   `role` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 35
 DEFAULT CHARACTER SET = utf8;
 
 

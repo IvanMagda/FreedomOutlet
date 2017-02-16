@@ -1,4 +1,4 @@
-var Product = GETSCHEMA('User');
+var User = GETSCHEMA('User');
 
 F.on('module#auth', function (type, name) {
     console.log('module auth catched');
@@ -7,7 +7,7 @@ F.on('module#auth', function (type, name) {
     auth.onAuthorize = function (id, callback, flags) {
         console.log('find user id', id);
 
-        var user = Product.by_id[id];
+        var user = User.by_id[id];
         return callback(user);
     };
 });
