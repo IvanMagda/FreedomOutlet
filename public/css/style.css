@@ -490,6 +490,7 @@ a {
 
 }
 
+
 .categories-img .cat-cont__border {
     position: absolute;
     left: 30px;
@@ -499,6 +500,7 @@ a {
 
     outline: white 2px solid;
     display: none;
+    z-index: 9999999999;
 }
 
 .categories-img .cat-cont:hover .cat-cont__border {
