@@ -6,9 +6,9 @@ switch (F.config.DBPROVIDER) {
     case "mysql":
         config = {
             host: 'localhost',
-            user: 'root',
-            password: 'root',
-            database: 'outlet',
+            user: 'azure',
+            password: '6#vWHD_$',
+            database: 'localdb',
             multipleStatements: true
         };
         break;
