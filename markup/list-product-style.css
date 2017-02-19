@@ -258,19 +258,21 @@ a {
     font-family: Georgia;
 }
 
-.dropdown-container {
-    display: flex;
-    align-items: center;
+.view-options {
     width: 60%;
     height: 100%;
     outline: 1px solid gold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .dropdown-sorting {
     display: flex;
 }
 
-.sorting-text {
+.sorting-text,
+.number-of-goods-text {
     position: relative;
     display: flex;
     align-items: center;
