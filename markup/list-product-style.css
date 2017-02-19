@@ -192,12 +192,12 @@ a {
     margin-left: 10%;
     margin-right: 10%;
     min-width: 900px;
-    outline: 2px solid blue;
+    /*outline: 2px solid blue;*/
 }
 
 .breadcrumbs {
     display: inline-block;
-    outline: 1px solid red;
+    /*outline: 1px solid red;*/
 }
 
 .breadcrumbs ul {
@@ -229,7 +229,7 @@ a {
 }
 
 .breadcrumbs ul li:last-child a {
-    color: red;
+    color: #3e4546;
 }
 
 .info-nav {
@@ -238,7 +238,7 @@ a {
     justify-content: space-between;
     align-items: center;
     /* height: 100px; */
-    outline: 2px solid green;
+    /*outline: 2px solid green;*/
     margin-top: 3vw;
     margin-bottom: 3vw;
 }
@@ -247,7 +247,7 @@ a {
     width: 15%;
     /*height: 100%;*/
     display: inline-block;
-    outline: 2px solid black;
+    /*outline: 2px solid black;*/
 }
 
 .text-title {
@@ -255,7 +255,7 @@ a {
     display: flex;
     width: 100%;
     height: 100%;
-    outline: 5px solid magenta;
+    /*outline: 5px solid magenta;*/
     font-size: 3vw;
     color: #3e4546;
     font-family: Georgia;
@@ -264,7 +264,7 @@ a {
 .view-options {
     width: 60%;
     /*height: 100%;*/
-    outline: 1px solid gold;
+    /*outline: 1px solid gold;*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -353,6 +353,9 @@ a {
     padding-left: 1.4vw;
 }
 
+
+.displays-the-page {display: flex;}
+
 .displays-the-page .button.active .gray {display: none;}
 .displays-the-page .button.active .red {display: block;}
 
@@ -361,6 +364,10 @@ a {
 
 .displays-the-page .button {
     display: inline-block;
+}
+
+.displays-the-page img {
+    width: 3.5vw;
 }
 
 
