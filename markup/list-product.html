@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Title</title>
         <link rel="stylesheet" href="list-product-style.css">
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     </head>
     <body>
         <div id="header">
@@ -65,22 +66,32 @@
                     <div class="dropdown-sorting">
                         <span class="sorting-text">Сортировать по</span>
                         <div class="dropdown">
-                            <a>
-                              <span>По умолчанию
-                                <img class="arrow" src="img/arrow.png">
-                            </span>
-                            </a>
-                            <ul>
+                            <ul class="button">
                                 <li>
-                                    <a href="#">По умолчанию
+                                    <a href="#">
+                                        По умолчанию
+                                        <img class="arrow" src="img/arrow.png">
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="popup">
+                                <li class="active">
+                                    <a href="#">
+                                        По умолчанию
                                         <img class="arrow" src="img/arrow-red.png">
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">Фабрике</a>
+                                    <a href="#">
+                                        Фабрике
+                                        <img class="arrow" src="img/arrow-red.png">
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#">Цене</a>
+                                    <a href="#">
+                                        Цене
+                                        <img class="arrow" src="img/arrow-red.png">
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -136,5 +147,11 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            $('.dropdown .button').click(function() {
+                $('.dropdown .popup').toggle();
+            });
+        </script>
     </body>
 </html>
