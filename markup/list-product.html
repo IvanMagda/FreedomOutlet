@@ -148,16 +148,20 @@
                             </ul>
                         </div>
                     </div>
-                    <!--<div class="displays-the-page">-->
-                        <!--<div>-->
-                            <!--<img src="img/display-tiles.png">-->
-                            <!--<img src="img/display-tiles-red.png">-->
-                        <!--</div>-->
-                        <!--<div>-->
-                            <!--<img src="img/display-list.png">-->
-                            <!--<img src="img/display-list-red.png">-->
-                        <!--</div>-->
-                    <!--</div>-->
+                    <div class="displays-the-page">
+                        <div class="button">
+                            <a>
+                                <img class="gray" src="img/display-tiles.png">
+                                <img class="red" src="img/display-tiles-red.png">
+                            </a>
+                        </div>
+                        <div class="button active">
+                            <a>
+                                <img class="gray" src="img/display-list.png">
+                                <img class="red" src="img/display-list-red.png">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="product-list"></div>
@@ -211,6 +215,10 @@
         <script>
             $('.dropdown .button').click(function(event) {
                 $(event.currentTarget.parentElement).find('.popup').toggle();
+            });
+
+            $('.displays-the-page .button').click(function(event) {
+                $(event.currentTarget).toggleClass('active');
             });
         </script>
     </body>
