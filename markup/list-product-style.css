@@ -232,6 +232,90 @@ a {
     color: red;
 }
 
+.info-nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    outline: 2px solid green;
+}
+
+.title {
+    width: 15%;
+    height: 100%;
+    display: inline-block;
+    outline: 2px solid black;
+}
+
+.text-title {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    outline: 5px solid magenta;
+    font-size: 3vw;
+    color: #3e4546;
+    font-family: Georgia;
+}
+
+.dropdown-container {
+    display: inline-block;
+    width: 60%;
+    height: 100%;
+    outline: 1px solid gold;
+}
+
+.dropdown-sorting {
+    display: flex;
+}
+
+.sorting-text {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    font-size: 1.3vw;
+    color: #2a2a2a;
+    font-family: RobotoLight;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+    padding-left: 2%;
+}
+
+.dropdown span {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-size: 1.3vw;
+    font-family: RobotoLight;
+    color: #2a2a2a;
+}
+
+.dropdown ul {
+    list-style-type: none;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    font-size: 1.3vw;
+    font-family: robotolight;
+    width: 100%;
+    top: 140%;
+    z-index: 1000;
+    background: white;
+}
+
+.dropdown ul li {
+    border: 1px solid lightgray;
+}
+
+.dropdown ul li a {
+    color: #2a2a2a;
+}
+
+
 
 
 
