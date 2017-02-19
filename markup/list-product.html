@@ -148,7 +148,16 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="displays-the-page"></div>
+                    <div class="displays-the-page">
+                        <div>
+                            <img src="img/display-tiles.png">
+                            <img src="img/display-tiles-red.png">
+                        </div>
+                        <div>
+                            <img src="img/display-list.png">
+                            <img src="img/display-list-red.png">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="product-list"></div>
@@ -200,8 +209,8 @@
         </div>
 
         <script>
-            $('.dropdown .button').click(function() {
-                $('.dropdown .popup').toggle();
+            $('.dropdown .button').click(function(event) {
+                $(event.currentTarget.parentElement).find('.popup').toggle();
             });
         </script>
     </body>
