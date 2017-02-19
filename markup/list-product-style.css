@@ -359,6 +359,10 @@ a {
 .displays-the-page .button .gray {display: block;}
 .displays-the-page .button .red {display: none;}
 
+.displays-the-page .button {
+    display: inline-block;
+}
+
 
 
 
