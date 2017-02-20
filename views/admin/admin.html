@@ -1,0 +1,43 @@
+@{layout('/admin/admin_layout')}
+<head>
+    @{import('http://code.jquery.com/jquery-1.11.0.min.js')}
+    @{import('product_client.js')}
+    @{import('admin/admin.css')}
+</head>
+
+<div class="mdl-grid outlet-content">
+    <div class="outlet-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+        <!--charts-->
+    </div>
+    <div class="outlet-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table outlet-table">
+            <!--<thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Product info</th>
+                    <th class="mdl-data-table__cell">Actions</th>
+                </tr>
+            </thead>-->
+            <tbody>
+                @{foreach product in model.products}
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric wid-80"><a href="/products/@{product.id}">@{product.name}</a></td>
+                    <td class="mdl-data-table__cell">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="edit_p('@{product.id}')">Edit</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="delete_p('@{product.id}')">X</button>
+                    </td>
+                </tr>
+                @{end}
+            </tbody>
+        </table>
+    </div>
+    <div class="outlet-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+        <div class="outlet-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+            <!--Updates-->
+        </div>
+        <div class="outlet-separator mdl-cell--1-col"></div>
+        <div class="outlet-options mdl-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
+            <!--Options-->
+        </div>
+    </div>
+</div>

@@ -1,6 +1,7 @@
+@{layout('')}
 <head>
     <!--@{head('http://cdn.jsdelivr.net/jquery.slick/1.3.7/slick.css')}-->
-    @{head('http://code.jquery.com/jquery-1.11.0.min.js')}
+    @{import('http://code.jquery.com/jquery-1.11.0.min.js')}
     <!--@{head('http://code.jquery.com/jquery-migrate-1.2.1.min.js')}
     @{head('http://cdn.jsdelivr.net/jquery.slick/1.3.7/slick.min.js')}-->
 
@@ -15,6 +16,7 @@
         <a href="/user/@{user.login}/">@{user.login}</a>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="#" onclick="logout()">Logout</a>
+    </h2>
         @{else}
         <a href="#" onclick="register(); return false">Register</a>
         <div id="register-form">
@@ -42,5 +44,4 @@
             <button>Login</button>
         </div>
         @{fi}
-    </h2>
 </div>

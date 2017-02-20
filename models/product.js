@@ -8,6 +8,7 @@ Product.define('price', Number);
 Product.define('description', String);
 Product.define('image_name', String);
 Product.define('is_new', Boolean);
+Product.define('file', String);
 
 Product.add = function (product) {
     var p = Product.make(product);
