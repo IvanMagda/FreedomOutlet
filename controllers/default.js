@@ -35,6 +35,14 @@ function view_product_add() {
 
 function product_create() {
     var self = this;
+    self.body.image_name = self.files[0].filename;
+    self.body.title_img_src = './public/tmp/' + self.files[0].filename;
+
+    if (self.body.is_new == "on") {
+        self.body.is_new = true;
+    } else {
+        self.body.is_new = false;
+    }
 
     fs.readFile(self.files[0].path, function(err, data){
         if (err) throw err;
@@ -75,7 +83,8 @@ function product_delete(product_id) {
 
 function view_admin() {
     var self = this;
+    var list = Product.list;
     self.view('/admin/admin', {
-        products: Product.list
+        products: list
     });
 }

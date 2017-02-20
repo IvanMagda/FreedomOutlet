@@ -50,17 +50,22 @@ Product.create_new = function (product, callback) {
             name: product.name,
             manufacturer: product.manufacturer,
             price: product.price,
-            description: product.description
+            description: product.description,
+            image_name: product.image_name,
+            is_new: product.is_new,
+            title_img_src: product.title_img_src
         });
     });
 
-    sql.query('new_product', 'SELECT * FROM products ORDER BY id DESC LIMIT 1').make(function (builder) { });
+    
     sql.exec(function (err, response) {
-        console.log(response.new_product);
-
-        Product.add(response.new_product);
-
-        callback(SUCCESS(true));
+        sql.select('new_product', 'products').make(function (builder) {
+            builder.where('id', '=', response.product_inserted.identity);
+        });
+        sql.exec(function (err, response) {
+            console.log(response);
+            Product.add(response.new_product[0]);
+            callback(SUCCESS(true));});
     });
 }
 

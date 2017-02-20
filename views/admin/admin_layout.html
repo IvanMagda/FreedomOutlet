@@ -48,7 +48,11 @@
             <header class="outlet-drawer-header">
                 <img src="@{'=?/admin.png'}" class="outlet-avatar">
                 <div class="outlet-avatar-dropdown">
+                    @{if user !== null}
+                    <span>@{user.login}@admin</span>
+                    @{else}
                     <span>hello@admin</span>
+                    @{fi}
                     <div class="mdl-layout-spacer"></div>
                     <!--<button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
                       <i class="material-icons" role="presentation">arrow_drop_down</i>
