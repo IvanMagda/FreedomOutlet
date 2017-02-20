@@ -293,7 +293,6 @@ a {
 
 .new-carousel .item {
     margin: 20px;
-
 }
 
 .new-carousel .item img {
@@ -641,10 +640,10 @@ a {
 
 .img-scale .about-img-border {
     position: absolute;
-    left: 40px;
-    right: 40px;
-    top: 30px;
-    bottom: 30px;
+    left: 2.5vw;
+    right: 2.5vw;
+    top: 2vw;
+    bottom: 2vw;
     border: white 2px solid;
     display: none;
 }
