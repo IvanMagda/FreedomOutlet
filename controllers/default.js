@@ -7,15 +7,10 @@ exports.install = function () {
     F.route('/admin', view_admin);
     F.route('/products/{product_id}', view_product);
     F.route('/products/create', view_product_add);
-    F.route('/products/create_new', product_create, ['upload']);
+    F.route('/products/create', product_create, ['upload'], {flags: ['upload'], length: 25 * 1024 * 1024, timeout: 30 * 60 * 1000});
     F.route('/products/update/{product_id}', view_product_update);
     F.route('/products/update/', product_update, ['post']);
     F.route('/products/delete/{product_id}', product_delete, ['post']);
-    F.route('/test', test, ['upload'], {
-        flags: ['upload'],
-        length: 25 * 1024 * 1024,
-        timeout: 30 * 60 * 1000
-    });
 };
 
 function view_products_list() {
@@ -35,16 +30,25 @@ function view_product(product_id) {
 
 function view_product_add() {
     var self = this;
-    self.view('/temp/product_add');
+    self.view('/admin/product_add');
 }
 
 function product_create() {
     var self = this;
-    Product.create_new(this.body, function (result) {
-        self.json(SUCCESS(result));
+
+    fs.readFile(self.files[0].path, function(err, data){
+        if (err) throw err;
+
+        fs.writeFile(__dirname + '/../public/tmp/' + self.files[0].filename, data, function(err){
+            if (err) throw err;
+            console.log('It\'s saved!');
+            Product.create_new(self.body, function (result) {
+                self.view('/admin/product_add');
+                //self.json(SUCCESS(result));
+                console.log("from server product");
+            });
+        });
     });
-    console.log("from server product");
-    console.log(this.body);
 }
 
 function view_product_update(product_id) {
@@ -74,25 +78,4 @@ function view_admin() {
     self.view('/admin/admin', {
         products: Product.list
     });
-}
-
-
-
-
-
-
-
-function test() {
-    var self = this;
-
-    fs.readFile(file.path, (err, data) => {
-        if (err) throw err;
-
-        fs.writeFile(__dirname + '/../public/tmp/my-new-file.jpg', data, (err) => {
-            if (err) throw err;
-            console.log('It\'s saved!');
-        });
-    });
-
-    self.view('/test');
 }

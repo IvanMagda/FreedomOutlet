@@ -5,7 +5,8 @@
     @{import('temp_style.css')}
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
-<form enctype="multipart/form-data" id="create-product-form" action="#" >
+<!--<form enctype="multipart/form-data" id="create-product-form" action="#" >-->
+<form id="create-product-form" method="POST" enctype="multipart/form-data" action="/products/create">
     <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
         <div class="mdl-cell mdl-cell--3-col">
             <div class="create-product mdl-textfield mdl-js-textfield">
@@ -38,7 +39,7 @@
                         <input class="mdl-textfield__input" placeholder="No file chosen" type="text" id="TEXT_ID" readonly />
                         <div class="mdl-button mdl-button--icon mdl-button--file">
                             <i class="material-icons">attach_file</i>
-                            <input type="file" name="file" id="file1" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;" />
+                            <input type="file" name="File" id="file1" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;" />
                         </div>
                     </div>
                 </div>
@@ -49,12 +50,7 @@
                 <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" name="is_new">
                 <span class="mdl-checkbox__label">Show on main page</span>
             </label>
-            <progress></progress>
+            <!--<progress id="progr"></progress>-->
         </div>
     </div>
-</form>
-<p id="status"></p>
-<form method="POST" enctype="multipart/form-data" action="/test">
-    <input type="file" name="File" />
-    <button>SUBMIT</button>
 </form>
