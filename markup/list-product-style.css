@@ -292,7 +292,7 @@ a {
     position: relative;
     display: flex;
     align-items: center;
-    font-size: 1.3vw;
+    font-size: 1.1vw;
     color: #2a2a2a;
     font-family: RobotoLight;
     white-space: nowrap;
@@ -310,7 +310,7 @@ a {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    font-size: 1.3vw;
+    font-size: 1.1vw;
     font-family: robotolight;
     width: 100%;
     background: white;
@@ -407,12 +407,13 @@ a {
 
 .product-list .item {
     margin: 20px;
+    position: relative;
     width: 17.6vw;
     display: inline-block;
     outline: 1px solid red;
 }
 
-.product-list .item img {
+.product-list .item .item-main-img {
     width: 100%;
     margin-bottom: 1vw;
 }
@@ -446,13 +447,44 @@ a {
     font-size: 1vw;
 }
 
+.product-info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgb(247, 248, 248);
+    /*width: 100%;*/
+    /*height: 100%;*/
+    outline: 1px solid green;
+}
 
+.product-info .title-info,
+.product-info .content {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    outline: 1px solid blue;
+}
 
+.product-info .title-info {
+    top: 5%;
+    height: 10%;
+}
 
+.product-info .content {
+    bottom: 5%;
+    height: 80%;
+    overflow: auto;
+}
 
+.product-info .content p {
+    text-align: justify;
+}
 
+.cross .cross-img {
 
-
+}
 
 
 
@@ -489,7 +521,7 @@ a {
     display: inline-block;
     top: 0;
     bottom: 0;
-    height: 100%;
+    /*height: 100%;*/
 
 }
 
