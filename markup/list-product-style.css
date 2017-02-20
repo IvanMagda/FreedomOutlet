@@ -427,22 +427,13 @@ a {
     }
 }
 
-
-
-
 .product-list {
     width: 100%;
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
     justify-content: flex-start;
-    /*height: 1000px;*/
-    outline: 3px solid black;
 }
-
-
-
-
 
 .title-new-product {
     display: flex;
@@ -457,9 +448,7 @@ a {
     margin-top: 20px;
     margin-bottom: 20px;
     position: relative;
-    /*width: 17.6vw;*/
     display: inline-block;
-    outline: 1px solid red;
 }
 
 .product-list .item .item-main-img {
@@ -503,9 +492,7 @@ a {
     top: 0;
     bottom: 0;
     background: rgb(247, 248, 248);
-    /*width: 100%;*/
-    /*height: 100%;*/
-    outline: 1px solid green;
+    /*display: none;*/
 }
 
 .product-info .title-info,
@@ -513,25 +500,35 @@ a {
     position: absolute;
     left: 5%;
     right: 5%;
-    outline: 1px solid blue;
 }
 
 .product-info .title-info {
     top: 5%;
-    height: 10%;
+    height: 18%;
+}
+
+.product-list .item span.vendor {
+    font-size: 1vw;
+    text-transform: uppercase;
+    /* color: #e8ebef; */
+    color: #898f90;
+    font-family: RobotoLight;
+    line-height: 2vw;
 }
 
 .product-info .cross {
     position: absolute;
     right: 1%;
     top: 1%;
-    height: 80%;
+    height: 40%;
+    cursor: pointer;
 }
 
 .product-info .cross-img {
     position: absolute;
     height: 100%;
     right: 0;
+    padding: 5px
 }
 
 /*.product-info .cross-img.simple {display: inline-block;}*/
@@ -539,22 +536,18 @@ a {
 /*.product-info .cross:hover .cross-img.simple {display: none;}*/
 /*.product-info .cross:hover .cross-img.border {display: inline-block;}*/
 
-.product-info .cross:hover .cross-img {outline: 1px solid gray;}
+.product-info .cross:hover .cross-img {outline: 2px solid gray;}
 
 
 .product-info .content {
     bottom: 5%;
-    height: 80%;
+    height: 70%;
     overflow: auto;
 }
 
 .product-info .content p {
     text-align: justify;
 }
-
-
-
-
 
 .pagination-container {
     position: relative;
@@ -608,9 +601,6 @@ a {
     align-items: center;
     font-family: RobotoLight;
 }
-
-
-
 
 #footer {
     position: relative;
