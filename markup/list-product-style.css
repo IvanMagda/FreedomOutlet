@@ -521,6 +521,27 @@ a {
     height: 10%;
 }
 
+.product-info .cross {
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    height: 80%;
+}
+
+.product-info .cross-img {
+    position: absolute;
+    height: 100%;
+    right: 0;
+}
+
+/*.product-info .cross-img.simple {display: inline-block;}*/
+/*.product-info .cross-img.border {display: none;}*/
+/*.product-info .cross:hover .cross-img.simple {display: none;}*/
+/*.product-info .cross:hover .cross-img.border {display: inline-block;}*/
+
+.product-info .cross:hover .cross-img {outline: 1px solid gray;}
+
+
 .product-info .content {
     bottom: 5%;
     height: 80%;
@@ -531,9 +552,7 @@ a {
     text-align: justify;
 }
 
-.cross .cross-img {
 
-}
 
 
 
