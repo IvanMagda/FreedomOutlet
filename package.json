@@ -2,11 +2,11 @@
     "name": "freedom-azure",
     "version": "0.0.0",
     "description": "FreedomAzure",
-    "main": "release.js",
+    "main": "debug.js",
     "author": {
         "name": "viacheslav"
     },
-    "engines": { "node": "0.12.x" },
+    "engines": { "node": "6.9.4" },
     "dependencies": {
         "mysql": "^2.13.0",
         "password-hash": "^1.2.2",
