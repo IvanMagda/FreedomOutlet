@@ -6,7 +6,8 @@ IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='products' AND xtype='U')
 		price int NULL,
 		description text NULL,
 		image_name VARCHAR(45) NULL,
-		is_new BIT NULL
+		is_new BIT NULL,
+		title_img_src text NULL,
 	);
 
 IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='users' AND xtype='U')

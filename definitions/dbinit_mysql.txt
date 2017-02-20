@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS `outlet`.`products` (
   `description` LONGTEXT NULL DEFAULT NULL,
   `image_name` VARCHAR(45) NULL DEFAULT NULL,
   `is_new` BIT(1) NULL DEFAULT NULL,
+  `title_img_src` LONGTEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB
