@@ -1,11 +1,11 @@
 @font-face {
     font-family: RobotoLight;
-    src: url(fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
+    src: url(../fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
 }
 
 @font-face {
     font-family: RobotoSlab;
-    src: url(fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
+    src: url(../fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
 }
 
 html {
@@ -17,14 +17,13 @@ html {
 }
 
 body {
-    display: block;
-    margin: 0;
+    margin: 0 auto;
 }
 
 .wrapper {
     position: relative;
-    width: 1903px;
-    margin: 0;
+    width: 100%;
+    margin: 0 auto;
 }
 
 #header {
@@ -260,7 +259,7 @@ a {
     margin-top: 20px;
     margin-left: 170px;
     margin-right: 170px;
-    min-width: 1518px;
+    /*min-width: 1518px;*/
 }
 
 .gallery-title {
@@ -387,6 +386,26 @@ a {
     /*margin-bottom: 500px;*/
 }
 
+/*.categories-img .categories__row1 .cat-cont {width: 30%;}*/
+/*!*.categories-img .categories__row2 .cat-cont {width: 30%;}*!*/
+/*.categories-img .categories__row3 .cat-cont {width: 48%;}*/
+
+.categories-img .categories__row1 .cat-cont1 {width: 44%}
+.categories-img .categories__row1 .cat-cont2 {width: 26.1%}
+.categories-img .categories__row1 .cat-cont3 {width: 25.2%}
+
+.categories-img .categories__row2 .cat-cont1 {width: 24%}
+.categories-img .categories__row2 .cat-cont2 {width: 49%}
+.categories-img .categories__row2 .cat-cont3 {width: 22.5%}
+
+.categories-img .categories__row3 .cat-cont1 {width: 51.4%}
+.categories-img .categories__row3 .cat-cont2 {width: 46.2%}
+
+
+.categories-img img {
+    width: 100%;
+}
+
 .categories-img .cat-cont {
     display: inline-block;
     position: relative;
@@ -422,7 +441,7 @@ a {
 
 .categories-img .cat-cont__text span {
     text-transform: uppercase;
-    font-size: 32px;
+    font-size: 200%;
     color: white;
 }
 
@@ -444,18 +463,18 @@ a {
 
 
 
-.categories-img .categories__row1 .cat-cont,
-.categories-img .categories__row1 .cat-cont img {
-    height: 400px;
-}
-.categories-img .categories__row2 .cat-cont,
-.categories-img .categories__row2 .cat-cont img {
-    height: 375px;
-}
-.categories-img .categories__row3 .cat-cont,
-.categories-img .categories__row3 .cat-cont img {
-    height: 436px;
-}
+/*.categories-img .categories__row1 .cat-cont,*/
+/*.categories-img .categories__row1 .cat-cont img {*/
+    /*height: 400px;*/
+/*}*/
+/*.categories-img .categories__row2 .cat-cont,*/
+/*.categories-img .categories__row2 .cat-cont img {*/
+    /*height: 375px;*/
+/*}*/
+/*.categories-img .categories__row3 .cat-cont,*/
+/*.categories-img .categories__row3 .cat-cont img {*/
+    /*height: 436px;*/
+/*}*/
 .categories-img .categories__row1,
 .categories-img .categories__row2,
 .categories-img .categories__row3 {

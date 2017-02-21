@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="list-product-style.css">
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    </head>
+    <body>
+        <div id="header">
+            <div id="header-content">
+                <div id="logo">
+                    <img class="logo_img" src="img/logo3.png">
+                </div>
+                <nav class="global-nav">
+                    <div class="row1">
+                        <div id="nav-menu" class="ul">
+                            <div class="li"><a href="#">КУХНИ</a><div class="border"></div></div>
+                            <div class="li"><a href="#">СПАЛЬНИ</a><div class="border"></div></div>
+                            <div class="li"><a href="#">МЯГКАЯ</a><div class="border"></div></div>
+                            <div class="li"><a href="#">ГОСТИНЫЕ</a><div class="border"></div></div>
+                            <div class="li"><a href="#">СТОЛОВЫЕ</a><div class="border"></div></div>
+                            <div class="li"><a href="#">ЛЮСТРЫ</a><div class="border"></div></div>
+                            <div class="li"><a href="#">САНТЕХНИКА</a><div class="border"></div></div>
+                            <div class="li"><a href="#">АКСЕССУАРЫ</a><div class="border"></div></div>
+                        </div>
+                    </div>
+                    <div class="row2">
+                        <div class="search_block">
+                            <form>
+                                <input type="text" placeholder="Поиск">
+                                <button type="submit" class="search"><img src="img/search.png" height="17"></button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+                <div class="icon">
+                    <div class="man">
+                        <a href="#">
+                            <img class="man1" src="img/profil.png">
+                            <img class="man2" src="img/profil2.png">
+                        </a>
+                    </div>
+                    <div class="heart">
+                        <a href="#">
+                            <img class="heart1" src="img/heart-1.png">
+                            <img class="heart2" src="img/heart-2.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div class="breadcrumbs">
+                <ul>
+                    <li><a>Главная</a></li>
+                    <li><a>Спальня</a></li>
+                    <li><a>Люстры</a></li>
+                </ul>
+            </div>
+            <div class="info-nav">
+                <div class="title">
+                    <span class="text-title">Люстры</span>
+                </div>
+
+
+
+                <div class="view-options">
+
+                    <span class="sorting-text">Сортировать по</span>
+
+                    <div class="dropdown-sorting">
+                        <div class="dropdown">
+                            <ul class="button">
+                                <li>
+                                    <a href="#">
+                                        По умолчанию
+                                        <img class="arrow" src="img/arrow.png">
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="popup">
+                                <li class="active">
+                                    <a href="#">
+                                        По умолчанию
+                                        <img class="arrow" src="img/arrow-red.png">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Фабрике
+                                        <img class="arrow" src="img/arrow-red.png">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Цене
+                                        <img class="arrow" src="img/arrow-red.png">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <span class="number-of-goods-text ">Показать</span>
+
+                    <div class="dropdown-number-of-goods">
+                        <div class="dropdown">
+                            <ul class="button">
+                                <li>
+                                    <a href="#">
+                                        15
+                                        <img class="arrow" src="img/arrow.png">
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="popup">
+                                <li class="active">
+                                    <a href="#">
+                                        15
+                                        <img class="arrow" src="img/arrow-red.png">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        25
+                                        <img class="arrow" src="img/arrow-red.png">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        50
+                                        <img class="arrow" src="img/arrow-red.png">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        75
+                                        <img class="arrow" src="img/arrow-red.png">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        100
+                                        <img class="arrow" src="img/arrow-red.png">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="displays-the-page">
+                        <div class="button">
+                            <a>
+                                <img class="gray" src="img/display-tiles.png">
+                                <img class="red" src="img/display-tiles-red.png">
+                            </a>
+                        </div>
+                        <div class="button active">
+                            <a>
+                                <img class="gray" src="img/display-list.png">
+                                <img class="red" src="img/display-list-red.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-list">
+                <div class="item">
+                    <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
+                    <div class="title-new-product">
+                        <span class="tit">Настольная лампа</span>
+                        <span class="vendor">AGATHA</span>
+                        <br>
+                        <br>
+                        <span class="price">89 000 UAH</span>
+                        <span class="share">Снижение c 122 000 UAH</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="title-info">
+                            <span class="tit">Люстра</span>
+                            <br>
+                            <span class="vendor">villari</span>
+                            <div class="cross">
+                                <img class="simple cross-img" src="img/cross.png">
+                                <!--<img class="border cross-img" src="img/cross-border.png">-->
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>
+                                Подвесной потолочный светильник, предназначенный
+                                для создания бестеневого освещения (в отличие от
+                                точечного источника) помещений. Размеры люстры
+                                (расстояние между отдельными точечными источниками)
+                                и количество точечных источников света в ней определяют
+                                равномерность освещения помещения. Изначально в качестве
+                                источника света использовались свечи, сегодня чаще всего
+                                можно встретить  подвесной потолочный светильник, предназначенный
+                                для создания бестеневого освещения (в отличие от точечного источника)
+                                помещений. Размеры люстры (расстояние между отдельными точечными источниками)
+                                и количество точечных источников света в ней определяют
+                                равномерность освещения помещения. Изначально в качестве
+                                источника света использовались свечи, сегодня чаще всего можно встретить
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="item-main-img" src="img/chandelier-1.png" alt="Image 1">
+                    <div class="title-new-product">
+                        <span class="tit">Бра</span>
+                        <span class="vendor">AGATHA</span>
+                        <br>
+                        <br>
+                        <span class="price">89 000 UAH</span>
+                        <span class="share">Снижение c 122 000 UAH</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
+                    <div class="title-new-product">
+                        <span class="tit">Настольная лампа</span>
+                        <span class="vendor">AGATHA</span>
+                        <br>
+                        <br>
+                        <span class="price">89 000 UAH</span>
+                        <span class="share">Снижение c 122 000 UAH</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="item-main-img" src="img/chandelier-1.png" alt="Image 1">
+                    <div class="title-new-product">
+                        <span class="tit">Бра</span>
+                        <span class="vendor">AGATHA</span>
+                        <br>
+                        <br>
+                        <span class="price">89 000 UAH</span>
+                        <span class="share">Снижение c 122 000 UAH</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
+                    <div class="title-new-product">
+                        <span class="tit">Настольная лампа</span>
+                        <span class="vendor">AGATHA</span>
+                        <br>
+                        <br>
+                        <span class="price">89 000 UAH</span>
+                        <span class="share">Снижение c 122 000 UAH</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="item-main-img" src="img/chandelier-1.png" alt="Image 1">
+                    <div class="title-new-product">
+                        <span class="tit">Бра</span>
+                        <span class="vendor">AGATHA</span>
+                        <br>
+                        <br>
+                        <span class="price">89 000 UAH</span>
+                        <span class="share">Снижение c 122 000 UAH</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
+                    <div class="title-new-product">
+                        <span class="tit">Настольная лампа</span>
+                        <span class="vendor">AGATHA</span>
+                        <br>
+                        <br>
+                        <span class="price">89 000 UAH</span>
+                        <span class="share">Снижение c 122 000 UAH</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="item-main-img" src="img/chandelier-1.png" alt="Image 1">
+                    <div class="title-new-product">
+                        <span class="tit">Бра</span>
+                        <span class="vendor">AGATHA</span>
+                        <br>
+                        <br>
+                        <span class="price">89 000 UAH</span>
+                        <span class="share">Снижение c 122 000 UAH</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
+                    <div class="title-new-product">
+                        <span class="tit">Настольная лампа</span>
+                        <span class="vendor">AGATHA</span>
+                        <br>
+                        <br>
+                        <span class="price">89 000 UAH</span>
+                        <span class="share">Снижение c 122 000 UAH</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
+                    <div class="title-new-product">
+                        <span class="tit">Настольная лампа</span>
+                        <span class="vendor">AGATHA</span>
+                        <br>
+                        <br>
+                        <span class="price">89 000 UAH</span>
+                        <span class="share">Снижение c 122 000 UAH</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
+                    <div class="title-new-product">
+                        <span class="tit">Настольная лампа</span>
+                        <span class="vendor">AGATHA</span>
+                        <br>
+                        <br>
+                        <span class="price">89 000 UAH</span>
+                        <span class="share">Снижение c 122 000 UAH</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
+                    <div class="title-new-product">
+                        <span class="tit">Настольная лампа</span>
+                        <span class="vendor">AGATHA</span>
+                        <br>
+                        <br>
+                        <span class="price">89 000 UAH</span>
+                        <span class="share">Снижение c 122 000 UAH</span>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination-container">
+                <div class="pagination">
+                    <ul>
+                        <li class="back"><a href="javascript:void(0);"><img src="img/pagination-back.png" /></a></li>
+                        <li class="first"><a href="javascript:void(0);">1</a></li>
+                        <li>...</li>
+                        <li><a href="javascript:void(0);">5</a></li>
+                        <li><a href="javascript:void(0);">6</a></li>
+                        <li class="active"><a href="javascript:void(0);">7</a></li>
+                        <li><a href="javascript:void(0);">8</a></li>
+                        <li><a href="javascript:void(0);">9</a></li>
+                        <li><a href="javascript:void(0);">10</a></li>
+                        <li>...</li>
+                        <li class="last"><a href="javascript:void(0);">30</a></li>
+                        <li class="forward"><a href="javascript:void(0);"><img src="img/pagination-forward.png" /></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div id="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img class="footer-logo_img" src="img/logo3.png">
+                </div>
+                <div id="footer-nav-menu" class="footer-ul">
+                    <div class="li"><a href="#">КУХНИ</a></div>
+                    <div class="li"><a href="#">СПАЛЬНИ</a></div>
+                    <div class="li"><a href="#">МЯГКАЯ</a></div>
+                    <div class="li"><a href="#">ГОСТИНЫЕ</a></div>
+                    <div class="li"><a href="#">СТОЛОВЫЕ</a></div>
+                    <div class="li"><a href="#">ЛЮСТРЫ</a></div>
+                    <div class="li"><a href="#">САНТЕХНИКА</a></div>
+                    <div class="li"><a href="#">АКСЕССУАРЫ</a></div>
+                </div>
+                <div id="footer-about_company" class="footer-ul">
+                    <div class="li"><a href="#">О КОМПАНИИ</a></div>
+                    <div class="li"><a href="#">ИДЕИ ДЛЯ ДОМА</a></div>
+                    <div class="li"><a href="#">КОНТАКТЫ</a></div>
+                </div>
+                <div class="right-block">
+                    <div class="img-footer">
+                        <img class="img-footer-outlet" src="img/footer/outlet-footer.png">
+                    </div>
+                    <div class="social">
+                        <div class="social-inst">
+                            <a href="#">
+                                <img class="img-inst" src="img/footer/instagram.png">
+                            </a>
+                        </div>
+                        <div class="social-face">
+                            <a href="#">
+                                <img class="img-face" src="img/footer/facebook.png">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $('.dropdown .button').click(function(event) {
+                $(event.currentTarget.parentElement).find('.popup').toggle();
+            });
+
+            $('.displays-the-page .button').click(function(event) {
+                $(event.currentTarget).toggleClass('active');
+            });
+        </script>
+    </body>
+</html>
