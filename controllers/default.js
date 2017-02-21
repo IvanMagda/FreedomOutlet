@@ -2,7 +2,7 @@ var Product = GETSCHEMA('Product');
 var fs = require('fs');
 
 exports.install = function () {
-    F.route('/');
+    F.route('/', main);
     F.route('/products', view_products_list);
     F.route('/admin', view_admin);
     F.route('/products/{product_id}', view_product);
@@ -13,6 +13,25 @@ exports.install = function () {
     F.route('/products/delete/{product_id}', product_delete, ['post']);
 
 };
+
+function main() {
+    var self = this;
+
+    var is_new = [];
+
+    Product.list.forEach(function (e) {
+        console.log(e);
+        if (e.is_new = 1) {
+            is_new.push(e);
+        }
+    });
+
+
+    self.view('/index', {
+        products: is_new
+    });
+
+}
 
 function view_products_list() {
 	var self = this;
