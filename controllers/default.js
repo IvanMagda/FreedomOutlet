@@ -11,13 +11,15 @@ exports.install = function () {
     F.route('/products/update/{product_id}', view_product_update);
     F.route('/products/update/', product_update, ['post']);
     F.route('/products/delete/{product_id}', product_delete, ['post']);
+
 };
 
 function view_products_list() {
 	var self = this;
-    self.view('/temp/products_list', {
-        products : Product.list
-    });
+    self.view('/list-product');
+    //, {
+    //    products: Product.list
+    //}
 }
 
 function view_product(product_id) {
