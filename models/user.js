@@ -17,26 +17,32 @@ User.add = function (user) {
 
 User.register = function (user, callback) {
     console.log('create user add to db', user);
+    var hash = passwordHash.generate(user.pass);
+    var sql = DATABASE();
 
-    DATABASE(function (err, connection) {
-        if (err != null) {
-            console.log(err);
-            return;
-        }
-        var hash = passwordHash.generate(user.pass);
-        connection.query('INSERT INTO users (login, password_hash, email, role) VALUES (?, ?, ?, ?); SELECT * FROM users WHERE login=?', [user.login, hash, user.email, user.role, user.login], function (err, result) {
-
-            if (err != null) {
-                console.log(err);
-                return;
-            }
-
-            result[1].forEach(function (e) {
-                User.add(e);
-            })
-
-            callback(SUCCESS(true));
+    sql.insert('user', 'users').make(function (builder) {
+        builder.set({
+            login: user.login,
+            password_hash: hash,
+            email: user.email,
+            created: new Date(),
+            role: user.role
         });
+    });
+
+    sql.select('new_user', 'users').make(function (builder) {
+        builder.where('login', '=', user.login);
+    });
+
+    sql.exec(function (err, response) {
+        //console.log(response.allUsers);
+        console.log('allUsers DB init.');
+
+        response.new_user.forEach(function (e) {
+            User.add(e);
+        })
+
+        callback(SUCCESS(true));
     });
 }
 
@@ -58,29 +64,19 @@ function checkPassword(err, user, pass, callback) {
 exports.install = function () {
     F.on('initdb', function () {
 
-        DATABASE(function (err, connection) {
-            console.log('Outlet user init.');
+        var sql = DATABASE();
+        sql.query('allUsers', 'SELECT * FROM users').make(function (builder) { });
+        sql.exec(function (err, response) {
+            //console.log(response.allUsers);
+            console.log('allUsers DB init.');
 
-            if (err != null) {
-                console.log(err);
-                return;
-            }
+            User.list = [];
+            User.by_id = {};
+            response.allUsers.forEach(function (e) {
+                User.add(e);
+            })
 
-            connection.query('SELECT * FROM users', function (err, rows) {
-                connection.release();
-
-                if (err != null) {
-                    console.log(err);
-                    return;
-                }
-
-                User.list = [];
-                User.by_id = {};
-                rows.forEach(function (e) {
-                    User.add(e);
-                })
-                console.log('users init complete');
-            });
+            console.log('users init complete');
         });
     });
 }

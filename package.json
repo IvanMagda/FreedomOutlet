@@ -10,5 +10,10 @@
     "mysql": "^2.13.0",
     "password-hash": "^1.2.2",
     "total.js": "^2.4.0"
+  },
+  "devDependencies": {
+    "msnodesqlv8": "^0.2.15",
+    "mssql": "^3.3.0",
+    "sqlagent": "^9.8.0"
   }
 }

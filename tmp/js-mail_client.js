@@ -1,0 +1,1 @@
+$(document).ready(function(){ $('#mail-send').click(function(){ $.post('/mail/send', $('#mail-form').serialize(),function(answer){if(answer.success){return}console.log(answer)})})});

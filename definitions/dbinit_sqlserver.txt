@@ -1,0 +1,21 @@
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='products' AND xtype='U')
+	CREATE TABLE products (
+		id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+		name VARCHAR(45) NULL,
+		manufacturer VARCHAR(45) NULL,
+		price int NULL,
+		description text NULL,
+		image_name VARCHAR(45) NULL,
+		is_new BIT NULL,
+		title_img_src text NULL,
+	);
+
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='users' AND xtype='U')
+	CREATE TABLE users (
+		id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+		login VARCHAR(45) NULL,
+		password_hash VARCHAR(250) NULL,
+		email VARCHAR(45) NULL,
+		role VARCHAR(45) NULL,
+		created DATETIME NULL
+	);
