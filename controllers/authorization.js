@@ -20,14 +20,14 @@ function json_register() {
         self.json(SUCCESS(result));
     });
     console.log("from server");
-    console.log(this.body);
+    //console.log(this.body);
 }
 
 function json_authorization() {
     //console.log(this.body);
     var self = this;
     User.query({ login: this.body.login }, function (err, user) {
-        console.log(user);
+        //console.log(user);
         if (user) {
             User.operation('checkpassword', user, self.body.pass, function (err, res) {
                 if (res) {

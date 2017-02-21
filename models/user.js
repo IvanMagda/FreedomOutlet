@@ -35,7 +35,7 @@ User.register = function (user, callback) {
     });
 
     sql.exec(function (err, response) {
-        console.log(response.allUsers);
+        //console.log(response.allUsers);
         console.log('allUsers DB init.');
 
         response.new_user.forEach(function (e) {
@@ -67,7 +67,7 @@ exports.install = function () {
         var sql = DATABASE();
         sql.query('allUsers', 'SELECT * FROM users').make(function (builder) { });
         sql.exec(function (err, response) {
-            console.log(response.allUsers);
+            //console.log(response.allUsers);
             console.log('allUsers DB init.');
 
             User.list = [];
