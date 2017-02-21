@@ -1,12 +1,13 @@
 $(document).ready(function () {
     $('#img_map').click(function () {
-        $('#map').css('display', 'initial');
+        $('#map').css('width', $(window).width());
+        $('#map').css('height', $(window).width() / 2);
         $(this).css('display', 'none');
+        init();
     });
 });
-
 // When the window has finished loading create our google map below
-google.maps.event.addDomListener(window, 'load', init);
+//google.maps.event.addDomListener(window, 'load', init);
 
 function init() {
     // Basic options for a simple Google Map
