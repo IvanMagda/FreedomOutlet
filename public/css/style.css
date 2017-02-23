@@ -467,6 +467,15 @@ a {
     /*margin-bottom: 500px;*/
 }
 
+
+
+
+.cat-cont {
+    /*outline: 2px solid red;*/
+    overflow: hidden;
+}
+
+
 .categories-img .cat-cont1,
 .categories-img .cat-cont2,
 .categories-img .cat-cont3 {
@@ -527,22 +536,32 @@ a {
     /*transition-duration: 0.1s;*/
 }
 
-.categories-img .categories__row1 .cat-cont1 {width: 44%}
-.categories-img .categories__row1 .cat-cont2 {width: 26.1%}
-.categories-img .categories__row1 .cat-cont3 {width: 25.2%}
 
-.categories-img .categories__row2 .cat-cont1 {width: 24%}
-.categories-img .categories__row2 .cat-cont2 {width: 49%}
-.categories-img .categories__row2 .cat-cont3 {width: 22.5%}
+.categories-img .categories__row1,
+.categories-img .categories__row2,
+.categories-img .categories__row3 {height: 19.5vw;}
 
-.categories-img .categories__row3 .cat-cont1 {width: 51.4%}
-.categories-img .categories__row3 .cat-cont2 {width: 46.2%}
+.categories-img .categories__row1 .cat-cont1 {width: 50%}.categories-img .categories__row1 .cat-cont1 img {bottom: 5vw}
+.categories-img .categories__row1 .cat-cont2 {width: 23%}.categories-img .categories__row1 .cat-cont2 img {bottom: 0}
+.categories-img .categories__row1 .cat-cont3 {width: 23%}.categories-img .categories__row1 .cat-cont3 img {bottom: 0}
+
+.categories-img .categories__row2 .cat-cont1 {width: 23%}.categories-img .categories__row2 .cat-cont1 img {bottom: 0}
+.categories-img .categories__row2 .cat-cont2 {width: 50%}.categories-img .categories__row2 .cat-cont2 img {bottom: 0}
+.categories-img .categories__row2 .cat-cont3 {width: 23%}.categories-img .categories__row2 .cat-cont3 img {bottom: 0}
+
+.categories-img .categories__row3 .cat-cont1 {width: 49%}.categories-img .categories__row3 .cat-cont1 img {bottom: 0}
+.categories-img .categories__row3 .cat-cont2 {width: 49%}.categories-img .categories__row3 .cat-cont2 img {bottom: 5vw}
 
 .categories-img img {
     width: 100%;
     position: relative;
-    height: 100%;
+    /*height: 100%;*/
 }
+
+/*.categories-img img .soft-furnisings,*/
+/*.categories-img img .plumbing {*/
+    /*bottom: 80px;*/
+/*}*/
 
 
 
@@ -565,7 +584,7 @@ a {
 .categories-img .categories__row1,
 .categories-img .categories__row2,
 .categories-img .categories__row3 {
-    margin-bottom: 40px;
+    margin-bottom: 1.6vw;
     display: flex;
     justify-content: space-between;
 }
