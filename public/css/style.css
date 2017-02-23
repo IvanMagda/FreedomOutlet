@@ -341,6 +341,45 @@ a {
     border-top: 2px solid #e8ebef;
 }
 
+
+
+.gallery-icon-heart,
+.gallery-icon-info {
+    position: absolute;
+    right: 0;
+    width: 7%;
+    z-index: 999999;
+    margin-right: 7px;
+}
+
+.gallery-icon-info {
+    top: 13%;
+}
+
+.gallery-icon-heart {
+    top: 3%;
+}
+
+.gallery-icon-heart-img,
+.gallery-icon-info-img {
+    width: 100%;
+    position: absolute;
+}
+
+.gallery-icon-heart2-img {
+    display: none;
+}
+
+.gallery-icon-heart .gallery-icon-heart2-img {
+    display: none;
+}
+
+.gallery-icon-heart:hover .gallery-icon-heart2-img  {
+    display: inline-block;
+}
+
+
+
 .text-new {
     font-family: Georgia;
     margin-left: -15px;
