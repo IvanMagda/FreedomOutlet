@@ -36,8 +36,8 @@ a {
 
 #header-content {
     position: relative;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 7%;
+    margin-right: 7%;
     height: 100%;
     background: #292929;
     white-space: nowrap;
@@ -201,8 +201,8 @@ a {
 #content {
     position: relative;
     margin-top: 2%;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 7%;
+    margin-right: 7%;
     min-width: 900px;
     /*outline: 2px solid blue;*/
 }
@@ -269,18 +269,19 @@ a {
     width: 100%;
     height: 100%;
     /*outline: 5px solid magenta;*/
-    font-size: 3vw;
+    font-size: 2.5vw;
     color: #3e4546;
     font-family: Georgia;
 }
 
 .view-options {
-    width: 60%;
+    width: 47%;
     /*height: 100%;*/
     /*outline: 1px solid gold;*/
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-right: 1.5%;
 }
 
 .dropdown-sorting {
@@ -332,8 +333,8 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    line-height: 3vw;
-    padding-left: 1.3vw;
+    line-height: 2.3vw;
+    padding-left: 1vw;
 }
 
 .dropdown ul li {
@@ -367,21 +368,21 @@ a {
 }
 
 
-.displays-the-page {display: flex;}
+/*.displays-the-page {display: flex;}*/
 
-.displays-the-page .button.active .gray {display: block;}
-.displays-the-page .button.active .red {display: none;}
+/*.displays-the-page .button.active .gray {display: block;}*/
+/*.displays-the-page .button.active .red {display: none;}*/
 
-.displays-the-page .button .gray {display: none;}
-.displays-the-page .button .red {display: block;}
+/*.displays-the-page .button .gray {display: none;}*/
+/*.displays-the-page .button .red {display: block;}*/
 
-.displays-the-page .button {
-    display: inline-block;
-}
+/*.displays-the-page .button {*/
+    /*display: inline-block;*/
+/*}*/
 
-.displays-the-page img {
-    width: 3.5vw;
-}
+/*.displays-the-page img {*/
+    /*width: 3.5vw;*/
+/*}*/
 
 
 
@@ -471,6 +472,7 @@ a {
     /*color: #e8ebef;*/
     color: #898f90;
     font-family: RobotoLight;
+    margin-bottom: 3%;
 }
 
 .product-list .item span.price {
@@ -483,6 +485,8 @@ a {
     color: #9ba3aa;
     font-family: Roboto-ThinItalic;
     font-size: 1vw;
+    display: inline-block;
+    margin-bottom: 10%;
 }
 
 .product-info {
@@ -526,7 +530,7 @@ a {
 
 .product-info .cross-img {
     position: absolute;
-    height: 100%;
+    height: 70%;
     right: 0;
     padding: 5px
 }
@@ -547,6 +551,43 @@ a {
 
 .product-info .content p {
     text-align: justify;
+    font-family: RobotoLight;
+}
+
+.item-icon-heart,
+.item-icon-info {
+    position: absolute;
+    right: 4px;
+    width: 7%;
+    /*z-index: 999999;*/
+    margin-right: 7px;
+    cursor: pointer;
+}
+
+.item-icon-info {
+    top: 10%;
+}
+
+.item-icon-heart {
+    top: 2%;
+}
+
+.item-icon-heart-img,
+.item-icon-info-img {
+    width: 100%;
+    position: absolute;
+}
+
+.item-icon-heart2-img {
+    display: none;
+}
+
+.item-icon-heart .item-icon-heart2-img {
+    display: none;
+}
+
+.item-icon-heart:hover .item-icon-heart2-img  {
+    display: inline-block;
 }
 
 .pagination-container {
@@ -567,14 +608,14 @@ a {
     display: inline-flex;
 }
 .pagination li {
-    margin-right: 5px;
+    margin-right: 4px;
     padding: 3px;
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     height: 2vw;
-    width: 2vw;
+    width: 1.1vw;
 }
 
 .pagination li.active {
@@ -611,8 +652,8 @@ a {
 
 .footer-content {
     position: relative;
-    margin-left: 197px;
-    margin-right: 192px;
+    margin-left: 7%;
+    margin-right: 7%;
     height: 100%;
     background: #292929;
     white-space: nowrap;
@@ -652,10 +693,12 @@ a {
 
 #footer-nav-menu .li a {
     font-size: 0.8vw;
+    font-family: RobotoLight;
 }
 
 #footer-about_company .li a {
     font-size: 0.8vw;
+    font-family: RobotoLight;
 }
 
 
@@ -674,14 +717,45 @@ a {
 
 .social-inst,
 .social-face {
-    width: 35px;
-    height: 35px;
-    border-radius: 10px;
+    /*width: 35px;*/
+    /*height: 35px;*/
+    /*border-radius: 10px;*/
     background: #777777;
     display: inline-block;
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.social-inst a,
+.social-face a {
+    width: 35px;
+    height: 35px;
+    display: block;
+    position: relative;
+    margin: 3px;
+}
+
+.social-inst img,
+.social-face img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.social-inst .background,
+.social-face .background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+
 
 .img-inst,
 .img-face {
@@ -691,11 +765,11 @@ a {
     /*outline: 1px solid green;*/
 }
 
-.social-inst:hover {
+.social-inst:hover .background {
     background: #0484b9;
 }
 
-.social-face:hover {
+.social-face:hover .background {
     background: #3B5998;
 }
 
