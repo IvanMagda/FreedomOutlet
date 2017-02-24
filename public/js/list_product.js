@@ -1,21 +1,14 @@
-//$(document).ready(function () {
-//    $('.gallery-icon-info-img').
-
-//        click(function () {
-//            $(this).parent('.item').css('display', 'none');
-//        //$('.button1').toggle();
-//        //$('.button2').toggle();
-//    });
-//});
-
-function info_tile(parent) {
-    parent.style.display = 'none';
+function info_tile(node) {
+    var parent = node.parentNode;
     var elt = findAncestor(parent, 'product-info');
-    console.log(elt);
-    elt.childNodes[1].style.display = 'flex';
+    elt.childNodes[4].style.display = 'flex';
 }
 
 function findAncestor(el, sel) {
     while ((el = el.parentElement) && ((el.matches || el.matchesSelector).call(el, sel))) { console.log(el);};
     return el;
+}
+
+function close_info(node) {
+    node.parentNode.parentNode.parentNode.style.display = 'none';
 }

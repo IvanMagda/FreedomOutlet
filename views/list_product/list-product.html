@@ -115,12 +115,12 @@
             <div class="product-list">
                 @{foreach product in model.products}
                 <div class="item">
-                    <div class="gallery-icon-heart" >
-                        <img class="gallery-icon-heart-img" src="img/heart-1.png">
-                        <img class="gallery-icon-heart2-img" src="img/heart-2.png">
+                    <div class="item-icon-heart">
+                        <img class="item-icon-heart-img" src="img/heart-1.png">
+                        <img class="item-icon-heart2-img" src="img/heart-2.png">
                     </div>
-                    <div class="gallery-icon-info">
-                        <img class="gallery-icon-info-img" src="img/new-carousel/info-icon.png" onclick="info_tile(this.parentNode.parentNode)">
+                    <div class="item-icon-info">
+                        <img class="item-icon-info-img" src="img/new-carousel/info-icon.png" onclick="info_tile(this)">
                     </div>
                     <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
                     <div class="title-new-product">
@@ -131,15 +131,14 @@
                         <span class="price">@{product.price} UAH</span>
                         <span class="share">Снижение c 122 000 UAH</span>
                     </div>
-                </div>
-
                     <div class="product-info">
                         <div class="title-info">
                             <span class="tit">Люстра</span>
                             <br>
                             <span class="vendor">villari</span>
                             <div class="cross">
-                                <img class="simple cross-img" src="img/cross.png">
+                                <img class="simple cross-img" src="img/cross.png" onclick="close_info(this)">
+                                <!--<img class="border cross-img" src="img/cross-border.png">-->
                             </div>
                         </div>
                         <div class="content">
@@ -160,128 +159,8 @@
                             </p>
                         </div>
                     </div>
+                </div>
                 @{end}
-                <!--<div class="item">
-                    <img class="item-main-img" src="img/chandelier-1.png" alt="Image 1">
-                    <div class="title-new-product">
-                        <span class="tit">Бра</span>
-                        <span class="vendor">AGATHA</span>
-                        <br>
-                        <br>
-                        <span class="price">89 000 UAH</span>
-                        <span class="share">Снижение c 122 000 UAH</span>
-                    </div>
-                </div>
-                <div class="item">
-                    <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
-                    <div class="title-new-product">
-                        <span class="tit">Настольная лампа</span>
-                        <span class="vendor">AGATHA</span>
-                        <br>
-                        <br>
-                        <span class="price">89 000 UAH</span>
-                        <span class="share">Снижение c 122 000 UAH</span>
-                    </div>
-                </div>
-                <div class="item">
-                    <img class="item-main-img" src="img/chandelier-1.png" alt="Image 1">
-                    <div class="title-new-product">
-                        <span class="tit">Бра</span>
-                        <span class="vendor">AGATHA</span>
-                        <br>
-                        <br>
-                        <span class="price">89 000 UAH</span>
-                        <span class="share">Снижение c 122 000 UAH</span>
-                    </div>
-                </div>
-                <div class="item">
-                    <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
-                    <div class="title-new-product">
-                        <span class="tit">Настольная лампа</span>
-                        <span class="vendor">AGATHA</span>
-                        <br>
-                        <br>
-                        <span class="price">89 000 UAH</span>
-                        <span class="share">Снижение c 122 000 UAH</span>
-                    </div>
-                </div>
-                <div class="item">
-                    <img class="item-main-img" src="img/chandelier-1.png" alt="Image 1">
-                    <div class="title-new-product">
-                        <span class="tit">Бра</span>
-                        <span class="vendor">AGATHA</span>
-                        <br>
-                        <br>
-                        <span class="price">89 000 UAH</span>
-                        <span class="share">Снижение c 122 000 UAH</span>
-                    </div>
-                </div>
-                <div class="item">
-                    <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
-                    <div class="title-new-product">
-                        <span class="tit">Настольная лампа</span>
-                        <span class="vendor">AGATHA</span>
-                        <br>
-                        <br>
-                        <span class="price">89 000 UAH</span>
-                        <span class="share">Снижение c 122 000 UAH</span>
-                    </div>
-                </div>
-                <div class="item">
-                    <img class="item-main-img" src="img/chandelier-1.png" alt="Image 1">
-                    <div class="title-new-product">
-                        <span class="tit">Бра</span>
-                        <span class="vendor">AGATHA</span>
-                        <br>
-                        <br>
-                        <span class="price">89 000 UAH</span>
-                        <span class="share">Снижение c 122 000 UAH</span>
-                    </div>
-                </div>
-                <div class="item">
-                    <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
-                    <div class="title-new-product">
-                        <span class="tit">Настольная лампа</span>
-                        <span class="vendor">AGATHA</span>
-                        <br>
-                        <br>
-                        <span class="price">89 000 UAH</span>
-                        <span class="share">Снижение c 122 000 UAH</span>
-                    </div>
-                </div>
-                <div class="item">
-                    <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
-                    <div class="title-new-product">
-                        <span class="tit">Настольная лампа</span>
-                        <span class="vendor">AGATHA</span>
-                        <br>
-                        <br>
-                        <span class="price">89 000 UAH</span>
-                        <span class="share">Снижение c 122 000 UAH</span>
-                    </div>
-                </div>
-                <div class="item">
-                    <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
-                    <div class="title-new-product">
-                        <span class="tit">Настольная лампа</span>
-                        <span class="vendor">AGATHA</span>
-                        <br>
-                        <br>
-                        <span class="price">89 000 UAH</span>
-                        <span class="share">Снижение c 122 000 UAH</span>
-                    </div>
-                </div>
-                <div class="item">
-                    <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
-                    <div class="title-new-product">
-                        <span class="tit">Настольная лампа</span>
-                        <span class="vendor">AGATHA</span>
-                        <br>
-                        <br>
-                        <span class="price">89 000 UAH</span>
-                        <span class="share">Снижение c 122 000 UAH</span>
-                    </div>-->
-                </div>
             </div>
             <div class="pagination-container">
                 <div class="pagination">
