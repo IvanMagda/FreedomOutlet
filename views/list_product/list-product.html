@@ -1,67 +1,4 @@
-﻿@{layout('')}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        @{import('list-product-style.css')}
-        <meta charset="UTF-8">
-        <title>Title</title>
-        <!--<link rel="stylesheet" href="list-product-style.css">-->
-        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    </head>
-    <body>
-        <div id="header">
-            <div id="header-content">
-                <div id="logo">
-                    <img class="logo_img" src="img/logo3.png">
-                </div>
-                <nav class="global-nav">
-                    <div class="row1">
-                        <div id="nav-menu" class="ul">
-                            <a href="/products"><div class="li">КУХНИ<div class="border"></div></div></a>
-                            <a href="/products"><div class="li">СПАЛЬНИ<div class="border"></div></div></a>
-                            <a href="/products"><div class="li">МЯГКАЯ<div class="border"></div></div></a>
-                            <a href="/products"><div class="li">ГОСТИНЫЕ<div class="border"></div></div></a>
-                            <a href="/products"><div class="li">СТОЛОВЫЕ<div class="border"></div></div></a>
-                            <a href="/products"><div class="li">ЛЮСТРЫ<div class="border"></div></div></a>
-                            <a href="/products"><div class="li">САНТЕХНИКА<div class="border"></div></div></a>
-                            <a href="/products"><div class="li">АКСЕССУАРЫ<div class="border"></div></div></a>
-
-                            <!--<div class="li"><a href="/products">КУХНИ</a><div class="border"></div></div>
-                            <div class="li"><a href="/products">СПАЛЬНИ</a><div class="border"></div></div>
-                            <div class="li"><a href="/products">МЯГКАЯ</a><div class="border"></div></div>
-                            <div class="li"><a href="/products">ГОСТИНЫЕ</a><div class="border"></div></div>
-                            <div class="li"><a href="/products">СТОЛОВЫЕ</a><div class="border"></div></div>
-                            <div class="li"><a href="/products">ЛЮСТРЫ</a><div class="border"></div></div>
-                            <div class="li"><a href="/products">САНТЕХНИКА</a><div class="border"></div></div>
-                            <div class="li"><a href="/products">АКСЕССУАРЫ</a><div class="border"></div></div>-->
-                        </div>
-                    </div>
-                    <div class="row2">
-                        <div class="search_block">
-                            <form>
-                                <input type="text" placeholder="Поиск">
-                                <button type="submit" class="search"><img src="img/search.png" height="17"></button>
-                            </form>
-                        </div>
-                    </div>
-                </nav>
-                <div class="icon">
-                    <div class="man">
-                        <a href="#">
-                            <img class="man1" src="img/profil.png">
-                            <img class="man2" src="img/profil2.png">
-                        </a>
-                    </div>
-                    <div class="heart">
-                        <a href="#">
-                            <img class="heart1" src="img/heart-1.png">
-                            <img class="heart2" src="img/heart-2.png">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="content">
+﻿@{layout('/layouts/compact/layout')}
             <div class="breadcrumbs">
                 <ul>
                     <li><a>Главная</a></li>
@@ -159,7 +96,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="displays-the-page">
+                    <!--<div class="displays-the-page">
                         <div class="button">
                             <a>
                                 <img class="gray" src="img/display-tiles.png">
@@ -172,7 +109,7 @@
                                 <img class="red" src="img/display-list-red.png">
                             </a>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
             <div class="product-list">
@@ -355,60 +292,3 @@
                     </ul>
                 </div>
             </div>
-        </div>
-
-
-
-
-        <div id="footer">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img class="footer-logo_img" src="img/logo3.png">
-                </div>
-                <div id="footer-nav-menu" class="footer-ul">
-                    <div class="li"><a href="#">КУХНИ</a></div>
-                    <div class="li"><a href="#">СПАЛЬНИ</a></div>
-                    <div class="li"><a href="#">МЯГКАЯ</a></div>
-                    <div class="li"><a href="#">ГОСТИНЫЕ</a></div>
-                    <div class="li"><a href="#">СТОЛОВЫЕ</a></div>
-                    <div class="li"><a href="#">ЛЮСТРЫ</a></div>
-                    <div class="li"><a href="#">САНТЕХНИКА</a></div>
-                    <div class="li"><a href="#">АКСЕССУАРЫ</a></div>
-                </div>
-                <div id="footer-about_company" class="footer-ul">
-                    <div class="li"><a href="#">О КОМПАНИИ</a></div>
-                    <div class="li"><a href="#">ИДЕИ ДЛЯ ДОМА</a></div>
-                    <div class="li"><a href="#">КОНТАКТЫ</a></div>
-                </div>
-                <div class="right-block">
-                    <div class="img-footer">
-                        <img class="img-footer-outlet" src="img/footer/outlet-footer.png">
-                    </div>
-                    <div class="social">
-                        <div class="social-inst">
-                            <a href="#">
-                                <img class="img-inst" src="img/footer/instagram.png">
-                            </a>
-                        </div>
-                        <div class="social-face">
-                            <a href="#">
-                                <img class="img-face" src="img/footer/facebook.png">
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <script>
-            $('.dropdown .button').click(function(event) {
-                $(event.currentTarget.parentElement).find('.popup').toggle();
-            });
-
-            $('.displays-the-page .button').click(function(event) {
-                $(event.currentTarget).toggleClass('active');
-            });
-        </script>
-    </body>
-</html>

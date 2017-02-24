@@ -1,0 +1,38 @@
+﻿@{layout('')}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @{import('list-product-style.css')}
+    <!--@{import('style.css')}-->
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet" href="list-product-style.css">-->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+    <div id="header">
+        @{view('layouts/compact/header')}
+    </div>
+    <div id="content">
+        @{body}
+    </div>
+
+
+
+
+    <div id="footer">
+        @{view('layouts/main/footer')}
+    </div>
+
+    <script>
+            $('.dropdown .button').click(function(event) {
+                $(event.currentTarget.parentElement).find('.popup').toggle();
+            });
+
+            $('.displays-the-page .button').click(function(event) {
+                $(event.currentTarget).toggleClass('active');
+            });
+    </script>
+</body>
+</html>

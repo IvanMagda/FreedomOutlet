@@ -27,7 +27,7 @@ function main() {
     });
 
 
-    self.view('/index', {
+    self.view('/main/main', {
         products: is_new
     });
 
@@ -35,16 +35,15 @@ function main() {
 
 function view_products_list() {
 	var self = this;
-    self.view('/list-product');
-    //, {
-    //    products: Product.list
-    //}
+    self.view('/list_product/list-product', {
+        products: Product.list
+    });
 }
 
 function view_product(product_id) {
     var product = Product.by_id[product_id];
     var self = this;
-    self.view('/temp/product', {
+    self.view('/product_card/product-card', {
         product: product
     });
 }

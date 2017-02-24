@@ -1,3 +1,17 @@
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px; /* remove scrollbar space */
+    background: transparent; /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
 @font-face {
     font-family: RobotoLight;
     src: url(fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
@@ -938,21 +952,27 @@ a {
 
 
 .contacts_map {
-    position: relative;
+    /*position: relative;
     width: 100%;
-    outline: 1px solid blanchedalmond;
+    outline: 1px solid blanchedalmond;*/
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
 .contacts_map img {
     position: relative;
-    width: 125.5%;
-    margin-left: -13%;
+    width: 100%;
+    /*margin-left: -13%;*/
 
 }
 
 #map {
-    width: 125.5%;
-    margin-left: -13%;
+    /*width: 125.5%;
+    margin-left: -13%;*/
 }
 
 .contacts_feedback {
