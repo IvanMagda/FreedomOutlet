@@ -14,3 +14,6 @@ mail.address.bcc                :
 DEVSQLSERVER : Driver={SQL Server Native Client 11.0};Server={desktop-qs6bqvi};Database=Freedom;Uid=sa;Pwd=rootROOT
 
 DBPROVIDER: sqlserver
+
+//Public files
+public_img : public/tmp

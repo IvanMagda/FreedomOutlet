@@ -1,12 +1,14 @@
-@{layout('')}
+@{layout('/admin/admin_layout')}
 <head>
+    @{import('http://code.jquery.com/jquery-1.11.0.min.js')}
+    @{import('product_client.js')}
     @{import('temp_style.css')}
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
 
-<div id="content-wrapper">
+
     <table>
         <tr><td>Name: </td><td>@{model.product.name}</td></tr>
         <tr><td>Manufacturer: </td><td>@{model.product.manufacturer}</td></tr>
         <tr><td>Price: </td><td>@{model.product.price}</td></tr>
     </table>
-</div>

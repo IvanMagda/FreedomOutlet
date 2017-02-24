@@ -30,16 +30,23 @@
         </div>
     </nav>
     <div id="login">
+        @{if user !== null}
         <div class="enter">
-            <a href="#">Войти</a>
-            <a href="#">Регистрация</a>
+            <a href="/user/@{user.login}/">@{user.login}</a>
+            <a href="#" onclick="logout()">Выйти</a>
         </div>
-        <div class="heart">
-            <a href="#">
-                <img class="heart1" src="img/heart-1.png">
-                <img class="heart2" src="img/heart-2.png">
-            </a>
+            @{else}
+            <div class="enter">
+                <a href="#login_modal" class="open_modal">Войти</a>
+                <a href="#register_modal" class="open_modal">Регистрация</a>
+            </div>
+            @{fi}
+            <div class="heart">
+                <a href="#">
+                    <img class="heart1" src="img/heart-1.png">
+                    <img class="heart2" src="img/heart-2.png">
+                </a>
+            </div>
+            <span class="phone">+38 (067) 329 08 45</span>
         </div>
-        <span class="phone">+38 (067) 329 08 45</span>
-    </div>
 </div>

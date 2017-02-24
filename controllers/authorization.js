@@ -6,6 +6,7 @@ exports.install = function () {
     F.route('/register', json_register, ['post']);
     F.route('/authorization', json_authorization, ['post']);
     F.route('/logout', json_logout);
+    F.route('/user/{user_id}', view_user);
     //F.route('/admin', view_admin);
 };
 
@@ -49,4 +50,12 @@ function json_logout() {
 function view_admin() {
     var self = this;
     self.view('/admin/admin');
+}
+
+function view_user(id) {
+    var user = User.by_id[id];
+    var self = this;
+    self.view('/user/user_cabinet', {
+        user: user
+    });
 }

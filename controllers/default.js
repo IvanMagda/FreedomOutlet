@@ -6,6 +6,7 @@ exports.install = function () {
     F.route('/products', view_products_list);
     F.route('/admin', view_admin);
     F.route('/products/{product_id}', view_product);
+    F.route('/admin/{product_id}', view_admin_product);
     F.route('/products/create', view_product_add);
     F.route('/products/create', product_create, ['upload'], {flags: ['upload'], length: 25 * 1024 * 1024, timeout: 30 * 60 * 1000});
     F.route('/products/update/{product_id}', view_product_update);
@@ -48,6 +49,14 @@ function view_product(product_id) {
     });
 }
 
+function view_admin_product(product_id) {
+    var product = Product.by_id[product_id];
+    var self = this;
+    self.view('/admin/product', {
+        product: product
+    });
+}
+
 function view_product_add() {
     var self = this;
     self.view('/admin/product_add');
@@ -55,34 +64,36 @@ function view_product_add() {
 
 function product_create() {
     var self = this;
-    self.body.image_name = self.files[0].filename;
-    self.body.title_img_src = './public/tmp/' + self.files[0].filename;
+    if (self.files[0]) {
+        self.body.image_name = self.files[0].filename;
+        self.body.title_img_src = '/tmp/' + self.files[0].filename;
 
-    if (self.body.is_new == "on") {
-        self.body.is_new = true;
-    } else {
-        self.body.is_new = false;
-    }
+        if (self.body.is_new == "on") {
+            self.body.is_new = true;
+        } else {
+            self.body.is_new = false;
+        }
 
-    fs.readFile(self.files[0].path, function(err, data){
-        if (err) throw err;
-
-        fs.writeFile(__dirname + '/../public/tmp/' + self.files[0].filename, data, function(err){
+        fs.readFile(self.files[0].path, function (err, data) {
             if (err) throw err;
-            console.log('It\'s saved!');
-            Product.create_new(self.body, function (result) {
-                self.view('/admin/product_add');
-                //self.json(SUCCESS(result));
-                console.log("from server product");
+
+            fs.writeFile(__dirname + '/../public/tmp/' + self.files[0].filename, data, function (err) {
+                if (err) throw err;
+                console.log('It\'s saved!');
+                Product.create_new(self.body, function (result) {
+                    self.view('/admin/product_add');
+                    //self.json(SUCCESS(result));
+                    console.log("from server product");
+                });
             });
         });
-    });
+    };
 }
 
 function view_product_update(product_id) {
     var product = Product.by_id[product_id];
     var self = this;
-    self.view('/temp/product_edit', {
+    self.view('/admin/product_edit', {
         product: product
     });
 }

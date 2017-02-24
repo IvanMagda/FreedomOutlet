@@ -78,7 +78,10 @@ Product.update = function (product, callback) {
             name: product.name,
             manufacturer: product.manufacturer,
             price: product.price,
-            description: product.description
+            description: product.description,
+            image_name: product.image_name,
+            is_new: product.is_new,
+            title_img_src: product.title_img_src
         });
         builder.where('id', product.id);
     });

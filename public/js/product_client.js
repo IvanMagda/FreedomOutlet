@@ -17,7 +17,7 @@ $(document).ready(function () {
     $('#edit-product').click(function () {
         $.post('/products/update', $('#edit-product-form').serialize(), function (answer) {
             if (answer.success) {
-                window.location.href = '/products';
+                window.location.href = '/admin';
                 return;
             }
             console.log(answer);
@@ -29,7 +29,7 @@ $(document).ready(function () {
 
 function delete_p(id) {
     $.post('/products/delete/'+id, function () {
-        window.location.href = '/products';
+        window.location.href = '/admin';
     })
 }
 
