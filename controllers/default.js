@@ -8,7 +8,7 @@ exports.install = function () {
     F.route('/products/{product_id}', view_product);
     F.route('/admin/{product_id}', view_admin_product);
     F.route('/products/create', view_product_add);
-    F.route('/products/create', product_create, ['upload'], {flags: ['upload'], length: 25 * 1024 * 1024, timeout: 30 * 60 * 1000});
+    F.route('/products/create', product_create, ['upload'], { flags: ['upload'], length: 25 * 1024 * 1024, timeout: 30 * 60 * 1000 });
     F.route('/products/update/{product_id}', view_product_update);
     F.route('/products/update/', product_update, ['post']);
     F.route('/products/delete/{product_id}', product_delete, ['post']);
@@ -35,7 +35,7 @@ function main() {
 }
 
 function view_products_list() {
-	var self = this;
+    var self = this;
     self.view('/list_product/list-product', {
         products: Product.list
     });

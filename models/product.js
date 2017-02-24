@@ -22,7 +22,7 @@ Product.upd = function (product) {
 
     var index = Product.list.indexOf(Product.by_id[product.id]);
     if (index > -1) {
-        Product.list[index]=p;
+        Product.list[index] = p;
         console.log('updated');
     }
 
@@ -57,7 +57,6 @@ Product.create_new = function (product, callback) {
         });
     });
 
-    
     sql.exec(function (err, response) {
         sql.select('new_product', 'products').make(function (builder) {
             builder.where('id', '=', response.product_inserted.identity);
@@ -65,7 +64,8 @@ Product.create_new = function (product, callback) {
         sql.exec(function (err, response) {
             console.log(response);
             Product.add(response.new_product[0]);
-            callback(SUCCESS(true));});
+            callback(SUCCESS(true));
+        });
     });
 }
 
@@ -110,7 +110,7 @@ Product.delete_p = function (product_id, callback) {
 exports.install = function () {
     F.on('initdb', function () {
         var sql = DATABASE();
-        sql.query('allProducts', 'SELECT * FROM products').make(function (builder) {});
+        sql.query('allProducts', 'SELECT * FROM products').make(function (builder) { });
         sql.exec(function (err, response) {
             console.log(response.allProducts);
             console.log('Outlet DB init.');

@@ -1,182 +1,152 @@
 ﻿@{layout('/layouts/compact/layout')}
-            <div class="breadcrumbs">
-                <ul>
-                    <li><a>Главная</a></li>
-                    <li><a>Спальня</a></li>
-                    <li><a>Люстры</a></li>
+<div class="breadcrumbs">
+    <ul>
+        <li><a>Главная</a></li>
+        <li><a>Спальня</a></li>
+        <li><a>Люстры</a></li>
+    </ul>
+</div>
+<div class="info-nav">
+    <div class="title">
+        <span class="text-title">Люстры</span>
+    </div>
+
+    <div class="view-options">
+
+        <span class="sorting-text">Сортировать по</span>
+
+        <div class="dropdown-sorting">
+            <div class="dropdown">
+                <ul class="button">
+                    <li>
+                        <a href="#">                            По умолчанию
+                            <img class="arrow" src="img/arrow.png">
+                        </a>
+                    </li>
+                </ul>
+                <ul class="popup">
+                    <li class="active">
+                        <a href="#">
+                            По умолчанию
+                            <img class="arrow" src="img/arrow-red.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Фабрике
+                            <img class="arrow" src="img/arrow-red.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Цене
+                            <img class="arrow" src="img/arrow-red.png">
+                        </a>
+                    </li>
                 </ul>
             </div>
-            <div class="info-nav">
-                <div class="title">
-                    <span class="text-title">Люстры</span>
-                </div>
+        </div>
 
+        <span class="number-of-goods-text ">Показать</span>
 
-
-                <div class="view-options">
-
-                    <span class="sorting-text">Сортировать по</span>
-
-                    <div class="dropdown-sorting">
-                        <div class="dropdown">
-                            <ul class="button">
-                                <li>
-                                    <a href="#">
-                                        По умолчанию
-                                        <img class="arrow" src="img/arrow.png">
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="popup">
-                                <li class="active">
-                                    <a href="#">
-                                        По умолчанию
-                                        <img class="arrow" src="img/arrow-red.png">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Фабрике
-                                        <img class="arrow" src="img/arrow-red.png">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Цене
-                                        <img class="arrow" src="img/arrow-red.png">
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <span class="number-of-goods-text ">Показать</span>
-
-                    <div class="dropdown-number-of-goods">
-                        <div class="dropdown">
-                            <ul class="button">
-                                <li>
-                                    <a href="#">
-                                        15
-                                        <img class="arrow" src="img/arrow.png">
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="popup">
-                                <li class="active">
-                                    <a href="#">
-                                        15
-                                        <img class="arrow" src="img/arrow-red.png">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        25
-                                        <img class="arrow" src="img/arrow-red.png">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        50
-                                        <img class="arrow" src="img/arrow-red.png">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        75
-                                        <img class="arrow" src="img/arrow-red.png">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        100
-                                        <img class="arrow" src="img/arrow-red.png">
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--<div class="displays-the-page">
-                        <div class="button">
-                            <a>
-                                <img class="gray" src="img/display-tiles.png">
-                                <img class="red" src="img/display-tiles-red.png">
-                            </a>
-                        </div>
-                        <div class="button active">
-                            <a>
-                                <img class="gray" src="img/display-list.png">
-                                <img class="red" src="img/display-list-red.png">
-                            </a>
-                        </div>
-                    </div>-->
+        <div class="dropdown-number-of-goods">
+            <div class="dropdown">
+                <ul class="button">
+                    <li>
+                        <a href="#">
+                            15
+                            <img class="arrow" src="img/arrow.png">
+                        </a>
+                    </li>
+                </ul>
+                <ul class="popup">
+                    <li class="active">
+                        <a href="#">
+                            15
+                            <img class="arrow" src="img/arrow-red.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            25
+                            <img class="arrow" src="img/arrow-red.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            50
+                            <img class="arrow" src="img/arrow-red.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            75
+                            <img class="arrow" src="img/arrow-red.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            100
+                            <img class="arrow" src="img/arrow-red.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-list">
+    @{foreach product in model.products}
+    <div class="item">
+        <div class="item-icon-heart">
+            <img class="item-icon-heart-img" src="img/heart-1.png">
+            <img class="item-icon-heart2-img" src="img/heart-2.png">
+        </div>
+        <div class="item-icon-info">
+            <img class="item-icon-info-img" src="img/new-carousel/info-icon.png" onclick="info_tile(this)">
+        </div>
+        <img class="item-main-img" src="@{product.title_img_src}" alt="Image 1">
+        <div class="title-new-product">
+            <span class="tit">@{product.name}</span>
+            <span class="vendor">@{product.manufacturer}</span>
+            <br>
+            <br>
+            <span class="price">@{product.price} UAH</span>
+            <span class="share">Снижение c 122 000 UAH</span>
+        </div>
+        <div class="product-info">
+            <div class="title-info">
+                <span class="tit">@{product.name}</span>
+                <br>
+                <span class="vendor">@{product.manufacturer}</span>
+                <div class="cross">
+                    <img class="simple cross-img" src="img/cross.png" onclick="close_info(this)">
                 </div>
             </div>
-            <div class="product-list">
-                @{foreach product in model.products}
-                <div class="item">
-                    <div class="item-icon-heart">
-                        <img class="item-icon-heart-img" src="img/heart-1.png">
-                        <img class="item-icon-heart2-img" src="img/heart-2.png">
-                    </div>
-                    <div class="item-icon-info">
-                        <img class="item-icon-info-img" src="img/new-carousel/info-icon.png" onclick="info_tile(this)">
-                    </div>
-                    <img class="item-main-img" src="img/chandelier-2.png" alt="Image 1">
-                    <div class="title-new-product">
-                        <span class="tit">@{product.name}</span>
-                        <span class="vendor">@{product.manufacturer}</span>
-                        <br>
-                        <br>
-                        <span class="price">@{product.price} UAH</span>
-                        <span class="share">Снижение c 122 000 UAH</span>
-                    </div>
-                    <div class="product-info">
-                        <div class="title-info">
-                            <span class="tit">Люстра</span>
-                            <br>
-                            <span class="vendor">villari</span>
-                            <div class="cross">
-                                <img class="simple cross-img" src="img/cross.png" onclick="close_info(this)">
-                                <!--<img class="border cross-img" src="img/cross-border.png">-->
-                            </div>
-                        </div>
-                        <div class="content">
-                            <p>
-                                Подвесной потолочный светильник, предназначенный
-                                для создания бестеневого освещения (в отличие от
-                                точечного источника) помещений. Размеры люстры
-                                (расстояние между отдельными точечными источниками)
-                                и количество точечных источников света в ней определяют
-                                равномерность освещения помещения. Изначально в качестве
-                                источника света использовались свечи, сегодня чаще всего
-                                можно встретить  подвесной потолочный светильник, предназначенный
-                                для создания бестеневого освещения (в отличие от точечного источника)
-                                помещений. Размеры люстры (расстояние между отдельными точечными источниками)
-                                и количество точечных источников света в ней определяют
-                                равномерность освещения помещения. Изначально в качестве
-                                источника света использовались свечи, сегодня чаще всего можно встретить
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                @{end}
+            <div class="content">
+                <p>
+                    @{product.description}
+                </p>
             </div>
-            <div class="pagination-container">
-                <div class="pagination">
-                    <ul>
-                        <li class="back"><a href="javascript:void(0);"><img src="img/pagination-back.png" /></a></li>
-                        <li class="first"><a href="javascript:void(0);">1</a></li>
-                        <li>...</li>
-                        <li><a href="javascript:void(0);">5</a></li>
-                        <li><a href="javascript:void(0);">6</a></li>
-                        <li class="active"><a href="javascript:void(0);">7</a></li>
-                        <li><a href="javascript:void(0);">8</a></li>
-                        <li><a href="javascript:void(0);">9</a></li>
-                        <li><a href="javascript:void(0);">10</a></li>
-                        <li>...</li>
-                        <li class="last"><a href="javascript:void(0);">30</a></li>
-                        <li class="forward"><a href="javascript:void(0);"><img src="img/pagination-forward.png" /></a></li>
-                    </ul>
-                </div>
-            </div>
+        </div>
+    </div>
+    @{end}
+</div>
+<div class="pagination-container">
+    <div class="pagination">
+        <ul>
+            <li class="back"><a href="javascript:void(0);"><img src="img/pagination-back.png" /></a></li>
+            <li class="first"><a href="javascript:void(0);">1</a></li>
+            <li>...</li>
+            <li><a href="javascript:void(0);">5</a></li>
+            <li><a href="javascript:void(0);">6</a></li>
+            <li class="active"><a href="javascript:void(0);">7</a></li>
+            <li><a href="javascript:void(0);">8</a></li>
+            <li><a href="javascript:void(0);">9</a></li>
+            <li><a href="javascript:void(0);">10</a></li>
+            <li>...</li>
+            <li class="last"><a href="javascript:void(0);">30</a></li>
+            <li class="forward"><a href="javascript:void(0);"><img src="img/pagination-forward.png" /></a></li>
+        </ul>
+    </div>
+</div>

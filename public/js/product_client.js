@@ -1,19 +1,4 @@
 $(document).ready(function () {
-    //$("#create-product").click(function () {
-    //    xhr = new XMLHttpRequest();
-
-    //    myXhr.upload.addEventListener('#progr', function (e) {
-    //        console.log(e.lengthComputable);
-    //        if (e.lengthComputable) {
-    //            var progressPercent = (e.loaded / e.total) * 100;
-    //            $('#progr').attr({
-    //                value: e.loaded,
-    //                max: e.total,
-    //            });
-    //        }
-    //    }, false);
-    //});
-
     $('#edit-product').click(function () {
         $.post('/products/update', $('#edit-product-form').serialize(), function (answer) {
             if (answer.success) {
@@ -28,7 +13,7 @@ $(document).ready(function () {
 });
 
 function delete_p(id) {
-    $.post('/products/delete/'+id, function () {
+    $.post('/products/delete/' + id, function () {
         window.location.href = '/admin';
     })
 }

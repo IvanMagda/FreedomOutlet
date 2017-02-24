@@ -5,7 +5,7 @@ function info_tile(node) {
 }
 
 function findAncestor(el, sel) {
-    while ((el = el.parentElement) && ((el.matches || el.matchesSelector).call(el, sel))) { console.log(el);};
+    while ((el = el.parentElement) && ((el.matches || el.matchesSelector).call(el, sel))) { console.log(el); };
     return el;
 }
 

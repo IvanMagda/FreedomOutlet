@@ -25,7 +25,7 @@ switch (F.config.DBPROVIDER) {
 
 var sqlAgent = require('sqlagent/' + F.config.DBPROVIDER).init(config, true);
 
-fs.readFile('./definitions/dbinit_' + F.config.DBPROVIDER+'.txt', 'utf8', function (err, data) {
+fs.readFile('./definitions/dbinit_' + F.config.DBPROVIDER + '.txt', 'utf8', function (err, data) {
     if (err) throw err;
 
     var sql_query = data;

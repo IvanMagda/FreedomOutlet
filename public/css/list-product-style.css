@@ -453,6 +453,7 @@ a {
 }
 
     .product-list .item .item-main-img {
+        max-width: 330px;
         width: 100%;
         margin-bottom: 1vw;
     }
