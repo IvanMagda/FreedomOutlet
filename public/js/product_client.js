@@ -1,13 +1,13 @@
 $(document).ready(function () {
-    $('#edit-product').click(function () {
-        $.post('/products/update', $('#edit-product-form').serialize(), function (answer) {
-            if (answer.success) {
-                window.location.href = '/admin';
-                return;
-            }
-            console.log(answer);
-        });
-    });
+    //$('#edit-product').click(function () {
+    //    $.post('/products/update', $('#edit-product-form').serialize(), function (answer) {
+    //        if (answer.success) {
+    //            window.location.href = '/admin';
+    //            return;
+    //        }
+    //        console.log(answer);
+    //    });
+    //});
 
     $('#file1').on('change', handleFileSelect);
 });

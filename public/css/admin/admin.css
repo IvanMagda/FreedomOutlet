@@ -282,3 +282,28 @@ _:-ms-input-placeholder, :root .outlet-graph {
 .padding-0{
     padding:0px
 }
+
+.mdl-data-table tbody tr{
+    padding:0px;
+    height:0px;
+}
+
+.mdl-data-table td {
+    padding: 0px;
+    height:unset;
+}
+
+.mdl-button--raised{
+    box-shadow:none;
+}
+
+.mdl-button{
+    min-width:unset;
+    padding:unset;
+    line-height:unset;
+    height:unset;
+}
+
+.h_34{
+    height:34px;
+}

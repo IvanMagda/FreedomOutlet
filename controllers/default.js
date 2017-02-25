@@ -10,7 +10,7 @@ exports.install = function () {
     F.route('/products/create', view_product_add);
     F.route('/products/create', product_create, ['upload'], { flags: ['upload'], length: 25 * 1024 * 1024, timeout: 30 * 60 * 1000 });
     F.route('/products/update/{product_id}', view_product_update);
-    F.route('/products/update/', product_update, ['post']);
+    F.route('/products/update/', product_update, ['upload'], { flags: ['upload'], length: 25 * 1024 * 1024, timeout: 30 * 60 * 1000 });
     F.route('/products/delete/{product_id}', product_delete, ['post']);
 
 };
@@ -64,30 +64,9 @@ function view_product_add() {
 
 function product_create() {
     var self = this;
-    if (self.files[0]) {
-        self.body.image_name = self.files[0].filename;
-        self.body.title_img_src = '/tmp/' + self.files[0].filename;
-
-        if (self.body.is_new == "on") {
-            self.body.is_new = true;
-        } else {
-            self.body.is_new = false;
-        }
-
-        fs.readFile(self.files[0].path, function (err, data) {
-            if (err) throw err;
-
-            fs.writeFile(__dirname + '/../public/tmp/' + self.files[0].filename, data, function (err) {
-                if (err) throw err;
-                console.log('It\'s saved!');
-                Product.create_new(self.body, function (result) {
-                    self.view('/admin/product_add');
-                    //self.json(SUCCESS(result));
-                    console.log("from server product");
-                });
-            });
-        });
-    };
+    Product.create_new(self.body, self.files, function (result) {
+        self.view('/admin/product_add');
+    });
 }
 
 function view_product_update(product_id) {
@@ -100,8 +79,17 @@ function view_product_update(product_id) {
 
 function product_update() {
     var self = this;
+    console.log(this.body);
     Product.update(this.body, function (result) {
-        self.json(SUCCESS(result));
+        if (result) {
+            self.view('/admin/admin', {
+                products: Product.list
+            });
+        } else {
+            self.view('/main/main');
+        }
+        
+        //self.json(SUCCESS(result));
     });
 }
 

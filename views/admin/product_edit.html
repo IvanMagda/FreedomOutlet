@@ -6,7 +6,8 @@
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
 <!--<form enctype="multipart/form-data" id="create-product-form" action="#" >-->
-<form id="create-product-form" method="POST" enctype="multipart/form-data" action="/products/create">
+<form id="create-product-form" method="POST" enctype="multipart/form-data" action="/products/update">
+    <input type="hidden" name="id" value="@{model.product.id}" />
     <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
         <div class="mdl-cell mdl-cell--3-col">
             <div class="create-product mdl-textfield mdl-js-textfield">
@@ -23,7 +24,7 @@
                 <span class="mdl-textfield__error">Input is not a number!</span>
             </div>
             <div class="create-product mdl-textfield mdl-js-textfield">
-                <textarea class="mdl-textfield__input" type="text" name="description" value="@{model.product.description}"></textarea>
+                <textarea class="mdl-textfield__input" type="text" name="description">@{model.product.description}</textarea>
                 <label class="mdl-textfield__label" for="sample5">Description</label>
             </div>
             <button id="edit-product" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
@@ -40,7 +41,7 @@
                 <div class="mdl-card__actions mdl-card--border">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
                         <input class="mdl-textfield__input" placeholder="No file chosen" type="text" id="TEXT_ID" value="@{model.product.image_name}" readonly />
-                        <div class="mdl-button mdl-button--icon mdl-button--file">
+                        <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
                             <i class="material-icons">attach_file</i>
                             <input type="file" name="File" id="file1" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;" />
                         </div>

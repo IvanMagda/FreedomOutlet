@@ -1,4 +1,6 @@
-﻿exports.id = 'Outlet';
+﻿var fs = require('fs');
+
+exports.id = 'Outlet';
 
 var Product = NEWSCHEMA('Product');
 Product.define('id', Number);
@@ -18,15 +20,16 @@ Product.add = function (product) {
 
 Product.upd = function (product) {
     var p = Product.make(product);
-
-
     var index = Product.list.indexOf(Product.by_id[product.id]);
+    console.log(product.id);
+
     if (index > -1) {
         Product.list[index] = p;
+        Product.by_id[product.id] = p;
         console.log('updated');
+    } else {
+        console.log('Update Error!');
     }
-
-    Product.by_id[product.id] = p;
 }
 
 Product.dell = function (id) {
@@ -40,10 +43,22 @@ Product.dell = function (id) {
     delete Product.by_id[p.id];
 }
 
-Product.create_new = function (product, callback) {
-    console.log('create product add to db', product);
-
+Product.create_new = function (product, files, callback) {
     var sql = DATABASE();
+    var productDir = __dirname + '/../public/tmp/' + (Product.list[Product.list.length - 1].id + 1) + '/';
+
+    if (product.is_new == "on") {
+        product.is_new = true;
+    } else {
+        product.is_new = false;
+    }
+
+    if (files[0]) {
+        product.image_name = files[0].filename;
+        product.title_img_src = '/../public/tmp/' + (Product.list[Product.list.length - 1].id + 1) + '/' + files[0].filename;
+    } else {
+        console.log('Title img not selected!');
+    };
 
     sql.insert('product_inserted', 'products').make(function (builder) {
         builder.set({
@@ -58,13 +73,25 @@ Product.create_new = function (product, callback) {
     });
 
     sql.exec(function (err, response) {
+        if (err) throw err;
         sql.select('new_product', 'products').make(function (builder) {
             builder.where('id', '=', response.product_inserted.identity);
         });
         sql.exec(function (err, response) {
+            if (err) throw err;
             console.log(response);
-            Product.add(response.new_product[0]);
-            callback(SUCCESS(true));
+            fs.readFile(files[0].path, function (err, data) {
+                if (err) throw err;
+                fs.mkdir(productDir, function (err) {
+                    fs.writeFile(productDir + files[0].filename, data, function (err) {
+                        if (err) throw err;
+                        console.log('Title img saved!');
+                        Product.add(response.new_product[0]);
+                        callback(SUCCESS(true));
+                    });
+                });
+            });
+
         });
     });
 }
@@ -112,7 +139,6 @@ exports.install = function () {
         var sql = DATABASE();
         sql.query('allProducts', 'SELECT * FROM products').make(function (builder) { });
         sql.exec(function (err, response) {
-            console.log(response.allProducts);
             console.log('Outlet DB init.');
 
             Product.list = [];
