@@ -574,12 +574,13 @@ a {
 
 .item-icon-heart-img,
 .item-icon-info-img {
-    width: 99%;
+    width: 100%;
     position: absolute;
 }
 
 .item-icon-heart2-img {
     display: none;
+    width: 100%;
 }
 
 .item-icon-heart .item-icon-heart2-img {

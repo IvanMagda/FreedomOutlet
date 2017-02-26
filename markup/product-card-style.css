@@ -250,31 +250,23 @@ a {
 
 
 
-.more-from-vendor {
+.also-like {
     position: relative;
-
     width: 100%;
-    /*display: flex;*/
-    /*align-items: flex-start;*/
-    /*flex-wrap: wrap;*/
-    /*justify-content: flex-start;*/
 
-
-    outline: 2px solid red;
+    outline: 2px solid blue;
 }
 
-.more-from-vendor-title-conteiner {
+.also-like-title-conteiner {
     position: relative;
     height: 100px;
-    /*margin-top: 20px;*/
-    /*margin-bottom: 20px;*/
     display: flex;
     justify-content: center;
     align-items: center;
     outline: 1px solid black;
 }
 
-.more-from-vendor-title {
+.also-like-title {
     display: inline-block;
     left: 50%;
     width: 95px;
@@ -285,10 +277,9 @@ a {
 
 }
 
-.text-vendor {
+.text-also-like {
     font-family: Georgia;
-    margin-left: -15%;
-    /*top: 50%;*/
+    margin-left: -11%;
     font-size: 40px;
     color: #3e4546;
     position: absolute;
@@ -347,6 +338,78 @@ a {
     font-family: RobotoLight;
     color: #2a2a2a;
 }
+
+.container-button-look-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 4vw;
+    margin-top: 3vw;
+    outline: 1px solid red;
+}
+
+.container-button-look-all a .button-look-all {
+    outline: 1px solid #2a2a2a;
+    cursor: pointer;
+}
+
+.container-button-look-all a .button-look-all .text-look-all {
+    display: inline-block;
+    font-size: 1vw;
+    font-family: RobotoLight;
+    white-space: nowrap;
+    margin: 0.8vw 3vw 0.8vw 3vw;
+    color: #2a2a2a;
+}
+
+
+
+
+
+
+
+
+
+.more-from-vendor-title-conteiner {
+    position: relative;
+    height: 100px;
+    /*margin-top: 20px;*/
+    /*margin-bottom: 20px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 1px solid black;
+}
+
+.more-from-vendor-title {
+    display: inline-block;
+    left: 50%;
+    width: 95px;
+    height: 60px;
+    margin: -56px;
+    border-bottom: 2px solid red;
+    white-space: nowrap
+
+}
+
+.text-vendor {
+    font-family: Georgia;
+    margin-left: -15%;
+    /*top: 50%;*/
+    font-size: 40px;
+    color: #3e4546;
+    position: absolute;
+}
+
+
+
+
+
+
+
+
+
 
 
 @media screen and (min-width: 1200px) {
@@ -426,10 +489,12 @@ a {
 
 #footer-nav-menu .li a {
     font-size: 0.8vw;
+    font-family: RobotoLight;
 }
 
 #footer-about_company .li a {
     font-size: 0.8vw;
+    font-family: RobotoLight;
 }
 
 
@@ -448,14 +513,45 @@ a {
 
 .social-inst,
 .social-face {
-    width: 35px;
-    height: 35px;
-    border-radius: 10px;
+    /*width: 35px;*/
+    /*height: 35px;*/
+    /*border-radius: 10px;*/
     background: #777777;
     display: inline-block;
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.social-inst a,
+.social-face a {
+    width: 35px;
+    height: 35px;
+    display: block;
+    position: relative;
+    margin: 3px;
+}
+
+.social-inst img,
+.social-face img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.social-inst .background,
+.social-face .background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+
 
 .img-inst,
 .img-face {
@@ -465,13 +561,14 @@ a {
     /*outline: 1px solid green;*/
 }
 
-.social-inst:hover {
+.social-inst:hover .background {
     background: #0484b9;
 }
 
-.social-face:hover {
+.social-face:hover .background {
     background: #3B5998;
 }
+
 
 .footer-content .right-block {
     display: flex;
@@ -484,6 +581,7 @@ a {
     display: flex;
     justify-content: center;
 }
+
 
 .footer-content .footer-logo,
 .footer-content #footer-nav-menu,
@@ -532,4 +630,56 @@ a {
     .footer-logo_img {
         width: 10vw;
     }
+}
+
+
+.gallery {
+    display: flex;
+    justify-content: center;
+}
+
+.product-card-carousel {
+    width: 80%;
+}
+
+.product-card-carousel .slick-prev::before,
+.product-card-carousel .slick-next::before {
+    color: red;
+    font-size: 3vw;
+    font-family: RobotoLight;
+}
+
+.product-card-carousel .slick-prev::before {
+    content: "\2039";
+}
+
+.product-card-carousel .slick-next::before {
+    content: "\203a";
+}
+
+
+.product-card-carousel .slick-prev,
+.product-card-carousel .slick-next {
+    position: absolute;
+    top: 28%;
+}
+
+.product-card-carousel .slick-prev {
+    left: -65px;
+}
+
+.product-card-carousel .slick-next {
+    right: -65px;
+}
+
+.slick-initialized .slick-slide {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.slick-slide img,
+.product-card-carousel .title-new-product {
+    width: 90%;
 }
