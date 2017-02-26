@@ -1,9 +1,10 @@
 @{layout('/admin/admin_layout')}
 <head>
     @{import('http://code.jquery.com/jquery-1.11.0.min.js')}
-    @{import('product_client.js')}
+
     @{import('temp_style.css')}
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
 </head>
 <!--<form enctype="multipart/form-data" id="create-product-form" action="#" >-->
 <form id="create-product-form" method="POST" enctype="multipart/form-data" action="/products/create">
@@ -50,7 +51,11 @@
                 <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" name="is_new">
                 <span class="mdl-checkbox__label">Show on main page</span>
             </label>
+            
             <!--<progress id="progr"></progress>-->
         </div>
+    </div>
+    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+        <input type="file" name="files[]" id="filer_input" multiple="multiple">
     </div>
 </form>

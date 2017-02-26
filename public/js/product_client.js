@@ -9,6 +9,8 @@ $(document).ready(function () {
     //    });
     //});
 
+    
+
     $('#file1').on('change', handleFileSelect);
 });
 

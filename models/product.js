@@ -44,6 +44,10 @@ Product.dell = function (id) {
 }
 
 Product.create_new = function (product, files, callback) {
+    files.forEach(function (e) {
+        console.log(e.path)
+    })
+
     var sql = DATABASE();
     var productDir = __dirname + '/../public/tmp/' + (Product.list[Product.list.length - 1].id + 1) + '/';
 
@@ -55,7 +59,7 @@ Product.create_new = function (product, files, callback) {
 
     if (files[0]) {
         product.image_name = files[0].filename;
-        product.title_img_src = '/../public/tmp/' + (Product.list[Product.list.length - 1].id + 1) + '/' + files[0].filename;
+        product.title_img_src = '/tmp/' + (Product.list[Product.list.length - 1].id + 1) + '/' + files[0].filename;
     } else {
         console.log('Title img not selected!');
     };
@@ -91,7 +95,6 @@ Product.create_new = function (product, files, callback) {
                     });
                 });
             });
-
         });
     });
 }
@@ -134,10 +137,68 @@ Product.delete_p = function (product_id, callback) {
     });
 }
 
+Product.delete_img = function (img_src, callback) {
+    img_src = __dirname + img_src.replace("http://localhost:8000/", "\\").replace("/", "\\"); //associate with local dir
+    img_src = img_src.replace("models", "public") //set outer dir for imsges
+    console.log(img_src);
+
+    fs.unlink(img_src, function (err) {
+        if (err) throw err;
+
+        callback(SUCCESS(true));
+        console.log('successfully deleted' + img_src);
+    });
+}
+
+Product.imgs = function (id, callback) {
+
+    var index = 0;
+    var imgs_arr = [];
+
+
+    fs.readdir(__dirname + '/../public/tmp/' + id, function (err, files) {
+
+        files.forEach(function (file) {
+            var img = {
+                name: "appended_file.jpg",
+                size: 5453,
+                type: "image/jpg",
+                file: "/tmp/Products.jpg",
+            };
+            console.log('file in dir');
+            console.log(file);
+            var tmp = file.split('.');
+            var type = tmp[tmp.length - 1];
+
+            img.name = file;
+            img.type = "image/" + type;
+            img.file = "/tmp/" + id + "/" + file;
+
+            console.log(img);
+
+            imgs_arr[index] = img;
+            index++;
+        });
+        console.log(imgs_arr);
+        callback(imgs_arr);
+    });
+
+    //console.log(imgs_arr);
+}
+
 exports.install = function () {
     F.on('initdb', function () {
+
+
+        //fs.readdir(__dirname + '/../public/tmp/', (err, files) => {
+        //    files.forEach(file => {
+        //        console.log(file);
+        //    });
+        //})
+
+
         var sql = DATABASE();
-        sql.query('allProducts', 'SELECT * FROM products').make(function (builder) { });
+        sql.query('allProducts', 'SELECT * FROM products ORDER BY id').make(function (builder) { });
         sql.exec(function (err, response) {
             console.log('Outlet DB init.');
 

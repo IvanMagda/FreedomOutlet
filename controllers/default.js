@@ -12,6 +12,7 @@ exports.install = function () {
     F.route('/products/update/{product_id}', view_product_update);
     F.route('/products/update/', product_update, ['upload'], { flags: ['upload'], length: 25 * 1024 * 1024, timeout: 30 * 60 * 1000 });
     F.route('/products/delete/{product_id}', product_delete, ['post']);
+    F.route('/products/delete_img/', product_delete_img, ['post']);
 
 };
 
@@ -22,7 +23,7 @@ function main() {
 
     Product.list.forEach(function (e) {
         console.log(e);
-        if (e.is_new = 1) {
+        if (e.is_new == 1) {
             is_new.push(e);
         }
     });
@@ -70,11 +71,18 @@ function product_create() {
 }
 
 function view_product_update(product_id) {
-    var product = Product.by_id[product_id];
     var self = this;
-    self.view('/admin/product_edit', {
-        product: product
+    var product = Product.by_id[product_id];
+    var immages;
+    Product.imgs(product_id, function (result) {
+        immages = JSON.stringify(result);
+        console.log(immages);
+        self.view('/admin/product_edit', {
+            product: product,
+            immages: immages
+        });
     });
+    console.log(immages);
 }
 
 function product_update() {
@@ -96,6 +104,14 @@ function product_update() {
 function product_delete(product_id) {
     var self = this;
     Product.delete_p(product_id, function (result) {
+        self.json(SUCCESS(result));
+    });
+}
+
+function product_delete_img() {
+    var self = this;
+    console.log(self.body);
+    Product.delete_img(self.body.src, function (result) {
         self.json(SUCCESS(result));
     });
 }

@@ -6,6 +6,8 @@
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
 <!--<form enctype="multipart/form-data" id="create-product-form" action="#" >-->
+<input id="immages" type="text" style="" value="@{model.immages}" />
+<div>@{model.immages}</div>
 <form id="create-product-form" method="POST" enctype="multipart/form-data" action="/products/update">
     <input type="hidden" name="id" value="@{model.product.id}" />
     <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
@@ -60,5 +62,8 @@
             </label>
             <!--<progress id="progr"></progress>-->
         </div>
+    </div>
+    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+        <input type="file" name="files[]" id="filer_input" multiple="multiple">
     </div>
 </form>
