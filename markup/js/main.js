@@ -7,6 +7,15 @@ $( document ).ready(function() {
            // autoplaySpeed: 2000,
     });
 
+    $('.main-product-card-gall').slick({
+        //dots: true,
+        arrows: true,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        // autoplay: true,
+        // autoplaySpeed: 2000,
+    });
+
     $('.product-card-carousel').slick({
         //dots: true,
         arrows: true,
@@ -15,4 +24,5 @@ $( document ).ready(function() {
         // autoplay: true,
         // autoplaySpeed: 2000,
     });
+
 });

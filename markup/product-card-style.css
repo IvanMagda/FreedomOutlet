@@ -244,6 +244,66 @@ a {
     color: #3e4546;
 }
 
+.content.right-sidebar {
+    position: relative;
+    display: inline-flex;
+    justify-content: flex-end;
+    outline: 1px solid magenta;
+    width: 30%;
+    height: 200px;
+
+}
+
+
+
+
+.main-gallery {
+    display: inline-flex;
+    /*justify-content: center;*/
+}
+
+.main-product-card-gall {
+    width: 80%;
+}
+
+.main-product-card-gall .slick-prev::before,
+.main-product-card-gall .slick-next::before {
+    color: #3e4546;;
+    font-size: 3vw;
+    font-family: RobotoLight;
+}
+
+.main-product-card-gall .slick-prev::before {
+    content: "\2039";
+}
+
+.main-product-card-gall .slick-next::before {
+    content: "\203a";
+}
+
+
+.main-product-card-gall .slick-prev,
+.main-product-card-gall .slick-next {
+    position: absolute;
+    top: 28%;
+}
+
+.main-product-card-gall .slick-prev {
+    left: -65px;
+}
+
+.main-product-card-gall .slick-next {
+    right: -65px;
+}
+
+.slick-initialized .slick-slide {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
 
 
 
@@ -633,6 +693,10 @@ a {
 }
 
 
+
+
+
+
 .gallery {
     display: flex;
     justify-content: center;
@@ -644,7 +708,7 @@ a {
 
 .product-card-carousel .slick-prev::before,
 .product-card-carousel .slick-next::before {
-    color: red;
+    color: #3e4546;;
     font-size: 3vw;
     font-family: RobotoLight;
 }
@@ -680,6 +744,36 @@ a {
 }
 
 .slick-slide img,
-.product-card-carousel .title-new-product {
+.product-card-carousel .title-product-gall {
     width: 90%;
+}
+
+.title-product-gall {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    flex-direction: column;
+    border-top: 1px solid lightgray;
+}
+
+.title-product-gall .tit {
+    margin-top: 5%;
+    font-family: Georgia;
+    color: #3e4546;
+    font-size: 1.6vw;
+}
+
+.title-product-gall .vendor {
+    font-size: 0.8vw;
+    /*color: #e8ebef;*/
+    color: #898f90;
+    font-family: RobotoLight;
+    margin-top: 1%;
+}
+
+.title-product-gall .price {
+    font-size: 1vw;
+    font-family: RobotoLight;
+    color: #2a2a2a;
 }
