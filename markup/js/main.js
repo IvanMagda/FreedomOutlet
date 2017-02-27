@@ -10,11 +10,12 @@ $( document ).ready(function() {
     $('.main-product-card-gall').slick({
         //dots: true,
         arrows: true,
-        slidesToShow: 2,
+        slidesToShow: 1,
         slidesToScroll: 1,
         // autoplay: true,
         // autoplaySpeed: 2000,
     });
+
 
     $('.product-card-carousel').slick({
         //dots: true,

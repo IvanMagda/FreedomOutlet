@@ -36,8 +36,8 @@ a {
 
 #header-content {
     position: relative;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 7%;
+    margin-right: 7%;
     height: 100%;
     background: #292929;
     white-space: nowrap;
@@ -200,8 +200,8 @@ a {
 #content {
     position: relative;
     margin-top: 2%;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 7%;
+    margin-right: 7%;
     min-width: 900px;
     outline: 2px solid blue;
 }
@@ -244,10 +244,11 @@ a {
     color: #3e4546;
 }
 
-.content.right-sidebar {
+
+
+.right-sidebar {
     position: relative;
-    display: inline-flex;
-    justify-content: flex-end;
+    display: flex;
     outline: 1px solid magenta;
     width: 30%;
     height: 200px;
@@ -258,12 +259,26 @@ a {
 
 
 .main-gallery {
-    display: inline-flex;
+    display: flex;
+    position: relative;
+    width: 73.8%;
+    height: 700px;
+    outline: 3px solid green;
+    margin-top: 3%;
     /*justify-content: center;*/
 }
 
 .main-product-card-gall {
     width: 80%;
+    position: relative;
+}
+
+.main-gallery .main-product-card-gall .item {
+    width: 15.1% !important;
+}
+
+.main-gallery .main-product-card-gall .item img {
+    position: relative;
 }
 
 .main-product-card-gall .slick-prev::before,
@@ -285,15 +300,15 @@ a {
 .main-product-card-gall .slick-prev,
 .main-product-card-gall .slick-next {
     position: absolute;
-    top: 28%;
+    top: 45%;
 }
 
 .main-product-card-gall .slick-prev {
-    left: -65px;
+    left: 2%;
 }
 
 .main-product-card-gall .slick-next {
-    right: -65px;
+    right: -25%;
 }
 
 .slick-initialized .slick-slide {
@@ -423,9 +438,14 @@ a {
     color: #2a2a2a;
 }
 
+.container-button-look-all a .button-look-all:hover {
+    background: #2a2a2a;
+    color: white;
+}
 
-
-
+.container-button-look-all a .button-look-all:hover  .text-look-all {
+    color: white;
+}
 
 
 
@@ -508,8 +528,8 @@ a {
 
 .footer-content {
     position: relative;
-    margin-left: 197px;
-    margin-right: 192px;
+    margin-left: 7%;
+    margin-right: 7%;
     height: 100%;
     background: #292929;
     white-space: nowrap;
@@ -743,7 +763,7 @@ a {
     flex-direction: column;
 }
 
-.slick-slide img,
+.product-card-carousel .slick-slide img,
 .product-card-carousel .title-product-gall {
     width: 90%;
 }
