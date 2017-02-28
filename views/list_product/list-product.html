@@ -21,26 +21,29 @@
             <div class="dropdown">
                 <ul class="button">
                     <li>
-                        <a href="#">                            По умолчанию
+                        <a href="#">                
+                            @{if model.sort=='default'} По умолчанию @{endif}
+                            @{if model.sort=='factory'} Фабрике @{endif}
+                            @{if model.sort=='price'} Цене @{endif}
                             <img class="arrow" src="img/arrow.png">
                         </a>
                     </li>
                 </ul>
-                <ul class="popup">
-                    <li class="active">
-                        <a href="#">
+                <ul id="filterSort" class="popup">
+                    <li  @{if model.sort=='default'} class="active"@{endif}>
+                        <a href="#" onclick="active(this)" name="default">
                             По умолчанию
                             <img class="arrow" src="img/arrow-red.png">
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
+                    <li  @{if model.sort=='factory'} class="active"@{endif}>
+                        <a href="#" onclick="active(this)" name="factory">
                             Фабрике
                             <img class="arrow" src="img/arrow-red.png">
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
+                    <li @{if model.sort=='price'} class="active"@{endif}>
+                        <a href="#" onclick="active(this)" name="price">
                             Цене
                             <img class="arrow" src="img/arrow-red.png">
                         </a>
@@ -61,33 +64,33 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="popup">
+                <ul id="filterNumber" class="popup">
                     <li @{if model.items=='15'} class="active"@{endif}>
-                        <a href="?number=15">
+                        <a href="#" onclick="active(this)" name="15">
                             15
                             <img class="arrow" src="img/arrow-red.png">
                         </a>
                     </li>
                     <li @{if model.items=='25'} class="active"@{endif}>
-                        <a href="?number=25">
+                        <a href="#" onclick="active(this)" name="25">
                             25
                             <img class="arrow" src="img/arrow-red.png">
                         </a>
                     </li>
                     <li @{if model.items=='50'} class="active"@{endif}>
-                        <a href="?number=50">
+                        <a href="#" onclick="active(this)" name="50">
                             50
                             <img class="arrow" src="img/arrow-red.png">
                         </a>
                     </li>
                     <li @{if model.items=='75'} class="active"@{endif}>
-                        <a href="?number=75">
+                        <a href="#" onclick="active(this)" name="75">
                             75
                             <img class="arrow" src="img/arrow-red.png">
                         </a>
                     </li>
                     <li @{if model.items=='100'} class="active"@{endif}>
-                        <a href="?number=100">
+                        <a href="#" onclick="active(this)" name="100">
                             100
                             <img class="arrow" src="img/arrow-red.png">
                         </a>
