@@ -186,6 +186,23 @@ Product.imgs = function (id, callback) {
     //console.log(imgs_arr);
 }
 
+Product.pagination = function (page, items, callback) {
+    var sql = DATABASE();
+    sql.select('prod', 'products').make(function (builder) {
+        builder.page(page, items);
+    });
+    sql.exec(function (err, response) {
+        var list = [];
+        
+        response.prod.forEach(function (e) {
+            var p = Product.make(e);
+            list.push(p);
+        })
+
+        callback(list);
+    });
+}
+
 exports.install = function () {
     F.on('initdb', function () {
 

@@ -56,38 +56,38 @@
                 <ul class="button">
                     <li>
                         <a href="#">
-                            15
+                            @{model.items}
                             <img class="arrow" src="img/arrow.png">
                         </a>
                     </li>
                 </ul>
                 <ul class="popup">
-                    <li class="active">
-                        <a href="#">
+                    <li @{if model.items=='15'} class="active"@{endif}>
+                        <a href="?number=15">
                             15
                             <img class="arrow" src="img/arrow-red.png">
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
+                    <li @{if model.items=='25'} class="active"@{endif}>
+                        <a href="?number=25">
                             25
                             <img class="arrow" src="img/arrow-red.png">
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
+                    <li @{if model.items=='50'} class="active"@{endif}>
+                        <a href="?number=50">
                             50
                             <img class="arrow" src="img/arrow-red.png">
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
+                    <li @{if model.items=='75'} class="active"@{endif}>
+                        <a href="?number=75">
                             75
                             <img class="arrow" src="img/arrow-red.png">
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
+                    <li @{if model.items=='100'} class="active"@{endif}>
+                        <a href="?number=100">
                             100
                             <img class="arrow" src="img/arrow-red.png">
                         </a>

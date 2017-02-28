@@ -37,16 +37,21 @@ function main() {
 
 function view_products_list() {
     var self = this;
+    console.log(self.query);
 
-    var products = 1000;
-    var page = (self.query.page || '10').parseInt();
-    var perpage = 10;
+    var products = Product.list.length;
+    var page = (self.query.page || '1').parseInt();
+    var perpage = (self.query.number || '15').parseInt();
     var pagination = new Builders.Pagination(products, page, perpage, '?page={0}');
 
-    self.view('/list_product/list-product', {
-        products: Product.list,
-        pagination: pagination
+    Product.pagination(page, perpage, function (prod) {
+        self.view('/list_product/list-product', {
+            items: perpage,
+            products: prod,
+            pagination: pagination
+        });
     });
+
 }
 
 function view_product(product_id) {
