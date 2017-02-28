@@ -1,4 +1,6 @@
 ﻿@{layout('/layouts/compact/layout')}
+<input id="currentPage" type="hidden" value="@{model.pagination.page}" />
+<input id="currentLimit" type="hidden" value="@{model.pagination.count}" />
 <div class="breadcrumbs">
     <ul>
         <li><a>Главная</a></li>
@@ -134,7 +136,7 @@
 </div>
 <div class="pagination-container">
     <div class="pagination">
-        <ul>
+        <ul id="paginationUl">
             <li class="back"><a href="javascript:void(0);"><img src="img/pagination-back.png" /></a></li>
             <li class="first"><a href="javascript:void(0);">1</a></li>
             <li>...</li>
