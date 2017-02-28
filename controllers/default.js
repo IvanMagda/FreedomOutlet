@@ -45,7 +45,7 @@ function view_products_list() {
     var perpage = (self.query.number || '15').parseInt();
     var pagination = new Builders.Pagination(products, page, perpage, '?page={0}');
 
-    Product.pagination(page, perpage, function (prod) {
+    Product.pagination(page, perpage, sort, function (prod) {
         self.view('/list_product/list-product', {
             sort:sort,
             items: perpage,

@@ -22,22 +22,22 @@
                 <ul class="button">
                     <li>
                         <a href="#">                
-                            @{if model.sort=='default'} По умолчанию @{endif}
-                            @{if model.sort=='factory'} Фабрике @{endif}
+                            @{if model.sort=='name'} По умолчанию @{endif}
+                            @{if model.sort=='manufacturer'} Фабрике @{endif}
                             @{if model.sort=='price'} Цене @{endif}
                             <img class="arrow" src="img/arrow.png">
                         </a>
                     </li>
                 </ul>
                 <ul id="filterSort" class="popup">
-                    <li  @{if model.sort=='default'} class="active"@{endif}>
-                        <a href="#" onclick="active(this)" name="default">
+                    <li  @{if model.sort=='name'} class="active"@{endif}>
+                        <a href="#" onclick="active(this)" name="name">
                             По умолчанию
                             <img class="arrow" src="img/arrow-red.png">
                         </a>
                     </li>
-                    <li  @{if model.sort=='factory'} class="active"@{endif}>
-                        <a href="#" onclick="active(this)" name="factory">
+                    <li  @{if model.sort=='manufacturer'} class="active"@{endif}>
+                        <a href="#" onclick="active(this)" name="manufacturer">
                             Фабрике
                             <img class="arrow" src="img/arrow-red.png">
                         </a>

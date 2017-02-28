@@ -186,9 +186,10 @@ Product.imgs = function (id, callback) {
     //console.log(imgs_arr);
 }
 
-Product.pagination = function (page, items, callback) {
+Product.pagination = function (page, items, sort, callback) {
     var sql = DATABASE();
     sql.select('prod', 'products').make(function (builder) {
+        builder.order(sort);
         builder.page(page, items);
     });
     sql.exec(function (err, response) {
