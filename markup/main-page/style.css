@@ -823,6 +823,14 @@ a {
 
 
 
+#img_map {
+    position: absolute;
+}
+
+#map_c {
+    position: fixed;
+}
+
 
 .contacts_map {
     position: relative;

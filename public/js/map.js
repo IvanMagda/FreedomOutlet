@@ -1,9 +1,13 @@
 $(document).ready(function () {
+    $('#map').css('width', $('#img_map').width());
+    $('#map').css('height', $('#img_map').width()/2);
+    $('#map').css('visibility', 'hidden');
+    init();
+
     $('#img_map').click(function () {
-        $('#map').css('width', $(window).width());
-        $('#map').css('height', $(window).width() / 2);
+        $('#map').css('visibility', '');
+        $('#map_c').css('position', 'relative');
         $(this).css('display', 'none');
-        init();
     });
 });
 // When the window has finished loading create our google map below
