@@ -1,4 +1,8 @@
-﻿<div class="stub"></div>
+﻿<head>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeCVF0-LF2T75pmOVD9nc33Gv7KTO9o1g"></script>
+</head>
+
+<div class="stub"></div>
 <div class="new">
     <div class="gallery-title">
         <span class="text-new">Новое</span>
@@ -377,7 +381,8 @@
         </div>
     </div>
     <div class="contacts_map">
-        <img src="img/map.png">
+        <img id="img_map" src="img/map.png">
+        <div id="map"></div>
     </div>
 </div>
 <div class="contacts_feedback">
@@ -388,16 +393,16 @@
     </div>
     <div class="content-feedback">
         <div class="form">
-            <form>
+            <form id="mail-form" action="#">
                 <div class="row1">
-                    <input class="neat-input" type="text" placeholder="ИМЯ"/>
-                    <input class="neat-input" type="text" placeholder="+38 (00) 000 00 00"/>
+                    <input class="neat-input" type="text" name="name" placeholder="ИМЯ" />
+                    <input class="neat-input" type="text" name="phone" placeholder="+38 (00) 000 00 00" />
                 </div>
                 <div class="row2">
-                    <textarea class="neat-textarea" placeholder="&#013;&#010;&#013;&#010;СООБЩЕНИЕ"></textarea>
+                    <textarea class="neat-textarea" name="message" placeholder="&#013;&#010;&#013;&#010;СООБЩЕНИЕ"></textarea>
                 </div>
                 <div class="row3">
-                    <button class="neat-button" type="submit">ОТПРАВИТЬ СООБЩЕНИЕ</button>
+                    <button id="mail-send" class="neat-button" type="submit">ОТПРАВИТЬ СООБЩЕНИЕ</button>
                 </div>
 
             </form>

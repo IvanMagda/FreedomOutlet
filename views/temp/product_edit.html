@@ -1,0 +1,21 @@
+@{layout('')}
+<head>
+    @{import('http://code.jquery.com/jquery-1.11.0.min.js')}
+    @{import('product_client.js')}
+    @{import('temp_style.css')}
+</head>
+
+<div id="content-wrapper">
+    <form id="edit-product-form" action="#">
+        <input type="hidden" name="id" value="@{model.product.id}">
+        <table>
+            <tr><td>Name: </td><td><input name="name" type="text" value="@{model.product.name}"/></td></tr>
+            <tr><td>Manufacturer: </td><td><input name="manufacturer" type="text" value="@{model.product.manufacturer}"/></td></tr>
+            <tr><td>Price: </td><td><input name="price" type="number"value="@{model.product.price}" /></td></tr>
+            <tr><td>Description: </td><td><input name="description" type="text" value="@{model.product.description}"/></td></tr>
+        </table>
+    </form>
+    <button id="edit-product">
+        Edit
+    </button>
+</div>
