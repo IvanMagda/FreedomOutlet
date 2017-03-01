@@ -246,14 +246,11 @@ a {
 
 
 
-.right-sidebar {
-    position: relative;
-    display: flex;
-    outline: 1px solid magenta;
-    width: 30%;
-    height: 200px;
 
-}
+
+
+
+
 
 
 
@@ -261,24 +258,47 @@ a {
 .main-gallery {
     display: flex;
     position: relative;
-    width: 73.8%;
-    height: 700px;
+    /*width: 73.8%;*/
+    /*height: 1700px;*/
     outline: 3px solid green;
     margin-top: 3%;
     /*justify-content: center;*/
 }
 
-.main-product-card-gall {
-    width: 80%;
-    position: relative;
+.main-gallery .gallery-container {
+    width: 70%;
+    /*height: 100%;*/
+    display: flex;
+    justify-content: center;
+}
+
+.main-gallery .main-product-card-gall {
+    width: 50%;
+}
+
+
+.main-gallery .right-sidebar {
+    position: absolute;
+    right: 0;
+    display: flex;
+    outline: 1px solid magenta;
+    width: 30%;
+    height: 100%;
 }
 
 .main-gallery .main-product-card-gall .item {
-    width: 15.1% !important;
+    /*width: 15.1% !important;*/
+    margin-left: 500px;
+    margin-right: 500px;
+
+    /*display: flex !important;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*flex-direction: column;*/
 }
 
 .main-gallery .main-product-card-gall .item img {
-    position: relative;
+    /*position: relative;*/
 }
 
 .main-product-card-gall .slick-prev::before,
@@ -311,12 +331,9 @@ a {
     right: -25%;
 }
 
-.slick-initialized .slick-slide {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+
+
+
 
 
 
@@ -329,7 +346,7 @@ a {
     position: relative;
     width: 100%;
 
-    outline: 2px solid blue;
+    /*outline: 2px solid blue;*/
 }
 
 .also-like-title-conteiner {
@@ -338,7 +355,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    outline: 1px solid black;
+    /*outline: 1px solid black;*/
 }
 
 .also-like-title {
@@ -354,7 +371,7 @@ a {
 
 .text-also-like {
     font-family: Georgia;
-    margin-left: -11%;
+    margin-left: -10%;
     font-size: 40px;
     color: #3e4546;
     position: absolute;
@@ -421,7 +438,7 @@ a {
     width: 100%;
     margin-bottom: 4vw;
     margin-top: 3vw;
-    outline: 1px solid red;
+    /*outline: 1px solid red;*/
 }
 
 .container-button-look-all a .button-look-all {
@@ -459,7 +476,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    outline: 1px solid black;
+    /*outline: 1px solid black;*/
 }
 
 .more-from-vendor-title {
@@ -480,6 +497,88 @@ a {
     font-size: 40px;
     color: #3e4546;
     position: absolute;
+}
+
+
+.gallery {
+    display: flex;
+    justify-content: center;
+}
+
+.product-card-carousel {
+    width: 80%;
+}
+
+.product-card-carousel .slick-prev::before,
+.product-card-carousel .slick-next::before {
+    color: #3e4546;;
+    font-size: 3vw;
+    font-family: RobotoLight;
+}
+
+.product-card-carousel .slick-prev::before {
+    content: "\2039";
+}
+
+.product-card-carousel .slick-next::before {
+    content: "\203a";
+}
+
+
+.product-card-carousel .slick-prev,
+.product-card-carousel .slick-next {
+    position: absolute;
+    top: 28%;
+}
+
+.product-card-carousel .slick-prev {
+    left: -65px;
+}
+
+.product-card-carousel .slick-next {
+    right: -65px;
+}
+
+.product-card-carousel.slick-initialized .slick-slide {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.product-card-carousel .slick-slide img,
+.product-card-carousel .title-product-gall {
+    width: 90%;
+}
+
+.title-product-gall {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    flex-direction: column;
+    border-top: 1px solid lightgray;
+}
+
+.title-product-gall .tit {
+    margin-top: 5%;
+    font-family: Georgia;
+    color: #3e4546;
+    font-size: 1.6vw;
+}
+
+.title-product-gall .vendor {
+    font-size: 0.8vw;
+    /*color: #e8ebef;*/
+    color: #898f90;
+    font-family: RobotoLight;
+    margin-top: 1%;
+}
+
+.title-product-gall .price {
+    font-size: 1vw;
+    font-family: RobotoLight;
+    color: #2a2a2a;
 }
 
 
@@ -716,84 +815,3 @@ a {
 
 
 
-
-.gallery {
-    display: flex;
-    justify-content: center;
-}
-
-.product-card-carousel {
-    width: 80%;
-}
-
-.product-card-carousel .slick-prev::before,
-.product-card-carousel .slick-next::before {
-    color: #3e4546;;
-    font-size: 3vw;
-    font-family: RobotoLight;
-}
-
-.product-card-carousel .slick-prev::before {
-    content: "\2039";
-}
-
-.product-card-carousel .slick-next::before {
-    content: "\203a";
-}
-
-
-.product-card-carousel .slick-prev,
-.product-card-carousel .slick-next {
-    position: absolute;
-    top: 28%;
-}
-
-.product-card-carousel .slick-prev {
-    left: -65px;
-}
-
-.product-card-carousel .slick-next {
-    right: -65px;
-}
-
-.slick-initialized .slick-slide {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.product-card-carousel .slick-slide img,
-.product-card-carousel .title-product-gall {
-    width: 90%;
-}
-
-.title-product-gall {
-    margin-top: 5%;
-    display: flex;
-    justify-content: center;
-    /*align-items: center;*/
-    flex-direction: column;
-    border-top: 1px solid lightgray;
-}
-
-.title-product-gall .tit {
-    margin-top: 5%;
-    font-family: Georgia;
-    color: #3e4546;
-    font-size: 1.6vw;
-}
-
-.title-product-gall .vendor {
-    font-size: 0.8vw;
-    /*color: #e8ebef;*/
-    color: #898f90;
-    font-family: RobotoLight;
-    margin-top: 1%;
-}
-
-.title-product-gall .price {
-    font-size: 1vw;
-    font-family: RobotoLight;
-    color: #2a2a2a;
-}
