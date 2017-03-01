@@ -4,13 +4,7 @@ var config;
 
 switch (F.config.DBPROVIDER) {
     case "mysql":
-        config = {
-            host: 'localhost',
-            user: 'root',
-            password: 'root',
-            database: 'outlet',
-            multipleStatements: true
-        };
+        config = F.config.DEVMYSQLSERVER;
         break;
     case "sqlserver":
         config = {
@@ -22,6 +16,8 @@ switch (F.config.DBPROVIDER) {
     default:
         throw "Provider not supported";
 }
+
+
 
 var sqlAgent = require('sqlagent/' + F.config.DBPROVIDER).init(config, true);
 
