@@ -38,7 +38,7 @@ function main() {
 function view_products_list() {
     var self = this;
     console.log(self.query);
-    var sort = self.query.sort || 'default'
+    var sort = self.query.sort || 'name'
 
     var products = Product.list.length;
     var page = (self.query.page || '1').parseInt();
