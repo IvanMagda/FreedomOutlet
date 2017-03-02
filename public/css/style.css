@@ -11,6 +11,35 @@ html {
 ::-webkit-scrollbar-thumb {
     background: #FF0000;
 }
+#validateGlobal,
+#validateName,
+#validatePhone,
+#validateMessage {
+    font-family:RobotoLight;
+    color: red;
+    visibility:hidden;
+}
+
+#validateGlobal{
+    display:flex;
+    justify-content:flex-end;
+}
+
+#validateName {
+    position: absolute;
+    padding-left: 24%;
+}
+
+#validatePhone {
+    position: absolute;
+    padding-left: 49%;
+}
+
+#validateMessage {
+    position: absolute;
+    padding-left: 49%;
+    padding-top: 10px;
+}
 
 @font-face {
     font-family: RobotoLight;
@@ -46,8 +75,6 @@ body {
     height: 120px;
     background: #292929;
 }
-
-
 
 
 
