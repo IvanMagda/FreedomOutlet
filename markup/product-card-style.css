@@ -15,6 +15,17 @@
 }
 
 
+@font-face {
+    font-family: Roboto-LightItalic;
+    src: url(fonts/Roboto/Roboto-LightItalic.ttf); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: FetteEngschrift;
+    src: url(fonts/Fette-engschrift/Fette-Engschrift-D-OT_17476.ttf); /* Путь к файлу со шрифтом */
+}
+
+
 body {
     position: relative;
     width: 100%;
@@ -203,7 +214,7 @@ a {
     margin-left: 7%;
     margin-right: 7%;
     min-width: 900px;
-    outline: 2px solid blue;
+    /*outline: 2px solid blue;*/
 }
 
 .breadcrumbs {
@@ -245,60 +256,231 @@ a {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 .main-gallery {
-    display: flex;
     position: relative;
-    /*width: 73.8%;*/
-    /*height: 1700px;*/
-    outline: 3px solid green;
     margin-top: 3%;
-    /*justify-content: center;*/
+
 }
 
 .main-gallery .gallery-container {
-    width: 70%;
-    /*height: 100%;*/
-    display: flex;
-    justify-content: center;
+
+    width: 65%;
+    margin-left: 5%;
+    margin-right: 5%;
+    /*outline: 3px solid green;*/
+    text-align: center;
+
+
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*width: 70%;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
 }
 
-.main-gallery .main-product-card-gall {
-    width: 50%;
-}
+
+
+/*.main-gallery .main-product-card-gall {*/
+    /*width: 50%;*/
+/*}*/
+
 
 
 .main-gallery .right-sidebar {
     position: absolute;
+    top: 0;
     right: 0;
-    display: flex;
-    outline: 1px solid magenta;
-    width: 30%;
+
+    /*outline: 1px solid magenta;*/
+    width: 25%;
     height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #9ba3aa;
+    border-top: 1px solid #9ba3aa;
+    border-left: 1px solid #9ba3aa;
+}
+
+.main-gallery .right-sidebar > div {
+    margin-left: 10%;
+}
+
+.right-sidebar .title {
+    margin-top: 5%;
+    font-size: 30pt;
+    font-family: Georgia;
+    color: #2a2a2a;
+}
+
+.right-sidebar .name {
+    margin-top: -8%;
+    font-size: 1vw;
+    font-family: RobotoLight;
+    color: #898f90;
+}
+
+.right-sidebar .country {
+    margin-top: -10%;
+    font-size: 1vw;
+    font-family: RobotoLight;
+    color: #898f90;
+}
+
+.right-sidebar .vendor {
+    margin-top: -5%;
+    font-size: 1vw;
+    font-family: RobotoLight;
+    color: #2a2a2a;
+}
+
+.right-sidebar .size {
+    margin-top: -10%;
+    font-size: 1vw;
+    font-family: RobotoLight;
+    color: #2a2a2a;
+}
+
+.right-sidebar .prise {
+     margin-top: -5%;
+     font-size: 1.2vw;
+     font-family: Roboto-Medium;
+     color: #2a2a2a !important;
+}
+
+.right-sidebar .discount {
+    margin-top: -9%;
+    font-size: 0.95vw;
+    font-family: Roboto-ThinItalic;
+    color: #9ba3aa;
+}
+
+.right-sidebar .button-container {
+    border-bottom: 1px solid #2a2a2a;
+    border-top: 1px solid #2a2a2a;
+    margin-right: 10%;
+    margin-bottom: -5%;
+}
+
+.right-sidebar .button-container a {
+    display: block;
+    text-align: center;
+    padding: 5%;
+    cursor: pointer;
+}
+
+.right-sidebar .button-container a .text-button {
+    font-size: 1.2vw;
+    font-family: RobotoLight;
+    color: #2a2a2a;
+}
+
+.right-sidebar .social-container .three-d {
+    display: inline-block;
+}
+
+.right-sidebar .social-container .three-d a {
+    font-size: 2.3vw;
+    color: #9ba3aa;
+    cursor: pointer;
+    font-family: FetteEngschrift;
+}
+
+.right-sidebar .social-container .hover-window {
+    display: none;
+    position: absolute;
+    margin-top: -15%;
+    margin-left: 10%;
+    background: white;
+    padding: 2%;
+    box-shadow: 6px 4px 15px -3px lightgrey;
+    z-index: 999999;
+}
+
+.right-sidebar .social-container .hover-window span {
+    font-family: Roboto-LightItalic;
+    color: #9ba3aa;
+    font-size: 0.7vw;
+}
+
+.right-sidebar .social-container .three-d:hover .hover-window {
+    display: block;
+}
+
+
+
+.right-sidebar .social-container {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10%;
+    align-items: center;
+    margin-bottom: -5%;
+}
+
+.right-sidebar .social-container .social {
+    display: inline-block;
+}
+
+.right-sidebar .social-container .social .product-card-social-1 {
+    width: 1.6vw;
+    margin-right: 5px;
+    display: inline-block;
+    position: relative;
+}
+
+.right-sidebar .social-container .social .product-card-social-2 {
+    width: 1.6vw;
+    display: inline-block;
+    position: relative;
+}
+
+.right-sidebar .social-container .social .product-card-social-3 {
+    display: inline-block;
+    width: 2vw;
+    position: relative;
+}
+
+.right-sidebar .social-container .social .product-card-social-1 a img,
+.right-sidebar .social-container .social .product-card-social-2 a img,
+.right-sidebar .social-container .social .product-card-social-3 a img {
+    width: 100%;
+}
+
+.right-sidebar .about a {
+    margin-top: -10%;
+    font-size: 1vw;
+    font-family: Roboto-Medium;
+    color: #2a2a2a;
+}
+
+.right-sidebar .in-shop{
+    margin-top: -7%;
+    font-size: 1vw;
+    font-family: Roboto-Medium;
+    color: #2a2a2a;
+}
+
+.right-sidebar .adres{
+    margin-top: -5%;
+    font-size: 0.9vw;
+    font-family: Roboto-LightItalic;
+    color: #9ba3aa;
+}
+.right-sidebar .phone {
+    margin-bottom: 5%;
+}
+
+.right-sidebar .phone a {
+    font-size: 1vw;
+    font-family: Roboto-Medium;
+    color: #2a2a2a;
 }
 
 .main-gallery .main-product-card-gall .item {
-    /*width: 15.1% !important;*/
-    margin-left: 500px;
-    margin-right: 500px;
-
-    /*display: flex !important;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    /*flex-direction: column;*/
-}
-
-.main-gallery .main-product-card-gall .item img {
-    /*position: relative;*/
+    display: flex;
+    justify-content: center;
 }
 
 .main-product-card-gall .slick-prev::before,
@@ -324,21 +506,18 @@ a {
 }
 
 .main-product-card-gall .slick-prev {
-    left: 2%;
+    /*left: 2%;*/
 }
 
 .main-product-card-gall .slick-next {
-    right: -25%;
+    /*right: -25%;*/
 }
 
-
-
-
-
-
-
-
-
+.counter span {
+    font-family: RobotoLight;
+    color: #9ba3aa;
+    margin-bottom: 5%;
+}
 
 
 
@@ -466,7 +645,9 @@ a {
 
 
 
-
+.more-from-vendor {
+    margin-top: 5%;
+}
 
 .more-from-vendor-title-conteiner {
     position: relative;
