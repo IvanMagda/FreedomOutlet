@@ -610,6 +610,52 @@ a {
     color: #2a2a2a;
 }
 
+
+
+.product-list-icon-heart,
+.product-list-icon-info {
+    position: absolute;
+    right: 0;
+    width: 7%;
+    z-index: 999999;
+    margin-right: 7px;
+}
+
+.product-list-icon-info {
+    top: 13%;
+    cursor: pointer;
+}
+
+.product-list-icon-heart {
+    top: 3%;
+    cursor: pointer;
+}
+
+.product-list-icon-heart-img,
+.product-list-icon-info-img {
+    width: 100%;
+    position: absolute;
+}
+
+.product-list-icon-heart2-img {
+    display: none;
+}
+
+.product-list-icon-heart .product-list-icon-heart2-img {
+    display: none;
+    width: 100%;
+}
+
+.product-list-icon-heart:hover .product-list-icon-heart2-img  {
+    display: inline-block;
+}
+
+
+
+
+
+
+
 .container-button-look-all {
     display: flex;
     justify-content: center;
