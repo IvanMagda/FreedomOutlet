@@ -684,6 +684,7 @@ a {
     /*margin-left: 100px;*/
     /*outline: 2px solid white;*/
     line-height: 1.3vw;
+    font-family: RobotoLight;
 }
 
 #footer-about_company {
@@ -704,7 +705,8 @@ a {
 }
 
 
-#footer-nav-menu .li:hover a {
+#footer-nav-menu .li:hover {
+    display: inline-block;
     border-bottom: 2px solid red;
 }
 
