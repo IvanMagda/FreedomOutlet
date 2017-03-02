@@ -3,7 +3,7 @@ var fs = require('fs');
 
 exports.install = function () {
     F.route('/', main);
-    F.route('/products', view_products_list);
+    F.route('/products/{category}', view_products_list);
     F.route('/admin', view_admin);
     F.route('/products/{product_id}', view_product);
     F.route('/admin/{product_id}', view_admin_product);
@@ -35,9 +35,11 @@ function main() {
 
 }
 
-function view_products_list() {
+function view_products_list(categ) {
     var self = this;
     console.log(self.query);
+    var category = categ;
+    console.log(category);
     var sort = self.query.sort || 'name'
 
     var products = Product.list.length;
@@ -47,6 +49,7 @@ function view_products_list() {
 
     Product.pagination(page, perpage, sort, function (prod) {
         self.view('/list_product/list-product', {
+            breadcrumbs: category,
             sort:sort,
             items: perpage,
             products: prod,

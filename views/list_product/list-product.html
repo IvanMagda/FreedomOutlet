@@ -4,8 +4,14 @@
 <div class="breadcrumbs">
     <ul>
         <li><a>Главная</a></li>
-        <li><a>Спальня</a></li>
-        <li><a>Люстры</a></li>
+        @{if model.breadcrumbs=='kitchen'}<li><a>Кухни</a></li>@{endif}
+        @{if model.breadcrumbs=='bedroom'}<li><a>Спальни</a></li>@{endif}
+        @{if model.breadcrumbs=='soft'}<li><a>Мягкая</a></li>@{endif}
+        @{if model.breadcrumbs=='living'}<li><a>Гостинные</a></li>@{endif}
+        @{if model.breadcrumbs=='dining'}<li><a>Столовые</a></li>@{endif}
+        @{if model.breadcrumbs=='chandelier'}<li><a>Люстры</a></li>@{endif}
+        @{if model.breadcrumbs=='sanitary'}<li><a>Сантехника</a></li>@{endif}
+        @{if model.breadcrumbs=='accessories'}<li><a>Аксессуары</a></li>@{endif}
     </ul>
 </div>
 <div class="info-nav">
@@ -25,7 +31,7 @@
                             @{if model.sort=='name'} По умолчанию @{endif}
                             @{if model.sort=='manufacturer'} Фабрике @{endif}
                             @{if model.sort=='price'} Цене @{endif}
-                            <img class="arrow" src="img/arrow.png">
+                            <img class="arrow" src="/../img/arrow.png">
                         </a>
                     </li>
                 </ul>
@@ -33,19 +39,19 @@
                     <li  @{if model.sort=='name'} class="active"@{endif}>
                         <a href="#" onclick="active(this)" name="name">
                             По умолчанию
-                            <img class="arrow" src="img/arrow-red.png">
+                            <img class="arrow" src="/../img/arrow-red.png">
                         </a>
                     </li>
                     <li  @{if model.sort=='manufacturer'} class="active"@{endif}>
                         <a href="#" onclick="active(this)" name="manufacturer">
                             Фабрике
-                            <img class="arrow" src="img/arrow-red.png">
+                            <img class="arrow" src="/../img/arrow-red.png">
                         </a>
                     </li>
                     <li @{if model.sort=='price'} class="active"@{endif}>
                         <a href="#" onclick="active(this)" name="price">
                             Цене
-                            <img class="arrow" src="img/arrow-red.png">
+                            <img class="arrow" src="/../img/arrow-red.png">
                         </a>
                     </li>
                 </ul>
@@ -60,7 +66,7 @@
                     <li>
                         <a href="#">
                             @{model.items}
-                            <img class="arrow" src="img/arrow.png">
+                            <img class="arrow" src="/../img/arrow.png">
                         </a>
                     </li>
                 </ul>
@@ -68,31 +74,31 @@
                     <li @{if model.items=='15'} class="active"@{endif}>
                         <a href="#" onclick="active(this)" name="15">
                             15
-                            <img class="arrow" src="img/arrow-red.png">
+                            <img class="arrow" src="/../img/arrow-red.png">
                         </a>
                     </li>
                     <li @{if model.items=='25'} class="active"@{endif}>
                         <a href="#" onclick="active(this)" name="25">
                             25
-                            <img class="arrow" src="img/arrow-red.png">
+                            <img class="arrow" src="/../img/arrow-red.png">
                         </a>
                     </li>
                     <li @{if model.items=='50'} class="active"@{endif}>
                         <a href="#" onclick="active(this)" name="50">
                             50
-                            <img class="arrow" src="img/arrow-red.png">
+                            <img class="arrow" src="/../img/arrow-red.png">
                         </a>
                     </li>
                     <li @{if model.items=='75'} class="active"@{endif}>
                         <a href="#" onclick="active(this)" name="75">
                             75
-                            <img class="arrow" src="img/arrow-red.png">
+                            <img class="arrow" src="/../img/arrow-red.png">
                         </a>
                     </li>
                     <li @{if model.items=='100'} class="active"@{endif}>
                         <a href="#" onclick="active(this)" name="100">
                             100
-                            <img class="arrow" src="img/arrow-red.png">
+                            <img class="arrow" src="/../img/arrow-red.png">
                         </a>
                     </li>
                 </ul>
@@ -104,11 +110,11 @@
     @{foreach product in model.products}
     <div class="item">
         <div class="item-icon-heart">
-            <img class="item-icon-heart-img" src="img/heart-1.png">
-            <img class="item-icon-heart2-img" src="img/heart-2.png">
+            <img class="item-icon-heart-img" src="/../img/heart-1.png">
+            <img class="item-icon-heart2-img" src="/../img/heart-2.png">
         </div>
         <div class="item-icon-info">
-            <img class="item-icon-info-img" src="img/new-carousel/info-icon.png" onclick="info_tile(this)">
+            <img class="item-icon-info-img" src="/../img/new-carousel/info-icon.png" onclick="info_tile(this)">
         </div>
         <img class="item-main-img" src="@{product.title_img_src}" alt="Image 1">
         <div class="title-new-product">
@@ -125,7 +131,7 @@
                 <br>
                 <span class="vendor">@{product.manufacturer}</span>
                 <div class="cross">
-                    <img class="simple cross-img" src="img/cross.png" onclick="close_info(this)">
+                    <img class="simple cross-img" src="/../img/cross.png" onclick="close_info(this)">
                 </div>
             </div>
             <div class="content">
@@ -140,7 +146,7 @@
 <div class="pagination-container">
     <div class="pagination">
         <ul id="paginationUl">
-            <li class="back"><a href="javascript:void(0);"><img src="img/pagination-back.png" /></a></li>
+            <li class="back"><a href="javascript:void(0);"><img src="/../img/pagination-back.png" /></a></li>
             <li class="first"><a href="javascript:void(0);">1</a></li>
             <li>...</li>
             <li><a href="javascript:void(0);">5</a></li>
@@ -151,7 +157,7 @@
             <li><a href="javascript:void(0);">10</a></li>
             <li>...</li>
             <li class="last"><a href="javascript:void(0);">30</a></li>
-            <li class="forward"><a href="javascript:void(0);"><img src="img/pagination-forward.png" /></a></li>
+            <li class="forward"><a href="javascript:void(0);"><img src="/../img/pagination-forward.png" /></a></li>
         </ul>
     </div>
 </div>

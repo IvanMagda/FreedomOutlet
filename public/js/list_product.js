@@ -47,9 +47,9 @@ function pagination() {
 
     if (num > 1) {
         var prev = num - 1;
-        html += '<li class="back"><a href="#" onclick="pagingClick(this)" name="?page=' + prev + '"><img src="img/pagination-back.png" /></a></li>';
+        html += '<li class="back"><a href="#" onclick="pagingClick(this)" name="?page=' + prev + '"><img src="/../img/pagination-back.png" /></a></li>';
     } else {
-        html += '<li class="back"><a href="#"><img src="img/pagination-back.png" /></a></li>';
+        html += '<li class="back"><a href="#"><img src="/../img/pagination-back.png" /></a></li>';
     }
 
     for (var i = 1; i <= limit; i++) {
@@ -71,9 +71,9 @@ function pagination() {
 
     if (num < limit) {
         var next = num + 1;
-        html += '<li class="forward"><a href="#" onclick="pagingClick(this)" name="?page=' + next + '"><img src="img/pagination-forward.png" /></a></li>';
+        html += '<li class="forward"><a href="#" onclick="pagingClick(this)" name="?page=' + next + '"><img src="/../img/pagination-forward.png" /></a></li>';
     } else {
-        html += '<li class="forward"><a href="#"><img src="img/pagination-forward.png" /></a></li>';
+        html += '<li class="forward"><a href="#"><img src="/../img/pagination-forward.png" /></a></li>';
     }
 
     console.log(arr);
