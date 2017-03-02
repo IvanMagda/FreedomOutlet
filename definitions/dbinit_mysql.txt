@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS `outlet`.`products` (
   `price` INT(11) NULL DEFAULT NULL,
   `description` LONGTEXT NULL DEFAULT NULL,
   `image_name` VARCHAR(45) NULL DEFAULT NULL,
+  `category` VARCHAR(45) NULL DEFAULT NULL,
   `is_new` BIT(1) NULL DEFAULT NULL,
   `title_img_src` LONGTEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`),

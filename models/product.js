@@ -186,19 +186,22 @@ Product.imgs = function (id, callback) {
     //console.log(imgs_arr);
 }
 
-Product.pagination = function (page, items, sort, callback) {
+Product.pagination = function (page, items, sort, category, callback) {
     var sql = DATABASE();
     sql.select('prod', 'products').make(function (builder) {
+        builder.where('category', category);
         builder.order(sort);
         builder.page(page, items);
     });
     sql.exec(function (err, response) {
         var list = [];
-        
-        response.prod.forEach(function (e) {
-            var p = Product.make(e);
-            list.push(p);
-        })
+
+        if (response.prod) {
+            response.prod.forEach(function (e) {
+                var p = Product.make(e);
+                list.push(p);
+            })
+        }
 
         callback(list);
     });

@@ -37,9 +37,7 @@ function main() {
 
 function view_products_list(categ) {
     var self = this;
-    console.log(self.query);
     var category = categ;
-    console.log(category);
     var sort = self.query.sort || 'name'
 
     var products = Product.list.length;
@@ -47,7 +45,7 @@ function view_products_list(categ) {
     var perpage = (self.query.number || '15').parseInt();
     var pagination = new Builders.Pagination(products, page, perpage, '?page={0}');
 
-    Product.pagination(page, perpage, sort, function (prod) {
+    Product.pagination(page, perpage, sort, category, function (prod) {
         self.view('/list_product/list-product', {
             breadcrumbs: category,
             sort:sort,

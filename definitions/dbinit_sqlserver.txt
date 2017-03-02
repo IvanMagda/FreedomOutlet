@@ -5,6 +5,7 @@ IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='products' AND xtype='U')
 		manufacturer VARCHAR(45) NULL,
 		price int NULL,
 		description text NULL,
+		category VARCHAR(45) NULL,
 		image_name VARCHAR(45) NULL,
 		is_new BIT NULL,
 		title_img_src text NULL,
