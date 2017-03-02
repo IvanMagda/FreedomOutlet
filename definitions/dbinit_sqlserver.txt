@@ -3,12 +3,18 @@ IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='products' AND xtype='U')
 		id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 		name VARCHAR(45) NULL,
 		manufacturer VARCHAR(45) NULL,
+		manufacturer_country VARCHAR(45) NULL,
+		series VARCHAR(45) NULL,
+		dimensions VARCHAR(45) NULL,
 		price int NULL,
+		discount int NULL,
 		description text NULL,
 		category VARCHAR(45) NULL,
 		image_name VARCHAR(45) NULL,
 		is_new BIT NULL,
 		title_img_src text NULL,
+		virtual_model_src text NULL,
+		available_in text NULL,
 	);
 
 IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='users' AND xtype='U')
