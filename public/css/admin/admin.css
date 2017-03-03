@@ -307,3 +307,8 @@ _:-ms-input-placeholder, :root .outlet-graph {
 .h_34{
     height:34px;
 }
+
+#category_holder{
+    display: flex;
+    flex-direction:column;
+}

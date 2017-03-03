@@ -19,8 +19,25 @@
                 <label class="mdl-textfield__label" for="sample1">Manufacturer</label>
             </div>
             <div class="create-product mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" name="manufacturer_country">
+                <label class="mdl-textfield__label" for="sample1">Manufacturer Country</label>
+            </div>
+            <div class="create-product mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" name="series">
+                <label class="mdl-textfield__label" for="sample1">Series</label>
+            </div>
+            <div class="create-product mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" name="dimensions">
+                <label class="mdl-textfield__label" for="sample1">Dimensios</label>
+            </div>
+            <div class="create-product mdl-textfield mdl-js-textfield">
                 <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="price">
                 <label class="mdl-textfield__label" for="sample2">Price</label>
+                <span class="mdl-textfield__error">Input is not a number!</span>
+            </div>
+            <div class="create-product mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="discount">
+                <label class="mdl-textfield__label" for="sample2">Discount</label>
                 <span class="mdl-textfield__error">Input is not a number!</span>
             </div>
             <div class="create-product mdl-textfield mdl-js-textfield">
@@ -40,7 +57,7 @@
                         <input class="mdl-textfield__input" placeholder="No file chosen" type="text" id="TEXT_ID" readonly />
                         <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
                             <i class="material-icons">attach_file</i>
-                            <input type="file" name="File" id="file1" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;" />
+                            <input type="file" name="title_file" id="file1" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;" />
                         </div>
                     </div>
                 </div>
@@ -51,7 +68,41 @@
                 <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" name="is_new">
                 <span class="mdl-checkbox__label">Show on main page</span>
             </label>
-            
+            <hr />
+            <div id="category_holder">
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                    <input type="radio" id="option-1" class="mdl-radio__button" name="category" value="kitchen" checked>
+                    <span class="mdl-radio__label">Kitchen</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                    <input type="radio" id="option-2" class="mdl-radio__button" name="category" value="bedroom">
+                    <span class="mdl-radio__label">Bedroom</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                    <input type="radio" id="option-3" class="mdl-radio__button" name="category" value="soft">
+                    <span class="mdl-radio__label">Soft</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
+                    <input type="radio" id="option-4" class="mdl-radio__button" name="category" value="living">
+                    <span class="mdl-radio__label">Living</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-5">
+                    <input type="radio" id="option-5" class="mdl-radio__button" name="category" value="dining">
+                    <span class="mdl-radio__label">Dining</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-6">
+                    <input type="radio" id="option-6" class="mdl-radio__button" name="category" value="chandelier">
+                    <span class="mdl-radio__label">Chandelier</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-7">
+                    <input type="radio" id="option-7" class="mdl-radio__button" name="category" value="sanitary">
+                    <span class="mdl-radio__label">Sanitary</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-8">
+                    <input type="radio" id="option-8" class="mdl-radio__button" name="category" value="accessories">
+                    <span class="mdl-radio__label">Accessories</span>
+                </label>
+            </div>
             <!--<progress id="progr"></progress>-->
         </div>
     </div>

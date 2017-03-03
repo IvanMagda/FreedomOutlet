@@ -6,11 +6,18 @@ var Product = NEWSCHEMA('Product');
 Product.define('id', Number);
 Product.define('name', String);
 Product.define('manufacturer', String);
+Product.define('manufacturer_country', String);
+Product.define('series', String);
+Product.define('dimensions', String);
 Product.define('price', Number);
+Product.define('discount', Number);
 Product.define('description', String);
+Product.define('category', String);
 Product.define('image_name', String);
 Product.define('is_new', Boolean);
 Product.define('title_img_src', String);
+Product.define('virtual_model_src', String);
+Product.define('available_in', String);
 
 Product.add = function (product) {
     var p = Product.make(product);
@@ -44,12 +51,22 @@ Product.dell = function (id) {
 }
 
 Product.create_new = function (product, files, callback) {
+    console.log(product);
+
     files.forEach(function (e) {
-        console.log(e.path)
+        console.log(e)
     })
 
+    var last_id;
+    if (Product.list && Product.list[Product.list.length - 1]) {
+        last_id = Product.list[Product.list.length - 1].id;
+    } else {
+        last_id = 0;
+    }
+
+
     var sql = DATABASE();
-    var productDir = __dirname + '/../public/tmp/' + (Product.list[Product.list.length - 1].id + 1) + '/';
+    var productDir = __dirname + '/../public/tmp/' + (last_id + 1) + '/';
 
     if (product.is_new == "on") {
         product.is_new = true;
@@ -57,9 +74,10 @@ Product.create_new = function (product, files, callback) {
         product.is_new = false;
     }
 
-    if (files[0]) {
-        product.image_name = files[0].filename;
-        product.title_img_src = '/tmp/' + (Product.list[Product.list.length - 1].id + 1) + '/' + files[0].filename;
+    if (files[0].name == 'title_file') {
+        product.image_name = 'Title.';
+        product.image_name += files[0].filename.split('.')[1];
+        product.title_img_src = '/tmp/' + (last_id + 1) + '/' + product.image_name;
     } else {
         console.log('Title img not selected!');
     };
@@ -68,11 +86,18 @@ Product.create_new = function (product, files, callback) {
         builder.set({
             name: product.name,
             manufacturer: product.manufacturer,
+            manufacturer_country: product.manufacturer_country,
+            series: product.series,
+            dimensions: product.dimensions,
             price: product.price,
+            discount: product.discount,
             description: product.description,
+            category: product.category,
             image_name: product.image_name,
             is_new: product.is_new,
-            title_img_src: product.title_img_src
+            title_img_src: product.title_img_src,
+            virtual_model_src: product.virtual_model_src,
+            available_in: product.available_in
         });
     });
 
@@ -87,9 +112,23 @@ Product.create_new = function (product, files, callback) {
             fs.readFile(files[0].path, function (err, data) {
                 if (err) throw err;
                 fs.mkdir(productDir, function (err) {
-                    fs.writeFile(productDir + files[0].filename, data, function (err) {
+                    fs.writeFile(productDir + product.image_name, data, function (err) {
                         if (err) throw err;
                         console.log('Title img saved!');
+                        files.forEach(function (element, index) {
+                            if (index != 0) {
+                                var galery = 'Galery' + index + '.';
+                                galery += element.filename.split('.')[1];
+                                fs.readFile(element.path, function (err, data) {
+                                    if (err) throw err;
+
+                                    fs.writeFile(productDir + galery, data, function (err) {
+                                        if (err) throw err;
+                                        console.log('Galery img saved!');
+                                    });
+                                });
+                            }
+                        })
                         Product.add(response.new_product[0]);
                         callback(SUCCESS(true));
                     });

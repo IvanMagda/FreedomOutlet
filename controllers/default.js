@@ -40,12 +40,12 @@ function view_products_list(categ) {
     var category = categ;
     var sort = self.query.sort || 'name'
 
-    var products = Product.list.length;
     var page = (self.query.page || '1').parseInt();
     var perpage = (self.query.number || '15').parseInt();
-    var pagination = new Builders.Pagination(products, page, perpage, '?page={0}');
+    
 
     Product.pagination(page, perpage, sort, category, function (prod) {
+        var pagination = new Builders.Pagination(prod.length, page, perpage, '?page={0}');
         self.view('/list_product/list-product', {
             breadcrumbs: category,
             sort:sort,
@@ -80,6 +80,7 @@ function view_product_add() {
 
 function product_create() {
     var self = this;
+    //console.log(self.File.path);
     Product.create_new(self.body, self.files, function (result) {
         self.view('/admin/product_add');
     });
