@@ -1,0 +1,417 @@
+@font-face {
+    font-family: RobotoLight;
+    src: url(fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: Roboto-ThinItalic;
+    src: url(fonts/Roboto/Roboto-ThinItalic.ttf); /* Путь к файлу со шрифтом */
+}
+
+
+@font-face {
+    font-family: Roboto-Medium;
+    src: url(fonts/Roboto/Roboto-Medium.ttf); /* Путь к файлу со шрифтом */
+}
+
+
+
+
+body {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    /*background: url("img/FREEDOM-backgraund.png") no-repeat;*/
+}
+
+a {
+    text-decoration: none;
+    color: #e8ebef;
+}
+
+
+#header {
+    position: relative;
+    width: 100%;
+    height: 130px;
+    background: #292929;
+}
+
+#header-content {
+    position: relative;
+    margin-left: 7%;
+    margin-right: 7%;
+    height: 100%;
+    background: #292929;
+    white-space: nowrap;
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+#logo, .global-nav {
+    vertical-align: top;
+}
+
+#logo {
+    position: relative;
+    display: inline-block;
+    /*top: 0;*/
+    /*bottom: 0;*/
+    width: 22%;
+    height: 100%;
+}
+
+#logo .logo_img {
+    position: absolute;
+    /*top: 0;*/
+    /*left: 0;*/
+    /*height: 150%;*/
+    width: 100%;
+}
+
+.global-nav {
+    width: 52%;
+    height: 88%;
+    margin-left: 2%;
+    margin-top: 0.5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.global-nav .row1,
+.global-nav .row2 {
+    position: relative;
+}
+
+#about_company {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    width: 47%;
+    height: 45%;
+}
+
+#about_company .li,
+#nav-menu .li {
+    display: inline-block;
+    font-family: RobotoLight;
+    font-size: 14px;
+    position: relative;
+    cursor: pointer;
+}
+
+#about_company .li .border,
+#nav-menu .li .border {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: -5px;
+}
+
+#about_company .li:hover .border,
+#nav-menu .li:hover .border {
+    border-bottom: 2px solid red;
+}
+
+#about_company .li a {
+    color: #9ba3aa;
+}
+
+
+
+#nav-menu {
+    position: relative;
+    /*left: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+    /*text-align: justify;*/
+    /*text-align-last: justify;*/
+}
+
+.phone {
+    position: absolute;
+    display: inline-block;
+    height: 50%;
+    right: 30px;
+    top: 16%;
+}
+
+.phone .phone-text {
+    position: relative;
+    /*left: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*height: 50%;*/
+    /*margin-bottom: -2%;*/
+    font-family: RobotoLight;
+    font-size: 1.1vw;
+    color: #e8ebef;
+}
+
+search_block {
+    right: 0;
+    top: 1%;
+    position: absolute;
+    height: 100%;
+    left: 68%;
+    z-index: 5;
+    padding: 0.2vw;
+}
+
+.search_block form {
+    position: absolute;
+    /*left: 0;*/
+    right: -9px;
+    /*top: 0;*/
+    width: 16%;
+    height: 23%;
+    bottom: 24px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.search_block button {
+    position: absolute;
+    right: 0;
+    height: 1.5vw;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    z-index: 50;
+    margin-right: 5px;;
+}
+
+.search_block button img {
+    position: absolute;
+    height: 70%;
+    cursor: pointer;
+    top: 3px;
+    right: 7px;
+}
+
+.search_block input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-size: 0.7vw;
+    right: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#content {
+    position: relative;
+    margin-top: 2%;
+    margin-left: 7%;
+    margin-right: 7%;
+    min-width: 900px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#footer {
+    position: relative;
+    width: 100%;
+    height: 290px;
+    background: #292929;
+}
+
+.footer-content {
+    position: relative;
+    margin-left: 7%;
+    margin-right: 7%;
+    height: 100%;
+    background: #292929;
+    white-space: nowrap;
+    /*outline: 1px solid red;*/
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    /*outline: 1px solid green*/
+    display: inline-block;
+    top: 0;
+    bottom: 0;
+    /*height: 100%;*/
+
+}
+
+.footer-logo_img {
+    width: 19vw;
+}
+
+/*.footer-global-nav {*/
+/*width: 455px;*/
+/*min-width: 455px;*/
+/*height: 195px;*/
+/*!*outline: 2px solid blue;*!*/
+/*margin-top: 55px;*/
+
+/*display: flex;*/
+/*justify-content: flex-start;*/
+/*align-items: flex-start;*/
+/*}*/
+
+#footer-nav-menu {
+    display: inline-block;
+    /*margin-left: 100px;*/
+    /*outline: 2px solid white;*/
+    line-height: 1.3vw;
+}
+
+#footer-about_company {
+    display: inline-block;
+    /*margin-left: 100px;*/
+    /*outline: 2px solid magenta;*/
+    line-height: 1.3vw;
+}
+
+#footer-nav-menu .li a {
+    font-size: 15px;
+    font-family: RobotoLight;
+}
+
+#footer-about_company .li a {
+    font-size: 15px;
+    font-family: RobotoLight;
+}
+
+
+#footer-nav-menu .li:hover a {
+
+    border-bottom: 2px solid red;
+}
+
+#footer-about_company .li:hover a {
+    border-bottom: 2px solid red;
+}
+
+.img-footer {
+    right: 0;
+}
+
+.social-inst,
+.social-face {
+    /*width: 35px;*/
+    /*height: 35px;*/
+    /*border-radius: 10px;*/
+    background: #777777;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.social-inst a,
+.social-face a {
+    width: 35px;
+    height: 35px;
+    display: block;
+    position: relative;
+    margin: 3px;
+}
+
+.social-inst img,
+.social-face img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.social-inst .background,
+.social-face .background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+
+
+.img-inst,
+.img-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /*outline: 1px solid green;*/
+}
+
+.social-inst:hover .background {
+    background: #0484b9;
+}
+
+.social-face:hover .background {
+    background: #3B5998;
+}
+
+
+
+.footer-content .right-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 65%;
+}
+
+.footer-content .right-block .social {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-content .footer-logo,
+.footer-content #footer-nav-menu,
+.footer-content #footer-about_company,
+.footer-content .right-block {
+    margin-top: 50px;
+}
+
+.footer-content .img-footer-outlet {
+    width: 25vw;
+}
+
+
