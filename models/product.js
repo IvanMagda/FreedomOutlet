@@ -52,6 +52,7 @@ Product.dell = function (id) {
 
 Product.create_new = function (product, files, callback) {
     console.log(product);
+    console.log(product.available_in);
 
     files.forEach(function (e) {
         console.log(e)
@@ -82,6 +83,12 @@ Product.create_new = function (product, files, callback) {
         console.log('Title img not selected!');
     };
 
+    files.forEach(function (e) {
+        if (e.name == 'virtual_model') {
+            product.virtual_model_src = '/tmp/' + (last_id + 1) + '/' + e.filename;
+        }
+    })
+
     sql.insert('product_inserted', 'products').make(function (builder) {
         builder.set({
             name: product.name,
@@ -97,7 +104,7 @@ Product.create_new = function (product, files, callback) {
             is_new: product.is_new,
             title_img_src: product.title_img_src,
             virtual_model_src: product.virtual_model_src,
-            available_in: product.available_in
+            available_in: product.available_in.toString()
         });
     });
 
@@ -116,7 +123,7 @@ Product.create_new = function (product, files, callback) {
                         if (err) throw err;
                         console.log('Title img saved!');
                         files.forEach(function (element, index) {
-                            if (index != 0) {
+                            if (index != 0 || element.name != 'virtual_model') {
                                 var galery = 'Galery' + index + '.';
                                 galery += element.filename.split('.')[1];
                                 fs.readFile(element.path, function (err, data) {
@@ -125,6 +132,17 @@ Product.create_new = function (product, files, callback) {
                                     fs.writeFile(productDir + galery, data, function (err) {
                                         if (err) throw err;
                                         console.log('Galery img saved!');
+                                    });
+                                });
+                            }
+
+                            if (element.name == 'virtual_model') {
+                                fs.readFile(element.path, function (err, data) {
+                                    if (err) throw err;
+
+                                    fs.writeFile(productDir + element.filename, data, function (err) {
+                                        if (err) throw err;
+                                        console.log('3D saved!');
                                     });
                                 });
                             }
