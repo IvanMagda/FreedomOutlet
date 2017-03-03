@@ -1,62 +1,118 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="product-card-style.css">
-</head>
-<body>
-    <div id="header">
-        <div id="header-content">
-            <div id="logo">
-                <img class="logo_img" src="img/logo3.png">
-            </div>
-            <nav class="global-nav">
-                <div class="row1">
-                    <div id="nav-menu" class="ul">
-                        <div class="li"><a href="#">КУХНИ</a><div class="border"></div></div>
-                        <div class="li"><a href="#">СПАЛЬНИ</a><div class="border"></div></div>
-                        <div class="li"><a href="#">МЯГКАЯ</a><div class="border"></div></div>
-                        <div class="li"><a href="#">ГОСТИНЫЕ</a><div class="border"></div></div>
-                        <div class="li"><a href="#">СТОЛОВЫЕ</a><div class="border"></div></div>
-                        <div class="li"><a href="#">ЛЮСТРЫ</a><div class="border"></div></div>
-                        <div class="li"><a href="#">САНТЕХНИКА</a><div class="border"></div></div>
-                        <div class="li"><a href="#">АКСЕССУАРЫ</a><div class="border"></div></div>
-                    </div>
-                </div>
-                <div class="row2">
-                    <div class="search_block">
-                        <form>
-                            <input type="text" placeholder="Поиск">
-                            <button type="submit" class="search"><img src="img/search.png" height="17"></button>
-                        </form>
-                    </div>
-                </div>
-            </nav>
-            <div class="icon">
-                <div class="man">
-                    <a href="#">
-                        <img class="man1" src="img/profil.png">
-                        <img class="man2" src="img/profil2.png">
-                    </a>
-                </div>
-                <div class="heart">
-                    <a href="#">
-                        <img class="heart1" src="img/heart-1.png">
-                        <img class="heart2" src="img/heart-2.png">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+﻿@{layout('/layouts/card/layout')}
     <div id="content">
         <div class="breadcrumbs">
             <ul>
                 <li><a>Главная</a></li>
-                <li><a>Люстры</a></li>
-                <li><a>Visionnaire</a></li>
+                @{if model.product.category=='kitchen'}<li><a>Кухни</a></li>@{endif}
+                @{if model.product.category=='bedroom'}<li><a>Спальни</a></li>@{endif}
+                @{if model.product.category=='soft'}<li><a>Мягкая</a></li>@{endif}
+                @{if model.product.category=='living'}<li><a>Гостинные</a></li>@{endif}
+                @{if model.product.category=='dining'}<li><a>Столовые</a></li>@{endif}
+                @{if model.product.category=='chandelier'}<li><a>Люстры</a></li>@{endif}
+                @{if model.product.category=='sanitary'}<li><a>Сантехника</a></li>@{endif}
+                @{if model.product.category=='accessories'}<li><a>Аксессуары</a></li>@{endif}
+                <li><a style="text-transform:capitalize">@{model.product.manufacturer}</a></li>
             </ul>
         </div>
+
+        <div class="main-gallery">
+            <div class="gallery-container">
+
+                <div class="new-carousel main-product-card-gall">
+                    @{foreach img in model.immages}
+                    <div class="item" name="@{img.size}">
+                        <img src="@{img.file}" alt="Image 1" name="@{img.size}">
+                    </div>
+                    @{end}
+                </div>
+                <div class="counter">
+                    <span><span id="current_img">1</span> из <span id="max_img">@{model.immages.length}</span> изображений</span>
+                </div>
+            </div>
+            <div class="right-sidebar">
+                <div class="title">
+                    <span style="text-transform:capitalize">@{model.product.name}</span>
+                </div>
+                <div class="name">
+                    <span style="text-transform:uppercase">@{model.product.manufacturer}</span>
+                </div>
+                <div class="country">
+                    <span style="text-transform:capitalize">@{model.product.manufacturer_country}</span>
+                </div>
+                <div class="vendor">
+                    <span style="text-transform:uppercase">@{model.product.series}</span>
+                </div>
+                <div class="size">
+                    <span>@{model.product.dimensions}</span>
+                </div>
+                <div class="prise">
+                    <span>@{model.product.price} UAH</span>
+                </div>
+                <div class="discount">
+                    <span>Снижение с @{model.product.discount} UAH</span>
+                </div>
+                <div class="button-container">
+                    <a>
+                        <span class="text-button">КУПИТЬ В ОДИН КЛИК</span>
+                    </a>
+                </div>
+                <div class="social-container">
+                    <div class="three-d">
+                        <a>
+                            <span>3D</span>
+                        </a>
+                        <div class="hover-window">
+                            <span>
+                                Активно только для<br>
+                                зарегистрированых<br>
+                                дизайнеров-архитекторов<br>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="social">
+                        <div class="product-card-social-1">
+                            <a>
+                                <img src="/../img/product-card-social-1.png">
+                            </a>
+                        </div>
+                        <div class="product-card-social-2">
+                            <a>
+                                <img src="/../img/product-card-social-2.png">
+                            </a>
+                        </div>
+                        <div class="product-card-social-3">
+                            <a>
+                                <img src="/../img/product-card-social-3.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="about">
+                    <a>
+                        <span>ОПИСАНИЕ</span>
+                    </a>
+                </div>
+                <div class="in-shop">
+                    <span>НАЛИЧИЕ В МАГАЗИНАХ</span>
+                </div>
+                <div class="adres">
+                    @{foreach avl in model.available}
+                    <span>
+                        @{foreach elem in avl}
+                        @{elem}<br />
+                        @{end}
+                    </span>
+                    <br />
+                    @{end}
+                </div>
+                <div class="phone">
+                    <a>
+                        <span>СВЯЗАТСЯ С НАМИ</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <div class="more-from-vendor">
             <div class="more-from-vendor-title-conteiner">
                 <div class="more-from-vendor-title">
@@ -65,7 +121,14 @@
             </div>
             <div class="product-list">
                 <div class="item">
-                    <img class="item-main-img" src="img/sofa.png" alt="Image 1">
+                    <div class="product-list-icon-heart">
+                        <img class="product-list-icon-heart-img" src="/../img/heart-1.png">
+                        <img class="product-list-icon-heart2-img" src="/../img/heart-2.png">
+                    </div>
+                    <div class="product-list-icon-info">
+                        <img class="product-list-icon-info-img" src="/../img/info-icon.png">
+                    </div>
+                    <img class="item-main-img" src="/../img/sofa.png" alt="Image 1">
                     <div class="title-new-product">
                         <span class="tit">Диван</span>
                         <span class="vendor">AGATHA</span>
@@ -74,7 +137,14 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="item-main-img" src="img/kitchen.png" alt="Image 1">
+                    <div class="product-list-icon-heart">
+                        <img class="product-list-icon-heart-img" src="/../img/heart-1.png">
+                        <img class="product-list-icon-heart2-img" src="/../img/heart-2.png">
+                    </div>
+                    <div class="product-list-icon-info">
+                        <img class="product-list-icon-info-img" src="/../img/info-icon.png">
+                    </div>
+                    <img class="item-main-img" src="/../img/kitchen.png" alt="Image 1">
                     <div class="title-new-product">
                         <span class="tit">Кухня</span>
                         <span class="vendor">AGATHA</span>
@@ -83,7 +153,14 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="item-main-img" src="img/bedroom.png" alt="Image 1">
+                    <div class="product-list-icon-heart">
+                        <img class="product-list-icon-heart-img" src="/../img/heart-1.png">
+                        <img class="product-list-icon-heart2-img" src="/../img/heart-2.png">
+                    </div>
+                    <div class="product-list-icon-info">
+                        <img class="product-list-icon-info-img" src="/../img/info-icon.png">
+                    </div>
+                    <img class="item-main-img" src="/../img/bedroom.png" alt="Image 1">
                     <div class="title-new-product">
                         <span class="tit">Спальня</span>
                         <span class="vendor">AGATHA</span>
@@ -92,7 +169,14 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="item-main-img" src="img/living-room.png" alt="Image 1">
+                    <div class="product-list-icon-heart">
+                        <img class="product-list-icon-heart-img" src="/../img/heart-1.png">
+                        <img class="product-list-icon-heart2-img" src="/../img/heart-2.png">
+                    </div>
+                    <div class="product-list-icon-info">
+                        <img class="product-list-icon-info-img" src="/../img/info-icon.png">
+                    </div>
+                    <img class="item-main-img" src="/../img/living-room.png" alt="Image 1">
                     <div class="title-new-product">
                         <span class="tit">Гостинная</span>
                         <span class="vendor">AGATHA</span>
@@ -101,7 +185,14 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="item-main-img" src="img/living-room-2.png" alt="Image 1">
+                    <div class="product-list-icon-heart">
+                        <img class="product-list-icon-heart-img" src="/../img/heart-1.png">
+                        <img class="product-list-icon-heart2-img" src="/../img/heart-2.png">
+                    </div>
+                    <div class="product-list-icon-info">
+                        <img class="product-list-icon-info-img" src="/../img/info-icon.png">
+                    </div>
+                    <img class="item-main-img" src="/../img/living-room-2.png" alt="Image 1">
                     <div class="title-new-product">
                         <span class="tit">Диван</span>
                         <span class="vendor">AGATHA</span>
@@ -110,7 +201,14 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="item-main-img" src="img/sofa-2.png" alt="Image 1">
+                    <div class="product-list-icon-heart">
+                        <img class="product-list-icon-heart-img" src="/../img/heart-1.png">
+                        <img class="product-list-icon-heart2-img" src="/../img/heart-2.png">
+                    </div>
+                    <div class="product-list-icon-info">
+                        <img class="product-list-icon-info-img" src="/../img/info-icon.png">
+                    </div>
+                    <img class="item-main-img" src="/../img/sofa-2.png" alt="Image 1">
                     <div class="title-new-product">
                         <span class="tit">Кухня</span>
                         <span class="vendor">AGATHA</span>
@@ -119,7 +217,14 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="item-main-img" src="img/bedroom.png" alt="Image 1">
+                    <div class="product-list-icon-heart">
+                        <img class="product-list-icon-heart-img" src="/../img/heart-1.png">
+                        <img class="product-list-icon-heart2-img" src="/../img/heart-2.png">
+                    </div>
+                    <div class="product-list-icon-info">
+                        <img class="product-list-icon-info-img" src="/../img/info-icon.png">
+                    </div>
+                    <img class="item-main-img" src="/../img/bedroom.png" alt="Image 1">
                     <div class="title-new-product">
                         <span class="tit">Спяльня</span>
                         <span class="vendor">AGATHA</span>
@@ -128,7 +233,14 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="item-main-img" src="img/sofa.png" alt="Image 1">
+                    <div class="product-list-icon-heart">
+                        <img class="product-list-icon-heart-img" src="/../img/heart-1.png">
+                        <img class="product-list-icon-heart2-img" src="/../img/heart-2.png">
+                    </div>
+                    <div class="product-list-icon-info">
+                        <img class="product-list-icon-info-img" src="/../img/info-icon.png">
+                    </div>
+                    <img class="item-main-img" src="/../img/sofa.png" alt="Image 1">
                     <div class="title-new-product">
                         <span class="tit">Гостинная</span>
                         <span class="vendor">AGATHA</span>
@@ -137,52 +249,79 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-
-
-
-
-    <div id="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img class="footer-logo_img" src="img/logo3.png">
-            </div>
-            <div id="footer-nav-menu" class="footer-ul">
-                <div class="li"><a href="#">КУХНИ</a></div>
-                <div class="li"><a href="#">СПАЛЬНИ</a></div>
-                <div class="li"><a href="#">МЯГКАЯ</a></div>
-                <div class="li"><a href="#">ГОСТИНЫЕ</a></div>
-                <div class="li"><a href="#">СТОЛОВЫЕ</a></div>
-                <div class="li"><a href="#">ЛЮСТРЫ</a></div>
-                <div class="li"><a href="#">САНТЕХНИКА</a></div>
-                <div class="li"><a href="#">АКСЕССУАРЫ</a></div>
-            </div>
-            <div id="footer-about_company" class="footer-ul">
-                <div class="li"><a href="#">О КОМПАНИИ</a></div>
-                <div class="li"><a href="#">ИДЕИ ДЛЯ ДОМА</a></div>
-                <div class="li"><a href="#">КОНТАКТЫ</a></div>
-            </div>
-            <div class="right-block">
-                <div class="img-footer">
-                    <img class="img-footer-outlet" src="img/footer/outlet-footer.png">
-                </div>
-                <div class="social">
-                    <div class="social-inst">
-                        <a href="#">
-                            <img class="img-inst" src="img/footer/instagram.png">
-                        </a>
+            <div class="container-button-look-all">
+                <a href="#">
+                    <div class="button-look-all">
+                        <span class="text-look-all">СМОТРЕТЬ ВСЕ</span>
                     </div>
-                    <div class="social-face">
-                        <a href="#">
-                            <img class="img-face" src="img/footer/facebook.png">
-                        </a>
-                    </div>
-                </div>
-
+                </a>
             </div>
         </div>
+        <div class="also-like">
+            <div class="also-like-title-conteiner">
+                <div class="also-like-title">
+                    <span class="text-also-like">Вам так же понравится</span>
+                </div>
+            </div>
+            <div class="also-like-content">
+                <div class="gallery">
+                    <div class="new-carousel product-card-carousel">
+                        <div class="item">
+                            <img src="/../img/living-room.png" alt="Image 1">
+                            <div class="title-product-gall">
+                                <span class="tit">Гостинная</span>
+                                <span class="vendor">AGATHA</span>
+                                <br>
+                                <span class="price">89 000 UAH</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="/../img/sofa.png" alt="Image 1">
+                            <div class="title-product-gall">
+                                <span class="tit">Диван</span>
+                                <span class="vendor">AGATHA</span>
+                                <br>
+                                <span class="price">89 000 UAH</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="/../img/bedroom.png" alt="Image 1">
+                            <div class="title-product-gall">
+                                <span class="tit">Спальня</span>
+                                <span class="vendor">AGATHA</span>
+                                <br>
+                                <span class="price">89 000 UAH</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="/../img/living-room.png" alt="Image 1">
+                            <div class="title-product-gall">
+                                <span class="tit">Гостинная</span>
+                                <span class="vendor">AGATHA</span>
+                                <br>
+                                <span class="price">89 000 UAH</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="/../img/sofa.png" alt="Image 1">
+                            <div class="title-product-gall">
+                                <span class="tit">Диван</span>
+                                <span class="vendor">AGATHA</span>
+                                <br>
+                                <span class="price">89 000 UAH</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="/../img/bedroom.png" alt="Image 1">
+                            <div class="title-product-gall">
+                                <span class="tit">Спальня</span>
+                                <span class="vendor">AGATHA</span>
+                                <br>
+                                <span class="price">89 000 UAH</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</body>
-</html>

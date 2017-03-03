@@ -453,7 +453,8 @@ a {
 }
 
     .product-list .item .item-main-img {
-        max-width: 330px;
+        max-width: 328px;
+        max-height: 202px;
         width: 100%;
         margin-bottom: 1vw;
     }
@@ -583,6 +584,7 @@ a {
 
 .item-icon-heart2-img {
     display: none;
+    width: 100%;
 }
 
 .item-icon-heart .item-icon-heart2-img {
@@ -835,4 +837,8 @@ a {
     .footer-logo_img {
         width: 10vw;
     }
+}
+
+.min_w{
+    min-width:208px;
 }

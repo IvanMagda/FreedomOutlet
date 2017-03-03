@@ -1,0 +1,26 @@
+﻿@{layout('')}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @{import('product-card-style.css')}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.3.7/slick.css" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.3.7/slick.min.js"></script>
+    @{import('main.js')}
+    @{import('product_card.js')}
+</head>
+<body>
+    <div id="header">
+        @{view('layouts/card/header')}
+    </div>
+    <div id="content">
+        @{body}
+    </div>
+    <div id="footer">
+        @{view('layouts/main/footer')}
+    </div>
+</body>
+</html>

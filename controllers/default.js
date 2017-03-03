@@ -1,11 +1,12 @@
 var Product = GETSCHEMA('Product');
 var fs = require('fs');
+var shops = require('../definitions/shops.json')
 
 exports.install = function () {
     F.route('/', main);
     F.route('/products/{category}', view_products_list);
     F.route('/admin', view_admin);
-    F.route('/products/{product_id}', view_product);
+    F.route('/product/{product_id}', view_product);
     F.route('/admin/{product_id}', view_admin_product);
     F.route('/products/create', view_product_add);
     F.route('/products/create', product_create, ['upload'], { flags: ['upload'], length: 25 * 1024 * 1024, timeout: 30 * 60 * 1000 });
@@ -59,9 +60,30 @@ function view_products_list(categ) {
 
 function view_product(product_id) {
     var product = Product.by_id[product_id];
+    var img = [];
+    var available = [];
+    var i = 1;
     var self = this;
-    self.view('/product_card/product-card', {
-        product: product
+
+    var avl = product.available_in.split(',');
+    avl.forEach(function (e) {
+        available.push(shops[e]);
+    })
+    console.log(available);
+    Product.imgs(product_id, function (result) {
+        result.forEach(function (e) {
+            if (e.name.indexOf('Galery') > -1) {
+                e.size = i;
+                img.push(e);
+                i++;
+            }
+        })
+        //var immages = JSON.stringify(img);
+        self.view('/product_card/product-card', {
+            product: product,
+            immages: img,
+            available: available
+        });
     });
 }
 

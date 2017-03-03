@@ -182,6 +182,19 @@ Product.update = function (product, callback) {
 Product.delete_p = function (product_id, callback) {
     console.log('delete product from db', product_id);
     var sql = DATABASE();
+    var deleteFolderRecursive = function (path) {
+        if (fs.existsSync(path)) {
+            fs.readdirSync(path).forEach(function (file, index) {
+                var curPath = path + "/" + file;
+                if (fs.lstatSync(curPath).isDirectory()) { // recurse
+                    deleteFolderRecursive(curPath);
+                } else { // delete file
+                    fs.unlinkSync(curPath);
+                }
+            });
+            fs.rmdirSync(path);
+        }
+    };
 
     sql.remove('deleted', 'products').make(function (builder) {
         builder.where('id', product_id);
@@ -189,6 +202,7 @@ Product.delete_p = function (product_id, callback) {
     sql.exec(function (err, response) {
         console.log(response.deleted)
         Product.dell(product_id);
+        deleteFolderRecursive(__dirname + '/../public/tmp/' + product_id);
         callback(SUCCESS(true));
         console.log('product remove complete')
     });
@@ -215,27 +229,29 @@ Product.imgs = function (id, callback) {
 
     fs.readdir(__dirname + '/../public/tmp/' + id, function (err, files) {
 
-        files.forEach(function (file) {
-            var img = {
-                name: "appended_file.jpg",
-                size: 5453,
-                type: "image/jpg",
-                file: "/tmp/Products.jpg",
-            };
-            console.log('file in dir');
-            console.log(file);
-            var tmp = file.split('.');
-            var type = tmp[tmp.length - 1];
+        if (files) {
+            files.forEach(function (file) {
+                var img = {
+                    name: "appended_file.jpg",
+                    size: 5453,
+                    type: "image/jpg",
+                    file: "/tmp/Products.jpg",
+                };
+                console.log('file in dir');
+                console.log(file);
+                var tmp = file.split('.');
+                var type = tmp[tmp.length - 1];
 
-            img.name = file;
-            img.type = "image/" + type;
-            img.file = "/tmp/" + id + "/" + file;
+                img.name = file;
+                img.type = "image/" + type;
+                img.file = "/tmp/" + id + "/" + file;
 
-            console.log(img);
+                console.log(img);
 
-            imgs_arr[index] = img;
-            index++;
-        });
+                imgs_arr[index] = img;
+                index++;
+            });
+        }
         console.log(imgs_arr);
         callback(imgs_arr);
     });

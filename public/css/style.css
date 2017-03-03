@@ -1177,11 +1177,17 @@ a {
 #footer-nav-menu .li a {
     font-size: 15px;
     font-family: RobotoLight;
+    border-bottom: 2px;
+}
+
+#footer-nav-menu .li {
+    border-bottom: 2px solid transparent;
 }
 
 #footer-about_company .li a {
     font-size: 15px;
     font-family: RobotoLight;
+    border-bottom: 2px;
 }
 
 

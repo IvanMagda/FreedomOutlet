@@ -24,7 +24,7 @@
         <span class="sorting-text">Сортировать по</span>
 
         <div class="dropdown-sorting">
-            <div class="dropdown">
+            <div class="dropdown min_w">
                 <ul class="button">
                     <li>
                         <a href="#">                
@@ -116,12 +116,10 @@
         <div class="item-icon-info">
             <img class="item-icon-info-img" src="/../img/new-carousel/info-icon.png" onclick="info_tile(this)">
         </div>
-        <img class="item-main-img" src="@{product.title_img_src}" alt="Image 1">
+        <a href="/product/@{product.id}"><img class="item-main-img" src="@{product.title_img_src}" alt="Image 1"></a>
         <div class="title-new-product">
             <span class="tit">@{product.name}</span>
             <span class="vendor">@{product.manufacturer}</span>
-            <br>
-            <br>
             <span class="price">@{product.price} UAH</span>
             <span class="share">Снижение c @{product.discount} UAH</span>
         </div>
