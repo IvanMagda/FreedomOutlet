@@ -16,7 +16,14 @@
 </div>
 <div class="info-nav">
     <div class="title">
-        <span class="text-title">Люстры</span>
+        @{if model.breadcrumbs=='kitchen'}<span class="text-title">Кухни</span>@{endif}
+        @{if model.breadcrumbs=='bedroom'}<span class="text-title">Спальни</span>@{endif}
+        @{if model.breadcrumbs=='soft'}<span class="text-title">Мягкая</span>@{endif}
+        @{if model.breadcrumbs=='living'}<span class="text-title">Гостинные</span>@{endif}
+        @{if model.breadcrumbs=='dining'}<span class="text-title">Столовые</span>@{endif}
+        @{if model.breadcrumbs=='chandelier'}<span class="text-title">Люстры</span>@{endif}
+        @{if model.breadcrumbs=='sanitary'}<span class="text-title">Сантехника</span>@{endif}
+        @{if model.breadcrumbs=='accessories'}<span class="text-title">Аксессуары</span>@{endif}
     </div>
 
     <div class="view-options">
