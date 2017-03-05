@@ -111,13 +111,15 @@ function product_create() {
 function view_product_update(product_id) {
     var self = this;
     var product = Product.by_id[product_id];
-    var immages;
+    console.log(product);
+    var immages = [];
     Product.imgs(product_id, function (result) {
-        immages = JSON.stringify(result);
+        immages = JSON.stringify(result.imgs_arr);
         console.log(immages);
         self.view('/admin/product_edit', {
             product: product,
-            immages: immages
+            immages: immages,
+            cities: result.cities
         });
     });
     console.log(immages);
@@ -126,7 +128,7 @@ function view_product_update(product_id) {
 function product_update() {
     var self = this;
     console.log(this.body);
-    Product.update(this.body, function (result) {
+    Product.update(self.body, self.files, function (result) {
         if (result) {
             self.view('/admin/admin', {
                 products: Product.list

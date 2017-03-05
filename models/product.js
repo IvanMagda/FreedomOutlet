@@ -76,8 +76,8 @@ Product.create_new = function (product, files, callback) {
     }
 
     if (files[0].name == 'title_file') {
-        product.image_name = 'Title.';
-        product.image_name += files[0].filename.split('.')[1];
+        product.image_name = 'Title_';
+        product.image_name += files[0].filename;
         product.title_img_src = '/tmp/' + (last_id + 1) + '/' + product.image_name;
     } else {
         console.log('Title img not selected!');
@@ -156,7 +156,21 @@ Product.create_new = function (product, files, callback) {
     });
 }
 
-Product.update = function (product, callback) {
+Product.update = function (product, files, callback) {
+    console.log(files);
+    var productDir = __dirname + '/../public/tmp/' + product.id + '/';
+
+    if (files.length>0) {
+        if (files[0].name == 'title_file') {
+            fs.unlinkSync(productDir + Product.by_id[product.id].image_name);
+            product.image_name = 'Title_';
+            product.image_name += files[0].filename;
+            product.title_img_src = '/tmp/' + product.id + '/' + product.image_name;
+        }
+    }
+
+    
+
     console.log('product update to db', product);
     var sql = DATABASE();
 
@@ -164,18 +178,75 @@ Product.update = function (product, callback) {
         builder.set({
             name: product.name,
             manufacturer: product.manufacturer,
+            manufacturer_country: product.manufacturer_country,
+            series: product.series,
+            dimensions: product.dimensions,
             price: product.price,
+            discount: product.discount,
             description: product.description,
+            category: product.category,
             image_name: product.image_name,
             is_new: product.is_new,
-            title_img_src: product.title_img_src
+            title_img_src: product.title_img_src,
+            virtual_model_src: product.virtual_model_src,
+            available_in: product.available_in.toString()
         });
         builder.where('id', product.id);
     });
     sql.exec(function (err, response) {
-        console.log(response.product_update)
-        Product.upd(product);
-        callback(SUCCESS(true));
+        var galery = 'Galery1';
+        var galery_num = 0;
+        fs.readdir(productDir, function (err, files) {
+            files.forEach(function (file) {
+                if (file.indexOf('Galery') > -1 && file > galery)
+                galery = file;
+            })
+            galery_num = parseInt(galery.replace('Galery', '').split('.')[0]);
+        });
+
+            files.forEach(function (element, index) {
+                if (element.name == 'title_file') {
+                    fs.readFile(element.path, function (err, data) {
+                        if (err) throw err;
+                        fs.writeFile(productDir + product.image_name, data, function (err) {
+                            if (err) throw err;
+                            console.log('Title img saved!');
+                        });
+                    });
+                } else if (element.name == 'virtual_model') {
+                    fs.readFile(element.path, function (err, data) {
+                        if (err) throw err;
+
+                        fs.writeFile(productDir + element.filename, data, function (err) {
+                            if (err) throw err;
+                            console.log('3D saved!');
+                        });
+                    });
+                } else {
+                    fs.readFile(element.path, function (err, data) {
+                        if (err) throw err;
+                        var num = galery_num + index;
+                        var gal = 'Galery' + num + '.';
+                        gal += element.filename.split('.')[1];
+                        
+                        fs.writeFile(productDir + gal, data, function (err) {
+                            if (err) throw err;
+                            console.log('Galery img saved!');
+                        });
+                    });
+                }
+        });
+            sql.select('prod', 'products').make(function (builder) {
+                builder.where('id', '=', product.id);
+            });
+            sql.exec(function (err, response) {
+                console.log(response.prod);
+                console.log("productttttt" + product);
+                Product.upd(response.prod[0]);
+                callback(SUCCESS(true));
+            });
+
+        
     });
 }
 
@@ -209,7 +280,7 @@ Product.delete_p = function (product_id, callback) {
 }
 
 Product.delete_img = function (img_src, callback) {
-    img_src = __dirname + img_src.replace("http://localhost:8000/", "\\").replace("/", "\\"); //associate with local dir
+    img_src = __dirname + img_src.replace(F.config.HOST, "\\").replace("/", "\\"); //associate with local dir
     img_src = img_src.replace("models", "public") //set outer dir for imsges
     console.log(img_src);
 
@@ -223,14 +294,15 @@ Product.delete_img = function (img_src, callback) {
 
 Product.imgs = function (id, callback) {
 
-    var index = 0;
-    var imgs_arr = [];
+    var response = {};
+    response.imgs_arr = [];
+    response.cities = {};
 
 
     fs.readdir(__dirname + '/../public/tmp/' + id, function (err, files) {
 
         if (files) {
-            files.forEach(function (file) {
+            files.forEach(function (file, index) {
                 var img = {
                     name: "appended_file.jpg",
                     size: 5453,
@@ -248,12 +320,21 @@ Product.imgs = function (id, callback) {
 
                 console.log(img);
 
-                imgs_arr[index] = img;
-                index++;
+                response.imgs_arr[index] = img;
             });
         }
-        console.log(imgs_arr);
-        callback(imgs_arr);
+
+
+        
+
+
+        Product.by_id[id].available_in.split(',').forEach(function (e) {
+            response.cities[e] = true;
+        })
+
+        console.log(response);
+
+        callback(response);
     });
 
     //console.log(imgs_arr);
@@ -298,9 +379,12 @@ exports.install = function () {
 
             Product.list = [];
             Product.by_id = {};
-            response.allProducts.forEach(function (e) {
-                Product.add(e);
-            })
+
+            if (response.allProducts) {
+                response.allProducts.forEach(function (e) {
+                    Product.add(e);
+                })
+            }
 
             console.log('products init complete')
         });

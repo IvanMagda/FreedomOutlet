@@ -21,3 +21,6 @@ DEVMYSQLSERVER (Object) : { host: "localhost", user: "root", password: "root", d
 
 //Public files
 public_img : public/tmp
+
+//Host name
+HOST: http://localhost:8000/
