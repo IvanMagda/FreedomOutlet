@@ -44,7 +44,7 @@ function view_products_list(categ) {
     var sort = self.query.sort || 'name'
 
     var page = (self.query.page || '1').parseInt();
-    var perpage = (self.query.number || '15').parseInt();
+    var perpage = (self.query.number || '12').parseInt();
     
 
     Product.pagination(page, perpage, sort, category, function (prod) {
