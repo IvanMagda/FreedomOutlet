@@ -54,6 +54,10 @@ Product.create_new = function (product, files, callback) {
     console.log(product);
     console.log(product.available_in);
 
+    product.price = product.price || 0;
+    product.discount = product.discount || 0;
+    product.available_in = product.available_in || '';
+
     files.forEach(function (e) {
         console.log(e)
     })
@@ -104,7 +108,7 @@ Product.create_new = function (product, files, callback) {
             is_new: product.is_new,
             title_img_src: product.title_img_src,
             virtual_model_src: product.virtual_model_src,
-            available_in: product.available_in.toString()
+            available_in: product.available_in
         });
     });
 
