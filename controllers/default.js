@@ -14,7 +14,7 @@ exports.install = function () {
     F.route('/products/update/', product_update, ['upload'], { flags: ['upload'], length: 25 * 1024 * 1024, timeout: 30 * 60 * 1000 });
     F.route('/products/delete/{product_id}', product_delete, ['post']);
     F.route('/products/delete_img/', product_delete_img, ['post']);
-
+    F.route('/search/{search_text}', search, ['get']);
 };
 
 function main() {
@@ -71,7 +71,8 @@ function view_product(product_id) {
     })
     console.log(available);
     Product.imgs(product_id, function (result) {
-        result.forEach(function (e) {
+        console.log(result);
+        result.imgs_arr.forEach(function (e) {
             if (e.name.indexOf('Galery') > -1) {
                 e.size = i;
                 img.push(e);
@@ -162,4 +163,14 @@ function view_admin() {
     self.view('/admin/admin', {
         products: list
     });
+}
+
+function search(search_text) {
+    var self = this;
+    console.log(search_text);
+    Product.search(search_text, function (result) {
+        console.log(result);
+        self.json(result);
+    })
+    
 }

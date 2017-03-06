@@ -361,6 +361,17 @@ Product.pagination = function (page, items, sort, category, callback) {
     });
 }
 
+Product.search = function (search_text, callback) {
+    var sql = DATABASE();
+
+    sql.select('search_result', 'products').make(function (builder) {
+        builder.like('name', search_text+'%');
+    });
+    sql.exec(function (err, response) {
+        callback(response.search_result);
+    });
+}
+
 exports.install = function () {
     F.on('initdb', function () {
 
