@@ -1,0 +1,25 @@
+﻿@{layout('')}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    @{import('list-product-style.css')}
+    @{import('about-company-style.css')}
+    @{import('contacts.css')}
+    @{import('user_cabinet.css')}
+</head>
+<body>
+    <div id="header">
+        @{view('layouts/compact/header')}
+    </div>
+    <div id="content">
+        @{body}
+    </div>
+    <div id="footer">
+        @{view('layouts/main/footer')}
+    </div>
+</body>
+</html>

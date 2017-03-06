@@ -15,6 +15,8 @@ exports.install = function () {
     F.route('/products/delete/{product_id}', product_delete, ['post']);
     F.route('/products/delete_img/', product_delete_img, ['post']);
     F.route('/search/{search_text}', search, ['get']);
+    F.route('/about', view_about);
+    F.route('/contacts', view_contacts);
 };
 
 function main() {
@@ -173,4 +175,14 @@ function search(search_text) {
         self.json(result);
     })
     
+}
+
+function view_about() {
+    var self = this;
+    self.view('/company/about-company');
+}
+
+function view_contacts() {
+    var self = this;
+    self.view('/contacts/contacts');
 }
