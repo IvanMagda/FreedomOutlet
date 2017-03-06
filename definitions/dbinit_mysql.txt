@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `outlet`.`products` (
   `description` LONGTEXT NULL DEFAULT NULL,
   `category` VARCHAR(45) NULL DEFAULT NULL,
   `image_name` VARCHAR(45) NULL DEFAULT NULL,
-  `is_new` BIT(1) NULL DEFAULT NULL,
+  `is_new` TINYINT(1) NULL DEFAULT NULL,
   `title_img_src` LONGTEXT NULL DEFAULT NULL,
   `virtual_model_src` LONGTEXT NULL DEFAULT NULL,
   `available_in` LONGTEXT NULL DEFAULT NULL,

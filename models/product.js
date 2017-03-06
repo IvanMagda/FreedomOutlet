@@ -161,7 +161,17 @@ Product.create_new = function (product, files, callback) {
 }
 
 Product.update = function (product, files, callback) {
-    console.log(files);
+    product.price = product.price || 0;
+    product.discount = product.discount || 0;
+    product.available_in = product.available_in || '';
+    console.log(product.is_new);
+    if (product.is_new == "on") {
+        product.is_new = true;
+    } else {
+        product.is_new = false;
+    }
+
+    console.log(product.is_new);
     var productDir = __dirname + '/../public/tmp/' + product.id + '/';
 
     if (files.length>0) {
@@ -244,8 +254,6 @@ Product.update = function (product, files, callback) {
                 builder.where('id', '=', product.id);
             });
             sql.exec(function (err, response) {
-                console.log(response.prod);
-                console.log("productttttt" + product);
                 Product.upd(response.prod[0]);
                 callback(SUCCESS(true));
             });
