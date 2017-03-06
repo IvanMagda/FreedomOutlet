@@ -161,6 +161,11 @@ a {
         padding: 4%;
     }
 
+    .search_block .placeholder:focus {
+        outline: none !important;
+        border:  1px solid #292929 !important;
+    }
+
 .icon {
     width: 5%;
     display: flex;
@@ -447,13 +452,23 @@ a {
     font-size: 1vw;
     font-family: Roboto-Medium;
     color: #2a2a2a;
+    cursor: pointer;
 }
 
-.right-sidebar .in-shop {
+.right-sidebar .about a:hover span {
+    border-bottom: 2px solid #2a2a2a;
+}
+
+.right-sidebar .in-shop a {
     margin-top: -7%;
     font-size: 1vw;
     font-family: Roboto-Medium;
     color: #2a2a2a;
+    cursor: pointer;
+}
+
+.right-sidebar .in-shop a:hover span{
+    border-bottom: 2px solid #2a2a2a;
 }
 
 .right-sidebar .adres {
@@ -471,6 +486,11 @@ a {
         font-size: 1vw;
         font-family: Roboto-Medium;
         color: #2a2a2a;
+        cursor: pointer;
+    }
+
+    .right-sidebar .phone a:hover span {
+        border-bottom: 2px solid #2a2a2a;
     }
 
 .main-gallery .main-product-card-gall .item {

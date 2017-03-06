@@ -109,14 +109,35 @@
 <div class="product-list">
     @{foreach product in model.products}
     <div class="item">
-        <div class="item-icon-heart">
-            <img class="item-icon-heart-img" src="/../img/heart-1.png">
-            <img class="item-icon-heart2-img" src="/../img/heart-2.png">
+
+        <div class="img-product">
+            <div class="item-icon-heart">
+                <img class="item-icon-heart-img" src="/../img/heart-1.png">
+                <img class="item-icon-heart2-img" src="/../img/heart-2.png">
+            </div>
+            <div class="item-icon-info">
+                <img class="item-icon-info-img" src="/../img/new-carousel/info-icon.png" onclick="info_tile(this)">
+            </div>
+            <a href="/product/@{product.id}"><img class="item-main-img" src="@{product.title_img_src}" alt="Image 1"></a>
         </div>
-        <div class="item-icon-info">
-            <img class="item-icon-info-img" src="/../img/new-carousel/info-icon.png" onclick="info_tile(this)">
-        </div>
-        <a href="/product/@{product.id}"><img class="item-main-img" src="@{product.title_img_src}" alt="Image 1"></a>
+
+
+
+
+
+
+
+
+
+
+        <!--<div class="item-icon-heart">-->
+            <!--<img class="item-icon-heart-img" src="/../img/heart-1.png">-->
+            <!--<img class="item-icon-heart2-img" src="/../img/heart-2.png">-->
+        <!--</div>-->
+        <!--<div class="item-icon-info">-->
+            <!--<img class="item-icon-info-img" src="/../img/new-carousel/info-icon.png" onclick="info_tile(this)">-->
+        <!--</div>-->
+        <!--<a href="/product/@{product.id}"><img class="item-main-img" src="@{product.title_img_src}" alt="Image 1"></a>-->
         <div class="title-new-product">
             <span class="tit">@{product.name}</span>
             <span class="vendor">@{product.manufacturer}</span>

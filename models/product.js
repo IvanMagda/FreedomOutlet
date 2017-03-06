@@ -298,9 +298,14 @@ exports.install = function () {
 
             Product.list = [];
             Product.by_id = {};
-            response.allProducts.forEach(function (e) {
-                Product.add(e);
-            })
+            // response.allProducts.forEach(function (e) {
+            //     Product.add(e);
+            // })
+            if (response.allProducts) {
+                response.allProducts.forEach(function ( e) {
+                    Product.add( e);
+                })
+            }
 
             console.log('products init complete')
         });

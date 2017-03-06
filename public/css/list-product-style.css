@@ -150,6 +150,11 @@ a {
         padding: 4%;
     }
 
+    .search_block .placeholder:focus {
+         outline: none !important;
+         border:  1px solid #292929 !important;
+     }
+
 .icon {
     width: 5%;
     display: flex;
@@ -230,6 +235,7 @@ a {
                 content: "/";
                 padding-left: 8%;
                 padding-right: 2%;
+                color: darkgray;
             }
 
             .breadcrumbs ul li:last-child:after {
@@ -313,7 +319,7 @@ a {
         padding: 0;
         font-size: 1.1vw;
         font-family: robotolight;
-        width: 100%;
+        /*width: 225px;*/
         background: white;
     }
 
@@ -453,8 +459,8 @@ a {
 }
 
     .product-list .item .item-main-img {
-        max-width: 328px;
-        max-height: 202px;
+        max-width: 375px;
+        max-height: 235px;
         width: 100%;
         margin-bottom: 1vw;
     }
@@ -481,6 +487,7 @@ a {
             font-size: 1vw;
             font-family: Roboto-Medium;
             color: #2a2a2a;
+            margin-top: 0.6vw;
         }
 
         .product-list .item span.share {
@@ -519,7 +526,7 @@ a {
     /* color: #e8ebef; */
     color: #898f90;
     font-family: RobotoLight;
-    line-height: 2vw;
+    line-height: 1vw;
 }
 
 .product-info .cross {
@@ -771,11 +778,11 @@ a {
 }
 
 .social-inst:hover .background {
-    background: #0484b9;
+    background: #9ba3aa;
 }
 
 .social-face:hover .background {
-    background: #3B5998;
+    background: #9ba3aa;
 }
 
 .footer-content .right-block {
@@ -840,5 +847,7 @@ a {
 }
 
 .min_w{
-    min-width:208px;
+    min-width:235px;
+
+    /*min-width:208px;*/
 }

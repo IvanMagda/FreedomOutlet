@@ -294,6 +294,12 @@ a {
     font-size: 0.7vw;
 }
 
+.search_block .placeholder:focus {
+    outline: none;
+    border:  1px solid #292929;
+}
+
+
 #content-wrapper {
     position: relative;
     margin-top: 2%;
