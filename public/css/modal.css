@@ -1,6 +1,6 @@
 .modal_div {
-    width: 300px;
-    height: 300px;
+    /*width: 300px;*/
+    /*height: 300px;*/
     border-radius: 5px;
     border: 3px #000 solid;
     background: #fff;
@@ -38,4 +38,83 @@
     left: 0;
     cursor: pointer;
     display: none; 
+}
+
+
+
+
+
+
+
+
+
+
+.login-form {
+    display: inline-block;
+    position: static;
+    /*width: 50%;*/
+    /*height: 300px;*/
+    /*outline: 1px solid blue;*/
+    margin: 2vw;
+
+}
+
+.login-form .row1 {
+
+}
+
+.login-form .row2 {
+    margin-top: 1vw;
+}
+
+.login-form .row3 {
+    margin-top: 1vw;
+    display: flex;
+    justify-content: center;
+}
+
+
+/*.login_modal__title-container {*/
+    /*position: relative;*/
+    /*height: 130px;*/
+    /*margin-top: 20px;*/
+/*}*/
+/*.login_modal__title-cont {*/
+    /*position: absolute;*/
+    /*display: inline-block;*/
+    /*left: 50%;*/
+    /*width: 80px;*/
+    /*height: 180px;*/
+    /*margin: -56px;*/
+    /*border-bottom: 2px solid red;*/
+    /*white-space: nowrap;*/
+/*}*/
+/*.login_modal__title-text {*/
+    /*font-family: Georgia;*/
+    /*margin-left: -54px;*/
+    /*top: 125px;*/
+    /*font-size: 40px;*/
+    /*color: #3e4546;*/
+    /*position: absolute;*/
+/*}*/
+
+
+
+.login_modal__title-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.login_modal__title-text {
+    font-family: Georgia;
+    font-size: 40px;
+    color: #3e4546;
+}
+.login_modal__title-border {
+    position: absolute;
+    bottom: -10px;
+    width: 30%;
+    left: 35%;
+    border-bottom: 2px solid red;
 }

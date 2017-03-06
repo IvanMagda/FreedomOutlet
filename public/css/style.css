@@ -1063,12 +1063,16 @@ a {
     outline: none; // удаляет обводку в браузерах хром(желтая) и сафари(синяя)
     height: 24px;
     /*width: 100%;*/
-    width: 49.3%;
+
     height: 57px;
     color: #2a2a2a !important;
     font-size: 1.1vw;
     font-family: RobotoLight;
     text-align: center;
+}
+
+.contacts_feedback .neat-input {
+    width: 49.3%;
 }
 
 .neat-input:focus {

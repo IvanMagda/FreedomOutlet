@@ -1,6 +1,32 @@
 <div id="login_modal" class="modal_div">
     <span class="modal_close">X</span>
-    <div id="login-form-container">
+
+
+    <div class="login_modal__title-container">
+        <div class="login_modal__title-cont">
+            <span class="login_modal__title-text">Логин</span>
+            <div class="login_modal__title-border"></div>
+        </div>
+    </div>
+
+
+    <div class="login-form">
+        <form id="mail-form" action="/mail/send" method="post" name="mailForm" onsubmit="return validateForm()">
+            <div id="validateGlobal">*Обязательно</div>
+            <div class="row1">
+                <input class="neat-input" type="text" name="login" placeholder="Логин" />
+            </div>
+            <div class="row2">
+                <input class="neat-input" type="password" name="password" placeholder="Пароль" />
+            </div>
+            <div class="row3">
+                <button class="neat-button" type="submit">Войти</button>
+            </div>
+        </form>
+    </div>
+
+
+    <!--<div id="login-form-container">
         <form id="login-form" action="#">
             <table>
                 <tr><td>Login: </td><td><input name="login" type="text" /></td></tr>
@@ -8,5 +34,9 @@
             </table>
         </form>
         <button>Login</button>
-    </div>
+    </div>-->
+
+
+
+
 </div>
