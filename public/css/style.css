@@ -14,13 +14,15 @@ html {
 #validateGlobal,
 #validateName,
 #validatePhone,
-#validateMessage {
+#validateMessage,
+.validateTitle {
     font-family:RobotoLight;
     color: red;
     visibility:hidden;
 }
 
-#validateGlobal{
+#validateGlobal,
+.validateTitle {
     display:flex;
     justify-content:flex-end;
 }
