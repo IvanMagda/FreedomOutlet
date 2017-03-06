@@ -14,7 +14,9 @@ exports.install = function () {
     F.route('/products/update/', product_update, ['upload'], { flags: ['upload'], length: 25 * 1024 * 1024, timeout: 30 * 60 * 1000 });
     F.route('/products/delete/{product_id}', product_delete, ['post']);
     F.route('/products/delete_img/', product_delete_img, ['post']);
-
+    F.route('/search/{search_text}', search, ['get']);
+    F.route('/about', view_about);
+    F.route('/contacts', view_contacts);
 };
 
 function main() {
@@ -71,7 +73,8 @@ function view_product(product_id) {
     })
     console.log(available);
     Product.imgs(product_id, function (result) {
-        result.forEach(function (e) {
+        console.log(result);
+        result.imgs_arr.forEach(function (e) {
             if (e.name.indexOf('Galery') > -1) {
                 e.size = i;
                 img.push(e);
@@ -111,13 +114,15 @@ function product_create() {
 function view_product_update(product_id) {
     var self = this;
     var product = Product.by_id[product_id];
-    var immages;
+    console.log(product);
+    var immages = [];
     Product.imgs(product_id, function (result) {
-        immages = JSON.stringify(result);
+        immages = JSON.stringify(result.imgs_arr);
         console.log(immages);
         self.view('/admin/product_edit', {
             product: product,
-            immages: immages
+            immages: immages,
+            cities: result.cities
         });
     });
     console.log(immages);
@@ -126,7 +131,7 @@ function view_product_update(product_id) {
 function product_update() {
     var self = this;
     console.log(this.body);
-    Product.update(this.body, function (result) {
+    Product.update(self.body, self.files, function (result) {
         if (result) {
             self.view('/admin/admin', {
                 products: Product.list
@@ -160,4 +165,24 @@ function view_admin() {
     self.view('/admin/admin', {
         products: list
     });
+}
+
+function search(search_text) {
+    var self = this;
+    console.log(search_text);
+    Product.search(search_text, function (result) {
+        console.log(result);
+        self.json(result);
+    })
+    
+}
+
+function view_about() {
+    var self = this;
+    self.view('/company/about-company');
+}
+
+function view_contacts() {
+    var self = this;
+    self.view('/contacts/contacts');
 }
