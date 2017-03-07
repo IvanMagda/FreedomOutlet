@@ -69,12 +69,15 @@ exports.install = function () {
         sql.exec(function (err, response) {
             //console.log(response.allUsers);
             console.log('allUsers DB init.');
+            console.log(response);
 
             User.list = [];
             User.by_id = {};
-            response.allUsers.forEach(function (e) {
-                User.add(e);
-            })
+            if (typeof response != 'undefined') {
+                response.allUsers.forEach(function (e) {
+                    User.add(e);
+                })
+            }
 
             console.log('users init complete');
         });

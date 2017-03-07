@@ -22,9 +22,10 @@ $(document).ready(function () {
 
 
 function info_tile(node) {
-    var parent = node.parentNode;
+    var parent = node.parentNode.parentNode;
     var elt = findAncestor(parent, 'product-info');
-    elt.childNodes[4].style.display = 'flex';
+    console.log(elt.childNodes[2]);
+    elt.childNodes[2].style.display = 'flex';
 }
 
 function findAncestor(el, sel) {
