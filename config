@@ -16,8 +16,8 @@ DEVSQLSERVER : Driver={SQL Server Native Client 11.0};Server={desktop-qs6bqvi};D
 //DBPROVIDER: sqlserver
 DBPROVIDER: mysql
 
-//DEVMYSQLSERVER (Object) : { host: "localhost", user: "root", password: "p123456789", database: "outlet", multipleStatements: true }
-DEVMYSQLSERVER (Object) : { host: "localhost", user: "root", password: "root", database: "outlet", multipleStatements: true }
+DEVMYSQLSERVER (Object) : { host: "localhost", user: "root", password: "p123456789", database: "outlet", multipleStatements: true }
+//DEVMYSQLSERVER (Object) : { host: "localhost", user: "root", password: "root", database: "outlet", multipleStatements: true }
 
 
 //Public files
