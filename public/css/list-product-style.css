@@ -508,8 +508,7 @@ a {
     display: none;
 }
 
-    .product-info .title-info,
-    .product-info .content {
+    .product-info .title-info {
         position: absolute;
         left: 5%;
         right: 5%;
@@ -520,10 +519,20 @@ a {
         height: 18%;
     }
 
+
+    .product-info .content {
+        bottom: 5%!important;
+        height: 70% !important;
+        top: 20% !important;
+        overflow: hidden;
+        position: absolute;
+        left: 5% !important;
+        right: 5% !important;
+    }
+
 .product-list .item span.vendor {
     font-size: 1vw;
     text-transform: uppercase;
-    /* color: #e8ebef; */
     color: #898f90;
     font-family: RobotoLight;
     line-height: 1vw;
@@ -554,11 +563,6 @@ a {
 }
 
 
-.product-info .content {
-    bottom: 5%;
-    height: 70%;
-    overflow: auto;
-}
 
     .product-info .content p {
         text-align: justify;
