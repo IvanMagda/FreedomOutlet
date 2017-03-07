@@ -396,14 +396,17 @@ exports.install = function () {
 
 
         var sql = DATABASE();
-        sql.query('allProducts', 'SELECT * FROM products ORDER BY id').make(function (builder) { });
+        sql.query('allProducts', 'products').make(function (builder) {
+            builder.order('id');
+        });
         sql.exec(function (err, response) {
             console.log('Outlet DB init.');
+            console.log(response);
 
             Product.list = [];
             Product.by_id = {};
 
-            if (response.allProducts) {
+            if (typeof response.allProducts != 'undefined') {
                 response.allProducts.forEach(function (e) {
                     Product.add(e);
                 })

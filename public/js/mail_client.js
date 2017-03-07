@@ -14,9 +14,9 @@ $(document).ready(function () {
 });
 
 function validateForm() {
-    var name = document.forms["mailForm"]["name"].value;
-    var phone = document.forms["mailForm"]["phone"].value;
-    var message = document.forms["mailForm"]["message"].value;
+    var name = document.forms["mailForm"].name.value;
+    var phone = document.forms["mailForm"].phone.value;
+    var message = document.forms["mailForm"].message.value;
 
     if (name == "" || phone == "" || message == "") {
         document.getElementById('validateGlobal').style.visibility = "visible";
