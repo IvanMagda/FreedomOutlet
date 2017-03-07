@@ -396,7 +396,7 @@ exports.install = function () {
 
 
         var sql = DATABASE();
-        sql.query('allProducts', 'products').make(function (builder) {
+        sql.query('allProducts', 'SELECT * FROM products').make(function (builder) {
             builder.order('id');
         });
         sql.exec(function (err, response) {
@@ -406,11 +406,11 @@ exports.install = function () {
             Product.list = [];
             Product.by_id = {};
 
-            if (typeof response.allProducts != 'undefined') {
+            
                 response.allProducts.forEach(function (e) {
                     Product.add(e);
                 })
-            }
+            
 
             console.log('products init complete')
         });
