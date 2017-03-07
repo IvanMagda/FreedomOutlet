@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Roboto-LightItalic;
+    src: url(fonts/Roboto/Roboto-LightItalic.ttf); /* Путь к файлу со шрифтом */
+}
+
 .modal_div {
     /*width: 300px;*/
     /*height: 300px;*/
@@ -6,7 +11,7 @@
     background: #fff;
     position: fixed;
     top: 45%;
-    left: 50%;
+    left: 45%;
     margin-top: -150px;
     margin-left: -150px;
     display: none;
@@ -40,8 +45,9 @@
     display: none; 
 }
 
-
-
+#register_modal {
+    left: 40%;
+}
 
 
 
@@ -52,14 +58,7 @@
 .login-form {
     display: inline-block;
     position: static;
-    /*width: 50%;*/
-    /*height: 300px;*/
-    /*outline: 1px solid blue;*/
     margin: 2vw;
-
-}
-
-.login-form .row1 {
 
 }
 
@@ -73,6 +72,20 @@
     justify-content: center;
 }
 
+.login-form .row3 .neat-button:hover {
+    background: #2a2a2a;
+    color: white;
+}
+
+.login-form .row1 .neat-input,
+.login-form .row2 .neat-input {
+    width: 355px;
+}
+
+.login-form .row3 .neat-button {
+    width: 60%;
+    cursor: pointer;
+}
 
 /*.login_modal__title-container {*/
     /*position: relative;*/
@@ -111,10 +124,117 @@
     font-size: 40px;
     color: #3e4546;
 }
+
 .login_modal__title-border {
     position: absolute;
     bottom: -10px;
-    width: 30%;
-    left: 35%;
+    width: 16%;
+    left: 42%;
     border-bottom: 2px solid red;
+}
+
+
+
+#register_modal .register-form {
+    display: inline-block;
+    position: static;
+    /*width: 50%;*/
+    /*height: 300px;*/
+    /*outline: 1px solid blue;*/
+    margin: 2vw;
+}
+
+#register_modal .register-form .row1 {
+    display: flex;
+    justify-content: space-between;
+    width: 555px;
+}
+
+#register_modal .register-form .row2 {
+    margin-top: 0.4vw;
+    display: flex;
+    justify-content: space-between;
+    width: 555px;
+}
+
+#register_modal .register-form .row3 {
+    margin-top: 0.5vw;
+    display: flex;
+    justify-content: center;
+    width: 555px;
+    position: relative;
+}
+
+#register_modal .register-form .row3 .reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 17px;
+    font-family: RobotoLight;
+    color: #2a2a2a;
+}
+
+#register_modal .register-form .row3 label {
+    display: flex;
+    font-size: 17px;
+    font-family: RobotoLight;
+    color: #2a2a2a;
+}
+
+#register_modal .register-form .row3 .checkbox-info {
+    display: inline-block;
+    white-space: nowrap;
+    position: absolute;
+    top: 1.5vw;
+    left: 55%;
+    line-height: 0.5vw;
+}
+
+#register_modal .register-form .row3 .checkbox-info span {
+    font-size: 12px;
+    color: #9ba3aa;
+    font-family: Roboto-LightItalic;
+}
+
+#register_modal .register-form .row4 {
+    margin-top: 4vw;
+    display: flex;
+    justify-content: center;
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+}
+
+#register_modal .register-form .row4 div {
+    display: inline-block;
+    width: 40%;
+}
+
+#register_modal .register-form .row4 div .neat-button {
+    width: 100%;
+}
+
+#register_modal .register-form .row4 div .neat-button:hover {
+    background: #2a2a2a;
+    cursor: pointer;
+    color: white;
+}
+
+#register_modal .register-form .row4 label {
+    display: flex;
+    font-size: 17px;
+    font-family: RobotoLight;
+    color: #2a2a2a;
+    margin-top: 5%;
+}
+
+#register_modal .register-form .row1 .neat-input,
+#register_modal .register-form .row2 .neat-input {
+    width: 49%;
+}
+
+#register_modal .register-form .row4 div a {
+    display: inline-block;
+    margin-top: 5%;
+    color: #9ba3aa;
+    font-family: RobotoLight;
+    font-size: 13px;
 }

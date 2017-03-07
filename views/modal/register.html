@@ -1,16 +1,58 @@
 <div id="register_modal" class="modal_div">
     <span class="modal_close">X</span>
-    <div id="register-form">
+    <div class="login_modal__title-container">
+        <div class="login_modal__title-cont">
+            <span class="login_modal__title-text">Регистация</span>
+            <div class="login_modal__title-border"></div>
+        </div>
+    </div>
+
+
+    <div class="register-form">
         <form id="reg-form" action="#">
-            <table>
+            <div class="validateTitle">*Обязательно</div>
+            <div class="row1">
+                <input class="neat-input" type="text" name="name" placeholder="ИМЯ" value="" /><div id="validateName">*</div>
+                <input class="neat-input" type="text" name="phone" placeholder="+38 (00) 000 00 00"value="" /><div id="validatePhone">*</div>
+            </div>
+            <div class="row2">
+                <input class="neat-input" type="text" name="e-mail" placeholder="E-MAIL" value="" /><div id="validateName">*</div>
+                <input class="neat-input" type="password" name="password" placeholder="ПАРОЛЬ"value="" /><div id="validatePhone">*</div>
+            </div>
+            <div class="row3">
+                <label class="reverse"><input type="checkbox" name="a" value=""> Частный пользователь</label>
+                <label><input type="checkbox" name="a" value=""> Дизайнер-архитектор</label>
+                <div class="checkbox-info">
+                    <span>
+                        Для зарегистрированых Дизайнеров-<br>
+                        архитекторов предоставляется возможность<br>
+                        скачать необходимые модули в 3D формате.<br>
+                    </span>
+                </div>
+            </div>
+            <div class="row4">
+                <div>
+                    <button class="neat-button" type="submit">Войти</button><br>
+                    <label><input type="checkbox" name="a" value=""> Запомнить меня</label>
+                    <a href="#">Забыли пароль?</a>
+                </div>
+
+            </div>
+
+
+            <!--<table>
                 <tr><td>Login: </td><td><input name="login" type="text" /></td></tr>
                 <tr><td>Password: </td><td><input name="pass" type="password" /></td></tr>
                 <tr><td>Password 2: </td><td><input name="pass2" type="password" /></td></tr>
                 <tr><td>Email: </td><td><input name="email" type="email" /></td></tr>
                 <tr><td>Common User: </td><td><input type="radio" name="group" value="user"></td></tr>
                 <tr><td>Designer: </td><td><input type="radio" name="group" value="designer"><br></td></tr>
-            </table>
+            </table>-->
         </form>
-        <button>Submit</button>
+        <!--<button>Submit</button>-->
     </div>
+
+
+
+
 </div>
