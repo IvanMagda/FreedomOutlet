@@ -265,16 +265,16 @@
     font-family: Roboto-LightItalic;
 }
 
-#register_modal .row3 input[type=checkbox] {
+#register_modal .row3 input[type=radio] {
     display:none;
     /*position: absolute;*/
 }
 
-/*#register_modal .row3 .left input[type=checkbox] {*/
+/*#register_modal .row3 .left input[type=radio] {*/
     /*right: 0;*/
 /*}*/
 
-/*#register_modal .row3 .right input[type=checkbox] {*/
+/*#register_modal .row3 .right input[type=radio] {*/
     /*left: 0;*/
 /*}*/
 
@@ -303,7 +303,7 @@
 /*#register_modal .row3 label.left:before {right: 0}*/
 /*#register_modal .row3 label.right:before {left: 0}*/
 
-/*#register_modal .row3 input[type=checkbox]:checked + label:after {*/
+/*#register_modal .row3 input[type=radio]:checked + label:after {*/
     /*outline:1px solid #939598;*/
     /*border:2px solid #fff;*/
     /*width:10px;*/
