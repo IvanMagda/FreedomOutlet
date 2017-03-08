@@ -171,6 +171,7 @@
     font-size: 17px;
     font-family: RobotoLight;
     color: #2a2a2a;
+    margin-right: 3%;
 }
 
 #register_modal .register-form .row3 label {
@@ -178,6 +179,7 @@
     font-size: 17px;
     font-family: RobotoLight;
     color: #2a2a2a;
+    margin-left: -2.5%;
 }
 
 #register_modal .register-form .row3 .checkbox-info {
@@ -237,4 +239,48 @@
     color: #9ba3aa;
     font-family: RobotoLight;
     font-size: 13px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.checkbox {*/
+    /*position:relative;*/
+    /*padding-left:25px;*/
+/*}*/
+.row3 input[type=checkbox] {
+    display:none;
+}
+.row3 label:before {
+    content:'';
+    display:block;
+    height:14px;
+    width:14px;
+    outline:1px solid #939598;
+    position:absolute;
+    top:0;
+    left:0;
+}
+.row3 input[type=checkbox]:checked + label:after {
+    outline:1px solid #939598;
+    border:2px solid #fff;
+    width:10px;
+    height:10px;
+    background-color:#63849F;
 }

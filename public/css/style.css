@@ -294,11 +294,11 @@ a {
     height: 100%;
     position: absolute;
     font-size: 0.7vw;
+    outline: none;
 }
 
 .search_block .placeholder:focus {
-    outline: none;
-    border:  1px solid #292929;
+    outline:  1px solid #292929;
 }
 
 
