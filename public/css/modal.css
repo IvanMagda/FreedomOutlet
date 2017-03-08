@@ -31,18 +31,18 @@
 }
 
 #overlay {
-    z-index: 3; 
-    position: fixed; 
-    background-color: #000; 
-    opacity: 0.8; 
-    -moz-opacity: 0.8; 
+    z-index: 3;
+    position: fixed;
+    background-color: #000;
+    opacity: 0.8;
+    -moz-opacity: 0.8;
     filter: alpha(opacity=80);
     width: 100%;
-    height: 100%; 
-    top: 0; 
+    height: 100%;
+    top: 0;
     left: 0;
     cursor: pointer;
-    display: none; 
+    display: none;
 }
 
 #register_modal {
@@ -165,37 +165,7 @@
     position: relative;
 }
 
-#register_modal .register-form .row3 .reverse {
-    display: flex;
-    flex-direction: row-reverse;
-    font-size: 17px;
-    font-family: RobotoLight;
-    color: #2a2a2a;
-    margin-right: 3%;
-}
 
-#register_modal .register-form .row3 label {
-    display: flex;
-    font-size: 17px;
-    font-family: RobotoLight;
-    color: #2a2a2a;
-    margin-left: -2.5%;
-}
-
-#register_modal .register-form .row3 .checkbox-info {
-    display: inline-block;
-    white-space: nowrap;
-    position: absolute;
-    top: 1.5vw;
-    left: 55%;
-    line-height: 0.5vw;
-}
-
-#register_modal .register-form .row3 .checkbox-info span {
-    font-size: 12px;
-    color: #9ba3aa;
-    font-family: Roboto-LightItalic;
-}
 
 #register_modal .register-form .row4 {
     margin-top: 4vw;
@@ -253,21 +223,52 @@
 
 
 
-
-
-
-
-
-
-
-/*.checkbox {*/
-    /*position:relative;*/
-    /*padding-left:25px;*/
+/*#register_modal .register-form .row3 .reverse {*/
+    /*display: flex;*/
+    /*flex-direction: row-reverse;*/
+    /*font-size: 17px;*/
+    /*font-family: RobotoLight;*/
+    /*color: #2a2a2a;*/
+    /*margin-right: 3%;*/
 /*}*/
-.row3 input[type=checkbox] {
+
+#register_modal .row3 label {
+    display: flex;
+    font-size: 17px;
+    font-family: RobotoLight;
+    color: #2a2a2a;
+    position: absolute;
+    width: 49%;
+}
+
+#register_modal .row3 label.left {
+    left: 0;
+    justify-content: flex-end;
+}
+#register_modal .row3 label.right {
+    right: 0;
+    justify-content: flex-start;
+}
+
+#register_modal .row3 .checkbox-info {
+    display: inline-block;
+    white-space: nowrap;
+    position: absolute;
+    top: 1.5vw;
+    left: 55%;
+    line-height: 0.5vw;
+}
+
+#register_modal .row3 .checkbox-info span {
+    font-size: 12px;
+    color: #9ba3aa;
+    font-family: Roboto-LightItalic;
+}
+
+#register_modal .row3 input[type=checkbox] {
     display:none;
 }
-.row3 label:before {
+#register_modal .row3 label:before {
     content:'';
     display:block;
     height:14px;
@@ -275,12 +276,18 @@
     outline:1px solid #939598;
     position:absolute;
     top:0;
-    left:0;
+    /*left:0;*/
 }
-.row3 input[type=checkbox]:checked + label:after {
-    outline:1px solid #939598;
-    border:2px solid #fff;
-    width:10px;
-    height:10px;
-    background-color:#63849F;
-}
+
+#register_modal .row3 label.left span {padding-right: 20px}
+#register_modal .row3 label.right span {padding-left: 20px}
+#register_modal .row3 label.left:before {right: 0}
+#register_modal .row3 label.right:before {left: 0}
+
+/*#register_modal .row3 input[type=checkbox]:checked + label:after {*/
+    /*outline:1px solid #939598;*/
+    /*border:2px solid #fff;*/
+    /*width:10px;*/
+    /*height:10px;*/
+    /*background-color:#63849F;*/
+/*}*/
