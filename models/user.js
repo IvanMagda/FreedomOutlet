@@ -73,11 +73,11 @@ exports.install = function () {
 
             User.list = [];
             User.by_id = {};
-            if (typeof response != 'undefined') {
+            
                 response.allUsers.forEach(function (e) {
                     User.add(e);
                 })
-            }
+            
 
             console.log('users init complete');
         });
