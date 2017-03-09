@@ -31,7 +31,7 @@ User.register = function (user, callback) {
     });
 
     sql.select('new_user', 'users').make(function (builder) {
-        builder.where('login', '=', user.login);
+        builder.where('login', user.login);
     });
 
     sql.exec(function (err, response) {

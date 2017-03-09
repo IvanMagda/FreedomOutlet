@@ -12,10 +12,10 @@
 
     <div class="login-form">
 
-        <form id="mail-form" action="/mail/send" method="post" name="mailForm" onsubmit="return validateForm()">
+        <form id="mail-form" action="/authorization" method="post">
             <div class="validateTitle">*Обязательно</div>
 
-        <!--<form id="mail-form" action="/mail/send" method="post" name="" onsubmit="return validateForm()">-->
+            <!--<form id="mail-form" action="/mail/send" method="post" name="" onsubmit="return validateForm()">-->
             <!--<div id="validateGlobal">*Обязательно</div>-->
 
             <div class="row1">
@@ -23,7 +23,7 @@
             </div>
             <div class="validateTitle">*Обязательно</div>
             <div class="row2">
-                <input class="neat-input" type="password" name="password" placeholder="Пароль" />
+                <input class="neat-input" type="password" name="pass" placeholder="Пароль" />
             </div>
             <div class="row3">
                 <button class="neat-button" type="submit">Войти</button>

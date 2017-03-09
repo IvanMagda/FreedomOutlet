@@ -9,19 +9,23 @@
 
 
     <div class="register-form">
-        <form id="reg-form" action="#">
+        <form id="reg-form" action="/register" method="POST">
             <div class="validateTitle">*Обязательно</div>
             <div class="row1">
-                <input class="neat-input" type="text" name="name" placeholder="ИМЯ" value="" /><div id="validateName">*</div>
-                <input class="neat-input" type="text" name="phone" placeholder="+38 (00) 000 00 00"value="" /><div id="validatePhone">*</div>
+                <input class="neat-input" type="text" name="login" placeholder="ИМЯ" value="" />
+                <div id="validateName">*</div>
+                <input class="neat-input" type="text" name="phone" placeholder="+38 (00) 000 00 00" value="" />
+                <div id="validatePhone">*</div>
             </div>
             <div class="row2">
-                <input class="neat-input" type="text" name="e-mail" placeholder="E-MAIL" value="" /><div id="validateName">*</div>
-                <input class="neat-input" type="password" name="password" placeholder="ПАРОЛЬ"value="" /><div id="validatePhone">*</div>
+                <input class="neat-input" type="text" name="mail" placeholder="E-MAIL" value="" />
+                <div id="validateName">*</div>
+                <input class="neat-input" type="password" name="pass" placeholder="ПАРОЛЬ" value="" />
+                <div id="validatePhone">*</div>
             </div>
             <div class="row3">
-                <input id="check" type="radio" name="a" value="">
-                <input id="check2" type="radio" name="a" value="">
+                <input id="check" type="radio" name="group" value="user">
+                <input id="check2" type="radio" name="group" value="designer">
 
                 <label class="left" for="check">
                     <span>Частный пользователь</span>
