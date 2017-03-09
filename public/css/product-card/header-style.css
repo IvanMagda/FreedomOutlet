@@ -1,0 +1,170 @@
+#header {
+    position: relative;
+    width: 100%;
+    height: 85px;
+    background: #292929;
+}
+
+#header-content {
+    position: relative;
+    margin-left: 7%;
+    margin-right: 7%;
+    height: 100%;
+    background: #292929;
+    white-space: nowrap;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#logo, .global-nav {
+    vertical-align: top;
+}
+
+#logo {
+    position: relative;
+    display: inline-block;
+    /*top: 0;*/
+    /*bottom: 0;*/
+    width: 15%;
+    height: 100%;
+}
+
+#logo .logo_img {
+    position: absolute;
+    width: 100%;
+}
+
+.global-nav {
+    width: 65%;
+    height: 50%;
+    margin-left: 13%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.global-nav .row1,
+.global-nav .row2 {
+    position: relative;
+}
+
+#nav-menu {
+    position: relative;
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#nav-menu .li {
+    display: inline-block;
+    font-family: RobotoLight;
+    font-size: 0.8vw;
+    position: relative;
+    cursor: pointer;
+    margin-right: 1vw;
+}
+
+#nav-menu .li .border {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: -5px;
+}
+
+#nav-menu .li:hover .border {
+    border-bottom: 2px solid red;
+}
+
+.search_block {
+    right: 0;
+    top: 1%;
+    /*position: absolute;*/
+    height: 100%;
+    left: 50%;
+    z-index: 5;
+}
+
+.search_block form {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.search_block button {
+    position: absolute;
+    right: 0;
+    height: 60%;
+    background-color: white;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    z-index: 50;
+    margin-right: 5px;
+}
+
+.search_block button img {
+    position: absolute;
+    height: 100%;
+    cursor: pointer;
+    top: 0;
+    right: 5px;
+}
+
+.search_block input {
+    width: 100%;
+    height: 100%;
+    /*position: absolute;*/
+    font-size: 0.8vw;
+    padding: 4%;
+    outline: none;
+}
+
+.icon {
+    width: 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1%;
+    margin-left: 1%;
+}
+
+.icon .heart .heart1 {
+    display: inline-block;
+    width: 100%;
+}
+
+.icon .heart .heart2 {
+    display: none;
+}
+
+.icon .heart:hover .heart1 {
+    display: none;
+}
+
+.icon .heart:hover .heart2 {
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+.icon .man .man1 {
+    display: inline-block;
+    width: 100%;
+}
+
+.icon .man .man2 {
+    display: none;
+}
+
+.icon .man:hover .man1 {
+    display: none;
+}
+
+.icon .man:hover .man2 {
+    display: inline-block;
+    width: 100%;
+}

@@ -1,0 +1,243 @@
+#header {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    background: #292929;
+}
+
+#header-content {
+    position: relative;
+    margin-left: 7%;
+    margin-right: 7%;
+    height: 100%;
+    background: #292929;
+    white-space: nowrap;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#logo,
+.global-nav {
+    vertical-align: top;
+}
+
+#logo {
+    position: relative;
+    display: inline-block;
+    /*top: 0;*/
+    /*bottom: 0;*/
+    width: 22%;
+    height: 100%;
+}
+
+#logo .logo_img {
+    position: absolute;
+    /*top: 0;*/
+    /*left: 0;*/
+    /*height: 150%;*/
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #e8ebef;
+}
+
+.global-nav {
+    width: 52%;
+    height: 100%;
+    margin-left: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.global-nav .row1,
+.global-nav .row2 {
+    position: relative;
+}
+
+#login {
+    position: absolute;
+    width: 13%;
+    height: 100%;
+    /*outline: 5px solid red;*/
+    display: inline-block;
+    right: 0;
+}
+
+#about_company {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    width: 45%;
+    height: 45%;
+}
+
+#about_company .li,
+#nav-menu .li {
+    display: inline-block;
+    font-family: RobotoLight;
+    font-size: 13px;
+    position: relative;
+    cursor: pointer;
+}
+
+#about_company .li .border,
+#nav-menu .li .border {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: -5px;
+}
+
+#about_company .li:hover .border,
+#nav-menu .li:hover .border {
+    border-bottom: 2px solid red;
+}
+
+#about_company .li a {
+    color: #9ba3aa;
+}
+
+#nav-menu {
+    position: relative;
+    /*left: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+    /*text-align: justify;*/
+    /*text-align-last: justify;*/
+}
+
+#login .enter {
+    position: relative;
+    /*left: 0;*/
+    top: 20%;
+    height: 60%;
+    font-family: RobotoLight;
+    font-size: 0.7vw;
+}
+
+#login .enter a:first-child {
+    padding-right: 5%;
+    border-right: 1px solid #e8ebef;
+    margin-right: 5%;
+}
+
+#login .heart {
+    position: absolute;
+    right: 0;
+    top: 20%;
+    width: 13%;
+    /*float: right;*/
+    /*margin-top: -20%;*/
+}
+
+#login .phone {
+    position: relative;
+    /*left: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*height: 50%;*/
+    /*margin-bottom: -2%;*/
+    font-family: RobotoLight;
+    font-size: 1.1vw;
+    color: #e8ebef;
+}
+
+#login .heart .heart1 {
+    display: inline-block;
+    width: 100%;
+}
+
+#login .heart .heart2 {
+    display: none;
+}
+
+#login .heart:hover .heart1 {
+    display: none;
+}
+
+#login .heart:hover .heart2 {
+    display: inline-block;
+    width: 100%;
+}
+
+.search_block {
+    right: 0;
+    top: 1%;
+    position: absolute;
+    height: 100%;
+    left: 68%;
+    z-index: 5;
+    padding: 0.2vw;
+}
+
+.search_block form {
+    position: absolute;
+    left: 0;
+    right: 15px;
+    top: 0;
+    bottom: -5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.search_block button {
+    /*position: absolute;*/
+    /*right: 0;*/
+    height: 0.5vw;
+    background-color: white;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    z-index: 50;
+    margin-right: 5px;
+}
+
+.search_block button img {
+    position: absolute;
+    height: 70%;
+    cursor: pointer;
+    top: 3px;
+    right: 7px;
+}
+
+.search_block input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-size: 0.7vw;
+    outline: none;
+    border: none;
+}
+
+.search_block .placeholder:focus {
+    outline: none;
+    border: none;
+    /*border: 1px solid #292929;*/
+}
+
+
+
+@media screen and (max-width: 1600px) {
+    #header {
+        height: 80px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #header {
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #header {
+        height: 48px;
+    }
+}
