@@ -114,42 +114,7 @@ a {
 
 }
 
-.breadcrumbs {
-    display: inline-block;
-}
 
-.breadcrumbs ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.breadcrumbs ul li {
-    display: inline-block;
-    font-size: 1.1vw;
-    color: darkslategray;
-    font-family: RobotoLight;
-}
-
-.breadcrumbs ul li:after {
-    content: "/";
-    padding-left: 8%;
-    padding-right: 2%;
-    color: darkgray;
-}
-
-.breadcrumbs ul li:last-child:after {
-    content: none;
-    padding: 0;
-}
-
-.breadcrumbs ul li a {
-    color: darkgray;
-}
-
-.breadcrumbs ul li:last-child a {
-    color: #3e4546;
-}
 
 
 
