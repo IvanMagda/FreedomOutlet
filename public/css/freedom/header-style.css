@@ -89,7 +89,9 @@
     color: #9ba3aa;
 }
 
-
+#about_company .active {
+    color: red;
+}
 
 #nav-menu {
     position: relative;
