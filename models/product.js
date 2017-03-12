@@ -355,7 +355,7 @@ Product.imgs = function (id, callback) {
 Product.pagination = function (page, items, sort, category, callback) {
     var sql = DATABASE();
     sql.select('prod', 'products').make(function (builder) {
-        builder.where('category', category);
+        builder.like('category', category);
         builder.order(sort);
         builder.page(page, items);
     });

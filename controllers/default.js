@@ -41,6 +41,7 @@ function main() {
 function view_products_list(categ) {
     var self = this;
     var category = categ;
+    if (categ == 'all') { category = '%' }
     var sort = self.query.sort || 'name'
 
     var page = (self.query.page || '1').parseInt();
