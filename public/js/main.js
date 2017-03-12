@@ -26,6 +26,10 @@ $(document).ready(function() {
         // autoplay: true,
         // autoplaySpeed: 2000,
     });
+        $(function () {
+            $.mask.definitions['~'] = '[+-]';
+        $("#tel").mask("+38(999) 999 99 99");
+    });
 
 });
 
