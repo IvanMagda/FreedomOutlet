@@ -1,7 +1,7 @@
 <div id="login_modal" class="modal_div">
-    <span class="modal_close">X</span>
-
-
+    <span class="modal_close">
+        <img class="simple cross-img" src="img/cross.png">
+    </span>
     <div class="login_modal__title-container">
         <div class="login_modal__title-cont">
             <span class="login_modal__title-text">Логин</span>
@@ -11,13 +11,8 @@
 
 
     <div class="login-form">
-
         <form id="mail-form" action="/authorization" method="post">
             <div class="validateTitle">*Обязательно</div>
-
-            <!--<form id="mail-form" action="/mail/send" method="post" name="" onsubmit="return validateForm()">-->
-            <!--<div id="validateGlobal">*Обязательно</div>-->
-
             <div class="row1">
                 <input class="neat-input" type="text" name="login" placeholder="Логин" />
             </div>
@@ -30,19 +25,4 @@
             </div>
         </form>
     </div>
-
-
-    <!--<div id="login-form-container">
-        <form id="login-form" action="#">
-            <table>
-                <tr><td>Login: </td><td><input name="login" type="text" /></td></tr>
-                <tr><td>Password: </td><td><input name="pass" type="password" /></td></tr>
-            </table>
-        </form>
-        <button>Login</button>
-    </div>-->
-
-
-
-
 </div>
