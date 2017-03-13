@@ -4,12 +4,19 @@
 <head>
     <!--@{import('list-product-style.css')}-->
     @{import('list-product/content-style.css')}
+    @{import('modal.css')}
+
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
     @{import('list_product.js')}
+    @{import('modal.js')}
+    @{import('jquery.maskedinput.js')}
+
 </head>
 <body>
+    <div id="overlay"></div>
+    @{view('modal/login')}
     <div id="header">
         @{view('layouts/compact/header')}
     </div>

@@ -15,7 +15,7 @@
     margin-left: -150px;
     display: none;
     opacity: 0;
-    z-index: 5;
+    z-index: 55;
     padding: 20px 10px;
 }
 
@@ -27,6 +27,7 @@
     right: 10px;
     cursor: pointer;
     display: block;
+    z-index:90;
 }
 
 .cross-img:hover {
@@ -34,7 +35,7 @@
 }
 
 #overlay {
-    z-index: 3;
+    z-index: 7;
     position: fixed;
     background-color: #000;
     opacity: 0.8;
@@ -300,3 +301,156 @@
 #register_modal .row3 label.left span {margin-right: 10px}
 #register_modal .row3 label.right span {margin-left: 10px}
 #register_modal label[for=remember-me] span {margin-left: 10px}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.modal_feedback .neat-input {
+    background: #ffffff !important;
+    // желательно прописывать, так как в Chrome при сохранных данных оно может быть желтым outline: none;
+    // удаляет обводку в браузерах хром(желтая) и сафари(синяя) height: 24px;
+    height: 57px;
+    color: #2a2a2a !important;
+    font-size: 1.1vw;
+    font-family: RobotoLight;
+    text-align: center;
+    width: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.neat-input:focus {
+    outline: 1px solid #2a2a2a;
+    border: 1px solid #2a2a2a;
+}
+
+.modal_feedback .neat-textarea {
+    width: 99%;
+    height: 112px;
+    margin-top: 10px;
+    color: #2a2a2a !important;
+    font-family: RobotoLight;
+    text-align: center;
+    font-size: 1.1vw;
+}
+
+.modal_feedback .neat-textarea:focus {
+    outline: 1px solid #292929;
+    border: 1px solid #292929;
+}
+
+.modal_feedback .neat-button {
+    width: 40%;
+    height: 65px;
+    background: white;
+    color: #2a2a2a;
+    font-family: RobotoLight;
+    font-size: 1.1vw;
+    box-shadow: none !important;
+    margin-top: 5px
+}
+
+    .neat-button:focus {
+        outline: 1px solid #2a2a2a;
+        border: 1px solid #2a2a2a;
+    }
+
+.neat-input,
+.neat-textarea,
+.neat-button {
+    border: 1px solid #2a2a2a;
+}
+
+.neat-input {
+    background: #ffffff !important;
+    // желательно прописывать, так как в Chrome при сохранных данных оно может быть желтым outline: none;
+    // удаляет обводку в браузерах хром(желтая) и сафари(синяя) height: 24px;
+    height: 57px;
+    color: #2a2a2a !important;
+    font-size: 1.1vw;
+    font-family: RobotoLight;
+    text-align: center;
+}
+
+#validate_modal_Global,
+#validate_modal_Name,
+#validate_modal_Phone,
+#validate_modal_Message,
+.validate_modal_Title {
+    font-family: RobotoLight;
+    color: red;
+    visibility: hidden;
+}
+
+.modal_feedback #validate_modal_Global,
+.modal_feedback .validate_modal_Title {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal_feedback #validate_modal_Name {
+    position: absolute;
+    padding-left: 45%;
+}
+
+.modal_feedback #validate_modal_Phone {
+    position: absolute;
+    padding-left: 93%;
+}
+
+.modal_feedback #validate_modal_Message {
+    position: absolute;
+    padding-left: 93%;
+    padding-top: 10px;
+}
+
+.modal_feedback .row1 {
+    display: flex;
+    justify-content: space-between;
+    width:555px;
+}
+
+.modal_feedback .row2 {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.modal_feedback .row3 {
+    display: flex;
+    justify-content: center;
+}
+
+#offer_modal{
+    left:40%;
+}
+
+.neat-button {
+    width: 40%;
+    height: 65px;
+    background: white;
+    color: #2a2a2a;
+    font-family: RobotoLight;
+    font-size: 1.1vw;
+    box-shadow: none !important;
+    margin-top: 5px
+}
+
+.validateTitle {
+    font-family: RobotoLight;
+    color: red;
+    visibility: hidden;
+}
+
+.validateTitle {
+    display: flex;
+    justify-content: flex-end;
+}

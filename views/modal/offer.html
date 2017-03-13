@@ -10,21 +10,21 @@
     </div>
 
 
-    <div class="offer-form">
-        <form id="mail-form" action="/mail/send" method="post" name="mailForm" onsubmit="return validateForm()">
-            <div id="validateGlobal">*Обязательно</div>
+    <div class="modal_feedback">
+        <form id="mail-form" action="/mail/send" method="post" name="mail_modal_Form" onsubmit="return validate_modal_Form()">
+            <div id="validate_modal_Global">*Обязательно</div>
             <div class="row1">
                 <input class="neat-input" type="text" name="name" placeholder="ИМЯ" value="" />
-                <div id="validateName">*</div>
+                <div id="validate_modal_Name">*</div>
                 <input id="tel" class="neat-input" type="text" name="phone" placeholder="+38 (000) 000 00 00" value="" />
-                <div id="validatePhone">*</div>
+                <div id="validate_modal_Phone">*</div>
             </div>
             <div class="row2">
-                <div id="validateMessage">*</div>
+                <div id="validate_modal_Message">*</div>
                 <textarea class="neat-textarea" name="message" placeholder="&#013;&#010;&#013;&#010;СООБЩЕНИЕ" value=""></textarea>
             </div>
             <div class="row3">
-                <button id="mail-send" class="neat-button" type="submit">ОТПРАВИТЬ СООБЩЕНИЕ</button>
+                <button id="mail-send" class="neat-button" type="submit">ОФОРМИТЬ</button>
             </div>
 
         </form>

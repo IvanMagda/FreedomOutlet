@@ -52,3 +52,19 @@ function logout() {
         window.location.href = '/';
     })
 }
+
+function validate_modal_Form() {
+    var name = document.forms["mail_modal_Form"].name.value;
+    var phone = document.forms["mail_modal_Form"].phone.value;
+    var message = document.forms["mail_modal_Form"].message.value;
+
+    if (name == "" || phone == "" || message == "") {
+        document.getElementById('validate_modal_Global').style.visibility = "visible";
+        document.getElementById('validate_modal_Phone').style.visibility = "visible";
+        document.getElementById('validate_modal_Message').style.visibility = "visible";
+        document.getElementById('validate_modal_Name').style.visibility = "visible";
+        return false;
+    } else {
+        return true;
+    }
+}

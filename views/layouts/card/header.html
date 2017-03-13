@@ -28,10 +28,14 @@
     </nav>
     <div class="icon">
         <div class="man">
-            <a href="#">
-                <img class="man1" src="@{'profil.png'}">
-                <img class="man2" src="@{'profil2.png'}">
-            </a>
+            @{if user !== null}
+            <a href="#" onclick="logout()">
+                @{else}
+                <a href="#login_modal" class="open_modal">
+                    @{fi}
+                    <img class="man1" src="@{'profil.png'}">
+                    <img class="man2" src="@{'profil2.png'}">
+                </a>
         </div>
         <div class="heart">
             <a href="#">

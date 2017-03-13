@@ -448,7 +448,7 @@ a {
     position: absolute;
     right: 0;
     width: 7%;
-    z-index: 999999;
+    z-index: 3;
     margin-right: 7px;
 }
 
