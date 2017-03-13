@@ -11,6 +11,11 @@ $(document).ready(function () {
     //        });
     //    }
     //});
+
+    $(function () {
+        $.mask.definitions['~'] = '[+-]';
+        $("#tel").mask("+38(999) 999 99 99");
+    });
 });
 
 function validateForm() {
