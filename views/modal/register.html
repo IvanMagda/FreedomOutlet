@@ -1,4 +1,4 @@
-<div id="register_modal" class="modal_div">
+<div id="register_modal" class="modal_div modal_reg">
     <span class="modal_close">
         <img class="simple cross-img" src="img/cross.png">
     </span>
@@ -11,22 +11,22 @@
 
 
     <div class="register-form">
-        <form id="reg-form" action="/register" method="POST">
-            <div class="validate_modal_Title">*Обязательно</div>
+        <form id="reg-form" action="/register" method="POST"  name="register_Form" onsubmit="return validate_register_Form()">
+            <div id="validate_modal_Global" class="validate_modal_Title">*Обязательно</div>
             <div class="row1">
                 <input class="neat-input" type="text" name="login" placeholder="ИМЯ" value="" />
                 <div id="validate_modal_Name">*</div>
-                <input class="neat-input" type="text" name="phone" placeholder="+38 (00) 000 00 00" value="" />
+                <input id="tel" class="neat-input" type="text" name="phone" placeholder="+38 (000) 000 00 00" value="" />
                 <div id="validate_modal_Phone">*</div>
             </div>
             <div class="row2">
                 <input class="neat-input" type="text" name="mail" placeholder="E-MAIL" value="" />
-                <div id="validate_modal_Name">*</div>
+                <div id="validate_modal_Mail">*</div>
                 <input class="neat-input" type="password" name="pass" placeholder="ПАРОЛЬ" value="" />
-                <div id="validate_modal_Phone">*</div>
+                <div id="validate_modal_Pass">*</div>
             </div>
             <div class="row3">
-                <input id="check" type="radio" name="group" value="user">
+                <input id="check" type="radio" name="group" value="user" checked>
                 <input id="check2" type="radio" name="group" value="designer">
 
                 <label class="left" for="check">

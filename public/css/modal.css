@@ -385,12 +385,16 @@
 #validate_modal_Name,
 #validate_modal_Phone,
 #validate_modal_Message,
+#validate_modal_Mail,
+#validate_modal_Pass,
+#validate_modal_Reg,
 .validate_modal_Title {
     font-family: RobotoLight;
     color: red;
     visibility: hidden;
 }
 
+.modal_reg #validate_modal_Global,
 .modal_feedback #validate_modal_Global,
 .modal_feedback .validate_modal_Title {
     display: flex;
