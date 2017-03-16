@@ -1,7 +1,7 @@
 #header {
     position: relative;
     width: 100%;
-    height: 120px;
+    height: 135px;
     background: #292929;
 }
 
@@ -78,7 +78,7 @@ a {
 #nav-menu .li {
     display: inline-block;
     font-family: RobotoLight;
-    font-size: 13px;
+    font-size: 14px;
     position: relative;
     cursor: pointer;
 }
@@ -120,7 +120,7 @@ a {
     position: relative;
     /*left: 0;*/
     top: 20%;
-    height: 60%;
+    height: 62%;
     font-family: RobotoLight;
     font-size: 0.7vw;
 }
