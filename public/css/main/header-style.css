@@ -96,8 +96,12 @@ a {
     border-bottom: 2px solid red;
 }
 
-#about_company .li a {
-    color: #9ba3aa;
+#about_company .li {
+    color: #9ba3aa !important;
+}
+
+#about_company .li:hover {
+    color: red;
 }
 
 #nav-menu {
