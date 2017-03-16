@@ -92,7 +92,9 @@ body {
 }
 
 .new-carousel .item {
-    margin: 20px;
+    /*margin: 20px;*/
+    margin-right: 35px;
+    margin-top: 20px;
 }
 
 .new-carousel .item img {

@@ -178,6 +178,10 @@
     width: 100%;
 }
 
+.icon .man,
+.icon .heart {
+    margin-top: 15%;
+}
 
 
 @media screen and (max-width: 1600px) {
