@@ -201,6 +201,7 @@ a {
     cursor: pointer;
     z-index: 50;
     margin-right: 5px;
+    background: #e8ebef;
 }
 
 .search_block button img {
@@ -219,6 +220,7 @@ a {
     outline: none;
     border: none;
     text-indent: 10px;
+    background: #e8ebef;
 }
 
 .search_block .placeholder:focus {
