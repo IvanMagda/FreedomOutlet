@@ -218,6 +218,7 @@ a {
     font-size: 0.7vw;
     outline: none;
     border: none;
+    text-indent: 10px;
 }
 
 .search_block .placeholder:focus {
