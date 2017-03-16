@@ -72,7 +72,7 @@
     cursor: pointer;
 }
 
-#about_company .li .border,
+/*#about_company .li .border,*/
 #nav-menu .li .border {
     position: absolute;
     width: 100%;
@@ -80,18 +80,22 @@
     bottom: -5px;
 }
 
-#about_company .li:hover .border,
+/*#about_company .li:hover .border,*/
 #nav-menu .li:hover .border {
     border-bottom: 2px solid red;
 }
 
-#about_company .li a {
+#about_company a .li {
     color: #9ba3aa;
 }
 
-#about_company .active {
+#about_company a .li:hover {
     color: red;
 }
+
+/*#about_company .active {*/
+    /*color: red;*/
+/*}*/
 
 #nav-menu {
     position: relative;

@@ -83,7 +83,7 @@ a {
     cursor: pointer;
 }
 
-#about_company .li .border,
+/*#about_company .li .border,*/
 #nav-menu .li .border {
     position: absolute;
     width: 100%;
@@ -91,16 +91,16 @@ a {
     bottom: -5px;
 }
 
-#about_company .li:hover .border,
+/*#about_company .li:hover .border,*/
 #nav-menu .li:hover .border {
     border-bottom: 2px solid red;
 }
 
-#about_company .li {
-    color: #9ba3aa !important;
+#about_company a .li {
+    color: #9ba3aa;
 }
 
-#about_company .li:hover {
+#about_company a .li:hover {
     color: red;
 }
 
@@ -195,7 +195,6 @@ a {
     /*position: absolute;*/
     /*right: 0;*/
     height: 0.5vw;
-    background-color: white;
     border: 0;
     outline: none;
     cursor: pointer;

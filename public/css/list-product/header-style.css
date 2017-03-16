@@ -103,6 +103,7 @@
     cursor: pointer;
     z-index: 50;
     margin-right: 5px;
+    background: #e8ebef;
 }
 
 .search_block button img {
@@ -121,6 +122,8 @@
     padding: 4%;
     outline: none;
     border: none;
+    background: #e8ebef;
+    text-indent: 10px;
 }
 
 /*.search_block .placeholder:focus {*/

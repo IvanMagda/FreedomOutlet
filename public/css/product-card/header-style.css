@@ -103,6 +103,7 @@
     cursor: pointer;
     z-index: 50;
     margin-right: 5px;
+    background: #e8ebef;
 }
 
 .search_block button img {
@@ -120,6 +121,8 @@
     font-size: 0.8vw;
     padding: 4%;
     outline: none;
+    text-indent: 10px;
+    background: #e8ebef;
 }
 
 .icon {
