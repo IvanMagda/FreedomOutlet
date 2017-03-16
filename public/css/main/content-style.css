@@ -261,8 +261,8 @@ body {
 .hover-border {
     display: none;
     position: absolute;
-    left: 8%;
-    right: 8%;
+    left: 2%;
+    right: 2%;
     top: 5%;
     bottom: 5.5%;
     outline: 1px solid white;
