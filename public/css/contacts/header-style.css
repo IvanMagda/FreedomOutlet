@@ -174,4 +174,8 @@ search_block {
     position: absolute;
     font-size: 0.7vw;
     right: 40px;
+    text-indent: 10px;
+    background: #e8ebef;
+    border: none;
+    outline: none;
 }

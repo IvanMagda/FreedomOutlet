@@ -79,10 +79,16 @@ a {
     width: 100%;
 }
 
-.kiev-cont-1 {
+.kiev-cont-1,
+.kiev-cont-2,
+.kiev-cont-3,
+.kiev-cont-4,
+.kiev-cont-5,
+.kiev-cont-6 {
     display: flex;
     justify-content: flex-start;
-    outline: 1px solid red;
+    /*outline: 1px solid red;*/
+    margin-bottom: 2.5%;
 }
 
 .cont-img,
@@ -91,8 +97,20 @@ a {
     position: relative;
 }
 
+.cont-img {
+    width: 62%;
+}
+
 .cont-text {
     margin-left: 2vw;
+    width: 35%;
+}
+
+.cont-text .container-title .plamb {
+    font-size: 1.8vw;
+    color: #2a2a2a;
+    font-family: RobotoLight;
+    padding-left: 3%;
 }
 
 .dark-layer {
@@ -107,6 +125,8 @@ a {
 
 .cont-img img {
     filter: grayscale(100%);
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -118,4 +138,222 @@ a {
     color: #2a2a2a;
     font-family: RobotoLight;
     font-size: 2.2vw;
+    display: inline-block;
+    line-height: 1.7vw;
+}
+
+.container-cont {
+    display: flex;
+    margin-top: 5%;
+}
+
+.container-cont div {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.container-title {
+    white-space: nowrap;
+}
+
+.dnepr-container-title {
+    white-space: normal;
+}
+
+.container-cont span {
+    display: inline-block;
+    width: 50%;
+    font-family: RobotoLight;
+    color: #2a2a2a;
+    font-size: 0.9vw;
+    line-height: 1.3vw;
+    white-space: nowrap;
+}
+
+.kiev-title,
+.kharkiv-title,
+.dnepr-title {
+    margin-bottom: 2%;
+    margin-top: 5%;
+}
+
+.kiev-title span,
+.kharkiv-title span,
+.dnepr-title span {
+    font-family: Georgia;
+    color: #3e4546;
+    font-size: 1.3vw;
+}
+
+.kharkiv-cont-1,
+.kharkiv-cont-2,
+.kharkiv-cont-3 {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2.5%;
+}
+
+.dnepr-cont-1 {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2.5%;
+}
+
+
+
+
+
+
+.contacts_feedback {
+    position: relative;
+    /*outline: 1px solid blanchedalmond;*/
+    margin-bottom: 100px;
+}
+
+#container-title-feedback {
+    position: relative;
+    height: 130px;
+    /*outline: 5px dashed green;*/
+    margin-top: 20px;
+}
+
+.title-feedback {
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    width: 90px;
+    height: 180px;
+    margin: -56px;
+    border-bottom: 2px solid red;
+    white-space: nowrap;
+}
+
+.text-feedback {
+    font-family: Georgia;
+    margin-left: -120px;
+    top: 125px;
+    font-size: 40px;
+    color: #3e4546;
+    position: absolute;
+}
+
+.content-feedback {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    /*outline: 2px solid red;*/
+}
+
+.form {
+    display: inline-block;
+    position: static;
+    width: 50%;
+    height: 300px;
+    /*outline: 1px solid blue;*/
+    margin-top: 55px;
+}
+
+.contacts_feedback .row1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contacts_feedback .row2 {
+    margin-top: -5px;
+}
+
+.contacts_feedback .row3 {
+    margin-top: 2%;
+}
+
+.neat-input {
+    background: #ffffff !important; // желательно прописывать, так как в Chrome при сохранных данных оно может быть желтым
+outline: none; // удаляет обводку в браузерах хром(желтая) и сафари(синяя)
+height: 24px;
+    height: 57px;
+    color: #2a2a2a !important;
+    font-size: 1.1vw;
+    font-family: RobotoLight;
+    text-align: center;
+}
+
+.contacts_feedback .neat-input {
+    width: 49.3%;
+}
+
+.neat-input:focus {
+    outline: 1px solid #2a2a2a;
+    border: 1px solid #2a2a2a;
+}
+
+.neat-textarea {
+    width: 99%;
+    height: 112px;
+    margin-top: 10px;
+    color: #2a2a2a !important;
+    font-family: RobotoLight;
+    text-align: center;
+    font-size: 1.1vw;
+}
+
+.neat-textarea:focus {
+    outline: 1px solid #292929;
+    border: 1px solid #292929;
+}
+
+.neat-button {
+    width: 40%;
+    height: 65px;
+    background: white;
+    color: #2a2a2a;
+    font-family: RobotoLight;
+    font-size: 1.1vw;
+    box-shadow: none !important;
+    margin-top: 5px
+}
+
+.neat-button:focus {
+    outline: 1px solid #2a2a2a;
+    border: 1px solid #2a2a2a;
+}
+
+.neat-input,
+.neat-textarea,
+.neat-button {
+    border: 1px solid #2a2a2a;
+}
+
+#validateGlobal,
+#validateName,
+#validatePhone,
+#validateMessage,
+.validateTitle {
+    font-family: RobotoLight;
+    color: red;
+    visibility: hidden;
+}
+
+#validateName {
+    position: absolute;
+    padding-left: 24%;
+}
+
+#validateGlobal,
+.validateTitle {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+#validatePhone {
+    position: absolute;
+    padding-left: 49%;
+}
+
+#validateMessage {
+    position: absolute;
+    padding-left: 49%;
+    padding-top: 10px;
 }
