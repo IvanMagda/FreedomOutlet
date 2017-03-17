@@ -1,7 +1,7 @@
 #header {
     position: relative;
     width: 100%;
-    height: 85px;
+    height: 95px;
     background: #292929;
 }
 
@@ -38,7 +38,7 @@
     width: 65%;
     height: 50%;
     margin-left: 13%;
-    margin-top: 2%;
+    margin-top: 2.5%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -103,6 +103,7 @@
     cursor: pointer;
     z-index: 5;
     margin-right: 5px;
+    background: #e8ebef;
 }
 
 .search_block button img {
@@ -121,6 +122,8 @@
     padding: 4%;
     outline: none;
     border: none;
+    background: #e8ebef;
+    text-indent: 10px;
 }
 
 /*.search_block .placeholder:focus {*/
@@ -175,6 +178,10 @@
     width: 100%;
 }
 
+.icon .man,
+.icon .heart {
+    margin-top: 25%;
+}
 
 
 @media screen and (max-width: 1600px) {

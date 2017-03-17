@@ -27,16 +27,18 @@ html {
     visibility: hidden;
 }
 
+#validateName {
+    position: absolute;
+    padding-left: 24%;
+}
+
 #validateGlobal,
 .validateTitle {
     display: flex;
     justify-content: flex-end;
 }
 
-#validateName {
-    position: absolute;
-    padding-left: 24%;
-}
+
 
 #validatePhone {
     position: absolute;
@@ -92,7 +94,9 @@ body {
 }
 
 .new-carousel .item {
-    margin: 20px;
+    /*margin: 20px;*/
+    margin-right: 35px;
+    margin-top: 20px;
 }
 
 .new-carousel .item img {
@@ -259,8 +263,8 @@ body {
 .hover-border {
     display: none;
     position: absolute;
-    left: 8%;
-    right: 8%;
+    left: 2%;
+    right: 2%;
     top: 5%;
     bottom: 5.5%;
     outline: 1px solid white;
