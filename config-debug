@@ -1,0 +1,31 @@
+name                            : Total.js
+author                          : You company name
+version                         : 1.0.0
+secret                          : secret-key-for-web
+allow-compile-style             : false
+allow-compile-html              : false
+allow-compile-script            : false
+
+// Mail settings
+mail.smtp                       : smtp.mail.ru
+mail.smtp.options               : {"secure":true,"port":465,"user":"ivan_madcat@mail.ru","password":"theonly","timeout":10000}
+mail.address.from               : ivan_madcat@mail.ru
+mail.address.reply              : ivan_madcat@mail.ru
+mail.address.bcc                :
+
+//DEVSQLSERVER : Driver={SQL Server Native Client 11.0};Server={localhost,1433};Database=Freedom;Uid=sa;Pwd=sa
+DEVSQLSERVER : Driver={SQL Server Native Client 11.0};Server={desktop-qs6bqvi};Database=Freedom;Uid=sa;Pwd=rootROOT
+
+//DBPROVIDER: sqlserver
+DBPROVIDER: mysql
+
+//DEVMYSQLSERVER (Object) : { host: "localhost", user: "root", password: "p123456789", database: "outlet", multipleStatements: true }
+DEVMYSQLSERVER (Object) : { host: "localhost", user: "root", password: "root", database: "outlet", multipleStatements: true }
+
+
+//Public files
+public_img : public/tmp
+
+//Host name
+//HOST: http://127.0.0.1:8000/
+HOST: http://localhost:8000/
