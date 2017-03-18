@@ -45,6 +45,11 @@ $(document).ready(function () {
             console.log(answer);
         });
     });
+
+    $(function () {
+        $.mask.definitions['~'] = '[+-]';
+        $("#tel_register").mask("+38(999) 999 99 99");
+    });
 });
 
 function logout() {

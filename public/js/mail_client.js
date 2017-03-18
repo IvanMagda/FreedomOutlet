@@ -1,17 +1,4 @@
 $(document).ready(function () {
-    //$('#mail-send').click(function () {
-    //    //console.log('click111');
-    //    if (validateForm()){
-    //        $.post('/mail/send', $('#mail-form').serialize(), function (answer) {
-    //            if (answer.success) {
-    //                //window.location.href = '/mail/?success=1';
-    //                return;
-    //            }
-    //            console.log(answer);
-    //        });
-    //    }
-    //});
-
     $(function () {
         $.mask.definitions['~'] = '[+-]';
         $("#tel").mask("+38(999) 999 99 99");
