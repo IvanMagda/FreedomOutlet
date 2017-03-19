@@ -1,5 +1,7 @@
 ﻿@{layout('/layouts/contacts/layout')}
-
+<head>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeCVF0-LF2T75pmOVD9nc33Gv7KTO9o1g"></script>
+</head>
 <div id="content">
     <div class="contacts-map">
         <div id="container-contacts-text">
@@ -8,7 +10,10 @@
             </div>
         </div>
         <div class="contacts-img-map">
-            <img src="img/contacts-map.png">
+            <img id="img_map" src="img/contacts-map.png">
+            <div id="map_c" style="position: fixed;">
+                <div id="map"></div>
+            </div>
         </div>
     </div>
     <div class="contacts-kiev">
@@ -274,7 +279,7 @@
                     <div class="row1">
                         <input class="neat-input" type="text" name="name" placeholder="ИМЯ" value="" />
                         <div id="validateName">*</div>
-                        <input class="neat-input" type="text" name="phone" placeholder="+38 (00) 000 00 00" value="" />
+                        <input id="tel" class="neat-input" type="text" name="phone" placeholder="+38 (00) 000 00 00" value="" />
                         <div id="validatePhone">*</div>
                     </div>
                     <div class="row2">
