@@ -89,6 +89,7 @@ a {
 .main-gallery {
     position: relative;
     margin-top: 3%;
+    height: 45vw;
 }
 
 .main-gallery .gallery-container {
