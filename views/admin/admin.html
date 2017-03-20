@@ -1,4 +1,4 @@
-@{layout('/admin/admin_layout')}
+﻿@{layout('/admin/admin_layout')}
 <head>
     @{import('http://code.jquery.com/jquery-1.11.0.min.js')}
     @{import('product_client.js')}
@@ -22,7 +22,7 @@
                 <tr>
                     <td class="mdl-data-table__cell--non-numeric wid-80">@{product.name}</td>
                     <td class="mdl-data-table__cell">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="edit_p('@{product.id}')">&nbsp;Edit&nbsp;</button>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="edit_p('@{product.id}')">&nbsp;Редактировать&nbsp;</button>
                         &nbsp;&nbsp;
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="delete_p('@{product.id}')">&nbsp;X&nbsp;</button>
                     </td>

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+﻿$(document).ready(function () {
     var files;
     if ($('#immages').val()) {
         var files = JSON.parse($('#immages').val());
@@ -12,7 +12,7 @@ $(document).ready(function () {
         limit: null,
         maxSize: null,
         extensions: null,
-        changeInput: '<a class="jFiler-input-choose-btn blue">Browse Files</a>',
+        changeInput: '<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Выбрать файлы</a>',
         showThumbs: true,
         theme: "dragdropbox",
         templates: {
