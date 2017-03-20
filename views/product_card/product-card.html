@@ -120,6 +120,7 @@
                 </div>
             </div>
             <div class="product-list">
+                @{foreach product in model.products_from_manufacturer}
                 <div class="item">
                     <div class="product-list-icon-heart">
                         <img class="product-list-icon-heart-img" src="/../img/heart-1.png">
@@ -128,15 +129,16 @@
                     <div class="product-list-icon-info">
                         <img class="product-list-icon-info-img" src="/../img/info-icon.png">
                     </div>
-                    <img class="item-main-img" src="/../img/sofa.png" alt="Image 1">
+                    <a href="/product/@{product.id}"><img class="item-main-img" src="@{product.title_img_src}" alt="Image 1"></a>
                     <div class="title-new-product">
-                        <span class="tit">Диван</span>
-                        <span class="vendor">AGATHA</span>
+                        <span class="tit">@{product.name}</span>
+                        <span class="vendor">@{product.manufacturer}</span>
                         <br>
-                        <span class="price">89 000 UAH</span>
+                        <span class="price">@{product.price} UAH</span>
                     </div>
                 </div>
-                <div class="item">
+                @{end}
+                <!--<div class="item">
                     <div class="product-list-icon-heart">
                         <img class="product-list-icon-heart-img" src="/../img/heart-1.png">
                         <img class="product-list-icon-heart2-img" src="/../img/heart-2.png">
@@ -247,7 +249,7 @@
                         <br>
                         <span class="price">89 000 UAH</span>
                     </div>
-                </div>
+                </div>-->
             </div>
             <div class="container-button-look-all">
                 <a href="#">

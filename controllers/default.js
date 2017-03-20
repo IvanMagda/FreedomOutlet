@@ -68,6 +68,7 @@ function view_product(product_id) {
     var i = 1;
     var self = this;
 
+
     var avl = product.available_in.split(',');
     avl.forEach(function (e) {
         available.push(shops[e]);
@@ -82,11 +83,13 @@ function view_product(product_id) {
                 i++;
             }
         })
-        //var immages = JSON.stringify(img);
-        self.view('/product_card/product-card', {
-            product: product,
-            immages: img,
-            available: available
+        Product.get_by_manufacturer(product.manufacturer, function (from_manufacturer) {
+            self.view('/product_card/product-card', {
+                product: product,
+                immages: img,
+                available: available,
+                products_from_manufacturer: from_manufacturer
+            });
         });
     });
 }
