@@ -384,6 +384,17 @@ Product.search = function (search_text, callback) {
     });
 }
 
+Product.get_by_manufacturer = function (manufacturer, callback) {
+    var sql = DATABASE();
+
+    sql.select('search_result', 'products').make(function (builder) {
+        builder.where('manufacturer', manufacturer);
+    });
+    sql.exec(function (err, response) {
+        callback(response.search_result);
+    });
+};
+
 exports.install = function () {
     F.on('initdb', function () {
 
