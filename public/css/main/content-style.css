@@ -158,10 +158,12 @@ body {
 
 .gallery-icon-info {
     top: 13%;
+    cursor: pointer;
 }
 
 .gallery-icon-heart {
     top: 3%;
+    cursor: pointer;
 }
 
 .gallery-icon-heart-img,
@@ -171,6 +173,9 @@ body {
 }
 
 .gallery-icon-heart2-img {
+     display: none;
+ }
+.gallery-icon-info .gallery-icon-info2-img {
     display: none;
 }
 
@@ -179,6 +184,10 @@ body {
 }
 
 .gallery-icon-heart:hover .gallery-icon-heart2-img {
+    display: inline-block;
+}
+
+.gallery-icon-info:hover .gallery-icon-info2-img {
     display: inline-block;
 }
 

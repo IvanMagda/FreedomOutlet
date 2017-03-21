@@ -417,10 +417,23 @@ a {
 
 .item-icon-heart2-img {
     display: none;
-    width: 100%;
 }
 
 .item-icon-heart .item-icon-heart2-img {
+    display: none;
+    width: 100%;
+}
+
+.item-icon-info .item-icon-info2-img {
+    display: none;
+    width: 100%;
+}
+
+.item-icon-info:hover .item-icon-info2-img {
+    display: inline-block;
+}
+
+.item-icon-info:hover .item-icon-info-img {
     display: none;
 }
 

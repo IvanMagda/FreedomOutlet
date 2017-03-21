@@ -89,6 +89,7 @@ a {
 .main-gallery {
     position: relative;
     margin-top: 3%;
+    height: 45vw;
 }
 
 .main-gallery .gallery-container {
@@ -474,6 +475,11 @@ a {
     position: absolute;
 }
 
+.product-list-icon-info .product-list-icon-info2-img {
+    display: none;
+    width: 100%;
+}
+
 .product-list-icon-heart2-img {
     display: none;
 }
@@ -481,6 +487,14 @@ a {
 .product-list-icon-heart .product-list-icon-heart2-img {
     display: none;
     width: 100%;
+}
+
+.product-list-icon-info:hover .product-list-icon-info2-img {
+    display: inline-block;
+}
+
+.product-list-icon-info:hover .product-list-icon-info-img {
+    display: none;
 }
 
 .product-list-icon-heart:hover .product-list-icon-heart2-img {
