@@ -17,6 +17,8 @@ exports.install = function () {
     F.route('/search/{search_text}', search, ['get']);
     F.route('/about', view_about);
     F.route('/contacts', view_contacts);
+    F.route('/idea-for-home', view_idea_for_home_list);
+    F.route('/idea-for-home/{idea_id}', view_idea_for_home_one);
 };
 
 function main() {
@@ -186,4 +188,14 @@ function view_about() {
 function view_contacts() {
     var self = this;
     self.view('/contacts/contacts');
+}
+
+function view_idea_for_home_list() {
+    var self = this;
+    self.view('/idea-for-home/list');
+}
+
+function view_idea_for_home_one() {
+    var self = this;
+    self.view('/idea-for-home/one');
 }
