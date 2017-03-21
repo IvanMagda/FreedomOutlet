@@ -314,7 +314,7 @@ a {
 .main-gallery .main-product-card-gall .item {
     display: -webkit-flex;
     display: flex;
-    -webkit-flex-direction: row /* works with row or column */
+    -webkit-flex-direction: row; /* works with row or column */
     flex-direction: row;
     -webkit-align-items: center;
     align-items: center;
@@ -325,7 +325,6 @@ a {
 .main-product-card-gall .slick-prev::before,
 .main-product-card-gall .slick-next::before {
     color: #3e4546;
-;
     font-size: 3vw;
     font-family: RobotoLight;
 }
