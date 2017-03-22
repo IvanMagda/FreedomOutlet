@@ -1,15 +1,20 @@
-@{layout('')}
+﻿@{layout('')}
 <!DOCTYPE html>
 <html lang="en">
     <head>
 
         <meta charset="UTF-8">
         <title>Title</title>
-        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        @{import('jquery-3.1.0.min.js')}
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!--<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>-->
         <!--@{import('list-product-style.css')}-->
         @{import('idea-for-home/content-style.css')}
         @{import('contacts.css')}
         @{import('user_cabinet.css')}
+        @{import('search.js')}
+
     </head>
     <body>
         <div id="header">

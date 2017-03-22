@@ -15,6 +15,7 @@ exports.install = function () {
     F.route('/products/delete/{product_id}', product_delete, ['post']);
     F.route('/products/delete_img/', product_delete_img, ['post']);
     F.route('/search/{search_text}', search, ['get']);
+    F.route('/search_result/{search_text}', search_result, ['get']);
     F.route('/about', view_about);
     F.route('/contacts', view_contacts);
     F.route('/idea-for-home', view_idea_for_home_list);
@@ -176,11 +177,31 @@ function view_admin() {
 function search(search_text) {
     var self = this;
     console.log(search_text);
-    Product.search(search_text, function (result) {
+    Product.search(decodeURI(search_text), function (result) {
         console.log(result);
         self.json(result);
     })
     
+}
+
+function search_result(search_text) {
+    var self = this;
+    var sort = self.query.sort || 'name'
+    var page = (self.query.page || '1').parseInt();
+    var perpage = (self.query.number || '12').parseInt();
+
+    Product.search(decodeURI(search_text), function (result) {
+        result.sort(dynamicSort(sort));
+        console.log(result);
+        var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
+        self.view('/list_product/list-product', {
+            breadcrumbs: 'search',
+            sort: sort,
+            items: perpage,
+            products: result,
+            pagination: pagination
+        });
+    })
 }
 
 function view_about() {
@@ -201,4 +222,16 @@ function view_idea_for_home_list() {
 function view_idea_for_home_one() {
     var self = this;
     self.view('/idea-for-home/one');
+}
+
+function dynamicSort(property) {
+    var sortOrder = 1;
+    if (property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a, b) {
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    }
 }
