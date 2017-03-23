@@ -1,4 +1,14 @@
 $(document).ready(function () {
+    $('.contacts-img-map').css('width', $("body").prop("clientWidth"));
+    $('.contacts-img-map').css('margin-left', -($("body").prop("clientWidth") / 2));
+    $('.contacts-img-map').css('margin-right', $("body").prop("clientWidth") / 2);
+
+    $(window).resize(function () {
+        $('.contacts-img-map').css('width', $("body").prop("clientWidth"));
+        $('.contacts-img-map').css('margin-left', -($("body").prop("clientWidth") / 2));
+        $('.contacts-img-map').css('margin-right', $("body").prop("clientWidth") / 2);
+    });
+
     $('#map').css('width', $('#img_map').width());
     $('#map').css('height', $('#img_map').width()/2);
     $('#map').css('visibility', 'hidden');
