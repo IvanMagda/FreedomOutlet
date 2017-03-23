@@ -43,13 +43,17 @@ a {
 
 
 .list-ideas .main-ideas {
-    /*outline: 1px solid red;*/
-    height: 200px;
+    position: relative;
+    height: 39vw;
+}
+
+.list-ideas .main-ideas img {
+    width: 100%;
 }
 
 .list-ideas .another-ideas {
     outline: 1px solid red;
-    height: 50vw;
+    height: 70vw;
     position: relative;
 }
 
@@ -70,10 +74,25 @@ a {
     z-index: 1;
 }
 
+.another-ideas .idea-item .img-1,
+.another-ideas .idea-item .img-4,
+.another-ideas .idea-item .img-5 {
+    width: 100%;
+}
+
+.another-ideas .idea-item .img-2,
+.another-ideas .idea-item .img-3,
+.another-ideas .idea-item .img-6 {
+    height: 100%;
+}
+
 .another-ideas .idea-item .title,
 .another-ideas .idea-item .text,
 .another-ideas .idea-item .button {
-    z-index: 2;
+    z-index: 5;
+    font-family: RobotoLight;
+    color: white;
+    font-size: 2vw;
 }
 
 .another-ideas .idea-item .dark-layer {
