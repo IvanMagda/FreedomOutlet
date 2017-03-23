@@ -912,6 +912,7 @@ height: 24px;
     font-family: RobotoLight;
     text-align: center;
     font-size: 1.1vw;
+    resize: none;
 }
 
 .neat-textarea:focus {

@@ -341,6 +341,7 @@
     font-family: RobotoLight;
     text-align: center;
     font-size: 1.1vw;
+    resize: none;
 }
 
 .modal_feedback .neat-textarea:focus {
