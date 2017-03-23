@@ -7,6 +7,7 @@ exports.install = function () {
     F.route('/products/{category}', view_products_list);
     F.route('/admin', view_admin);
     F.route('/product/{product_id}', view_product);
+    F.route('/manufacturer/{manufacturer}', view_products_manufacturer);
     F.route('/admin/{product_id}', view_admin_product);
     F.route('/products/create', view_product_add);
     F.route('/products/create', product_create, ['upload'], { flags: ['upload'], length: 25 * 1024 * 1024, timeout: 30 * 60 * 1000 });
@@ -95,6 +96,27 @@ function view_product(product_id) {
             });
         });
     });
+}
+
+function view_products_manufacturer(manufacturer) {
+    var self = this;
+    var sort = self.query.sort || 'name'
+    var page = (self.query.page || '1').parseInt();
+    var perpage = (self.query.number || '12').parseInt();
+
+    Product.get_by_manufacturer(manufacturer, function (result) {
+        result.sort(dynamicSort(sort));
+        console.log(result);
+        var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
+        self.view('/list_product/list-product', {
+            breadcrumbs: 'manufacturer',
+            sort: sort,
+            items: perpage,
+            products: result,
+            pagination: pagination,
+            manufacturer: manufacturer
+        });
+    })
 }
 
 function view_admin_product(product_id) {

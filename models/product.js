@@ -127,7 +127,8 @@ Product.create_new = function (product, files, callback) {
                         if (err) throw err;
                         console.log('Title img saved!');
                         files.forEach(function (element, index) {
-                            if (index != 0 || element.name != 'virtual_model') {
+                            console.log(element);
+                            if (index != 0 && element.name != 'virtual_model') {
                                 var galery = 'Galery' + index + '.';
                                 galery += element.filename.split('.')[1];
                                 fs.readFile(element.path, function (err, data) {
