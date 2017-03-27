@@ -476,6 +476,14 @@ a {
 
 .pagination img {
     height: 100%;
+    -webkit-filter: grayscale(100%); /* Safari */
+    filter: grayscale(100%);
+}
+
+.pagination img:hover {
+        height: 100%;
+    -webkit-filter: none; /* Safari */
+    filter: none;
 }
 
 .pagination a,
