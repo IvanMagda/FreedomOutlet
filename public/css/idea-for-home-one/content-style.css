@@ -1,0 +1,43 @@
+@font-face {
+    font-family: RobotoLight;
+    src: url(../fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: Roboto-ThinItalic;
+    src: url(../fonts/Roboto/Roboto-ThinItalic.ttf); /* Путь к файлу со шрифтом */
+}
+
+
+@font-face {
+    font-family: Roboto-Medium;
+    src: url(../fonts/Roboto/Roboto-Medium.ttf); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: RobotoSlab-Light;
+    src: url(../fonts/Roboto/RobotoSlab-Light.ttf); /* Путь к файлу со шрифтом */
+}
+
+
+
+
+body {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: #e8ebef;
+}
+
+#content {
+    position: relative;
+    margin-top: 2%;
+    margin-left: 7%;
+    margin-right: 7%;
+    min-width: 900px;
+}
+

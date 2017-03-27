@@ -49,6 +49,14 @@ a {
 
 .list-ideas .main-ideas img {
     width: 100%;
+    position: absolute;
+}
+
+.list-ideas .main-ideas .title {
+    z-index: 5;
+    color: white;
+    font-family: RobotoLight;
+    font-size: 2vw;
 }
 
 .list-ideas .another-ideas {
