@@ -1,0 +1,184 @@
+@font-face {
+    font-family: RobotoLight;
+    src: url(../fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: Roboto-ThinItalic;
+    src: url(../fonts/Roboto/Roboto-ThinItalic.ttf); /* Путь к файлу со шрифтом */
+}
+
+
+@font-face {
+    font-family: Roboto-Medium;
+    src: url(../fonts/Roboto/Roboto-Medium.ttf); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: RobotoSlab-Light;
+    src: url(../fonts/Roboto/RobotoSlab-Light.ttf); /* Путь к файлу со шрифтом */
+}
+
+
+
+
+body {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: #e8ebef;
+}
+
+#content {
+    position: relative;
+    margin-top: 2%;
+    margin-left: 7%;
+    margin-right: 7%;
+    min-width: 900px;
+}
+
+
+.list-ideas .main-ideas {
+    position: relative;
+    height: 39vw;
+}
+
+.list-ideas .main-ideas img {
+    width: 100%;
+    position: absolute;
+}
+
+.list-ideas .main-ideas .title {
+    z-index: 5;
+    color: white;
+    font-family: RobotoLight;
+    font-size: 2vw;
+}
+
+.list-ideas .another-ideas {
+    outline: 1px solid red;
+    height: 70vw;
+    position: relative;
+}
+
+.another-ideas .idea-item {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    outline: 1px solid red;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.another-ideas .idea-item img {
+    position: absolute;
+    z-index: 1;
+}
+
+.another-ideas .idea-item .img-1,
+.another-ideas .idea-item .img-4,
+.another-ideas .idea-item .img-5 {
+    width: 100%;
+}
+
+.another-ideas .idea-item .img-2,
+.another-ideas .idea-item .img-3,
+.another-ideas .idea-item .img-6 {
+    height: 100%;
+}
+
+.another-ideas .idea-item .title,
+.another-ideas .idea-item .text,
+.another-ideas .idea-item .button {
+    z-index: 5;
+    font-family: RobotoLight;
+    color: white;
+    font-size: 2vw;
+}
+
+.another-ideas .idea-item .dark-layer {
+    z-index: 3;
+    opacity: 0.3;
+    background: black;
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+}
+
+
+
+
+
+.another-ideas .idea-item:nth-child(1) .text, .another-ideas .idea-item:nth-child(1) .button,
+.another-ideas .idea-item:nth-child(2) .text, .another-ideas .idea-item:nth-child(2) .button,
+.another-ideas .idea-item:nth-child(3) .text, .another-ideas .idea-item:nth-child(3) .button,
+.another-ideas .idea-item:nth-child(5) .text, .another-ideas .idea-item:nth-child(5) .button,
+.another-ideas .idea-item:nth-child(6) .text, .another-ideas .idea-item:nth-child(6) .button {
+    display: none;
+}
+
+.another-ideas .idea-item:nth-child(1),
+.another-ideas .idea-item:nth-child(2),
+.another-ideas .idea-item:nth-child(5),
+.another-ideas .idea-item:nth-child(6) {
+    width: 32%;
+}
+
+.another-ideas .idea-item:nth-child(3),
+.another-ideas .idea-item:nth-child(4) {
+    width: 36%;
+    left: 50%;
+    margin-left: -18%;
+}
+
+.another-ideas .idea-item:nth-child(1),
+.another-ideas .idea-item:nth-child(4),
+.another-ideas .idea-item:nth-child(5) {
+    height: 75%;
+}
+
+.another-ideas .idea-item:nth-child(2),
+.another-ideas .idea-item:nth-child(3),
+.another-ideas .idea-item:nth-child(6) {
+    height: 25%;
+}
+
+
+
+.another-ideas .idea-item:nth-child(1) {
+    left: 0;
+    top: 0;
+
+}
+
+.another-ideas .idea-item:nth-child(2) {
+    left: 0;
+    bottom: 0;
+
+}
+
+.another-ideas .idea-item:nth-child(3) {
+    top: 0;
+    outline: 1px solid gold;
+}
+
+.another-ideas .idea-item:nth-child(4) {
+    bottom: 0;
+    outline: 1px solid gold;
+}
+
+.another-ideas .idea-item:nth-child(5) {
+    right: 0;
+    top: 0;
+}
+
+.another-ideas .idea-item:nth-child(6) {
+    right: 0;
+    bottom: 0;
+}
