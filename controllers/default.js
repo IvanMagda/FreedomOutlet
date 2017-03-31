@@ -192,10 +192,10 @@ function view_contacts() {
 
 function view_idea_for_home_list() {
     var self = this;
-    self.view('/idea-for-home/list');
+    self.view('/idea-for-home-list/list');
 }
 
 function view_idea_for_home_one() {
     var self = this;
-    self.view('/idea-for-home/one');
+    self.view('/idea-for-home-one/one');
 }
