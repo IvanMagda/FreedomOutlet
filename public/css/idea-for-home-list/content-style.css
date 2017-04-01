@@ -52,11 +52,91 @@ a {
     position: absolute;
 }
 
-.list-ideas .main-ideas .title {
+.list-ideas .main-ideas .cont {
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    left: 9%;
+}
+
+.list-ideas .main-ideas .cont .main-title {
+    position: absolute;
+    z-index: 5;
+    color: white;
+    font-family: RobotoSlab-Light;
+    font-size: 3vw;
+    top: 13%;
+}
+
+.list-ideas .main-ideas .cont .cont-idea {
+    position: absolute;
+    top: 40%;
+    width: 50%;
+    height: 60%
+}
+
+.list-ideas .main-ideas .cont .cont-idea .title {
+    position: absolute;
     z-index: 5;
     color: white;
     font-family: RobotoLight;
-    font-size: 2vw;
+    font-size: 2.5vw;
+    top: 0;
+}
+
+.list-ideas .main-ideas .cont .cont-idea .text{
+    position: absolute;
+    z-index: 5;
+    color: white;
+    font-family: RobotoLight;
+    font-size: 1.1vw;
+    top: 30%;
+}
+
+.list-ideas .main-ideas .cont .cont-idea .button {
+    position: absolute;
+    bottom: 30%;
+}
+
+.list-ideas .main-ideas .cont .cont-idea .button a {
+    position: absolute;
+    z-index: 5;
+    color: white;
+    font-family: RobotoLight;
+    font-size: 1.5vw;
+    bottom: 30%;
+    white-space: nowrap;
+}
+
+.list-ideas .main-ideas .cont .cont-idea .button .border {
+    visibility: hidden;
+    border-bottom: 2px solid white;
+    margin-bottom: 10px;
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    bottom: -1vw;
+    left: 0;
+}
+
+.list-ideas .main-ideas .cont .cont-idea .button {
+    cursor: pointer;
+}
+
+.list-ideas .main-ideas .cont .cont-idea .button:hover .border {
+    visibility: visible;
+}
+
+.list-ideas .main-ideas .dark-layer {
+    z-index: 3;
+    opacity: 0.3;
+    background: black;
+    /* width: 100%; */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .list-ideas .another-ideas {
@@ -101,6 +181,7 @@ a {
     font-family: RobotoLight;
     color: white;
     font-size: 2vw;
+    text-align: center;
 }
 
 .another-ideas .idea-item .dark-layer {

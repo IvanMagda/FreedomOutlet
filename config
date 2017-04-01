@@ -16,13 +16,15 @@ DEVSQLSERVER : Driver={SQL Server Native Client 11.0};Server={desktop-qs6bqvi};D
 //DBPROVIDER: sqlserver
 DBPROVIDER: mysql
 
-//DEVMYSQLSERVER (Object) : { host: "localhost", user: "root", password: "p123456789", database: "outlet", multipleStatements: true }
-DEVMYSQLSERVER (Object) : { host: "localhost", user: "root", password: "root", database: "outlet", multipleStatements: true }
-
-
 //Public files
 public_img : public/tmp
 
-//Host name
-//HOST: http://127.0.0.1:8000/
-HOST: http://localhost:8000/
+
+// Guys
+//HOST: http://localhost:8000/
+//DEVMYSQLSERVER (Object) : { host: "localhost", user: "root", password: "root", database: "outlet", multipleStatements: true }
+
+
+// Polina
+HOST: http://127.0.0.1:8000/
+DEVMYSQLSERVER (Object) : { host: "localhost", user: "root", password: "p123456789", database: "outlet", multipleStatements: true }
