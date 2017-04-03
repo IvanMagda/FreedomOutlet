@@ -246,3 +246,13 @@ a {
     border-bottom: 1px solid gainsboro;
     border-top: 1px solid gainsboro;
 }
+
+.idea-gall {
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 10%;
+}
