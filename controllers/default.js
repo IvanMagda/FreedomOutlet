@@ -20,7 +20,7 @@ exports.install = function () {
     F.route('/about', view_about);
     F.route('/contacts', view_contacts);
     F.route('/idea-for-home', view_idea_for_home_list);
-    F.route('/idea-for-home/{idea_id}', view_idea_for_home_one);
+    F.route('/idea-for-home/one', view_idea_for_home_one);
 };
 
 function main() {
@@ -244,7 +244,7 @@ function view_idea_for_home_list() {
 
 function view_idea_for_home_one() {
     var self = this;
-    self.view('/idea-for-home/one');
+    self.view('/idea-for-home-one/one');
 }
 
 function dynamicSort(property) {
