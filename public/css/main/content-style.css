@@ -189,6 +189,7 @@ body {
 
 .gallery-icon-info:hover .gallery-icon-info2-img {
     display: inline-block;
+    filter: saturate(5);
 }
 
 .product-info {
