@@ -200,7 +200,7 @@ function view_admin() {
 function search(search_text) {
     var self = this;
     console.log(search_text);
-    Product.search(decodeURI(search_text), function (result) {
+    Product.search(decodeURI(search_text), 5, "", function (result) {
         console.log(result);
         self.json(result);
     })
@@ -209,12 +209,12 @@ function search(search_text) {
 
 function search_result(search_text) {
     var self = this;
-    var sort = self.query.sort || 'name'
+    var sort = self.query.sort || "";
     var page = (self.query.page || '1').parseInt();
     var perpage = (self.query.number || '12').parseInt();
 
-    Product.search(decodeURI(search_text), function (result) {
-        result.sort(dynamicSort(sort));
+    Product.search(decodeURI(search_text), 0, sort, function (result) {
+        //result.sort(dynamicSort(sort));
         console.log(result);
         var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
         self.view('/list_product/list-product', {
