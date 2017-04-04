@@ -470,7 +470,7 @@ a {
 
 .product-list-icon-heart-img,
 .product-list-icon-info-img {
-    width: 100%;
+    /*width: 100%;*/
     position: absolute;
 }
 

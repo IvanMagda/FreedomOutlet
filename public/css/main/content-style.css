@@ -151,7 +151,7 @@ body {
 .gallery-icon-info {
     position: absolute;
     right: 0;
-    width: 7%;
+    width: 22px;
     z-index: 1;
     margin-right: 7px;
 }
