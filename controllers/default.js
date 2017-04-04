@@ -87,6 +87,7 @@ function view_product(product_id) {
                 i++;
             }
         })
+        if (img.length === 'undefined') { img = 0; };
         Product.get_by_manufacturer(product.manufacturer, function (from_manufacturer) {
             self.view('/product_card/product-card', {
                 product: product,

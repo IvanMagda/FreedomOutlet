@@ -26,7 +26,7 @@
                     @{end}
                 </div>
                 <div class="counter">
-                    <span><span id="current_img">1</span> из <span id="max_img">@{model.immages.length}</span> изображений</span>
+                    <span><span id="current_img">@{if model.immages==0}0@{else}1@{endif}</span> из <span id="max_img">@{if model.immages.length=='undefined'}0@{else}@{model.immages.length}@{endif}</span> изображений</span>
                 </div>
             </div>
             <div class="right-sidebar">

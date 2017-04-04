@@ -3,5 +3,7 @@ $(document).ready(function () {
 });
 
 function func() {
-    document.getElementById('current_img').innerHTML = document.getElementsByClassName('slick-active')[0].firstChild.name;
+    if (document.getElementsByClassName('slick-active')[0].firstChild.name) {
+        document.getElementById('current_img').innerHTML = document.getElementsByClassName('slick-active')[0].firstChild.name;
+    };
 };
