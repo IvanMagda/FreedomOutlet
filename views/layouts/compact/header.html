@@ -30,12 +30,15 @@
         <div class="man">
             @{if user !== null}
             <a href="#" onclick="logout()">
+                <img class="man1" style="display:none" src="@{'profil.png'}">
+                <img class="man2" style="display:block" src="@{'profil2.png'}">
+            </a>
             @{else}
                 <a href="#login_modal" class="open_modal">
-                    @{fi}
                     <img class="man1" src="@{'profil.png'}">
                     <img class="man2" src="@{'profil2.png'}">
                 </a>
+            @{fi}
         </div>
         <div class="heart">
             <a href="#">
