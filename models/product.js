@@ -374,11 +374,31 @@ Product.pagination = function (page, items, sort, category, callback) {
     });
 }
 
-Product.search = function (search_text, callback) {
+Product.search = function (search_text, limit, sort, callback) {
     var sql = DATABASE();
 
     sql.select('search_result', 'products').make(function (builder) {
-        builder.like('name', search_text+'%');
+        builder.like('name', search_text + '%');
+        builder.or();
+        builder.like('name', '%' + search_text);
+        builder.or();
+        builder.like('manufacturer', search_text + '%');
+        builder.or();
+        builder.like('manufacturer', '%' + search_text);
+        builder.or();
+        builder.like('category', search_text + '%');
+        builder.or();
+        builder.like('category', '%' + search_text);
+        builder.or();
+        builder.like('description', search_text + '%');
+        builder.or();
+        builder.like('description', '%' + search_text);
+        if (sort != "") {
+            builder.order(sort);
+        }
+        if (limit > 0) {
+            builder.take(limit);
+        }
     });
     sql.exec(function (err, response) {
         callback(response.search_result);

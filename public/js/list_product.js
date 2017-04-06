@@ -91,8 +91,8 @@ function active(node) {
 }
 
 function applayFilters() {
-    var sort = document.getElementById("filterSort").getElementsByClassName("active")[0].childNodes[0].name;
-    var number = document.getElementById("filterNumber").getElementsByClassName("active")[0].childNodes[0].name;
+    var sort = $("#filterSort li.active a[name]")[0].getAttribute('name');
+    var number = $("#filterNumber li.active a[name]")[0].getAttribute('name');
     console.log(sort);
 
     window.location.href = '?sort=' + sort + '&number=' + number;
@@ -100,7 +100,7 @@ function applayFilters() {
 
 function pagingClick(node) {
     var link = node.name;
-    var sort = document.getElementById("filterSort").getElementsByClassName("active")[0].childNodes[0].name;
-    var number = document.getElementById("filterNumber").getElementsByClassName("active")[0].childNodes[0].name;
+    var sort = $("#filterSort li.active a[name]")[0].getAttribute('name');
+    var number = $("#filterNumber li.active a[name]")[0].getAttribute('name');
     window.location.href = link + '&sort=' + sort + '&number=' + number;
 }

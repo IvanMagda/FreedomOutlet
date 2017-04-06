@@ -26,7 +26,7 @@
                     @{end}
                 </div>
                 <div class="counter">
-                    <span><span id="current_img">1</span> из <span id="max_img">@{model.immages.length}</span> изображений</span>
+                    <span><span id="current_img">@{if model.immages==0}0@{else}1@{endif}</span> из <span id="max_img">@{if model.immages.length=='undefined'}0@{else}@{model.immages.length}@{endif}</span> изображений</span>
                 </div>
             </div>
             <div class="right-sidebar">
@@ -130,8 +130,8 @@
                         <img class="product-list-icon-heart2-img" src="/../img/heart-2.png">
                     </div>
                     <div class="product-list-icon-info">
-                        <img class="product-list-icon-info-img" src="/../img/info-icon.png">
-                        <img class="product-list-icon-info2-img" src="/../img/info-icon-2.png">
+                        <img class="product-list-icon-info-img" src="/../img/info-icon.png" onclick="info_tile(this)">
+                        <img class="product-list-icon-info2-img" src="/../img/info-icon-2.png" onclick="info_tile(this)">
                     </div>
                     <a href="/product/@{product.id}"><img class="item-main-img" src="@{product.title_img_src}" alt="Image 1"></a>
                     <div class="title-new-product">
@@ -139,6 +139,22 @@
                         <span class="vendor">@{product.manufacturer}</span>
                         <br>
                         <span class="price">@{product.price} UAH</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="title-info">
+                            <span class="tit">@{product.name}</span>
+                            <br>
+                            <span class="vendor">@{product.manufacturer}</span>
+                            <div class="cross">
+                                <img class="simple cross-img" src="/../img/cross.png" onclick="close_info(this)">
+                                <!--<img class="border cross-img" src="img/cross-border.png">-->
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>
+                                @{product.description}
+                            </p>
+                        </div>
                     </div>
                 </div>
                 @{fi}

@@ -41,7 +41,7 @@
                 <ul class="button">
                     <li>
                         <a href="#">                
-                            @{if model.sort=='name'} По умолчанию @{endif}
+                            @{if model.sort=='' || model.sort=='name'} По умолчанию @{endif}
                             @{if model.sort=='manufacturer'} Фабрике @{endif}
                             @{if model.sort=='price'} Цене @{endif}
                             <img class="arrow" src="/../img/arrow.png">

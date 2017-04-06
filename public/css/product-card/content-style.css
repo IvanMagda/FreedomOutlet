@@ -470,7 +470,7 @@ a {
 
 .product-list-icon-heart-img,
 .product-list-icon-info-img {
-    width: 100%;
+    /*width: 100%;*/
     position: absolute;
 }
 
@@ -669,6 +669,72 @@ a {
     font-size: 1vw;
     font-family: RobotoLight;
     color: #2a2a2a;
+}
+
+.product-info .title-info,
+.product-info .content {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+}
+
+.product-info .content {
+    top: 20%;
+}
+
+.product-info .title-info {
+    top: 5%;
+    height: 18%;
+}
+
+.product-info .title-info .vendor {
+    text-transform: uppercase;
+    color: #898f90;
+    font-family: RobotoLight;
+}
+
+.product-info .cross {
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    height: 40%;
+    width: 6%;
+    cursor: pointer;
+}
+
+.product-info .cross-img {
+    height: 70%;
+    right: 0;
+}
+
+.product-info .title-info .cross:hover .cross-img {
+    outline: 1px solid gray;
+}
+
+.product-info .content {
+    bottom: 5% !important;
+    height: 70% !important;
+    top: 20% !important;
+    overflow: hidden;
+    position: absolute;
+    left: 5% !important;
+    right: 5% !important;
+}
+
+.product-info .content p {
+    text-align: justify;
+    font-family: RobotoLight;
+}
+
+.product-info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgb(247, 248, 248);
+    display: none;
+    z-index: 3;
 }
 
 

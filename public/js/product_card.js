@@ -1,7 +1,16 @@
 $(document).ready(function () {
-    window.addEventListener("click", func);
+    $('.main-gallery')[0].addEventListener("click", func);
 });
 
 function func() {
-    document.getElementById('current_img').innerHTML = document.getElementsByClassName('slick-active')[0].firstChild.name;
+    if (document.getElementsByClassName('slick-active')[0].getAttribute("name")) {
+        document.getElementById('current_img').innerHTML = document.getElementsByClassName('slick-active')[0].getAttribute("name");
+    };
 };
+
+function info_tile(node) {
+    var parent = node.parentNode.parentNode;
+    //var elt = findAncestor(parent, 'product-info');
+    console.log(parent);
+    parent.childNodes[4].style.display = 'flex';
+}
