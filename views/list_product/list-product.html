@@ -153,10 +153,14 @@
         <!--</div>-->
         <!--<a href="/product/@{product.id}"><img class="item-main-img" src="@{product.title_img_src}" alt="Image 1"></a>-->
         <div class="title-new-product">
-            <span class="tit">@{product.name}</span>
-            <span class="vendor">@{product.manufacturer}</span>
-            <span class="price">@{product.price} UAH</span>
-            <span class="share">Снижение c @{product.discount} UAH</span>
+            <div class="row1">
+                <span class="tit">@{product.name}</span>
+                <span class="vendor">@{product.manufacturer}</span>
+            </div>
+            <div class="row2">
+                <span class="price">@{product.price} UAH</span>
+                <span class="share">Снижение c @{product.discount} UAH</span>
+            </div>
         </div>
         <div class="product-info">
             <div class="title-info">

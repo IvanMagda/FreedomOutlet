@@ -134,7 +134,7 @@ a {
 
 #login .heart {
     position: absolute;
-    right: 0;
+    right: 6px;
     top: 20%;
     width: 14%;
     /*float: right;*/
