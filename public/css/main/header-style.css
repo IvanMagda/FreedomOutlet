@@ -201,7 +201,7 @@ a {
     cursor: pointer;
     z-index: 50;
     margin-right: 5px;
-    background: #e8ebef;
+    background: transparent;
 }
 
 .search_block button img {
