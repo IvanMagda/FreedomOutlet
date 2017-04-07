@@ -7,8 +7,10 @@
 
 <div class="stub"></div>
 <div class="new">
-    <div class="gallery-title">
-        <span class="text-new">Новое</span>
+    <div class="new-tit-cont">
+        <div class="gallery-title">
+            <span class="text-new">Новое</span>
+        </div>
     </div>
     <div class="gallery">
         <div class="main-page-carousel new-carousel">
@@ -22,7 +24,7 @@
                     <img class="gallery-icon-info-img" src="img/new-carousel/info-icon.png" onclick="info_tile(this)">
                     <img class="gallery-icon-info2-img" src="img/new-carousel/info-icon-2.png" onclick="info_tile(this)">
                 </div>
-                <a href="/product/@{product.id}"><img src="@{product.title_img_src}" alt="Image 1"></a>
+                <a class="img-cont" href="/product/@{product.id}"><img src="@{product.title_img_src}" alt="Image 1"></a>
                 <div class="title-new-product">
                     <span class="tit">@{product.name}</span>
                     <br>

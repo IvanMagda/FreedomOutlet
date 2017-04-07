@@ -95,8 +95,13 @@ body {
 
 .new-carousel .item {
     /*margin: 20px;*/
-    margin-right: 35px;
-    margin-top: 20px;
+    /*margin-right: 35px;*/
+    /*margin-top: 20px;*/
+    margin: 0 35px;
+}
+
+.new-carousel {
+    margin: 0 -35px;
 }
 
 .new-carousel .item img {
@@ -109,15 +114,27 @@ body {
     font-size: 36px !important;
 }
 
+.new-tit-cont {
+    position: relative;
+    width: 100%;
+    height: 100px;
+}
+
 .gallery-title {
     position: absolute;
     display: inline-block;
     left: 50%;
     width: 88px;
     height: 100px;
-    top: -70px;
+    top: 0;
     margin: -56px;
     border-bottom: 2px solid red;
+}
+
+.item .img-cont {
+    display: inline-block;
+    height: 11vw;
+    overflow: hidden;
 }
 
 .gallery .item span {
@@ -478,7 +495,7 @@ body {
 
 .stub {
     position: relative;
-    height: 100px;
+    height: 40px;
 }
 
 .about_us {
@@ -575,12 +592,18 @@ body {
     transition-duration: 1s;
 }
 
-.img-scale:not(:hover) {
+/*.img-scale:not(:hover)*/
+.img-scale
+{
     transition: 1s;
+    /*transform: scale(1);*/
+    /*transition: all 0.2s ease-in-out 0s, transform 4s ease-in-out 0s;*/
 }
 
 .img-scale:hover .about-img-border {
-    display: block;
+    /*display: block;*/
+    /*opacity: 1;*/
+    visibility: visible;
 }
 
 .img-scale .about-img-border {
@@ -590,7 +613,9 @@ body {
     top: 2vw;
     bottom: 2vw;
     border: white 2px solid;
-    display: none;
+    /*display: none;*/
+    /*opacity: 0;*/
+    visibility: hidden;
 }
 
 .img-scale .about-img-button {
@@ -650,7 +675,7 @@ body {
 }
 
 .img-scale .about-img-button .button:hover .button-text-border {
-    outline: 2px solid white;
+    border: 2px solid white;
 }
 
 .about-us-description {
