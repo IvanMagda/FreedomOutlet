@@ -303,6 +303,11 @@ a {
     display: inline-block;
 }
 
+.product-list .item .img-product {
+    height: 13vw;
+    overflow: hidden;
+}
+
 .product-list .item .item-main-img {
     max-width: 375px;
     max-height: 235px;
