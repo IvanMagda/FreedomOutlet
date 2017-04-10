@@ -1,10 +1,4 @@
 ﻿@{layout('/admin/admin_layout')}
-<head>
-    @{import('http://code.jquery.com/jquery-1.11.0.min.js')}
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-</head>
-<!--<form enctype="multipart/form-data" id="create-product-form" action="#" >-->
-<input id="immages" type="hidden" style="" value="@{model.immages}" />
 <form id="create-product-form" method="POST" enctype="multipart/form-data" action="/products/update">
     <input type="hidden" name="id" value="@{model.product.id}" />
     <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
@@ -55,13 +49,20 @@
                     </span>
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="width:100%">
                         <input class="mdl-textfield__input" placeholder="Файл не выбран" type="text" id="TEXT_ID" value="@{model.product.image_name}" readonly />
                         <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
                             <i class="material-icons">attach_file</i>
                             <input type="file" name="title_file" id="file1" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;" />
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="width:100%">
+                <input class="mdl-textfield__input" placeholder="3D модель не выбранна" type="text" id="TEXT" readonly />
+                <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
+                    <i class="material-icons">attach_file</i>
+                    <input type="file" name="virtual_model" id="file3d" onchange="document.getElementById('TEXT').value=this.files[0].name;" />
                 </div>
             </div>
         </div>
@@ -75,96 +76,88 @@
                 <span class="mdl-checkbox__label">Показать на главной</span>
             </label>
             <hr />
-            <div id="category_holder">
+            <div class="category_holder">
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                    <input type="radio" id="option-1" class="mdl-radio__button" name="category" value="kitchen" @{if model.product.category == "kitchen"} checked @{endif}>
+                    <input type="radio" id="option-1" class="mdl-radio__button" name="category" value="kitchen" @{if model.product.category=="kitchen" } checked @{endif}>
                     <span class="mdl-radio__label">Кухня</span>
                 </label>
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                    <input type="radio" id="option-2" class="mdl-radio__button" name="category" value="bedroom" @{if model.product.category == "bedroom"} checked @{endif}>
+                    <input type="radio" id="option-2" class="mdl-radio__button" name="category" value="bedroom" @{if model.product.category=="bedroom" } checked @{endif}>
                     <span class="mdl-radio__label">Спальня</span>
                 </label>
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
-                    <input type="radio" id="option-3" class="mdl-radio__button" name="category" value="soft" @{if model.product.category == "soft"} checked @{endif}>
+                    <input type="radio" id="option-3" class="mdl-radio__button" name="category" value="soft" @{if model.product.category=="soft" } checked @{endif}>
                     <span class="mdl-radio__label">Магкая</span>
                 </label>
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
-                    <input type="radio" id="option-4" class="mdl-radio__button" name="category" value="living" @{if model.product.category == "living"} checked @{endif}>
+                    <input type="radio" id="option-4" class="mdl-radio__button" name="category" value="living" @{if model.product.category=="living" } checked @{endif}>
                     <span class="mdl-radio__label">Гостинная</span>
                 </label>
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-5">
-                    <input type="radio" id="option-5" class="mdl-radio__button" name="category" value="dining" @{if model.product.category == "dining"} checked @{endif}>
+                    <input type="radio" id="option-5" class="mdl-radio__button" name="category" value="dining" @{if model.product.category=="dining" } checked @{endif}>
                     <span class="mdl-radio__label">Столовая</span>
                 </label>
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-6">
-                    <input type="radio" id="option-6" class="mdl-radio__button" name="category" value="chandelier" @{if model.product.category == "chandelier"} checked @{endif}>
+                    <input type="radio" id="option-6" class="mdl-radio__button" name="category" value="chandelier" @{if model.product.category=="chandelier" } checked @{endif}>
                     <span class="mdl-radio__label">Люстра</span>
                 </label>
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-7">
-                    <input type="radio" id="option-7" class="mdl-radio__button" name="category" value="sanitary" @{if model.product.category == "sanitary"} checked @{endif}>
+                    <input type="radio" id="option-7" class="mdl-radio__button" name="category" value="sanitary" @{if model.product.category=="sanitary" } checked @{endif}>
                     <span class="mdl-radio__label">Сантехника</span>
                 </label>
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-8">
-                    <input type="radio" id="option-8" class="mdl-radio__button" name="category" value="accessories" @{if model.product.category == "accessories"} checked @{endif}>
+                    <input type="radio" id="option-8" class="mdl-radio__button" name="category" value="accessories" @{if model.product.category=="accessories" } checked @{endif}>
                     <span class="mdl-radio__label">Аксессуары</span>
                 </label>
             </div>
             <hr />
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
-                <input class="mdl-textfield__input" placeholder="3D модель не выбранна" type="text" id="TEXT" readonly />
-                <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
-                    <i class="material-icons">attach_file</i>
-                    <input type="file" name="virtual_model" id="file3d" onchange="document.getElementById('TEXT').value=this.files[0].name;" />
-                </div>
+            <div class="category_holder">
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-0">
+                    <input type="checkbox" id="checkbox-0" class="mdl-checkbox__input" name="available_in" value="kyiv1" @{if model.cities.kyiv1==true} checked @{endif}>
+                    <span class="mdl-checkbox__label">Киев FREEDOM INTERIOR</span>
+                </label>
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                    <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" name="available_in" value="kyiv2" @{if model.cities.kyiv2==true} checked @{endif}>
+                    <span class="mdl-checkbox__label">Киев Visionnaire Showroom</span>
+                </label>
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-3">
+                    <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input" name="available_in" value="kyiv3" @{if model.cities.kyiv3==true} checked @{endif}>
+                    <span class="mdl-checkbox__label">Киев FREEDOM HOUSE sanitary</span>
+                </label>
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-4">
+                    <input type="checkbox" id="checkbox-4" class="mdl-checkbox__input" name="available_in" value="kyiv4" @{if model.cities.kyiv4==true} checked @{endif}>
+                    <span class="mdl-checkbox__label">Киев FREEDOM LUXURY HOME</span>
+                </label>
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-5">
+                    <input type="checkbox" id="checkbox-5" class="mdl-checkbox__input" name="available_in" value="kyiv5" @{if model.cities.kyiv5==true} checked @{endif}>
+                    <span class="mdl-checkbox__label">Киев FREEDOM HOUSE 17/2</span>
+                </label>
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-6">
+                    <input type="checkbox" id="checkbox-6" class="mdl-checkbox__input" name="available_in" value="kyiv6" @{if model.cities.kyiv6==true} checked @{endif}>
+                    <span class="mdl-checkbox__label">Киев FREEDOM HOUSE 101</span>
+                </label>
+                <hr />
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-7">
+                    <input type="checkbox" id="checkbox-7" class="mdl-checkbox__input" name="available_in" value="kharkiv1" @{if model.cities.kharkiv1==true} checked @{endif}>
+                    <span class="mdl-checkbox__label">Харьков FREEDOM LUXURY</span>
+                </label>
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-8">
+                    <input type="checkbox" id="checkbox-8" class="mdl-checkbox__input" name="available_in" value="kharkiv2" @{if model.cities.kharkiv2==true} checked @{endif}>
+                    <span class="mdl-checkbox__label">Харьков FREEDOM</span>
+                </label>
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-9">
+                    <input type="checkbox" id="checkbox-9" class="mdl-checkbox__input" name="available_in" value="kharkiv3" @{if model.cities.kharkiv3==true} checked @{endif}>
+                    <span class="mdl-checkbox__label">Харьков DOMITALIA</span>
+                </label>
+                <hr />
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-10">
+                    <input type="checkbox" id="checkbox-10" class="mdl-checkbox__input" name="available_in" value="dnepr1" @{if model.cities.dnepr1==true} checked @{endif}>
+                    <span class="mdl-checkbox__label">Днепр FREEDOM</span>
+                </label>
             </div>
-            <!--<progress id="progr"></progress>-->
         </div>
         <div class="mdl-cell mdl-cell--3-col">
-            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-0">
-                <input type="checkbox" id="checkbox-0" class="mdl-checkbox__input" name="available_in" value="kyiv1" @{if model.cities.kyiv1 == true} checked @{endif}>
-                <span class="mdl-checkbox__label">Киев FREEDOM INTERIOR</span>
-            </label>
-            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
-                <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" name="available_in" value="kyiv2" @{if model.cities.kyiv2 == true} checked @{endif}>
-                <span class="mdl-checkbox__label">Киев Visionnaire Showroom</span>
-            </label>
-            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-3">
-                <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input" name="available_in" value="kyiv3" @{if model.cities.kyiv3 == true} checked @{endif}>
-                <span class="mdl-checkbox__label">Киев FREEDOM HOUSE sanitary</span>
-            </label>
-            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-4">
-                <input type="checkbox" id="checkbox-4" class="mdl-checkbox__input" name="available_in" value="kyiv4" @{if model.cities.kyiv4 == true} checked @{endif}>
-                <span class="mdl-checkbox__label">Киев FREEDOM LUXURY HOME</span>
-            </label>
-            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-5">
-                <input type="checkbox" id="checkbox-5" class="mdl-checkbox__input" name="available_in" value="kyiv5" @{if model.cities.kyiv5 == true} checked @{endif}>
-                <span class="mdl-checkbox__label">Киев FREEDOM HOUSE 17/2</span>
-            </label>
-            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-6">
-                <input type="checkbox" id="checkbox-6" class="mdl-checkbox__input" name="available_in" value="kyiv6" @{if model.cities.kyiv6 == true} checked @{endif}>
-                <span class="mdl-checkbox__label">Киев FREEDOM HOUSE 101</span>
-            </label>
-            <hr />
-            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-7">
-                <input type="checkbox" id="checkbox-7" class="mdl-checkbox__input" name="available_in" value="kharkiv1" @{if model.cities.kharkiv1 == true} checked @{endif}>
-                <span class="mdl-checkbox__label">Харьков FREEDOM LUXURY</span>
-            </label>
-            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-8">
-                <input type="checkbox" id="checkbox-8" class="mdl-checkbox__input" name="available_in" value="kharkiv2" @{if model.cities.kharkiv2 == true} checked @{endif}>
-                <span class="mdl-checkbox__label">Харьков FREEDOM</span>
-            </label>
-            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-9">
-                <input type="checkbox" id="checkbox-9" class="mdl-checkbox__input" name="available_in" value="kharkiv3" @{if model.cities.kharkiv3 == true} checked @{endif}>
-                <span class="mdl-checkbox__label">Харьков DOMITALIA</span>
-            </label>
-            <hr />
-            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-10">
-                <input type="checkbox" id="checkbox-10" class="mdl-checkbox__input" name="available_in" value="dnepr1" @{if model.cities.dnepr1 == true} checked @{endif}>
-                <span class="mdl-checkbox__label">Днепр FREEDOM</span>
-            </label>
+            <input type="file" name="files[]" id="filer_input" data-fileuploader-files="@{model.immages}">
         </div>
-    </div>
-    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-        <input type="file" name="files[]" id="filer_input" multiple="multiple">
     </div>
 </form>

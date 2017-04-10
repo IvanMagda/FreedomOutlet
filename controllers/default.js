@@ -161,7 +161,7 @@ function view_product_update(product_id) {
 function product_update() {
     var self = this;
     console.log(this.body);
-    Product.update(self.body, self.files, function (result) {
+    Product.update(self.body, actualFiles(self.files, self.body["fileuploader-list-files"]), function (result) {
         if (result) {
             self.view('/admin/admin', {
                 products: Product.list
@@ -257,4 +257,17 @@ function dynamicSort(property) {
         var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
         return result * sortOrder;
     }
+}
+
+function actualFiles(incomingFilesArray, listToCheck) {
+    var filesResult = [];
+    listToCheck = listToCheck.split(',');
+    incomingFilesArray.forEach(function (file) {
+        listToCheck.forEach(function (listItem) {
+            if (listItem.indexOf(file.filename) !== -1) {
+                filesResult.push(file);
+            }
+        })
+    })
+    return filesResult;
 }

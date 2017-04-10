@@ -209,17 +209,23 @@ Product.update = function (product, files, callback) {
         builder.where('id', product.id);
     });
     sql.exec(function (err, response) {
-        var galery = 'Galery1';
-        var galery_num = 0;
+        var galery = [];
+        var galery_num;
         fs.readdir(productDir, function (err, files) {
             files.forEach(function (file) {
-                if (file.indexOf('Galery') > -1 && file > galery)
-                galery = file;
-            })
-            galery_num = parseInt(galery.replace('Galery', '').split('.')[0]);
+                if (file.indexOf('Galery') > -1)
+                    galery.push(file.replace('Galery', '').split('.')[0]);
+            });
+
+            galery_num = parseInt(galery.sort(compareNumbers)[galery.length - 1]) || 0;
+
+            function compareNumbers(a, b) {
+                return a - b;
+            }
         });
 
-            files.forEach(function (element, index) {
+        files.forEach(function (element, index) {
+            console.log(element);
                 if (element.name == 'title_file') {
                     fs.readFile(element.path, function (err, data) {
                         if (err) throw err;
@@ -240,7 +246,7 @@ Product.update = function (product, files, callback) {
                 } else {
                     fs.readFile(element.path, function (err, data) {
                         if (err) throw err;
-                        var num = galery_num + index;
+                        var num = galery_num + index+1;
                         var gal = 'Galery' + num + '.';
                         gal += element.filename.split('.')[1];
                         
@@ -293,15 +299,16 @@ Product.delete_p = function (product_id, callback) {
 }
 
 Product.delete_img = function (img_src, callback) {
-    img_src = __dirname + img_src.replace(F.config.HOST, "\\").replace("/", "\\"); //associate with local dir
-    img_src = img_src.replace("models", "public") //set outer dir for imsges
     console.log(img_src);
+    var img_file = __dirname + img_src.split("/").join("\\"); //associate with local dir
+    img_file = img_file.replace("models", "public") //set outer dir for imsges
+    console.log(img_file);
 
-    fs.unlink(img_src, function (err) {
+    fs.unlink(img_file, function (err) {
         if (err) throw err;
 
         callback(SUCCESS(true));
-        console.log('successfully deleted' + img_src);
+        console.log('successfully deleted' + img_file);
     });
 }
 

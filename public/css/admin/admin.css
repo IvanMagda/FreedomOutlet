@@ -237,9 +237,32 @@ _:-ms-input-placeholder, :root .outlet-graph {
     display: block
 }
 
+.mdl-textfield {
+    width: auto;
+}
+
+hr{
+    margin:0;
+}
+
+.mdl-checkbox {
+    vertical-align:initial !important;
+}
+
+@media (max-width: 839px) and (min-width: 480px) {
+    .mdl-cell--3-col, .mdl-cell--3-col-tablet.mdl-cell--3-col-tablet {
+        width: calc(50% - 16px) !important;
+    }
+}
+
+
+.fileuploader-theme-thumbnails .fileuploader-items-list li.fileuploader-item{
+    width:initial !important;
+}
+
 .outlet-card-image.mdl-card {
-    width: 256px;
-    height: 256px;
+    width: 100%;
+    /*height: 256px;*/
     /*background: url('../assets/outlets/image_card.jpg') center / cover;*/
 }
 
@@ -308,7 +331,7 @@ _:-ms-input-placeholder, :root .outlet-graph {
     height:34px;
 }
 
-#category_holder{
+.category_holder{
     display: flex;
     flex-direction:column;
 }
