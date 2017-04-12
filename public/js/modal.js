@@ -26,26 +26,6 @@ $(document).ready(function () {
             );
     });
 
-    //$('#register-form').find('button').click(function () {
-    //    $.post('/register', $('#reg-form').serialize(), function (answer) {
-    //        if (answer.success) {
-    //            window.location.href = '/';
-    //            return;
-    //        }
-    //        console.log(answer);
-    //    });
-    //});
-
-    $('#login-form-container').find('button').click(function () {
-        $.post('/authorization', $('#login-form').serialize(), function (answer) {
-            if (answer.success) {
-                window.location.href = '/';
-                return;
-            }
-            console.log(answer);
-        });
-    });
-
     $(function () {
         $.mask.definitions['~'] = '[+-]';
         $("#tel_register").mask("+38(999) 999 99 99");
@@ -59,15 +39,30 @@ function logout() {
 }
 
 function validate_modal_Form() {
-    var name = document.forms["mail_modal_Form"].name.value;
-    var phone = document.forms["mail_modal_Form"].phone.value;
-    var message = document.forms["mail_modal_Form"].message.value;
+    var mailModalForm = document.forms["mail_modal_Form"];
+    var name = mailModalForm.name.value;
+    var phone = mailModalForm.phone.value;
+    var message = mailModalForm.message.value;
 
     if (name == "" || phone == "" || message == "") {
-        document.getElementById('validate_modal_Global').style.visibility = "visible";
-        document.getElementById('validate_modal_Phone').style.visibility = "visible";
-        document.getElementById('validate_modal_Message').style.visibility = "visible";
-        document.getElementById('validate_modal_Name').style.visibility = "visible";
+        validateField('validate_modal_Global');
+        validateField('validate_modal_Phone');
+        validateField('validate_modal_Message');
+        validateField('validate_modal_Name');
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function validate_login_Form() {
+    var loginForm = document.forms["login_Form"];
+    var login = loginForm.login;
+    var pass = loginForm.pass;
+    //ToDo validate stars
+    if (login.value == "" || pass.value == "") {
+        loginForm['pass'].style.border = "1px solid red";
+        loginForm['login'].style.border = "1px solid red";
         return false;
     } else {
         return true;
@@ -75,20 +70,19 @@ function validate_modal_Form() {
 }
 
 function validate_register_Form() {
-    var login = document.forms["register_Form"].login;
-    var phone = document.forms["register_Form"].phone;
-    var mail = document.forms["register_Form"].mail;
-    var pass = document.forms["register_Form"].pass;
+    var registerForm = document.forms["register_Form"];
+    var login = registerForm.login;
+    var phone = registerForm.phone;
+    var mail = registerForm.mail;
+    var pass = registerForm.pass;
 
     var inputs = { login, phone, mail, pass };
     var validate_ids = ['validate_modal_Name', 'validate_modal_Phone', 'validate_modal_Mail', 'validate_modal_Pass', 'validate_modal_Global'];
 
-    //console.log(inputs);
-
     if (login.value == "" || phone.value == "" || mail.value == "" || pass.value == "") {
         for (var key in inputs) {
-            if (document.forms["register_Form"][key].value == "") {
-                document.forms["register_Form"][key].style.border = "1px solid red";
+            if (registerForm[key].value == "") {
+                registerForm[key].style.border = "1px solid red";
             }
         };
         validate_ids.forEach(function (id) {
@@ -99,4 +93,8 @@ function validate_register_Form() {
     } else {
         return true;
     }
+}
+
+function validateField(fieldId) {
+    document.getElementById(fieldId).style.visibility = "visible";
 }

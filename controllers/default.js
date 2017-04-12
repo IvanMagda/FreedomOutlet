@@ -52,8 +52,9 @@ function view_products_list(categ) {
     var perpage = (self.query.number || '12').parseInt();
     
 
-    Product.pagination(page, perpage, sort, category, function (prod) {
-        var pagination = new Builders.Pagination(prod.length, page, perpage, '?page={0}');
+    Product.pagination(page, perpage, sort, category, function (prod, allLength) {
+        var pagination = new Builders.Pagination(allLength, page, perpage, '?page={0}');
+        console.log(pagination);
         self.view('/list_product/list-product', {
             breadcrumbs: category,
             sort:sort,

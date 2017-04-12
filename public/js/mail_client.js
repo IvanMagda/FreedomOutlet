@@ -6,15 +6,20 @@ $(document).ready(function () {
 });
 
 function validateForm() {
-    var name = document.forms["mailForm"].name.value;
-    var phone = document.forms["mailForm"].phone.value;
-    var message = document.forms["mailForm"].message.value;
+    function validateField(fieldId) {
+        document.getElementById(fieldId).style.visibility = "visible";
+    }
+
+    var form = document.forms["mailForm"];
+    var name = form.name.value;
+    var phone = form.phone.value;
+    var message = form.message.value;
 
     if (name == "" || phone == "" || message == "") {
-        document.getElementById('validateGlobal').style.visibility = "visible";
-        document.getElementById('validatePhone').style.visibility = "visible";
-        document.getElementById('validateMessage').style.visibility = "visible";
-        document.getElementById('validateName').style.visibility = "visible";
+        validateField('validateGlobal');
+        validateField('validatePhone');
+        validateField('validateMessage');
+        validateField('validateName');
         return false;
     } else {
         return true;

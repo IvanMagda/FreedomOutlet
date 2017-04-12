@@ -1,22 +1,5 @@
 $(document).ready(function () {
     pagination();
-
-    NodeList.prototype.forEach = function (fn) {
-        var list = this;
-        for (var i = 0; i < list.length; i++) {
-            fn.call(list[i], list[i], i, list);
-        }
-    };
-
-    HTMLCollection.prototype.forEach = NodeList.prototype.forEach;
-
-    var test = document.getElementsByClassName("active");
-    test.forEach(function (e) {
-        console.log(e.children[0].pathname);
-    });
-    console.log(test);
-
-    console.log($('#filterSort .active a'));
 });
 
 
@@ -104,3 +87,12 @@ function pagingClick(node) {
     var number = $("#filterNumber li.active a[name]")[0].getAttribute('name');
     window.location.href = link + '&sort=' + sort + '&number=' + number;
 }
+
+NodeList.prototype.forEach = function (fn) {
+    var list = this;
+    for (var i = 0; i < list.length; i++) {
+        fn.call(list[i], list[i], i, list);
+    }
+};
+
+HTMLCollection.prototype.forEach = NodeList.prototype.forEach;

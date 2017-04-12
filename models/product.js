@@ -367,8 +367,12 @@ Product.pagination = function (page, items, sort, category, callback) {
         builder.order(sort);
         builder.page(page, items);
     });
+    sql.select('allCategory', 'products').make(function (builder) {
+        builder.like('category', category);
+    });
     sql.exec(function (err, response) {
         var list = [];
+        var allLength = response.allCategory.length;
 
         if (response.prod) {
             response.prod.forEach(function (e) {
@@ -377,7 +381,7 @@ Product.pagination = function (page, items, sort, category, callback) {
             })
         }
 
-        callback(list);
+        callback(list, allLength);
     });
 }
 
