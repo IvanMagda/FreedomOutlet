@@ -37,7 +37,7 @@
                 <textarea class="mdl-textfield__input" type="text" name="description">@{model.product.description}</textarea>
                 <label class="mdl-textfield__label" for="sample5">Описание</label>
             </div>
-            <button id="edit-product" class="jFiler-input-choose-btn blue">
+            <button id="edit-product" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                 Редактировать
             </button>
         </div>
@@ -56,13 +56,6 @@
                             <input type="file" name="title_file" id="file1" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;" />
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="width:100%">
-                <input class="mdl-textfield__input" placeholder="3D модель не выбранна" type="text" id="TEXT" readonly />
-                <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
-                    <i class="material-icons">attach_file</i>
-                    <input type="file" name="virtual_model" id="file3d" onchange="document.getElementById('TEXT').value=this.files[0].name;" />
                 </div>
             </div>
         </div>
@@ -111,6 +104,15 @@
                 </label>
             </div>
             <hr />
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="width:100%">
+                <input class="mdl-textfield__input" placeholder="3D модель не выбранна" type="text" id="TEXT" readonly />
+                <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
+                    <i class="material-icons">attach_file</i>
+                    <input type="file" name="virtual_model" id="file3d" onchange="document.getElementById('TEXT').value=this.files[0].name;" />
+                </div>
+            </div>
+        </div>
+        <div class="mdl-cell mdl-cell--3-col">
             <div class="category_holder">
                 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-0">
                     <input type="checkbox" id="checkbox-0" class="mdl-checkbox__input" name="available_in" value="kyiv1" @{if model.cities.kyiv1==true} checked @{endif}>
@@ -156,8 +158,8 @@
                 </label>
             </div>
         </div>
-        <div class="mdl-cell mdl-cell--3-col">
-            <input type="file" name="files[]" id="filer_input" data-fileuploader-files="@{model.immages}">
-        </div>
+    </div>
+    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+        <input type="file" name="files[]" id="filer_input" data-fileuploader-files="@{model.immages}">
     </div>
 </form>
