@@ -3,14 +3,7 @@
         <div class="breadcrumbs">
             <ul>
                 <li><a href="/">Главная</a></li>
-                @{if model.product.category=='kitchen'}<li><a href="/products/kitchen">Кухни</a></li>@{endif}
-                @{if model.product.category=='bedroom'}<li><a href="/products/bedroom">Спальни</a></li>@{endif}
-                @{if model.product.category=='soft'}<li><a href="/products/soft">Мягкая</a></li>@{endif}
-                @{if model.product.category=='living'}<li><a href="/products/living">Гостинные</a></li>@{endif}
-                @{if model.product.category=='dining'}<li><a href="/products/dining">Столовые</a></li>@{endif}
-                @{if model.product.category=='chandelier'}<li href="/products/chandelier"><a>Люстры</a></li>@{endif}
-                @{if model.product.category=='sanitary'}<li><a href="/products/sanitary">Сантехника</a></li>@{endif}
-                @{if model.product.category=='accessories'}<li><a href="/products/accessories">Аксессуары</a></li>@{endif}
+                <li><a href="/products/@{model.product.category}">@{model.breadcrumbs}</a></li>
                 <li><a style="text-transform:capitalize">@{model.product.manufacturer}</a></li>
             </ul>
         </div>

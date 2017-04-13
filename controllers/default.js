@@ -1,6 +1,7 @@
 var Product = GETSCHEMA('Product');
 var fs = require('fs');
 var shops = require('../definitions/shops.json')
+var breadcrumbs_mapping = require('../definitions/breadcrumbs_mapping.json')
 
 exports.install = function () {
     F.route('/', main);
@@ -56,7 +57,7 @@ function view_products_list(categ) {
         var pagination = new Builders.Pagination(allLength, page, perpage, '?page={0}');
         console.log(pagination);
         self.view('/list_product/list-product', {
-            breadcrumbs: category,
+            breadcrumbs: breadcrumbs_mapping[category],
             sort:sort,
             items: perpage,
             products: prod,
@@ -92,6 +93,7 @@ function view_product(product_id) {
         Product.get_by_manufacturer(product.manufacturer, function (from_manufacturer) {
             self.view('/product_card/product-card', {
                 product: product,
+                breadcrumbs: breadcrumbs_mapping[product.category],
                 immages: img,
                 available: available,
                 products_from_manufacturer: from_manufacturer
@@ -111,7 +113,7 @@ function view_products_manufacturer(manufacturer) {
         console.log(result);
         var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
         self.view('/list_product/list-product', {
-            breadcrumbs: 'manufacturer',
+            breadcrumbs: result[0].manufacturer,
             sort: sort,
             items: perpage,
             products: result,
@@ -219,7 +221,7 @@ function search_result(search_text) {
         console.log(result);
         var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
         self.view('/list_product/list-product', {
-            breadcrumbs: 'search',
+            breadcrumbs: breadcrumbs_mapping['search'],
             sort: sort,
             items: perpage,
             products: result,
