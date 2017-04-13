@@ -34,6 +34,7 @@
     </nav>
     <div id="login">
         @{if user !== null}
+        <input id="user_id" type="hidden" value="@{user.id}" />
             <div class="enter">
                 <a href="/user/@{user.login}/">@{user.login}</a>
                 <a href="#" onclick="logout()">Выйти</a>
