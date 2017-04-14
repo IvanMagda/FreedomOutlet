@@ -27,7 +27,6 @@ $(document).ready(function () {
             $.get("/search_result/" + $("#search_box").val(), function () {
                 window.location.href = "/search_result/" + $("#search_box").val();
             })
-            
         }
     });
 });

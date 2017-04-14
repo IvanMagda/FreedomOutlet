@@ -427,6 +427,58 @@ Product.get_by_manufacturer = function (manufacturer, callback) {
     });
 };
 
+Product.favorites_by_product_id = function (product_id, callback) {
+    var sql = DATABASE();
+    sql.select('favorites', 'products').make(function (builder) {
+        builder.query('id in (' + product_id + ')');
+    });
+    sql.exec(function (err, response) {
+        callback(response.favorites);
+    });
+}
+
+Product.favorites_add = function (user_id, product_id, callback) {
+    console.log(user_id, product_id)
+    var sql = DATABASE();
+    sql.insert('favorite_added', 'favorites').make(function (builder) {
+        builder.set('user_id', user_id);
+        builder.set('favorite_id', product_id);
+    });
+    sql.exec(function (err, response) {
+        callback(SUCCESS(true));
+    });
+}
+
+Product.favorites_by_user_id = function (user_id, callback) {
+    var sql = DATABASE();
+    var favorite_products = [];
+    sql.select('user_favor', 'favorites').make(function (builder) {
+        builder.where('user_id', user_id);
+    });
+    sql.exec(function (err, response) {
+        response.user_favor.forEach(function (e) {
+            favorite_products.push(e.favorite_id);
+        })
+        Product.favorites_by_product_id(favorite_products, function (result) {
+            callback(result);
+        });
+    });
+}
+
+Product.favorites_list = function (user_id, callback) {
+    var sql = DATABASE();
+    var favorite_products = [];
+    sql.select('user_favor', 'favorites').make(function (builder) {
+        builder.where('user_id', user_id);
+    });
+    sql.exec(function (err, response) {
+        response.user_favor.forEach(function (e) {
+            favorite_products.push(e.favorite_id);
+        })
+        callback(favorite_products);
+    });
+}
+
 exports.install = function () {
     F.on('initdb', function () {
 
@@ -455,7 +507,7 @@ exports.install = function () {
                 })
             
 
-            console.log('products init complete')
+                console.log('products init complete')
         });
     })
 };

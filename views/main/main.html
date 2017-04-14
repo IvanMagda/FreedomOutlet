@@ -15,8 +15,8 @@
             @{foreach product in model.products}
             <div class="item">
                 <div class="gallery-icon-heart">
-                    <img class="gallery-icon-heart-img" src="img/heart-1.png">
-                    <img class="gallery-icon-heart2-img" src="img/heart-2.png" onclick="addToFavorites(@{product.id})">
+                    <img class="gallery-icon-heart-img" src="img/heart-1.png" onload="markSelected(@{product.id}, this)">
+                    <img class="gallery-icon-heart2-img" src="img/heart-2.png" onclick="favoriteActions(@{product.id}, this)">
                 </div>
                 <div class="gallery-icon-info">
                     <img class="gallery-icon-info-img" src="img/new-carousel/info-icon.png" onclick="info_tile(this)">

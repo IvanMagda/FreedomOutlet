@@ -22,6 +22,10 @@ exports.install = function () {
     F.route('/contacts', view_contacts);
     F.route('/idea-for-home', view_idea_for_home_list);
     F.route('/idea-for-home/one', view_idea_for_home_one);
+    F.route('/favorites/local/{favor_id}', view_favorites_local, ['get']);
+    F.route('/favorites/add/', favorites_add, ['post']);
+    F.route('/favorites/user/{user_id}', view_favorites_user, ['get']);
+    F.route('/favorites/{user_id}', favorites, ['get']);
 };
 
 function main() {
@@ -248,6 +252,62 @@ function view_idea_for_home_list() {
 function view_idea_for_home_one() {
     var self = this;
     self.view('/idea-for-home-one/one');
+}
+
+function view_favorites_local(favor_id) {
+    var self = this;
+    var sort = self.query.sort || 'name'
+    var page = (self.query.page || '1').parseInt();
+    var perpage = (self.query.number || '12').parseInt();
+
+    Product.favorites_by_product_id(favor_id, function (result) {
+        result.sort(dynamicSort(sort));
+        console.log(result);
+        var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
+        self.view('/list_product/list-product', {
+            breadcrumbs: breadcrumbs_mapping['favorites'],
+            sort: sort,
+            items: perpage,
+            products: result,
+            pagination: pagination
+        });
+    })
+}
+
+function favorites_add() {
+    var self = this;
+    console.log(self.body);
+    Product.favorites_add(self.body.user_id, self.body.product_id, function (result) {
+        self.json(SUCCESS(result));
+    });
+}
+
+function view_favorites_user(user_id) {
+    var self = this;
+    var sort = self.query.sort || 'name'
+    var page = (self.query.page || '1').parseInt();
+    var perpage = (self.query.number || '12').parseInt();
+
+    Product.favorites_by_user_id(user_id, function (result) {
+        result.sort(dynamicSort(sort));
+        console.log(result);
+        var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
+        self.view('/list_product/list-product', {
+            breadcrumbs: breadcrumbs_mapping['favorites'],
+            sort: sort,
+            items: perpage,
+            products: result,
+            pagination: pagination
+        });
+    })
+}
+
+function favorites(user_id) {
+    var self = this;
+    Product.favorites_list(user_id, function (result) {
+        console.log(result);
+        self.json(result);
+    })
 }
 
 function dynamicSort(property) {
