@@ -449,6 +449,15 @@ Product.favorites_add = function (user_id, product_id, callback) {
     });
 }
 
+Product.favorites_delete = function (user_id, product_id, callback) {
+    console.log(user_id, product_id)
+    var sql = DATABASE();
+    sql.query("DELETE FROM favorites WHERE user_id=" + user_id + " AND favorite_id=" + product_id);
+    sql.exec(function (err, response) {
+        callback(SUCCESS(true));
+    });
+}
+
 Product.favorites_by_user_id = function (user_id, callback) {
     var sql = DATABASE();
     var favorite_products = [];

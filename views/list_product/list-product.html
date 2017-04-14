@@ -105,8 +105,8 @@
 
         <div class="img-product">
             <div class="item-icon-heart">
-                <img class="item-icon-heart-img" src="/../img/heart-1.png">
-                <img class="item-icon-heart2-img" src="/../img/heart-2.png">
+                <img class="item-icon-heart-img" src="/../img/heart-1.png" onclick="favoriteActions(@{product.id}, this.nextSibling)">
+                <img class="item-icon-heart2-img" src="/../img/heart-2.png" onload="markSelected(@{product.id}, this)">
             </div>
             <div class="item-icon-info">
                 <img class="item-icon-info-img" src="/../img/new-carousel/info-icon.png" onclick="info_tile(this)">

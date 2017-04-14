@@ -119,8 +119,8 @@
                 @{else}
                 <div class="item">
                     <div class="product-list-icon-heart">
-                        <img class="product-list-icon-heart-img" src="/../img/heart-1.png">
-                        <img class="product-list-icon-heart2-img" src="/../img/heart-2.png">
+                        <img class="product-list-icon-heart-img" src="/../img/heart-1.png" onclick="favoriteActions(@{product.id}, this.nextSibling)">
+                        <img class="product-list-icon-heart2-img" src="/../img/heart-2.png" onload="markSelected(@{product.id}, this)">
                     </div>
                     <div class="product-list-icon-info">
                         <img class="product-list-icon-info-img" src="/../img/info-icon.png" onclick="info_tile(this)">

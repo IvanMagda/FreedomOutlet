@@ -26,6 +26,7 @@ exports.install = function () {
     F.route('/favorites/add/', favorites_add, ['post']);
     F.route('/favorites/user/{user_id}', view_favorites_user, ['get']);
     F.route('/favorites/{user_id}', favorites, ['get']);
+    F.route('/favorites/delete/', favorites_delete, ['post']);
 };
 
 function main() {
@@ -308,6 +309,15 @@ function favorites(user_id) {
         console.log(result);
         self.json(result);
     })
+}
+
+function favorites_delete() {
+    var self = this;
+    console.log(self.body.user_id);
+    console.log(self.body.product_id);
+    Product.favorites_delete(self.body.user_id, self.body.product_id, function (result) {
+        self.json(SUCCESS(result));
+    });
 }
 
 function dynamicSort(property) {

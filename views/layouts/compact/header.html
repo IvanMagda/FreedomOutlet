@@ -29,6 +29,7 @@
     <div class="icon">
         <div class="man">
             @{if user !== null}
+            <input id="user_id" type="hidden" value="@{user.id}" />
             <a href="#" onclick="logout()">
                 <img class="man1" style="display:none" src="@{'profil.png'}">
                 <img class="man2" style="display:block" src="@{'profil2.png'}">
@@ -43,7 +44,7 @@
         <div class="heart">
             <a href="#">
                 <img class="heart1" src="@{'heart-1.png'}">
-                <img class="heart2" src="@{'heart-2.png'}">
+                <img class="heart2" src="@{'heart-2.png'}" onclick="viewMyFavorites()">
             </a>
         </div>
     </div>
