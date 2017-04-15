@@ -5,9 +5,8 @@ F.on('module#auth', function (type, name) {
 
     var auth = MODULE('auth');
     auth.onAuthorize = function (id, callback, flags) {
-        console.log('find user id', id);
-
         var user = User.by_id[id];
+        flags.push('@' + user.role);
         return callback(user);
     };
 });

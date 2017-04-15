@@ -7,7 +7,6 @@ exports.install = function() {
     F.route('/authorization', json_authorization, ['post']);
     F.route('/logout', json_logout);
     F.route('/user/{user_id}', view_user);
-    //F.route('/admin', view_admin);
 };
 
 function view_auth() {
@@ -21,20 +20,22 @@ function json_register() {
         self.redirect('/');
     });
     console.log("from server");
-    //console.log(this.body);
 }
 
 function json_authorization() {
-    //console.log(this.body);
     var self = this;
     User.query({ login: this.body.login }, function(err, user) {
-        //console.log(user);
         if (user) {
             User.operation('checkpassword', user, self.body.pass, function(err, res) {
                 if (res) {
                     Auth.login(self, user.id, user);
-                }
-                self.redirect('/');
+                    if (user.role === 'admin') {
+                        self.redirect('/admin');
+                    } else {
+                        self.redirect('/');
+                    }
+                } else
+                    self.redirect('/');
             });
         } else
             self.json(SUCCESS(false));
