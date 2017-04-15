@@ -6,7 +6,23 @@ F.on('module#auth', function (type, name) {
     var auth = MODULE('auth');
     auth.onAuthorize = function (id, callback, flags) {
         var user = User.by_id[id];
-        flags.push('@' + user.role);
         return callback(user);
     };
+});
+
+F.on('controller', function (self, name) {
+    var user = self.user;
+    if (user === null || name !== 'admin')
+        return;
+
+    var role = '@' + user.role;
+    if (self.flags.indexOf(role) === -1) {
+
+        // Cancels executing of the controller
+        self.cancel();
+
+        // Performs redirect
+        self.redirect('/')
+        return;
+    }
 });

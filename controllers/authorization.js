@@ -24,7 +24,7 @@ function json_register() {
 
 function json_authorization() {
     var self = this;
-    User.query({ login: this.body.login }, function(err, user) {
+    User.query({ login: this.body.login }, function (err, user) {
         if (user) {
             User.operation('checkpassword', user, self.body.pass, function(err, res) {
                 if (res) {
