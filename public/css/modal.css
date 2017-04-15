@@ -80,6 +80,7 @@
 
 .login-form .row1 .neat-input {
     width: 255px;
+    margin-right:5px;
 }
 
 .login-form .row2 .neat-button {
@@ -116,7 +117,7 @@
     width: 40%;
 }
 
-#login_modal label[for=remember-me]:before {
+/*#login_modal label[for=remember-me]:before {
     content:'';
     display:block;
     height:20px;
@@ -130,7 +131,7 @@
     display:none;
 }
 
-#login_modal label[for=remember-me] span {margin-left: 10px}
+#login_modal label[for=remember-me] span {margin-left: 10px}*/
 
 
 /*.login_modal__title-container {*/
@@ -315,25 +316,24 @@
 }
 
 #register_modal input[type=radio],
-#register_modal input[type=checkbox] {
+input[type=checkbox] {
     display:none;
 }
 
 #register_modal .row3 label.left:after,
-#register_modal .row3 label.right:before,
-#register_modal label[for=remember-me]:before {
-    content:'';
-    display:block;
-    height:20px;
-    width:20px;
-    outline:1px solid #939598;
-    top:0;
+#register_modal .row3 label.right:before {
+    content: '';
+    display: block;
+    height: 20px;
+    width: 20px;
+    outline: 1px solid #939598;
+    top: 0;
     font-family: RobotoLight;
+    cursor: pointer;
 }
 
 #register_modal .row3 #check:checked ~ label[for=check]:after,
-#register_modal .row3 #check2:checked ~ label[for=check2]:before,
-#register_modal #remember-me:checked ~ label[for=remember-me]:before {
+#register_modal .row3 #check2:checked ~ label[for=check2]:before {
     background: url("../img/checkmark.png");
     background-size: cover;
     /*content: '✓';*/
@@ -342,12 +342,29 @@
 
 #register_modal .row3 label.left span {margin-right: 10px}
 #register_modal .row3 label.right span {margin-left: 10px}
-#register_modal label[for=remember-me] span {margin-left: 10px}
+#register_modal label[for=remember] span {margin-left: 10px}
 
 
+input[type="checkbox"] + label span {
+    content: '';
+    display: block;
+    height: 20px;
+    width: 20px;
+    outline: 1px solid #939598;
+    top: 0;
+    font-family: RobotoLight;
+    margin-right: 10px;
+    cursor:pointer;
+}
 
+input[type="checkbox"]:checked + label span {
+    background: url("../img/checkmark.png");
+    background-size: cover;
+}
 
-
+input[type="checkbox"] + label {
+    color: #f2f2f2;
+}
 
 
 
