@@ -1,12 +1,6 @@
 exports.install = function () {
-    //F.route('/mail', view_mail);
     F.route('/mail/send', redirect_mail, ['post']);
 };
-
-function view_mail() {
-    var self = this;
-    self.view('/temp/mail');
-}
 
 function redirect_mail() {
     var self = this;

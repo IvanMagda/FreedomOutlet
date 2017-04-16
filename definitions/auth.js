@@ -6,7 +6,10 @@ F.on('module#auth', function (type, name) {
     var auth = MODULE('auth');
     auth.onAuthorize = function (id, callback, flags) {
         var user = User.by_id[id];
-        return callback(user);
+        if (user.auto_login) {
+            return callback(user);
+        } else
+            return callback(null);
     };
 });
 

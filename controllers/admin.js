@@ -41,14 +41,12 @@ function view_product_update(product_id) {
     var immages = [];
     Product.imgs(product_id, function (result) {
         immages = JSON.stringify(result.imgs_arr);
-        console.log(immages);
         self.view('/admin/product_edit', {
             product: product,
             immages: immages,
             cities: result.cities
         });
     });
-    console.log(immages);
 }
 
 function product_update() {
@@ -73,7 +71,6 @@ function product_delete(product_id) {
 
 function product_delete_img() {
     var self = this;
-    console.log(self.body);
     Product.delete_img(self.body.src, function (result) {
         self.json(SUCCESS(result));
     });

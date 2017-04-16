@@ -7,6 +7,7 @@ User.define('password_hash', String);
 User.define('email', String);
 User.define('created', Date);
 User.define('role', String);
+User.define('auto_login', Boolean);
 User.addOperation('checkpassword', checkPassword);
 
 User.add = function (user) {
@@ -15,10 +16,29 @@ User.add = function (user) {
     User.by_id[u.id] = u;
 }
 
+User.upd = function (user) {
+    var u = User.make(user);
+    var index = User.list.indexOf(User.by_id[user.id]);
+
+    if (index > -1) {
+        User.list[index] = u;
+        User.by_id[user.id] = u;
+        console.log('updated');
+    } else {
+        console.log('Update Error!');
+    }
+}
+
 User.register = function (user, callback) {
     console.log('create user add to db', user);
     var hash = passwordHash.generate(user.pass);
     var sql = DATABASE();
+
+    if (user.auto_login == "on") {
+        user.auto_login = true;
+    } else {
+        user.auto_login = false;
+    }
 
     sql.insert('user', 'users').make(function (builder) {
         builder.set({
@@ -26,7 +46,8 @@ User.register = function (user, callback) {
             password_hash: hash,
             email: user.email,
             created: new Date(),
-            role: user.role
+            role: user.role,
+            auto_login: user.auto_login
         });
     });
 
@@ -38,11 +59,41 @@ User.register = function (user, callback) {
         //console.log(response.allUsers);
         console.log('allUsers DB init.');
 
-        response.new_user.forEach(function (e) {
-            User.add(e);
-        })
+        User.add(response.new_user);
 
         callback(SUCCESS(true));
+    });
+}
+
+User.update = function (user, callback) {
+
+    if (user.auto_login == "on") {
+        user.auto_login = true;
+    } else {
+        user.auto_login = false;
+    }
+
+    var sql = DATABASE();
+
+    sql.update('user_update', 'users').make(function (builder) {
+        builder.set({
+            login: user.login,
+            password_hash: user.hash,
+            email: user.email,
+            created: user.created,
+            role: user.role,
+            auto_login: user.auto_login
+        });
+        builder.where('id', user.id);
+    });
+    sql.exec(function (err, response) {
+        sql.select('use', 'users').make(function (builder) {
+            builder.where('id', '=', user.id);
+        });
+        sql.exec(function (err, response) {
+            User.upd(response.use[0]);
+            callback(SUCCESS(true));
+        });
     });
 }
 

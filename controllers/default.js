@@ -23,7 +23,6 @@ exports.install = function () {
 
 function main() {
     var self = this;
-
     var is_new = [];
 
     Product.list.forEach(function (e) {
@@ -33,11 +32,9 @@ function main() {
         }
     });
 
-
     self.view('/main/main', {
         products: is_new
     });
-
 }
 
 function view_products_list(categ) {
@@ -52,7 +49,6 @@ function view_products_list(categ) {
 
     Product.pagination(page, perpage, sort, category, function (prod, allLength) {
         var pagination = new Builders.Pagination(allLength, page, perpage, '?page={0}');
-        console.log(pagination);
         self.view('/list_product/list-product', {
             breadcrumbs: breadcrumbs_mapping[category],
             sort:sort,
@@ -76,9 +72,7 @@ function view_product(product_id) {
     avl.forEach(function (e) {
         available.push(shops[e]);
     })
-    console.log(available);
     Product.imgs(product_id, function (result) {
-        console.log(result);
         result.imgs_arr.forEach(function (e) {
             if (e.name.indexOf('Galery') > -1) {
                 e.size = i;
@@ -106,8 +100,6 @@ function view_products_manufacturer(manufacturer) {
     var perpage = (self.query.number || '12').parseInt();
 
     Product.get_by_manufacturer(manufacturer, function (result) {
-        result.sort(dynamicSort(sort));
-        console.log(result);
         var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
         self.view('/list_product/list-product', {
             breadcrumbs: result[0].manufacturer,
@@ -122,7 +114,6 @@ function view_products_manufacturer(manufacturer) {
 
 function search(search_text) {
     var self = this;
-    console.log(search_text);
     Product.search(decodeURI(search_text), 5, "", function (result) {
         console.log(result);
         self.json(result);
@@ -137,8 +128,6 @@ function search_result(search_text) {
     var perpage = (self.query.number || '12').parseInt();
 
     Product.search(decodeURI(search_text), 0, sort, function (result) {
-        //result.sort(dynamicSort(sort));
-        console.log(result);
         var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
         self.view('/list_product/list-product', {
             breadcrumbs: breadcrumbs_mapping['search'],
@@ -192,7 +181,6 @@ function view_favorites_local(favor_id) {
 
 function favorites_add() {
     var self = this;
-    console.log(self.body);
     Product.favorites_add(self.body.user_id, self.body.product_id, function (result) {
         self.json(SUCCESS(result));
     });
@@ -205,8 +193,10 @@ function view_favorites_user(user_id) {
     var perpage = (self.query.number || '12').parseInt();
 
     Product.favorites_by_user_id(user_id, function (result) {
+        if (!result)
+            result=[];
+
         result.sort(dynamicSort(sort));
-        console.log(result);
         var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
         self.view('/list_product/list-product', {
             breadcrumbs: breadcrumbs_mapping['favorites'],
@@ -221,15 +211,12 @@ function view_favorites_user(user_id) {
 function favorites(user_id) {
     var self = this;
     Product.favorites_list(user_id, function (result) {
-        console.log(result);
         self.json(result);
     })
 }
 
 function favorites_delete() {
     var self = this;
-    console.log(self.body.user_id);
-    console.log(self.body.product_id);
     Product.favorites_delete(self.body.user_id, self.body.product_id, function (result) {
         self.json(SUCCESS(result));
     });

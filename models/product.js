@@ -28,7 +28,6 @@ Product.add = function (product) {
 Product.upd = function (product) {
     var p = Product.make(product);
     var index = Product.list.indexOf(Product.by_id[product.id]);
-    console.log(product.id);
 
     if (index > -1) {
         Product.list[index] = p;
@@ -51,9 +50,6 @@ Product.dell = function (id) {
 }
 
 Product.create_new = function (product, files, callback) {
-    console.log(product);
-    console.log(product.available_in);
-
     product.price = product.price || 0;
     product.discount = product.discount || 0;
     product.available_in = product.available_in || '';
@@ -68,7 +64,6 @@ Product.create_new = function (product, files, callback) {
     } else {
         last_id = 0;
     }
-
 
     var sql = DATABASE();
     var productDir = __dirname + '/../public/tmp/' + (last_id + 1) + '/';
@@ -119,7 +114,6 @@ Product.create_new = function (product, files, callback) {
         });
         sql.exec(function (err, response) {
             if (err) throw err;
-            console.log(response);
             fs.readFile(files[0].path, function (err, data) {
                 if (err) throw err;
                 fs.mkdir(productDir, function (err) {
@@ -127,7 +121,6 @@ Product.create_new = function (product, files, callback) {
                         if (err) throw err;
                         console.log('Title img saved!');
                         files.forEach(function (element, index) {
-                            console.log(element);
                             if (index != 0 && element.name != 'virtual_model') {
                                 var galery = 'Galery' + index + '.';
                                 galery += element.filename.split('.')[1];
@@ -165,17 +158,15 @@ Product.update = function (product, files, callback) {
     product.price = product.price || 0;
     product.discount = product.discount || 0;
     product.available_in = product.available_in || '';
-    console.log(product.is_new);
     if (product.is_new == "on") {
         product.is_new = true;
     } else {
         product.is_new = false;
     }
 
-    console.log(product.is_new);
     var productDir = __dirname + '/../public/tmp/' + product.id + '/';
 
-    if (files.length>0) {
+    if (files.length > 0) {
         if (files[0].name == 'title_file') {
             fs.unlinkSync(productDir + Product.by_id[product.id].image_name);
             product.image_name = 'Title_';
@@ -184,7 +175,7 @@ Product.update = function (product, files, callback) {
         }
     }
 
-    
+
 
     console.log('product update to db', product);
     var sql = DATABASE();
@@ -225,47 +216,44 @@ Product.update = function (product, files, callback) {
         });
 
         files.forEach(function (element, index) {
-            console.log(element);
-                if (element.name == 'title_file') {
-                    fs.readFile(element.path, function (err, data) {
+            if (element.name == 'title_file') {
+                fs.readFile(element.path, function (err, data) {
+                    if (err) throw err;
+                    fs.writeFile(productDir + product.image_name, data, function (err) {
                         if (err) throw err;
-                        fs.writeFile(productDir + product.image_name, data, function (err) {
-                            if (err) throw err;
-                            console.log('Title img saved!');
-                        });
+                        console.log('Title img saved!');
                     });
-                } else if (element.name == 'virtual_model') {
-                    fs.readFile(element.path, function (err, data) {
-                        if (err) throw err;
+                });
+            } else if (element.name == 'virtual_model') {
+                fs.readFile(element.path, function (err, data) {
+                    if (err) throw err;
 
-                        fs.writeFile(productDir + element.filename, data, function (err) {
-                            if (err) throw err;
-                            console.log('3D saved!');
-                        });
-                    });
-                } else {
-                    fs.readFile(element.path, function (err, data) {
+                    fs.writeFile(productDir + element.filename, data, function (err) {
                         if (err) throw err;
-                        var num = galery_num + index+1;
-                        var gal = 'Galery' + num + '.';
-                        gal += element.filename.split('.')[1];
-                        
-                        fs.writeFile(productDir + gal, data, function (err) {
-                            if (err) throw err;
-                            console.log('Galery img saved!');
-                        });
+                        console.log('3D saved!');
                     });
-                }
+                });
+            } else {
+                fs.readFile(element.path, function (err, data) {
+                    if (err) throw err;
+                    var num = galery_num + index + 1;
+                    var gal = 'Galery' + num + '.';
+                    gal += element.filename.split('.')[1];
+
+                    fs.writeFile(productDir + gal, data, function (err) {
+                        if (err) throw err;
+                        console.log('Galery img saved!');
+                    });
+                });
+            }
         });
-            sql.select('prod', 'products').make(function (builder) {
-                builder.where('id', '=', product.id);
-            });
-            sql.exec(function (err, response) {
-                Product.upd(response.prod[0]);
-                callback(SUCCESS(true));
-            });
-
-        
+        sql.select('prod', 'products').make(function (builder) {
+            builder.where('id', '=', product.id);
+        });
+        sql.exec(function (err, response) {
+            Product.upd(response.prod[0]);
+            callback(SUCCESS(true));
+        });
     });
 }
 
@@ -290,7 +278,6 @@ Product.delete_p = function (product_id, callback) {
         builder.where('id', product_id);
     });
     sql.exec(function (err, response) {
-        console.log(response.deleted)
         Product.dell(product_id);
         deleteFolderRecursive(__dirname + '/../public/tmp/' + product_id);
         callback(SUCCESS(true));
@@ -299,10 +286,8 @@ Product.delete_p = function (product_id, callback) {
 }
 
 Product.delete_img = function (img_src, callback) {
-    console.log(img_src);
     var img_file = __dirname + img_src.split("/").join("\\"); //associate with local dir
     img_file = img_file.replace("models", "public") //set outer dir for imsges
-    console.log(img_file);
 
     fs.unlink(img_file, function (err) {
         if (err) throw err;
@@ -313,11 +298,9 @@ Product.delete_img = function (img_src, callback) {
 }
 
 Product.imgs = function (id, callback) {
-
     var response = {};
     response.imgs_arr = [];
     response.cities = {};
-
 
     fs.readdir(__dirname + '/../public/tmp/' + id, function (err, files) {
 
@@ -329,8 +312,6 @@ Product.imgs = function (id, callback) {
                     type: "image/jpg",
                     file: "/tmp/Products.jpg",
                 };
-                console.log('file in dir');
-                console.log(file);
                 var tmp = file.split('.');
                 var type = tmp[tmp.length - 1];
 
@@ -338,26 +319,16 @@ Product.imgs = function (id, callback) {
                 img.type = "image/" + type;
                 img.file = "/tmp/" + id + "/" + file;
 
-                console.log(img);
-
                 response.imgs_arr[index] = img;
             });
         }
 
-
-        
-
-
         Product.by_id[id].available_in.split(',').forEach(function (e) {
             response.cities[e] = true;
-        })
-
-        console.log(response);
+        });
 
         callback(response);
     });
-
-    //console.log(imgs_arr);
 }
 
 Product.pagination = function (page, items, sort, category, callback) {
@@ -387,7 +358,6 @@ Product.pagination = function (page, items, sort, category, callback) {
 
 Product.search = function (search_text, limit, sort, callback) {
     var sql = DATABASE();
-
     sql.select('search_result', 'products').make(function (builder) {
         builder.like('name', search_text + '%');
         builder.or();
@@ -418,7 +388,6 @@ Product.search = function (search_text, limit, sort, callback) {
 
 Product.get_by_manufacturer = function (manufacturer, callback) {
     var sql = DATABASE();
-
     sql.select('search_result', 'products').make(function (builder) {
         builder.where('manufacturer', manufacturer);
     });
@@ -438,7 +407,6 @@ Product.favorites_by_product_id = function (product_id, callback) {
 }
 
 Product.favorites_add = function (user_id, product_id, callback) {
-    console.log(user_id, product_id)
     var sql = DATABASE();
     sql.insert('favorite_added', 'favorites').make(function (builder) {
         builder.set('user_id', user_id);
@@ -450,7 +418,6 @@ Product.favorites_add = function (user_id, product_id, callback) {
 }
 
 Product.favorites_delete = function (user_id, product_id, callback) {
-    console.log(user_id, product_id)
     var sql = DATABASE();
     sql.query("DELETE FROM favorites WHERE user_id=" + user_id + " AND favorite_id=" + product_id);
     sql.exec(function (err, response) {
@@ -490,33 +457,21 @@ Product.favorites_list = function (user_id, callback) {
 
 exports.install = function () {
     F.on('initdb', function () {
-
-
-        //fs.readdir(__dirname + '/../public/tmp/', (err, files) => {
-        //    files.forEach(file => {
-        //        console.log(file);
-        //    });
-        //})
-
-
         var sql = DATABASE();
         sql.query('allProducts', 'SELECT * FROM products').make(function (builder) {
             builder.order('id');
         });
         sql.exec(function (err, response) {
             console.log('Outlet DB init.');
-            console.log(response);
 
             Product.list = [];
             Product.by_id = {};
 
-            
-                response.allProducts.forEach(function (e) {
-                    Product.add(e);
-                })
-            
+            response.allProducts.forEach(function (e) {
+                Product.add(e);
+            })
 
-                console.log('products init complete')
+            console.log('products init complete')
         });
     })
 };

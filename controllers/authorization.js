@@ -2,38 +2,37 @@ var User = GETSCHEMA('User');
 var Auth = MODULE('auth');
 
 exports.install = function() {
-    F.route('/auth', view_auth);
     F.route('/register', json_register, ['post']);
     F.route('/authorization', json_authorization, ['post']);
     F.route('/logout', json_logout);
     F.route('/user/{user_id}', view_user);
 };
 
-function view_auth() {
-    var self = this;
-    self.view('/temp/auth');
-}
-
 function json_register() {
     var self = this;
     User.register(this.body, function(result) {
         self.redirect('/');
     });
-    console.log("from server");
 }
 
 function json_authorization() {
     var self = this;
-    User.query({ login: this.body.login }, function (err, user) {
+    console.log(self.body);
+    User.query({ login: self.body.login }, function (err, user) {
         if (user) {
             User.operation('checkpassword', user, self.body.pass, function(err, res) {
                 if (res) {
-                    Auth.login(self, user.id, user);
-                    if (user.role === 'admin') {
-                        self.redirect('/admin');
-                    } else {
-                        self.redirect('/');
-                    }
+                    user.auto_login = self.body.auto_login;
+                    console.log(user);
+
+                    User.update(user, function (rezult) {
+                        Auth.login(self, user.id, user);
+                        if (user.role === 'admin') {
+                            self.redirect('/admin');
+                        } else {
+                            self.redirect('/');
+                        }
+                    });
                 } else
                     self.redirect('/');
             });
@@ -43,8 +42,12 @@ function json_authorization() {
 }
 
 function json_logout() {
-    Auth.logoff(this, this.user.id);
-    this.json(SUCCESS(true));
+    var self = this;
+    self.user.auto_login = false;
+    User.update(self.user, function (rezult) {
+        Auth.logoff(self, self.user.id);
+        self.json(rezult);
+    });
 }
 
 function view_admin() {
