@@ -518,3 +518,37 @@ input[type="checkbox"] + label {
     display: flex;
     justify-content: flex-end;
 }
+
+#reset-form {
+    display: grid;
+    margin-top: 50px;
+}
+
+input[name="reset_password"] {
+    width: 80%;
+    margin: 0px auto;
+}
+
+.reset_button {
+    margin: 50px auto;
+}
+
+#reset_password_modal {
+    z-index: 60;
+}
+
+#reset_password_modal .neat-button:hover {
+    background: #2a2a2a;
+    cursor: pointer;
+    color: white;
+}
+
+.reset_help {
+    width: 100%;
+    display: inline-block;
+    margin-top: 5%;
+    color: #9ba3aa;
+    font-family: RobotoLight;
+    font-size: 13px;
+    text-align: center;
+}

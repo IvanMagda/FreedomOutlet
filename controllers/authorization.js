@@ -1,7 +1,7 @@
 var User = GETSCHEMA('User');
 var Auth = MODULE('auth');
 
-exports.install = function() {
+exports.install = function () {
     F.route('/register', json_register, ['post']);
     F.route('/authorization', json_authorization, ['post']);
     F.route('/logout', json_logout);
@@ -10,7 +10,9 @@ exports.install = function() {
 
 function json_register() {
     var self = this;
-    User.register(this.body, function(result) {
+    User.register(this.body, function (result) {
+        var user = result;
+        Auth.login(self, user.id, user);
         self.redirect('/');
     });
 }
@@ -20,7 +22,7 @@ function json_authorization() {
     console.log(self.body);
     User.query({ login: self.body.login }, function (err, user) {
         if (user) {
-            User.operation('checkpassword', user, self.body.pass, function(err, res) {
+            User.operation('checkpassword', user, self.body.pass, function (err, res) {
                 if (res) {
                     user.auto_login = self.body.auto_login;
                     console.log(user);

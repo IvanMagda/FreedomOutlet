@@ -51,17 +51,17 @@ User.register = function (user, callback) {
         });
     });
 
-    sql.select('new_user', 'users').make(function (builder) {
-        builder.where('login', user.login);
-    });
+
 
     sql.exec(function (err, response) {
-        //console.log(response.allUsers);
-        console.log('allUsers DB init.');
+        sql.select('new_user', 'users').make(function (builder) {
+            builder.where('id', response.user.identity);
+        });
 
-        User.add(response.new_user);
-
-        callback(SUCCESS(true));
+        sql.exec(function (err, response) {
+            User.add(response.new_user[0]);
+            callback(response.new_user[0]);
+        });
     });
 }
 
@@ -124,11 +124,11 @@ exports.install = function () {
 
             User.list = [];
             User.by_id = {};
-            
-                response.allUsers.forEach(function (e) {
-                    User.add(e);
-                })
-            
+
+            response.allUsers.forEach(function (e) {
+                User.add(e);
+            })
+
 
             console.log('users init complete');
         });

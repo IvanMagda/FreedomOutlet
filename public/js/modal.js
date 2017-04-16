@@ -30,6 +30,9 @@ $(document).ready(function () {
         $.mask.definitions['~'] = '[+-]';
         $("#tel_register").mask("+38(999) 999 99 99");
     });
+
+    $('#reset_password_modal').css('width', $("#login_modal").width());
+    $('#reset_password_modal').css('height', $("#login_modal").height());
 });
 
 function logout() {
