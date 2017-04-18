@@ -20,7 +20,10 @@ function reset_pass() {
     var self = this;
     console.log(self.body);
     User.generate_new_pass(self.body.reset_mail, function (reset) {
-        self.mail('iv.y.magda@gmail.com', 'Reset Pass', '/temp/mail_reset_pass', { reset: reset, host: F.config.HOST });
+        if (reset) {
+            self.mail(self.body.reset_mail, 'Reset Pass', '/temp/mail_reset_pass', { reset: reset, host: F.config.HOST });
+        }
+
         self.redirect('/');
     });
 }

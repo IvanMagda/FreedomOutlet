@@ -126,13 +126,17 @@ User.generate_new_pass = function (mail, callback) {
     var temp_pass_hash = passwordHash.generate(temp_pass + "");
 
     User.get_by_email(mail, function (user) {
-        var reset = {};
-        reset.user_id = user[0].id;
-        reset.temp_pass = temp_pass;
-        reset.password_hash = temp_pass_hash;
-        reset.expiration = date;
-        Reset_pass.add(reset);
-        callback(reset);
+        if (typeof user !== 'undefined' && user.length > 0) {
+            var reset = {};
+            reset.user_id = user[0].id;
+            reset.temp_pass = temp_pass;
+            reset.password_hash = temp_pass_hash;
+            reset.expiration = date;
+            Reset_pass.add(reset);
+            callback(reset);
+        } else {
+            callback(false);
+        }
     })
 }
 
