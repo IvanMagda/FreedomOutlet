@@ -1,11 +1,17 @@
 var User = GETSCHEMA('User');
+var Reset_pass = GETSCHEMA('Reset_pass');
 var Auth = MODULE('auth');
+var passwordHash = require('password-hash');
+
 
 exports.install = function () {
     F.route('/register', json_register, ['post']);
     F.route('/authorization', json_authorization, ['post']);
     F.route('/logout', json_logout);
     F.route('/user/{user_id}', view_user);
+    F.route('/reset_pass/', view_reset_pass);
+    F.route('/new_pass', register_change_pass, ['post']);
+    F.route('/relogin/{login}', relogin);
 };
 
 function json_register() {
@@ -62,5 +68,61 @@ function view_user(id) {
     var self = this;
     self.view('/user/user_cabinet', {
         user: user
+    });
+}
+
+function view_reset_pass() {
+    var self = this;
+    var timeNow = new Date();
+    var user = Reset_pass.by_user_id[self.query.u_id];
+
+    if (timeNow > user.expiration) {
+        self.redirect('/');
+    } else {
+        console.log(self.query.pass);
+        console.log(user.temp_pass);
+        Reset_pass.operation('checkpasswordreset', self.query.pass, user.temp_pass, function (err, res) {
+            if (res) {
+                self.view('/temp/reset_pass', {
+                    id: self.query.u_id,
+                    hash: self.query.pass
+                });
+            }
+        });
+    }
+}
+
+function register_change_pass() {
+    var self = this;
+    console.log(self.body);
+    var timeNow = new Date();
+    var user = Reset_pass.by_user_id[self.body.id];
+
+    if (timeNow > user.expiration) {
+        self.redirect('/');
+    } else {
+        Reset_pass.operation('checkpasswordreset', self.body.pass, user.temp_pass, function (err, res) {
+            if (res) {
+                console.log("register change");
+                console.log(res);
+                var userChanged = User.by_id[self.body.id];
+                userChanged.hash = passwordHash.generate(self.body.new_pass + "");
+                console.log(userChanged);
+                    User.update(userChanged, function (result) {
+                        if (result) {
+                            delete Reset_pass.by_user_id[self.body.id];
+                            console.log(Reset_pass.by_user_id);
+                            self.redirect('/relogin/' + userChanged.login);
+                        }
+                    });
+            }
+        });
+    }
+}
+
+function relogin(login) {
+    var self = this;
+    self.view('/temp/relogin', {
+        name: login
     });
 }
