@@ -26,7 +26,7 @@ function json_register() {
 function json_authorization() {
     var self = this;
     console.log(self.body);
-    User.query({ login: self.body.login }, function (err, user) {
+    User.query({ email: self.body.email }, function (err, user) {
         if (user) {
             User.operation('checkpassword', user, self.body.pass, function (err, res) {
                 if (res) {
@@ -73,23 +73,11 @@ function view_user(id) {
 
 function view_reset_pass() {
     var self = this;
-    var timeNow = new Date();
-    var user = Reset_pass.by_user_id[self.query.u_id];
 
-    if (timeNow > user.expiration) {
-        self.redirect('/');
-    } else {
-        console.log(self.query.pass);
-        console.log(user.temp_pass);
-        Reset_pass.operation('checkpasswordreset', self.query.pass, user.temp_pass, function (err, res) {
-            if (res) {
-                self.view('/temp/reset_pass', {
-                    id: self.query.u_id,
-                    hash: self.query.pass
-                });
-            }
-        });
-    }
+    self.view('/temp/reset_pass', {
+        id: self.query.u_id,
+        hash: self.query.pass
+    });
 }
 
 function register_change_pass() {

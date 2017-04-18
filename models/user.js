@@ -139,7 +139,7 @@ User.generate_new_pass = function (mail, callback) {
 User.setQuery(function (err, options, callback) {
     var user = null;
     User.list.forEach(function (e) {
-        if (e.login === options.login) {
+        if (e.email === options.email) {
             user = e;
             return true;
         };
