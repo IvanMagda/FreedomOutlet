@@ -306,6 +306,8 @@ a {
 .product-list .item .img-product {
     height: 13vw;
     overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
 .product-list .item .item-main-img {
