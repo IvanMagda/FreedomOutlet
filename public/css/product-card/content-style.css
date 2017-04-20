@@ -89,7 +89,7 @@ a {
 .main-gallery {
     position: relative;
     margin-top: 3%;
-    height: 45vw;
+    /*height: 44vw;*/
 }
 
 .main-gallery .gallery-container {
@@ -98,6 +98,7 @@ a {
     /*margin-right: 5%;*/
     /*outline: 3px solid green;*/
     text-align: center;
+    float: left;
     /*margin-left: auto;*/
     /*margin-right: auto;*/
     /*width: 70%;*/
@@ -106,19 +107,20 @@ a {
 }
 
 .main-gallery .right-sidebar {
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
     /*outline: 1px solid magenta;*/
     width: 25%;
-    height: 100%;
+    /*height: 100%;*/
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     border-bottom: 1px solid #9ba3aa;
     border-top: 1px solid #9ba3aa;
     border-left: 1px solid #9ba3aa;
     border-right: 1px solid #9ba3aa;
+    float: right;
 }
 
 .main-gallery .right-sidebar > div {
@@ -133,52 +135,54 @@ a {
 }
 
 .right-sidebar .name {
-    margin-top: -8%;
+    /*margin-top: -8%;*/
     font-size: 1vw;
     font-family: RobotoLight;
     color: #898f90;
 }
 
 .right-sidebar .country {
-    margin-top: -10%;
+    /*margin-top: -10%;*/
     font-size: 1vw;
     font-family: RobotoLight;
     color: #898f90;
 }
 
 .right-sidebar .vendor {
-    margin-top: -5%;
+    margin-top: 5%;
     font-size: 1vw;
     font-family: RobotoLight;
     color: #2a2a2a;
 }
 
 .right-sidebar .size {
-    margin-top: -10%;
+    /*margin-top: -10%;*/
     font-size: 1vw;
     font-family: RobotoLight;
     color: #2a2a2a;
 }
 
 .right-sidebar .prise {
-    margin-top: -5%;
+    margin-top: 5%;
     font-size: 1.2vw;
     font-family: Roboto-Medium;
     color: #2a2a2a !important;
 }
 
 .right-sidebar .discount {
-    margin-top: -9%;
+    /*margin-top: -9%;*/
     font-size: 0.95vw;
     font-family: Roboto-ThinItalic;
     color: #9ba3aa;
 }
 
 .right-sidebar .button-container {
-    border-bottom: 1px solid #2a2a2a;
-    border-top: 1px solid #2a2a2a;
+    /*border-bottom: 1px solid #2a2a2a;*/
+    /*border-top: 1px solid #2a2a2a;*/
     margin-right: 10%;
-    margin-bottom: -5%;
+    /*margin-bottom: -5%;*/
+    margin-top: 5%;
+    border: 1px solid #2a2a2a;
 }
 
 .right-sidebar .button-container a {
@@ -233,7 +237,8 @@ a {
     justify-content: space-between;
     margin-right: 10%;
     align-items: center;
-    margin-bottom: -5%;
+    /*margin-bottom: -5%;*/
+    margin-top: 2%;
 }
 
 .right-sidebar .social-container .social {
@@ -265,6 +270,10 @@ a {
     width: 100%;
 }
 
+.right-sidebar .about {
+    margin-top: 10%;
+}
+
 .right-sidebar .about a {
     margin-top: -10%;
     font-size: 1vw;
@@ -275,6 +284,10 @@ a {
 
 .right-sidebar .about a:hover span {
     border-bottom: 2px solid #2a2a2a;
+}
+
+.right-sidebar .in-shop {
+    margin-top: 3%;
 }
 
 .right-sidebar .in-shop a {
@@ -290,7 +303,7 @@ a {
 }
 
 .right-sidebar .adres {
-    margin-top: -5%;
+    margin-top: 3%;
     font-size: 0.9vw;
     font-family: Roboto-LightItalic;
     color: #9ba3aa;
@@ -298,6 +311,7 @@ a {
 
 .right-sidebar .phone {
     margin-bottom: 5%;
+    margin-top: 5%;
 }
 
 .right-sidebar .phone a {
@@ -374,6 +388,7 @@ a {
 .also-like {
     position: relative;
     width: 100%;
+    margin-top: 5%;
     /*outline: 2px solid blue;*/
 }
 
