@@ -11,21 +11,21 @@
 
 
     <div class="login-form">
-        <form id="mail-form" action="/authorization" method="post">
+        <form id="log-form" action="/authorization" method="post" name="login_Form" onsubmit="return validate_login_Form()">
             <div class="validateTitle">*Обязательно</div>
             <div class="row1">
-                <input class="neat-input" type="text" name="login" placeholder="E-mail" />
+                <input class="neat-input" type="text" name="email" placeholder="E-mail" />
                 <input class="neat-input" type="password" name="pass" placeholder="Пароль" />
             </div>
             <div class="validateTitle">*Обязательно</div>
             <div class="row2">
                 <div>
                     <button class="neat-button" type="submit">Войти</button>
-                    <input id="remember-me" type="checkbox" name="remember-me" value="">
-                    <label for="remember-me">
-                        <span>Запомнить меня</span>
+                    <input id="remember-me-login" type="checkbox" name="auto_login">
+                    <label for="remember-me-login">
+                        <span></span>Запомнить меня
                     </label>
-                    <a href="#">Забыли пароль?</a>
+                    <a href="#reset_password_modal" class="open_modal">Забыли пароль?</a>
                 </div>
             </div>
         </form>

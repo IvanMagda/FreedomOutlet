@@ -1,12 +1,9 @@
-exports.install = function () {
-    //F.route('/mail', view_mail);
-    F.route('/mail/send', redirect_mail, ['post']);
-};
+var User = GETSCHEMA('User');
 
-function view_mail() {
-    var self = this;
-    self.view('/temp/mail');
-}
+exports.install = function () {
+    F.route('/mail/send', redirect_mail, ['post']);
+    F.route('/mail/reset_pass', reset_pass, ['post']);
+};
 
 function redirect_mail() {
     var self = this;
@@ -17,4 +14,16 @@ function redirect_mail() {
     self.mail('iv.y.magda@gmail.com', 'Product Offer', '/temp/mail_template', { name: this.body.name, phone: this.body.phone, message: this.body.message });
     //self.json(SUCCESS(true));
     self.redirect('/');
+}
+
+function reset_pass() {
+    var self = this;
+    console.log(self.body);
+    User.generate_new_pass(self.body.reset_mail, function (reset) {
+        if (reset) {
+            self.mail(self.body.reset_mail, 'Reset Pass', '/temp/mail_reset_pass', { reset: reset, host: F.config.HOST });
+        }
+
+        self.redirect('/');
+    });
 }

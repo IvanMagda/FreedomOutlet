@@ -243,7 +243,7 @@ a {
 @media screen and (min-width: 1200px) {
     .product-list .item { /*4 items*/
         /*margin-left: 1%;*/
-        margin-right: 4%;
+        margin-right: 3%;
         width: 22%;
     }
 

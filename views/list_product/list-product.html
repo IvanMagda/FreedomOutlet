@@ -4,32 +4,12 @@
 <div class="breadcrumbs">
     <ul>
         <li><a href="/">Главная</a></li>
-        @{if model.breadcrumbs=='kitchen'}<li><a>Кухни</a></li>@{endif}
-        @{if model.breadcrumbs=='bedroom'}<li><a>Спальни</a></li>@{endif}
-        @{if model.breadcrumbs=='soft'}<li><a>Мягкая</a></li>@{endif}
-        @{if model.breadcrumbs=='living'}<li><a>Гостинные</a></li>@{endif}
-        @{if model.breadcrumbs=='dining'}<li><a>Столовые</a></li>@{endif}
-        @{if model.breadcrumbs=='chandelier'}<li><a>Люстры</a></li>@{endif}
-        @{if model.breadcrumbs=='sanitary'}<li><a>Сантехника</a></li>@{endif}
-        @{if model.breadcrumbs=='accessories'}<li><a>Аксессуары</a></li>@{endif}
-        @{if model.breadcrumbs=='%'}<li><a>Все</a></li>@{endif}
-        @{if model.breadcrumbs=='search'}<li><a>Поиск</a></li>@{endif}
-        @{if model.breadcrumbs=='manufacturer'}<li><a>@{model.manufacturer}</a></li>@{endif}
+        <li><a>@{model.breadcrumbs}</a></li>
     </ul>
 </div>
 <div class="info-nav">
     <div class="title">
-        @{if model.breadcrumbs=='kitchen'}<span class="text-title">Кухни</span>@{endif}
-        @{if model.breadcrumbs=='bedroom'}<span class="text-title">Спальни</span>@{endif}
-        @{if model.breadcrumbs=='soft'}<span class="text-title">Мягкая</span>@{endif}
-        @{if model.breadcrumbs=='living'}<span class="text-title">Гостинные</span>@{endif}
-        @{if model.breadcrumbs=='dining'}<span class="text-title">Столовые</span>@{endif}
-        @{if model.breadcrumbs=='chandelier'}<span class="text-title">Люстры</span>@{endif}
-        @{if model.breadcrumbs=='sanitary'}<span class="text-title">Сантехника</span>@{endif}
-        @{if model.breadcrumbs=='accessories'}<span class="text-title">Аксессуары</span>@{endif}
-        @{if model.breadcrumbs=='%'}<span class="text-title">Все</span>@{endif}
-        @{if model.breadcrumbs=='search'}<span class="text-title">Поиск</span>@{endif}
-        @{if model.breadcrumbs=='manufacturer'}<span class="text-title">@{model.manufacturer}</span>@{endif}
+        <span class="text-title">@{model.breadcrumbs}</span>
     </div>
 
     <div class="view-options">
@@ -125,8 +105,8 @@
 
         <div class="img-product">
             <div class="item-icon-heart">
-                <img class="item-icon-heart-img" src="/../img/heart-1.png">
-                <img class="item-icon-heart2-img" src="/../img/heart-2.png">
+                <img class="item-icon-heart-img" src="/../img/heart-1.png" onclick="favoriteActions(@{product.id}, this.nextSibling)">
+                <img class="item-icon-heart2-img" src="/../img/heart-2.png" onload="markSelected(@{product.id}, this)">
             </div>
             <div class="item-icon-info">
                 <img class="item-icon-info-img" src="/../img/new-carousel/info-icon.png" onclick="info_tile(this)">

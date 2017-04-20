@@ -1,0 +1,34 @@
+@{layout('')}
+
+<h1>Reset</h1>
+<form action="/new_pass" method="post" onsubmit="validate()">
+	<input type="hidden"  name="id" value="@{model.id}" />
+	<input type="hidden"  name="pass" value="@{model.hash}" />
+	<input id="password" type="password" placeholder="Password" name="new_pass" required/>
+	<input id="confirm_password" placeholder="Confirm Password" type="password" required/>
+	<button type="submit">Submit</button>
+</form>
+
+<script type="text/javascript">
+	var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+
+function validate(){
+  if(password.value != confirm_password.value) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+</script>

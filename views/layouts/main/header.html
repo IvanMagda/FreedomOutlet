@@ -34,6 +34,7 @@
     </nav>
     <div id="login">
         @{if user !== null}
+        <input id="user_id" type="hidden" value="@{user.id}" />
             <div class="enter">
                 <a href="/user/@{user.login}/">@{user.login}</a>
                 <a href="#" onclick="logout()">Выйти</a>
@@ -47,7 +48,7 @@
         <div class="heart">
             <a href="#">
                 <img class="heart1" src="img/heart-1.png">
-                <img class="heart2" src="img/heart-2.png">
+                <img class="heart2" src="img/heart-2.png" onclick="viewMyFavorites()">
             </a>
         </div>
         <span class="phone">+38 (067) 329 08 45</span>
