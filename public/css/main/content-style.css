@@ -187,7 +187,7 @@ body {
 .gallery-icon-heart-img,
 .gallery-icon-info-img {
     width: 100%;
-    position: absolute;
+    /*position: absolute;*/
 }
 
 .gallery-icon-heart2-img {
@@ -201,14 +201,11 @@ body {
     display: none;
 }
 
-.gallery-icon-heart:hover .gallery-icon-heart2-img {
-    display: inline-block;
-}
+.gallery-icon-heart:hover .gallery-icon-heart2-img {display: inline-block;}
+.gallery-icon-heart:hover .gallery-icon-heart-img {display: none;}
 
-.gallery-icon-info:hover .gallery-icon-info2-img {
-    display: inline-block;
-    filter: saturate(5);
-}
+.gallery-icon-info:hover .gallery-icon-info2-img {display: inline-block;filter: saturate(5);}
+.gallery-icon-info:hover .gallery-icon-info-img {display: none;}
 
 .product-info {
     display: none;
