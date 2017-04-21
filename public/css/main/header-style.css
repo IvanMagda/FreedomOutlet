@@ -49,12 +49,20 @@ a {
     margin-left: 2%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .global-nav .row1,
 .global-nav .row2 {
     position: relative;
+}
+
+.global-nav .row1 {
+    margin-top: 3%;
+}
+
+.global-nav .row2 {
+    height: 2.5vw;
 }
 
 #login {
@@ -82,6 +90,7 @@ a {
     font-size: 14px;
     position: relative;
     cursor: pointer;
+    height: 100%;
 }
 
 /*#about_company .li .border,*/
@@ -89,12 +98,12 @@ a {
     position: absolute;
     width: 100%;
     top: 0;
-    bottom: -5px;
+    bottom: 1px;
 }
 
 /*#about_company .li:hover .border,*/
 #nav-menu .li:hover .border {
-    border-bottom: 2px solid red;
+    border-bottom: 4px solid red;
 }
 
 #about_company a .li {
@@ -110,7 +119,7 @@ a {
     /*left: 0;*/
     /*right: 0;*/
     /*bottom: 0;*/
-    height: 40%;
+    height: 100%;
     display: flex;
     justify-content: space-around;
     /*text-align: justify;*/

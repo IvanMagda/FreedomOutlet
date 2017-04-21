@@ -103,13 +103,13 @@ a {
 }
 
 .view-options {
-    width: 47%;
+    /*width: 47%;*/
     /*height: 100%;*/
     /*outline: 1px solid gold;*/
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 0.3%;
+    /*margin-right: 0.3%;*/
 }
 
 .dropdown-sorting {
@@ -131,7 +131,7 @@ a {
     display: inline-block;
     position: relative;
     white-space: nowrap;
-    margin-left: 4%;
+    /*margin-left: 4%;*/
     border: 1px solid lightgray
 }
 
@@ -243,12 +243,16 @@ a {
 @media screen and (min-width: 1200px) {
     .product-list .item { /*4 items*/
         /*margin-left: 1%;*/
-        margin-right: 3%;
+        margin-right: 4%;
         width: 22%;
     }
 
     .product-list .item:nth-child(4) {
         margin-right: 0;
+    }
+
+    .view-options {
+        width: 47%;
     }
 
 }
@@ -262,6 +266,10 @@ a {
 
     .product-list .item:nth-child(3) {
         margin-right: 0;
+    }
+
+    .view-options {
+        width: 50%;
     }
 }
 
