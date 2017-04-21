@@ -537,6 +537,9 @@ body {
     position: relative;
     border: 1px solid #9ba3aa;
     width: 49%;
+
+    display: inline-block;
+    text-decoration: none;
 }
 
 .about-comp,
@@ -648,7 +651,7 @@ body {
     align-items: center;
 }
 
-.img-scale .about-img-button a span {
+.img-scale .about-img-button span {
     color: black;
     display: inline-block;
     /*position: absolute;*/
@@ -667,7 +670,7 @@ body {
     outline: 2px solid black;
 }
 
-.img-scale .about-img-button .button:hover a span {
+.img-scale .about-img-button .button:hover span {
     color: white;
 }
 
