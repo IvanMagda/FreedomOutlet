@@ -82,6 +82,12 @@ function view_product(product_id) {
         })
         if (img.length === 'undefined') { img = 0; };
         Product.get_by_manufacturer(product.manufacturer, function (from_manufacturer) {
+            from_manufacturer.forEach(function (element, index) {
+                if (element.id == product_id) {
+                    from_manufacturer.splice(index, 1);
+                }
+            });
+            if (from_manufacturer.length > 8) from_manufacturer.length = 8;
             self.view('/product_card/product-card', {
                 product: product,
                 breadcrumbs: breadcrumbs_mapping[product.category],
