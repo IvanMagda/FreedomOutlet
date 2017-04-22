@@ -336,7 +336,7 @@ a {
     justify-content: center;
 }
 
-.new-carousel .item {
+/*.new-carousel .item {
     width: 30vw;
     height: 36vw;
     margin: 0 15vw;
@@ -345,7 +345,7 @@ a {
 
 .new-carousel .item img {
     height: 100%;
-}
+}*/
 
 .main-product-card-gall .slick-prev::before,
 .main-product-card-gall .slick-next::before {

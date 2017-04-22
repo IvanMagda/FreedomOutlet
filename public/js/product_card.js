@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('.main-gallery')[0].addEventListener("click", currentImg);
 
-    $('.gallery-container div.slick-slide img').on('bestfit', function () {
+    $('.main-gallery div.slick-slide img').on('bestfit', function () {
         var css;
         var ratio = $(this).width() / $(this).height();
         if (ratio < 1) css = { width: 'auto', height: '100%' };
