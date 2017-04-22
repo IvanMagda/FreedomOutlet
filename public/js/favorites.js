@@ -48,7 +48,9 @@ function viewMyFavorites() {
     if (user_id) {
         window.location.href = "/favorites/user/" + user_id;
     } else {
-        window.location.href = "/favorites/local/" + localStorage.getItem("favorites").split(',');
+        if (localStorage.getItem("favorites")) {
+            window.location.href = "/favorites/local/" + localStorage.getItem("favorites").split(',');
+        }
     }
 }
 
@@ -64,8 +66,9 @@ function markSelected(product_id, local_element) {
             });
         });
     } else {
-        var favorites = localStorage.getItem("favorites").split(',');
+        var favorites = localStorage.getItem("favorites");
         if (favorites) {
+            favorites = favorites.split(',');
             favorites.forEach(function (e) {
                 if (parseInt(e, 10) == parseInt(product_id, 10)) {
                     local_element.previousSibling.src = local_element.previousSibling.src.replace('heart-1', 'heart-2');
