@@ -82,18 +82,23 @@ function view_product(product_id) {
         })
         if (img.length === 'undefined') { img = 0; };
         Product.get_by_manufacturer(product.manufacturer, function (from_manufacturer) {
-            from_manufacturer.forEach(function (element, index) {
-                if (element.id == product_id) {
-                    from_manufacturer.splice(index, 1);
-                }
-            });
-            if (from_manufacturer.length > 8) from_manufacturer.length = 8;
-            self.view('/product_card/product-card', {
-                product: product,
-                breadcrumbs: breadcrumbs_mapping[product.category],
-                immages: img,
-                available: available,
-                products_from_manufacturer: from_manufacturer
+            if (from_manufacturer.length > 8) {
+                from_manufacturer = shuffle(from_manufacturer);
+                from_manufacturer.length = 8;
+            };
+            Product.pagination(1, 200, "name", product.category, function (see_also_prod, allLength) {
+                if (see_also_prod.length > 8) {
+                    see_also_prod = shuffle(see_also_prod);
+                    see_also_prod.length = 8;
+                };
+                self.view('/product_card/product-card', {
+                    product: product,
+                    breadcrumbs: breadcrumbs_mapping[product.category],
+                    immages: img,
+                    available: available,
+                    products_from_manufacturer: from_manufacturer,
+                    see_also: see_also_prod
+                });
             });
         });
     });
@@ -251,4 +256,23 @@ function actualFiles(incomingFilesArray, listToCheck) {
         })
     })
     return filesResult;
+}
+
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
 }
