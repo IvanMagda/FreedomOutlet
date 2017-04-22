@@ -7,13 +7,17 @@
 
 <div class="stub"></div>
 <div class="new">
-    <div class="gallery-title">
-        <span class="text-new">Новое</span>
+    <div class="new-tit-cont">
+        <div class="gallery-title">
+            <span class="text-new">Новое</span>
+        </div>
     </div>
     <div class="gallery">
         <div class="main-page-carousel new-carousel">
             @{foreach product in model.products}
             <div class="item">
+
+                <a class="img-cont" href="/product/@{product.id}"><img src="@{product.title_img_src}" alt="Image 1"></a>
                 <div class="gallery-icon-heart">
                     <img class="gallery-icon-heart-img" src="img/heart-1.png">
                     <img class="gallery-icon-heart2-img" src="img/heart-2.png" onclick="favoriteActions(@{product.id}, this)" onload="markSelected(@{product.id}, this)">
@@ -22,7 +26,6 @@
                     <img class="gallery-icon-info-img" src="img/new-carousel/info-icon.png" onclick="info_tile(this)">
                     <img class="gallery-icon-info2-img" src="img/new-carousel/info-icon-2.png" onclick="info_tile(this)">
                 </div>
-                <a href="/product/@{product.id}"><img src="@{product.title_img_src}" alt="Image 1"></a>
                 <div class="title-new-product">
                     <span class="tit">@{product.name}</span>
                     <br>
@@ -169,7 +172,7 @@
         </div>
     </div>
     <div class="about_us-content">
-        <div class="about-cont">
+        <a class="about-cont" href="/about">
             <div class="about-img-cont">
                 <div class="img-scale">
                     <img class="about-img" src="img/about-us/picture1.png">
@@ -178,7 +181,9 @@
                         <div class="about-img-button-border">
                             <div class="button">
                                 <div class="button-text-border"></div>
-                                <a href="/about"><span>О КОМПАНИИ</span></a>
+                                <!--<a href="/about">-->
+                                    <span>О КОМПАНИИ</span>
+                                <!--</a>-->
                             </div>
                         </div>
                     </div>
@@ -191,14 +196,14 @@
                 </span>
             </div>
             <div class="read-all">
-                <a href="/about">
+                <!--<a href="/about">-->
                     <div class="button-read-all">
                         <span>ЧИТАТЬ ВСЕ</span>
                     </div>
-                </a>
+                <!--</a>-->
             </div>
-        </div>
-        <div class="about-cont">
+        </a>
+        <a class="about-cont" href="#">
             <div class="about-img-cont">
                 <div class="img-scale">
                     <img class="about-img" src="img/about-us/picture2.png">
@@ -207,7 +212,9 @@
                         <div class="about-img-button-border">
                             <div class="button">
                                 <div class="button-text-border"></div>
-                                <a href="#"><span>ИДЕИ ДЛЯ ДОМА</span></a>
+                                <!--<a href="#">-->
+                                    <span>ИДЕИ ДЛЯ ДОМА</span>
+                                <!--</a>-->
                             </div>
                         </div>
                     </div>
@@ -220,13 +227,14 @@
                 </span>
             </div>
             <div class="read-all">
-                <a href="#">
+                <!--<a href="#">-->
                     <div class="button-read-all">
                         <span>ЧИТАТЬ ВСЕ</span>
                     </div>
-                </a>
+                <!--</a>-->
             </div>
-        </div>
+        </a>
+        <!--<div class="clear:both"></div>-->
     </div>
 </div>
 <div class="contacts">
