@@ -335,3 +335,9 @@ hr{
     display: flex;
     flex-direction:column;
 }
+
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

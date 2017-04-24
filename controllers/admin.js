@@ -5,11 +5,11 @@ exports.install = function () {
     F.route('/admin', view_admin, ['authorize', '@admin']);
     F.route('/admin/{product_id}', view_admin_product, ['authorize', '@admin']);
     F.route('/products/create', view_product_add, ['authorize', '@admin']);
-    F.route('/products/create', product_create, ['upload'], { flags: ['upload'], length: 25 * 1024 * 1024, timeout: 30 * 60 * 1000 }, ['authorize', '@admin']);
+    F.route('/products/create', product_create, ['upload', 'authorize', '@admin'], { flags: ['upload'], length: 25 * 1024 * 1024, timeout: 30 * 60 * 1000 });
     F.route('/products/update/{product_id}', view_product_update, ['authorize', '@admin']);
-    F.route('/products/update/', product_update, ['upload'], { flags: ['upload'], length: 25 * 1024 * 1024, timeout: 30 * 60 * 1000 }, ['authorize', '@admin']);
-    F.route('/products/delete/{product_id}', product_delete, ['post'], ['authorize', '@admin']);
-    F.route('/products/delete_img/', product_delete_img, ['post'], ['authorize', '@admin']);
+    F.route('/products/update/', product_update, ['upload', 'authorize', '@admin'], { flags: ['upload'], length: 25 * 1024 * 1024, timeout: 30 * 60 * 1000 });
+    F.route('/products/delete/{product_id}', product_delete, ['post', 'authorize', '@admin']);
+    F.route('/products/delete_img/', product_delete_img, ['post', 'authorize', '@admin']);
     F.route('/admin', view_admin_login, ['unauthorize']);
 };
 
@@ -87,4 +87,17 @@ function view_admin() {
 function view_admin_login() {
     var self = this;
     self.view('/admin/login');
+}
+
+function actualFiles(incomingFilesArray, listToCheck) {
+    var filesResult = [];
+    listToCheck = listToCheck.split(',');
+    incomingFilesArray.forEach(function (file) {
+        listToCheck.forEach(function (listItem) {
+            if (listItem.indexOf(file.filename) !== -1) {
+                filesResult.push(file);
+            }
+        })
+    })
+    return filesResult;
 }

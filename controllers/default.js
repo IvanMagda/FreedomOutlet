@@ -245,18 +245,7 @@ function dynamicSort(property) {
     }
 }
 
-function actualFiles(incomingFilesArray, listToCheck) {
-    var filesResult = [];
-    listToCheck = listToCheck.split(',');
-    incomingFilesArray.forEach(function (file) {
-        listToCheck.forEach(function (listItem) {
-            if (listItem.indexOf(file.filename) !== -1) {
-                filesResult.push(file);
-            }
-        })
-    })
-    return filesResult;
-}
+
 
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
