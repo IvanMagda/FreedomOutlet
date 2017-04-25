@@ -1,4 +1,5 @@
 var Product = GETSCHEMA('Product');
+var User = GETSCHEMA('User');
 var fs = require('fs');
 
 exports.install = function () {
@@ -11,6 +12,8 @@ exports.install = function () {
     F.route('/products/delete/{product_id}', product_delete, ['post', 'authorize', '@admin']);
     F.route('/products/delete_img/', product_delete_img, ['post', 'authorize', '@admin']);
     F.route('/admin', view_admin_login, ['unauthorize']);
+    F.route('/admin/users', view_admin_users, ['authorize', '@admin']);
+    F.route('/admin/search/{search_text}', view_admin_search, ['get','authorize', '@admin']);
 };
 
 
@@ -53,11 +56,9 @@ function product_update() {
     var self = this;
     Product.update(self.body, actualFiles(self.files, self.body["fileuploader-list-files"]), function (result) {
         if (result) {
-            self.view('/admin/admin', {
-                products: Product.list
-            });
+            self.redirect('/admin');
         } else {
-            self.view('/main/main');
+            self.redirect('/');
         }
     });
 }
@@ -78,15 +79,59 @@ function product_delete_img() {
 
 function view_admin() {
     var self = this;
-    var list = Product.list;
-    self.view('/admin/admin', {
-        products: list
+    var page = self.query.page || 1;
+    var perpage = self.query.number || 20;
+    var sort = self.query.sort || 'name'
+    var category = '%';
+
+    Product.pagination(page, perpage, sort, category, function (prod, allLength) {
+        var pagination = new Builders.Pagination(allLength, page, perpage, '?page={0}');
+        self.view('/admin/admin', {
+            sort: sort,
+            items: perpage,
+            products: prod,
+            pagination: pagination
+        });
     });
 }
 
 function view_admin_login() {
     var self = this;
     self.view('/admin/login');
+}
+
+function view_admin_users() {
+    var self = this;
+    var page = self.query.page || 1;
+    var perpage = self.query.number || 20;
+    var sort = self.query.sort || 'id'
+
+    User.pagination(page, perpage, sort, function (users, allLength) {
+        var pagination = new Builders.Pagination(allLength, page, perpage, '?page={0}');
+        self.view('/admin/admin', {
+            sort: sort,
+            items: perpage,
+            users: users,
+            pagination: pagination
+        });
+    });
+}
+
+function view_admin_search(search_text) {
+    var self = this;
+    var sort = self.query.sort || "";
+    var page = (self.query.page || '1').parseInt();
+    var perpage = (self.query.number || '12').parseInt();
+
+    Product.search(decodeURI(search_text), 0, sort, function (result) {
+        var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
+        self.view('/admin/admin', {
+            sort: sort,
+            items: perpage,
+            products: result,
+            pagination: pagination
+        });
+    })
 }
 
 function actualFiles(incomingFilesArray, listToCheck) {

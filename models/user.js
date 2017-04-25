@@ -7,6 +7,7 @@ User.define('password_hash', String);
 User.define('email', String);
 User.define('created', Date);
 User.define('role', String);
+User.define('phone', String);
 User.define('auto_login', Boolean);
 User.addOperation('checkpassword', checkPassword);
 
@@ -59,6 +60,7 @@ User.register = function (user, callback) {
             email: user.email,
             created: new Date(),
             role: user.role,
+            phone: user.phone,
             auto_login: user.auto_login
         });
     });
@@ -94,6 +96,7 @@ User.update = function (user, callback) {
             email: user.email,
             created: user.created,
             role: user.role,
+            phone: user.phone,
             auto_login: user.auto_login
         });
         builder.where('id', user.id);
@@ -150,6 +153,38 @@ User.setQuery(function (err, options, callback) {
     });
     callback(user);
 });
+
+User.pagination = function (page, items, sort, callback) {
+    var sql = DATABASE();
+    sql.select('use', 'users').make(function (builder) {
+        builder.like('id', '%');
+        builder.order(sort);
+        builder.page(page, items);
+    });
+    sql.select('allUsers', 'users').make(function (builder) {
+        builder.like('id', '%');
+    });
+    sql.exec(function (err, response) {
+        var list = [];
+        var allLength = response.allUsers.length;
+
+        if (response.use) {
+            response.use.forEach(function (e) {
+                var u = User.make(e);
+
+                var day = u.created.getDate();
+                var month = 0;
+                if (u.created.getMonth() < 9) { month = '0' + (u.created.getMonth() + 1) } else { month = (u.created.getMonth() + 1) };
+                var year = u.created.getFullYear();
+                u.created = day + "/" + month + "/" + year;
+
+                list.push(u);
+            })
+        }
+
+        callback(list, allLength);
+    });
+}
 
 function checkPassword(err, user, pass, callback) {
     callback(passwordHash.verify(pass + "", user.password_hash));

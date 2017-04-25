@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('#file1').on('change', handleFileSelect);
+    pagination();
 });
 
 function delete_p(id) {
@@ -35,4 +36,55 @@ function handleFileSelect(evt) {
     })(f);
     // Read in the image file as a data URL.
     reader.readAsDataURL(f);
+}
+
+function pagination() {
+    var num = parseInt($('#currentPage').val());
+    var limit = parseInt($('#currentLimit').val());
+    range = 1;
+    var arr = [];
+    var html = "";
+
+    if (num > 1) {
+        var prev = num - 1;
+        html += '<li class="back"><a href="#" onmouseover="pagingClick(this)" name="?page=' + prev + '"><</a></li>';
+    } else {
+        html += '';
+    }
+
+    for (var i = 1; i <= limit; i++) {
+        if (i <= range || (i > num - range * 3 && i < num + range * 3) || i > limit - range) {
+            if (arr[arr.length - 1] && i != arr[arr.length - 1] + 1) {
+                arr.push('...');
+                html += '<li>...</li>'
+            }
+
+            if (i == num) {
+                arr.push(i);
+                html += '<li class="active"><a href="#" onmouseover="pagingClick(this)" name="?page=' + i + '">' + i + '</a></li>';
+            } else {
+                arr.push(i);
+                html += '<li><a href="#" onmouseover="pagingClick(this)" name="?page=' + i + '">' + i + '</a></li>';
+            }
+        }
+    }
+
+    if (num < limit) {
+        var next = num + 1;
+        html += '<li class="forward"><a href="#" onmouseover="pagingClick(this)" name="?page=' + next + '">></a></li>';
+    } else {
+        html += '';
+    }
+
+    console.log(arr);
+
+    document.getElementById('pagination').innerHTML = html;
+}
+
+function pagingClick(node) {
+    var link = node.name;
+    var sort = $("#sorting option:selected").val();
+    var number = $("#pages option:selected").val();
+    var locat = $("#location").val();
+    node.href = link + '&sort=' + sort + '&number=' + number;
 }

@@ -31,7 +31,7 @@ function pagination() {
 
     if (num > 1) {
         var prev = num - 1;
-        html += '<li class="back"><a href="#" onclick="pagingClick(this)" name="?page=' + prev + '"><img src="/../img/pagination-back.png" /></a></li>';
+        html += '<li class="back"><a href="#" onmouseover="pagingClick(this)" name="?page=' + prev + '"><img src="/../img/pagination-back.png" /></a></li>';
     } else {
         html += '<li class="back"><a href="#"><img src="/../img/pagination-back.png" /></a></li>';
     }
@@ -45,17 +45,17 @@ function pagination() {
 
             if (i == num) {
                 arr.push(i);
-                html += '<li class="active"><a href="#" onclick="pagingClick(this)" name="?page=' + i + '">' + i + '</a></li>';
+                html += '<li class="active"><a href="#" onmouseover="pagingClick(this)" name="?page=' + i + '">' + i + '</a></li>';
             } else {
                 arr.push(i);
-                html += '<li><a href="#" onclick="pagingClick(this)" name="?page=' + i + '">' + i + '</a></li>';
+                html += '<li><a href="#" onmouseover="pagingClick(this)" name="?page=' + i + '">' + i + '</a></li>';
             }
         }
     }
 
     if (num < limit) {
         var next = num + 1;
-        html += '<li class="forward"><a href="#" onclick="pagingClick(this)" name="?page=' + next + '"><img src="/../img/pagination-forward.png" /></a></li>';
+        html += '<li class="forward"><a href="#" onmouseover="pagingClick(this)" name="?page=' + next + '"><img src="/../img/pagination-forward.png" /></a></li>';
     } else {
         html += '<li class="forward"><a href="#"><img src="/../img/pagination-forward.png" /></a></li>';
     }
@@ -85,7 +85,7 @@ function pagingClick(node) {
     var link = node.name;
     var sort = $("#filterSort li.active a[name]")[0].getAttribute('name');
     var number = $("#filterNumber li.active a[name]")[0].getAttribute('name');
-    window.location.href = link + '&sort=' + sort + '&number=' + number;
+    node.href = link + '&sort=' + sort + '&number=' + number;
 }
 
 NodeList.prototype.forEach = function (fn) {

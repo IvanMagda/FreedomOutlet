@@ -1,38 +1,82 @@
 ﻿@{layout('/admin/admin_layout')}
 <head>
-    @{import('product_client.js')}
-    @{import('admin/admin.css')}
+    @{import('admin/main_page.js')}
+    @{import('admin/main_page.css')}
 </head>
 
+<input id="currentPage" type="hidden" value="@{model.pagination.page}" />
+<input id="currentLimit" type="hidden" value="@{model.pagination.count}" />
+@{if model.products !== undefined}
+<input id="location" type="hidden" value="" />
+@{else}
+<input id="location" type="hidden" value="/users" />
+@{fi}
 <div class="mdl-grid outlet-content">
     <div class="outlet-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
         <!--charts-->
     </div>
     <div class="outlet-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
         <table class="mdl-data-table mdl-js-data-table mdl-data-table outlet-table">
-            <!--<thead>
-                <tr>
-                    <th class="mdl-data-table__cell--non-numeric">Product info</th>
-                    <th class="mdl-data-table__cell">Actions</th>
-                </tr>
-            </thead>-->
             <tbody>
+                @{if model.products !== undefined}
                 @{foreach product in model.products}
                 <tr>
                     <td class="mdl-data-table__cell--non-numeric wid-80">@{product.name}</td>
                     <td class="mdl-data-table__cell">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="edit_p('@{product.id}')">&nbsp;Редактировать&nbsp;</button>
+                        <button class="custom-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="edit_p('@{product.id}')">&nbsp;Редактировать&nbsp;</button>
                         &nbsp;&nbsp;
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="delete_p('@{product.id}')">&nbsp;X&nbsp;</button>
+                        <button class="custom-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="delete_p('@{product.id}')">&nbsp;X&nbsp;</button>
                     </td>
                 </tr>
                 @{end}
+                @{else}
+                @{foreach user in model.users}
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric wid-10">@{user.id}</td>
+                    <td class="mdl-data-table__cell--non-numeric wid-20">@{user.login}</td>
+                    <td class="mdl-data-table__cell--non-numeric wid-20">@{user.email}</td>
+                    <td class="mdl-data-table__cell--non-numeric wid-20">@{user.phone}</td>
+                    <td class="mdl-data-table__cell--non-numeric wid-15">@{user.created}</td>
+                    <td class="mdl-data-table__cell--non-numeric wid-15">@{user.role}</td>
+                </tr>
+                @{end}
+                @{fi}
             </tbody>
         </table>
-    </div>
+        <ul id="pagination"></ul>
+</div>
     <div class="outlet-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
         <div class="outlet-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
             <!--Updates-->
+            <form action="">
+                    <div class="mdl-select mdl-js-select mdl-select--floating-label">
+                        <select class="mdl-select__input" id="pages" name="number" onchange="this.form.submit()">
+                            <option value="20" @{if model.items=='20' } selected @{endif}>20</option>
+                            <option value="40" @{if model.items=='40' } selected @{endif}>40</option>
+                            <option value="60" @{if model.items=='60' } selected @{endif}>60</option>
+                            <option value="80" @{if model.items=='80' } selected @{endif}>80</option>
+                            <option value="100" @{if model.items=='100' } selected @{endif}>100</option>
+                        </select>
+                        <label class="mdl-select__label" for="pages">Показать на странице</label>
+                    </div>
+                    <div class="mdl-select mdl-js-select mdl-select--floating-label">
+                        <select class="mdl-select__input" id="sorting" name="sort" onchange="this.form.submit()">
+                            @{if model.products !== undefined}
+                            <option value="id" @{if model.sort=='id' } selected @{endif}>Id</option>
+                            <option value="name" @{if model.sort=='name' } selected @{endif}>Имя</option>
+                            <option value="manufacturer" @{if model.sort=='manufacturer' } selected @{endif}>Производитель</option>
+                            <option value="price" @{if model.sort=='price' } selected @{endif}>Цена</option>
+                            <option value="category" @{if model.sort=='category' } selected @{endif}>Категория</option>
+                            @{else}
+                            <option value="id" @{if model.sort=='id' } selected @{endif}>Id</option>
+                            <option value="login" @{if model.sort=='login' } selected @{endif}>Логин</option>
+                            <option value="email" @{if model.sort=='email' } selected @{endif}>Почта</option>
+                            <option value="role" @{if model.sort=='role' } selected @{endif}>Дата регистрации</option>
+                            @{fi}
+                        </select>
+                        <label class="mdl-select__label" for="sorting">Сортировка</label>
+                    </div>
+                </form>
         </div>
         <div class="outlet-separator mdl-cell--1-col"></div>
         <div class="outlet-options mdl-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">

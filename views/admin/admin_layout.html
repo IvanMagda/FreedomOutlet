@@ -22,6 +22,7 @@
 
     @{import('product_client.js')}
     @{import('vend_atocomp.js')}
+    @{import('admin/search.js')}
 
 
     <style>
@@ -42,15 +43,17 @@
             <div class="mdl-layout__header-row">
                 <span class="mdl-layout-title">Административная панель</span>
                 <div class="mdl-layout-spacer"></div>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                    <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-                        <i class="material-icons">search</i>
-                    </label>
-                    <div class="mdl-textfield__expandable-holder">
-                        <input class="mdl-textfield__input" type="text" id="search">
-                        <label class="mdl-textfield__label" for="search">Enter your query...</label>
+                <form>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+                            <i class="material-icons">search</i>
+                        </label>
+                        <div class="mdl-textfield__expandable-holder">
+                            <input class="mdl-textfield__input" type="text" id="search">
+                            <label class="mdl-textfield__label" for="search">Enter your query...</label>
+                        </div>
                     </div>
-                </div>
+                </form>
                 <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
                     <i class="material-icons">more_vert</i>
                 </button>
@@ -74,6 +77,7 @@
             <nav class="outlet-navigation mdl-navigation mdl-color--blue-grey-800">
                 <a class="mdl-navigation__link" href="/admin"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Главная</a>
                 <a class="mdl-navigation__link" href="/products/create"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shopping_cart</i>Добавить</a>
+                <a class="mdl-navigation__link" href="/admin/users"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">assignment_ind</i>Пользователи</a>
                 <div class="mdl-layout-spacer"></div>
             </nav>
         </div>
