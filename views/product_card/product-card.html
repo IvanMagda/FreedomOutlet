@@ -23,27 +23,30 @@
                 </div>
             </div>
             <div class="right-sidebar">
-                <div class="title">
-                    <span style="text-transform:capitalize">@{model.product.name}</span>
+                <div class="cont-sizer">
+                    <div class="title">
+                        <span style="text-transform:capitalize">@{model.product.name}</span>
+                    </div>
+                    <div class="name">
+                        <span style="text-transform:uppercase">@{model.product.manufacturer}</span>
+                    </div>
+                    <div class="country">
+                        <span style="text-transform:capitalize">@{model.product.manufacturer_country}</span>
+                    </div>
+                    <div class="vendor">
+                        <span style="text-transform:uppercase">@{model.product.series}</span>
+                    </div>
+                    <div class="size">
+                        <span>@{model.product.dimensions}</span>
+                    </div>
+                    <div class="prise">
+                        <span>@{model.product.price} UAH</span>
+                    </div>
+                    <div class="discount">
+                        <span>Снижение с @{model.product.discount} UAH</span>
+                    </div>
                 </div>
-                <div class="name">
-                    <span style="text-transform:uppercase">@{model.product.manufacturer}</span>
-                </div>
-                <div class="country">
-                    <span style="text-transform:capitalize">@{model.product.manufacturer_country}</span>
-                </div>
-                <div class="vendor">
-                    <span style="text-transform:uppercase">@{model.product.series}</span>
-                </div>
-                <div class="size">
-                    <span>@{model.product.dimensions}</span>
-                </div>
-                <div class="prise">
-                    <span>@{model.product.price} UAH</span>
-                </div>
-                <div class="discount">
-                    <span>Снижение с @{model.product.discount} UAH</span>
-                </div>
+
                 <div class="button-container">
                     <a href="#offer_modal" class="open_modal">
                         <span class="text-button">КУПИТЬ В ОДИН КЛИК</span>

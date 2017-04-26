@@ -67,8 +67,9 @@ a {
 
 .breadcrumbs ul li:after {
     content: "/";
-    padding-left: 8%;
-    padding-right: 2%;
+    padding-left: 0.3vw;
+    /*padding-left: 8%;*/
+    /*padding-right: 2%;*/
     color: darkgray;
 }
 
@@ -127,49 +128,54 @@ a {
     margin-left: 10%;
 }
 
-.right-sidebar .title {
+.cont-sizer {
+    position: relative;
+    height: 13vw;
+}
+
+.right-sidebar .cont-sizer .title {
     margin-top: 5%;
     font-size: 30pt;
     font-family: Georgia;
     color: #2a2a2a;
 }
 
-.right-sidebar .name {
+.right-sidebar .cont-sizer .name {
     /*margin-top: -8%;*/
     font-size: 1vw;
     font-family: RobotoLight;
     color: #898f90;
 }
 
-.right-sidebar .country {
+.right-sidebar .cont-sizer .country {
     /*margin-top: -10%;*/
     font-size: 1vw;
     font-family: RobotoLight;
     color: #898f90;
 }
 
-.right-sidebar .vendor {
+.right-sidebar .cont-sizer .vendor {
     margin-top: 5%;
     font-size: 1vw;
     font-family: RobotoLight;
     color: #2a2a2a;
 }
 
-.right-sidebar .size {
+.right-sidebar .cont-sizer .size {
     /*margin-top: -10%;*/
     font-size: 1vw;
     font-family: RobotoLight;
     color: #2a2a2a;
 }
 
-.right-sidebar .prise {
+.right-sidebar .cont-sizer .prise {
     margin-top: 5%;
     font-size: 1.2vw;
     font-family: Roboto-Medium;
     color: #2a2a2a !important;
 }
 
-.right-sidebar .discount {
+.right-sidebar .cont-sizer .discount {
     /*margin-top: -9%;*/
     font-size: 0.95vw;
     font-family: Roboto-ThinItalic;

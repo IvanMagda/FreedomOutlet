@@ -55,8 +55,9 @@ a {
 
 .breadcrumbs ul li:after {
     content: "/";
-    padding-left: 8%;
-    padding-right: 2%;
+    padding-left: 0.3vw;
+    /*padding-right: 2%;*/
+    /*padding: 0.3vw;*/
     color: darkgray;
 }
 
