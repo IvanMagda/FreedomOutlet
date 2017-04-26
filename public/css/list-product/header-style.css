@@ -36,13 +36,13 @@
 
 .global-nav {
     width: 65%;
-    height: 50%;
+    height: 95%;
     margin-left: 13%;
-    margin-top: 2.5%;
+    /*margin-top: 2.5%;*/
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .global-nav .row1,
@@ -50,11 +50,24 @@
     position: relative;
 }
 
+.global-nav .row1 {
+    height: 45%;
+}
+
+.global-nav .row2 {
+    height: 52%;
+}
+
 #nav-menu {
     position: relative;
-    height: 40%;
-    display: flex;
-    justify-content: space-around;
+    height: 100%;
+    /*display: flex;*/
+    /*justify-content: space-around;*/
+}
+
+#nav-menu a {
+    display: inline-block;
+    height: 100%;
 }
 
 #nav-menu .li {
@@ -64,17 +77,18 @@
     position: relative;
     cursor: pointer;
     margin-right: 1vw;
+    height: 100%;
 }
 
 #nav-menu .li .border {
     position: absolute;
     width: 100%;
     top: 0;
-    bottom: -5px;
+    bottom: -4px;
 }
 
 #nav-menu .li:hover .border {
-    border-bottom: 2px solid red;
+    border-bottom: 4px solid red;
 }
 
 .search_block {
