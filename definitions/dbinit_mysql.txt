@@ -34,6 +34,8 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8;
 
+INSERT INTO `outlet`.`users` (`id`, `login`, `password_hash`, `email`, `created`, `role`, `phone`, `auto_login`) VALUES ('1', 'admin', 'sha1$1a7f2b98$1$af39e492efe870943c9eb81d05026a73a4959b1e', 'admin@admin.com', '2017-04-25 21:49:56', 'admin', '+38(777) 777 77 77', '0');
+
 CREATE TABLE IF NOT EXISTS `outlet`.`favorites` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `user_id` INT(11) NOT NULL,
