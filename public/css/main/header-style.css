@@ -262,11 +262,15 @@ a {
     display: inline-flex;
 }
 
+/*.search_select_item:hover {*/
+    /*background: red;*/
+/*}*/
+
 .search_select_img {
     width:60px;
     height:42px;
     padding-right: 5px;
-    margin: auto
+    margin: auto;
 }
 
 .search_select_img img {
@@ -274,7 +278,21 @@ a {
     max-height:42px;
 }
 
+.search_select_description {
+    width: 145px;
+    margin: auto;
+    padding-top: 5px;
+}
+
+.search_select_title {
+    color: #2a2a2a;
+    font-family: Georgia;
+    font-size: 20px;
+}
+
 .search_select_descr {
-    color: gray;
+    color: #3e4546;
+    font-family: Roboto;
+    font-size: 15px;
 }
 
