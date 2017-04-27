@@ -257,3 +257,24 @@ a {
         height: 48px;
     }
 }
+
+.search_select_item {
+    display: inline-flex;
+}
+
+.search_select_img {
+    width:60px;
+    height:42px;
+    padding-right: 5px;
+    margin: auto
+}
+
+.search_select_img img {
+    width:100%;
+    max-height:42px;
+}
+
+.search_select_descr {
+    color: gray;
+}
+
