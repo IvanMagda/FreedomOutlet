@@ -33,6 +33,20 @@ $(document).ready(function () {
                             <hr>
                         </div>
                     </div>
+                    
+                    <div class="search_select_item">
+                        <div class="search_select_img">
+                            <a href="/product/${item.id}">
+                                <img src="${item.title_img_src}" alt="Smiley face"  align="left">
+                            </a>
+                        </div>
+                        <div class="search_select_description">
+                            <span class="search_select_title">${item.name}</span>
+                            <br>
+                            <span class="search_select_descr">${item.description}</span>
+                            <hr>
+                        </div>
+                    </div>
                 `)
                 .appendTo(ul);
         };
