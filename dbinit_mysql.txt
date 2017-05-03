@@ -1,0 +1,46 @@
+CREATE TABLE IF NOT EXISTS `outlet`.`products` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL DEFAULT NULL,
+  `manufacturer` VARCHAR(45) NULL DEFAULT NULL,
+  `manufacturer_country` VARCHAR(45) NULL DEFAULT NULL,
+  `series` VARCHAR(45) NULL DEFAULT NULL,
+  `dimensions` VARCHAR(45) NULL DEFAULT NULL,
+  `price` INT(11) NULL DEFAULT NULL,
+  `discount` INT(11) NULL DEFAULT NULL,
+  `description` LONGTEXT NULL DEFAULT NULL,
+  `category` VARCHAR(45) NULL DEFAULT NULL,
+  `image_name` VARCHAR(45) NULL DEFAULT NULL,
+  `is_new` TINYINT(1) NULL DEFAULT NULL,
+  `title_img_src` LONGTEXT NULL DEFAULT NULL,
+  `virtual_model_src` LONGTEXT NULL DEFAULT NULL,
+  `available_in` LONGTEXT NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `outlet`.`users` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `login` VARCHAR(45) NULL DEFAULT NULL,
+  `password_hash` VARCHAR(250) NULL DEFAULT NULL,
+  `email` VARCHAR(45) NULL DEFAULT NULL,
+  `created` DATETIME NULL DEFAULT NULL,
+  `role` VARCHAR(45) NULL DEFAULT NULL,
+  `phone` VARCHAR(45) NULL DEFAULT NULL,
+  `auto_login` TINYINT(1) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
+
+INSERT INTO `outlet`.`users` (`id`, `login`, `password_hash`, `email`, `created`, `role`, `phone`, `auto_login`) VALUES ('1', 'admin', 'sha1$1a7f2b98$1$af39e492efe870943c9eb81d05026a73a4959b1e', 'admin@admin.com', '2017-04-25 21:49:56', 'admin', '+38(777) 777 77 77', '0');
+
+CREATE TABLE IF NOT EXISTS `outlet`.`favorites` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `user_id` INT(11) NOT NULL,
+  `favorite_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
