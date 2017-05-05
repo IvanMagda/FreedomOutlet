@@ -160,19 +160,22 @@
 
 
 
-.login_modal__title-container {
+.login_modal__title-container,
+.contact_us_modal__title-container {
     position: relative;
     display: flex;
     justify-content: center;
 }
 
-.login_modal__title-text {
+.login_modal__title-text,
+.contact_us_modal__title-text {
     font-family: Georgia;
     font-size: 40px;
     color: #3e4546;
 }
 
-.login_modal__title-border {
+.login_modal__title-border,
+.contact_us_modal__title-border {
     position: absolute;
     bottom: -10px;
     width: 16%;
@@ -370,6 +373,169 @@ input[type="checkbox"] + label {
 
 
 
+#contact_us_modal {
+    display: block;
+    top: 42%;
+    left: 32%;
+    width: 800px;
+    height: 50%;
+}
+
+.contact_us-form {
+    position: relative;
+    /*outline: 1px solid blanchedalmond;*/
+    margin-bottom: 100px;
+}
+
+#container-title-feedback {
+    position: relative;
+    height: 130px;
+    /*outline: 5px dashed green;*/
+    margin-top: 20px;
+}
+
+.title-feedback {
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    width: 90px;
+    height: 180px;
+    margin: -56px;
+    border-bottom: 2px solid red;
+    white-space: nowrap;
+}
+
+.text-feedback {
+    font-family: Georgia;
+    margin-left: -120px;
+    top: 125px;
+    font-size: 40px;
+    color: #3e4546;
+    position: absolute;
+}
+
+.content-feedback {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    /*outline: 2px solid red;*/
+}
+
+.form {
+    display: inline-block;
+    position: static;
+    width: 85%;
+    /*height: 330px;*/
+    /*outline: 1px solid blue;*/
+    margin-top: 55px;
+    margin-left: 8%;
+}
+
+.contact_us-form .row1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact_us-form .row2 {
+    margin-top: -5px;
+}
+
+.contact_us-form .row3 {
+    margin-top: 2%;
+    text-align: center;
+}
+
+.neat-input {
+    background: #ffffff !important; // желательно прописывать, так как в Chrome при сохранных данных оно может быть желтым
+outline: none; // удаляет обводку в браузерах хром(желтая) и сафари(синяя)
+height: 24px;
+    height: 57px;
+    color: #2a2a2a !important;
+    font-size: 1.1vw;
+    font-family: RobotoLight;
+    text-align: center;
+}
+
+.contact_us-form .neat-input {
+    width: 49.3%;
+}
+
+.neat-input:focus {
+    outline: 1px solid #2a2a2a;
+    border: 1px solid #2a2a2a;
+}
+
+.neat-textarea {
+    width: 99%;
+    height: 112px;
+    margin-top: 10px;
+    color: #2a2a2a !important;
+    font-family: RobotoLight;
+
+    text-align: center;
+    text-align-last: center;
+
+    font-size: 1.1vw;
+    resize: none;
+    /*-ms-text-align-last: center;*/
+    /*-moz-text-align-last: center;*/
+    /*!*text-align-last: center;*!*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+}
+
+
+
+.neat-textarea:focus {
+    outline: 1px solid #292929;
+    border: 1px solid #292929;
+}
+
+.neat-button {
+    width: 40%;
+    height: 65px;
+    background: white;
+    color: #2a2a2a;
+    font-family: RobotoLight;
+    font-size: 1.1vw;
+    box-shadow: none !important;
+    margin-top: 5px
+}
+
+.neat-button:focus {
+    outline: 1px solid #2a2a2a;
+    border: 1px solid #2a2a2a;
+}
+
+.neat-input,
+.neat-textarea,
+.neat-button {
+    border: 1px solid #2a2a2a;
+}
+
+
+
+.neat-button:hover {
+    background: #2a2a2a;
+    cursor: pointer;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -451,7 +617,8 @@ input[type="checkbox"] + label {
 .validate_modal_Title {
     font-family: RobotoLight;
     color: red;
-    visibility: hidden;
+    /*visibility: hidden;*/
+    display: none;
 }
 
 .modal_reg #validate_modal_Global,

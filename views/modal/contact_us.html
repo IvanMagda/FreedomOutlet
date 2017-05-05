@@ -2,15 +2,38 @@
     <span class="modal_close">
         <img class="simple cross-img" src="@{import('cross.png')}">
     </span>
-    <div class="countact_us_modal__title-container">
-        <div class="countact_us_modal__title-cont">
-            <span class="countact_us_modal__title-text">Поля опечаталась</span>
-            <div class="countact_us_modal__title-border"></div>
+    <div class="contact_us_modal__title-container">
+        <div class="contact_us_modal__title-cont">
+            <span class="contact_us_modal__title-text">Свяжитесь с нами</span>
+            <div class="contact_us_modal__title-border"></div>
         </div>
     </div>
 
 
-    <!--<div class="countact_us-form">-->
+    <div class="contact_us-form">
+        <div class="form">
+            <form id="mail-form" action="/mail/send" method="post" name="mailForm" onsubmit="return validateForm()">
+                <div id="validate_modal_Global">*Обязательно</div>
+                <div class="row1">
+                    <input class="neat-input" type="text" name="name" placeholder="ИМЯ" value="" />
+                    <div id="validate_modal_Name">*</div>
+                    <input id="tel" class="neat-input" type="text" name="phone" placeholder="+38 (000) 000 00 00" value="" />
+                    <div id="validate_modal_Phone">*</div>
+                </div>
+                <div class="row2">
+                    <div id="validate_modal_Message">*</div>
+                    <textarea class="neat-textarea" name="message" placeholder="&#013;&#010;&#013;&#010;СООБЩЕНИЕ" value=""></textarea>
+                </div>
+                <div class="row3">
+                    <button id="mail-send" class="neat-button" type="submit">ОТПРАВИТЬ СООБЩЕНИЕ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+        <!--<div class="contact_us-form">-->
         <!--<form id="log-form" action="/authorization" method="post" name="countact_us_Form">-->
             <!--<div class="validateTitle">*Обязательно</div>-->
             <!--<div class="row1">-->
