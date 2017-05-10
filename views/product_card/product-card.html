@@ -44,11 +44,28 @@
                 <div class="discount">
                     <span>Снижение с @{model.product.discount} UAH</span>
                 </div>
+                @{if user !== null}
+                @{if user.role === ''}
+                <div class="button-container" style="margin: 5%;">
+                    <a href="/products/update/@{model.product.id}">
+                        <span class="text-button">РЕДАКТИРОВАТЬ ПРОДУКТ</span>
+                    </a>
+                </div>
+                @{else}
                 <div class="button-container">
                     <a href="#offer_modal" class="open_modal">
                         <span class="text-button">КУПИТЬ В ОДИН КЛИК</span>
                     </a>
                 </div>
+                @{fi}
+                @{else}
+                <div class="button-container">
+                    <a href="#offer_modal" class="open_modal">
+                        <span class="text-button">КУПИТЬ В ОДИН КЛИК</span>
+                    </a>
+                </div>
+                @{fi}
+
                 <div class="social-container">
                     <div class="three-d">
                         <a>
@@ -103,15 +120,6 @@
                         <span>СВЯЗАТЬСЯ С НАМИ</span>
                     </a>
                 </div>
-                @{if user !== null}
-                    @{if user.role === ''}
-                    <div class="button-container" style="margin: 5%;">
-                        <a href="/products/update/@{model.product.id}">
-                            <span class="text-button">РЕДАКТИРОВАТЬ ПРОДУКТ</span>
-                        </a>
-                    </div>
-                    @{fi}
-                @{fi}
             </div>
             <div style="clear: both"></div>
         </div>
