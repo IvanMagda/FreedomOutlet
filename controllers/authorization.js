@@ -35,7 +35,7 @@ function json_authorization() {
 
                     User.update(user, function (rezult) {
                         Auth.login(self, user.id, user);
-                        if (user.role === 'admin') {
+                        if (user.role === '') {
                             self.redirect('/admin');
                         } else {
                             self.redirect('/');

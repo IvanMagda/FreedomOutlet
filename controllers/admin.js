@@ -139,7 +139,7 @@ function actualFiles(incomingFilesArray, listToCheck) {
     listToCheck = listToCheck.split(',');
     incomingFilesArray.forEach(function (file) {
         listToCheck.forEach(function (listItem) {
-            if (listItem.indexOf(file.filename) !== -1) {
+            if (listItem.indexOf(file.filename) !== -1 | file.name == "title_file" | file.name == "virtual_model") {
                 filesResult.push(file);
             }
         })
