@@ -889,13 +889,14 @@ body {
     /*outline: 2px solid red;*/
 }
 
-.form {
+.contacts_feedback .form {
     display: inline-block;
     position: static;
     width: 50%;
     height: 300px;
     /*outline: 1px solid blue;*/
     margin-top: 55px;
+    margin-left:0px;
 }
 
 .contacts_feedback .row1 {

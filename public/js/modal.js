@@ -28,7 +28,7 @@ $(document).ready(function () {
 
     $(function () {
         $.mask.definitions['~'] = '[+-]';
-        $("#tel_register").mask("+38(999) 999 99 99");
+        $("#tel, #tel2,#tel_register").mask("+38(999) 999 99 99");
     });
 
     $('#reset_password_modal').css('width', $("#login_modal").width());
@@ -60,12 +60,12 @@ function validate_modal_Form() {
 
 function validate_login_Form() {
     var loginForm = document.forms["login_Form"];
-    var login = loginForm.login;
+    var email = loginForm.email;
     var pass = loginForm.pass;
     //ToDo validate stars
-    if (login.value == "" || pass.value == "") {
+    if (email.value == "" || pass.value == "") {
         loginForm['pass'].style.border = "1px solid red";
-        loginForm['login'].style.border = "1px solid red";
+        loginForm['email'].style.border = "1px solid red";
         return false;
     } else {
         return true;
@@ -76,13 +76,13 @@ function validate_register_Form() {
     var registerForm = document.forms["register_Form"];
     var login = registerForm.login;
     var phone = registerForm.phone;
-    var mail = registerForm.mail;
+    var email = registerForm.email;
     var pass = registerForm.pass;
 
-    var inputs = { login, phone, mail, pass };
+    var inputs = { login, phone, email, pass };
     var validate_ids = ['validate_modal_Name', 'validate_modal_Phone', 'validate_modal_Mail', 'validate_modal_Pass', 'validate_modal_Global'];
 
-    if (login.value == "" || phone.value == "" || mail.value == "" || pass.value == "") {
+    if (login.value == "" || phone.value == "" || email.value == "" || pass.value == "") {
         for (var key in inputs) {
             if (registerForm[key].value == "") {
                 registerForm[key].style.border = "1px solid red";
@@ -92,6 +92,23 @@ function validate_register_Form() {
             console.log(id);
             document.getElementById(id).style.visibility = "visible";
         });
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function validate_contact_us_modal_Form() {
+    var mailModalForm = document.forms["contact_us_modal_Form"];
+    var name = mailModalForm.name.value;
+    var phone = mailModalForm.phone.value;
+    var message = mailModalForm.message.value;
+
+    if (name == "" || phone == "" || message == "") {
+        validateField('validate_modal_contact_us_Global');
+        validateField('validate_modal_contact_us_Phone');
+        validateField('validate_modal_contact_us_Message');
+        validateField('validate_modal_contact_us_Name');
         return false;
     } else {
         return true;

@@ -374,7 +374,7 @@ input[type="checkbox"] + label {
 
 
 #contact_us_modal {
-    display: block;
+    display: none;
     top: 42%;
     left: 32%;
     width: 800px;
@@ -611,17 +611,22 @@ height: 24px;
 #validate_modal_Name,
 #validate_modal_Phone,
 #validate_modal_Message,
+#validate_modal_contact_us_Global,
+#validate_modal_contact_us_Name,
+#validate_modal_contact_us_Phone,
+#validate_modal_contact_us_Message,
 #validate_modal_Mail,
 #validate_modal_Pass,
 #validate_modal_Reg,
 .validate_modal_Title {
     font-family: RobotoLight;
     color: red;
-    /*visibility: hidden;*/
-    display: none;
+    visibility: hidden;
+    /*display: none;*/ contact_us-form
 }
 
 .modal_reg #validate_modal_Global,
+.contact_us-form #validate_modal_contact_us_Global,
 .modal_feedback #validate_modal_Global,
 .modal_feedback .validate_modal_Title {
     display: flex;
@@ -641,6 +646,22 @@ height: 24px;
 .modal_feedback #validate_modal_Message {
     position: absolute;
     padding-left: 93%;
+    padding-top: 10px;
+}
+
+.contact_us-form #validate_modal_contact_us_Name {
+    position: absolute;
+    padding-left: 40%;
+}
+
+.contact_us-form #validate_modal_contact_us_Phone{
+    position: absolute;
+    padding-left: 83%;
+}
+
+.contact_us-form #validate_modal_contact_us_Message{
+    position: absolute;
+    padding-left: 83%;
     padding-top: 10px;
 }
 
