@@ -23,7 +23,7 @@ Product.add = function (product) {
     var p = Product.make(product);
     Product.list.push(p);
     Product.by_id[p.id] = p;
-}
+} 
 
 Product.upd = function (product) {
     var p = Product.make(product);
@@ -286,7 +286,7 @@ Product.delete_p = function (product_id, callback) {
 }
 
 Product.delete_img = function (img_src, callback) {
-    var img_file = __dirname + img_src.split("/").join("\\"); //associate with local dir
+    var img_file = __dirname + img_src; //.split("/").join("\\"); //associate with local dir
     img_file = img_file.replace("models", "public") //set outer dir for imsges
 
     fs.unlink(img_file, function (err) {
@@ -318,8 +318,9 @@ Product.imgs = function (id, callback) {
                 img.name = file;
                 img.type = "image/" + type;
                 img.file = "/tmp/" + id + "/" + file;
-
+		if (img.name.indexOf("Galery") != -1) {
                 response.imgs_arr[index] = img;
+		}
             });
         }
 

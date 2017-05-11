@@ -78,8 +78,9 @@ function deleteImg(itemEl) {
     var img_src = $(itemEl).find('img:first').attr('src');
     var src = { 'src': img_src };
     if (img_src.startsWith("/")) {
-        $.post('/products/delete_img/', src, function () {
+        $.post('/products/delete_img/', src, function (answer) {
             console.log('del');
+	    console.log(answer);
         });
     }
 }

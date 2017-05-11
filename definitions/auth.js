@@ -16,7 +16,7 @@ F.on('module#auth', function (type, name) {
 
 F.on('controller', function (self, name) {
     var user = self.user;
-    if (user === null || name !== 'admin')
+    if (user === null || name !== '~admin')
         return;
 
     var role = '@' + user.role;
