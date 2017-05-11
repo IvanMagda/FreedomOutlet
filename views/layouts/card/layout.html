@@ -19,6 +19,8 @@
     @{import('jquery.maskedinput.js')}
     @{import('search.js')}
     @{import('favorites.js')}
+    @{import('modal.js')}
+    @{import('modal.css')}
 
 
 
@@ -29,6 +31,7 @@
     </div>
     <div id="overlay"></div>
     <div>
+        @{view('modal/contact_us')}
         @{view('modal/offer')}
         @{view('modal/login')}
     </div>

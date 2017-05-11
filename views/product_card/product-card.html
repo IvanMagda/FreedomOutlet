@@ -23,26 +23,28 @@
                 </div>
             </div>
             <div class="right-sidebar">
-                <div class="title">
-                    <span style="text-transform:capitalize">@{model.product.name}</span>
-                </div>
-                <div class="name">
-                    <span style="text-transform:uppercase">@{model.product.manufacturer}</span>
-                </div>
-                <div class="country">
-                    <span style="text-transform:capitalize">@{model.product.manufacturer_country}</span>
-                </div>
-                <div class="vendor">
-                    <span style="text-transform:uppercase">@{model.product.series}</span>
-                </div>
-                <div class="size">
-                    <span>@{model.product.dimensions}</span>
-                </div>
-                <div class="prise">
-                    <span>@{model.product.price} UAH</span>
-                </div>
-                <div class="discount">
-                    <span>Снижение с @{model.product.discount} UAH</span>
+                <div class="cont-sizer">
+                    <div class="title">
+                        <span style="text-transform:capitalize">@{model.product.name}</span>
+                    </div>
+                    <div class="name">
+                        <span style="text-transform:uppercase">@{model.product.manufacturer}</span>
+                    </div>
+                    <div class="country">
+                        <span style="text-transform:capitalize">@{model.product.manufacturer_country}</span>
+                    </div>
+                    <div class="vendor">
+                        <span style="text-transform:uppercase">@{model.product.series}</span>
+                    </div>
+                    <div class="size">
+                        <span>@{model.product.dimensions}</span>
+                    </div>
+                    <div class="prise">
+                        <span>@{model.product.price} UAH</span>
+                    </div>
+                    <div class="discount">
+                        <span>Снижение с @{model.product.discount} UAH</span>
+                    </div>
                 </div>
                 @{if user !== null}
                 @{if user.role === ''}
@@ -97,11 +99,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="about">
-                    <a>
-                        <span>ОПИСАНИЕ</span>
-                    </a>
-                </div>
+                <!--<div class="about">-->
+                    <!--<a>-->
+                        <!--<span>ОПИСАНИЕ</span>-->
+                    <!--</a>-->
+                <!--</div>-->
                 <div class="in-shop">
                     <a><span>НАЛИЧИЕ В МАГАЗИНАХ</span></a>
                 </div>
@@ -116,12 +118,28 @@
                     @{end}
                 </div>
                 <div class="phone">
-                    <a>
+                    <a href="#contact_us_modal" class="open_modal">
                         <span>СВЯЗАТЬСЯ С НАМИ</span>
                     </a>
                 </div>
             </div>
             <div style="clear: both"></div>
+        </div>
+
+
+        <div class="description-cont">
+            <div class="description-title">
+                <span>Описание</span>
+            </div>
+            <div class="description-text">
+                <span>
+                    Подвешивается к потолку и, как правило, состоит из нескольких подсвечников или ламп, обычно с декоративно-оформленной арматурой и различными элементами для рассеивания света.
+                    Также люстры различаются по способу коммутации: могут включаться как все лампы сразу, так и в разных предзаданных сочетаниях.
+                    Многие современные люстры оборудуются пультом дистанционного управления, который позволяет переключать режимы работы светильника, в том числе в плавном режиме.
+                    Электрическая люстра может быть оборудована встроенным или внешним светорегулятором, а также можно встретить выключатели со встроенной подсветкой.
+                    В православных храмах центральную люстру называют Паникадило (от греч. многосвечие).
+                </span>
+            </div>
         </div>
 
         @{if model.products_from_manufacturer.length > 1}
