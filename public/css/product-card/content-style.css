@@ -39,7 +39,7 @@ a {
 
 #content {
     position: relative;
-    margin-top: 2%;
+    margin-top: 1%;
     margin-left: 7%;
     margin-right: 7%;
     min-width: 900px;
@@ -89,7 +89,7 @@ a {
 
 .main-gallery {
     position: relative;
-    margin-top: 3%;
+    /*margin-top: 3%;*/
     /*height: 44vw;*/
 }
 
@@ -338,8 +338,9 @@ a {
 
 .description-cont {
     position: relative;
-    margin-top: 3%;
-    width: 75%;
+    /*margin-top: 3%;*/
+    width: 73.5%;
+    z-index:-5;
 }
 
 .description-cont .description-title {
@@ -354,7 +355,7 @@ a {
 
 .description-cont .description-text {
     position: relative;
-    margin-top: 2%;
+    /*margin-top: 2%;*/
     text-align:justify;
 }
 

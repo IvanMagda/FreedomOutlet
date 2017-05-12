@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('.main-gallery')[0].addEventListener("click", currentImg);
 
-    $('.right-sidebar').height(function () { return $('.slick-track').height() });
+
 
     /*$('.main-gallery div.slick-slide img').on('bestfit', function () {
         var css;

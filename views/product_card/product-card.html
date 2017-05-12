@@ -124,20 +124,21 @@
             @{end}
         </div>
     </div>
-    <div style="clear: both"></div>
-</div>
-
-
-<div class="description-cont">
-    <div class="description-title">
-        <span>Описание</span>
-    </div>
-    <div class="description-text">
-        <span>
-            @{model.product.description}
-        </span>
+    <div class="description-cont">
+        <div class="description-title">
+            <span>Описание</span>
+        </div>
+        <div class="description-text">
+            <span>
+                @{model.product.description}
+            </span>
+        </div>
     </div>
 </div>
+<div style="clear: both"></div>
+
+
+
 
         @{if model.products_from_manufacturer.length > 1}
 <div class="more-from-vendor">
