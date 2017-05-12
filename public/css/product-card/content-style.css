@@ -129,8 +129,12 @@ a {
 }
 
 .cont-sizer {
-    position: relative;
-    height: 13vw;
+    /*position: relative;
+    height: 13vw;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40%;
 }
 
 .right-sidebar .cont-sizer .title {
@@ -351,6 +355,7 @@ a {
 .description-cont .description-text {
     position: relative;
     margin-top: 2%;
+    text-align:justify;
 }
 
 .description-cont .description-text span {
