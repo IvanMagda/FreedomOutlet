@@ -26,10 +26,6 @@ $(document).ready(function() {
         // autoplay: true,
         // autoplaySpeed: 2000,
     });
-
-    var minSideH = $('.slick-track').height();
-
-    $('.right-sidebar').css("min-height", minSideH);
 });
 
 function info_tile(node) {
