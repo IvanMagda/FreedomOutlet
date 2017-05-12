@@ -1,220 +1,220 @@
 ﻿@{layout('/layouts/card/layout')}
 
-        <div class="breadcrumbs">
-            <ul>
-                <li><a href="/">Главная</a></li>
-                <li><a href="/products/@{model.product.category}">@{model.breadcrumbs}</a></li>
-                <li><a style="text-transform:capitalize">@{model.product.manufacturer}</a></li>
-            </ul>
-        </div>
+<div class="breadcrumbs">
+    <ul>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/products/@{model.product.category}">@{model.breadcrumbs}</a></li>
+        <li><a style="text-transform:capitalize">@{model.product.manufacturer}</a></li>
+    </ul>
+</div>
 
-        <div class="main-gallery">
-            <div class="gallery-container">
+<div class="main-gallery">
+    <div class="gallery-container">
 
-                <div class="new-carousel main-product-card-gall">
-                    @{foreach img in model.immages}
-                    <div class="item" name="@{img.size}">
-                        <img src="@{img.file}" alt="Image 1" name="@{img.size}">
-                    </div>
-                    @{end}
-                </div>
-                <div class="counter">
-                    <span><span id="current_img">@{if model.immages==0}0@{else}1@{endif}</span> из <span id="max_img">@{if model.immages.length=='undefined'}0@{else}@{model.immages.length}@{endif}</span> изображений</span>
-                </div>
+        <div class="new-carousel main-product-card-gall">
+            @{foreach img in model.immages}
+            <div class="item" name="@{img.size}">
+                <img src="@{img.file}" alt="Image 1" name="@{img.size}">
             </div>
-            <div class="right-sidebar">
-                <div class="title">
-                    <span style="text-transform:capitalize">@{model.product.name}</span>
-                </div>
-                <div class="name">
-                    <span style="text-transform:uppercase">@{model.product.manufacturer}</span>
-                </div>
-                <div class="country">
-                    <span style="text-transform:capitalize">@{model.product.manufacturer_country}</span>
-                </div>
-                <div class="vendor">
-                    <span style="text-transform:uppercase">@{model.product.series}</span>
-                </div>
-                <div class="size">
-                    <span>@{model.product.dimensions}</span>
-                </div>
-                <div class="prise">
-                    <span>@{model.product.price} UAH</span>
-                </div>
-                <div class="discount">
-                    <span>Снижение с @{model.product.discount} UAH</span>
-                </div>
-                @{if user !== null}
-                @{if user.role === ''}
-                <div class="button-container" style="margin: 5%;">
-                    <a href="/products/update/@{model.product.id}">
-                        <span class="text-button">РЕДАКТИРОВАТЬ ПРОДУКТ</span>
-                    </a>
-                </div>
-                @{else}
-                <div class="button-container">
-                    <a href="#offer_modal" class="open_modal">
-                        <span class="text-button">КУПИТЬ В ОДИН КЛИК</span>
-                    </a>
-                </div>
-                @{fi}
+            @{end}
+        </div>
+        <div class="counter">
+            <span><span id="current_img">@{if model.immages==0}0@{else}1@{endif}</span> из <span id="max_img">@{if model.immages.length=='undefined'}0@{else}@{model.immages.length}@{endif}</span> изображений</span>
+        </div>
+    </div>
+    <div class="right-sidebar">
+        <div class="cont-sizer">
+            <div class="title">
+                <span style="text-transform:capitalize">@{model.product.name}</span>
+            </div>
+            <div class="name">
+                <span style="text-transform:uppercase">@{model.product.manufacturer}</span>
+            </div>
+            <div class="country">
+                <span style="text-transform:capitalize">@{model.product.manufacturer_country}</span>
+            </div>
+            <div class="vendor">
+                <span style="text-transform:uppercase">@{model.product.series}</span>
+            </div>
+            <div class="size">
+                <span>@{model.product.dimensions}</span>
+            </div>
+            <div class="prise">
+                <span>@{model.product.price} UAH</span>
+            </div>
+            <div class="discount">
+                <span>Снижение с @{model.product.discount} UAH</span>
+            </div>
+        </div>
+        @{if user !== null}
+        @{if user.role === ''}
+        <div class="button-container" style="margin: 5%;">
+            <a href="/products/update/@{model.product.id}">
+                <span class="text-button">РЕДАКТИРОВАТЬ ПРОДУКТ</span>
+            </a>
+        </div>
+        @{else}
+        <div class="button-container">
+            <a href="#offer_modal" class="open_modal">
+                <span class="text-button">КУПИТЬ В ОДИН КЛИК</span>
+            </a>
+        </div>
+        @{fi}
+        @{else}
+        <div class="button-container">
+            <a href="#offer_modal" class="open_modal">
+                <span class="text-button">КУПИТЬ В ОДИН КЛИК</span>
+            </a>
+        </div>
+        @{fi}
 
-                <div class="social-container">
-                    <div class="three-d">
-                        <a>
-                            <span>3D</span>
-                        </a>
-                        <div class="hover-window">
-                            <span>
-                                Активно только для<br>
-                                зарегистрированых<br>
-                                дизайнеров-архитекторов<br>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="social">
-                        <div class="product-card-social-1">
-                            <a>
-                                <img src="/../img/product-card-social-1.png">
-                            </a>
-                        </div>
-                        <div class="product-card-social-2">
-                            <a>
-                                <img src="/../img/product-card-social-2.png">
-                            </a>
-                        </div>
-                        <div class="product-card-social-3">
-                            <a>
-                                <img src="/../img/product-card-social-3.png">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--<div class="about">-->
-                    <!--<a>-->
-                        <!--<span>ОПИСАНИЕ</span>-->
-                    <!--</a>-->
-                <!--</div>-->
-                <div class="in-shop">
-                    <a><span>НАЛИЧИЕ В МАГАЗИНАХ</span></a>
-                </div>
-                <div class="adres">
-                    @{foreach avl in model.available}
+        <div class="social-container">
+            <div class="three-d">
+                <a>
+                    <span>3D</span>
+                </a>
+                <div class="hover-window">
                     <span>
-                        @{foreach elem in avl}
-                        @{elem}<br />
-                        @{end}
+                        Активно только для<br>
+                        зарегистрированых<br>
+                        дизайнеров-архитекторов<br>
                     </span>
-                    <br />
-                    @{end}
                 </div>
-                <div class="phone">
+            </div>
+            <div class="social">
+                <div class="product-card-social-1">
                     <a>
-                        <span>СВЯЗАТЬСЯ С НАМИ</span>
+                        <img src="/../img/product-card-social-1.png">
                     </a>
                 </div>
-                @{if user !== null}
-                    @{if user.role === ''}
-                    <div class="button-container" style="margin: 5%;">
-                        <a href="/products/update/@{model.product.id}">
-                            <span class="text-button">РЕДАКТИРОВАТЬ ПРОДУКТ</span>
-                        </a>
-                    </div>
-                    @{fi}
-                @{fi}
-            </div>
-            <div style="clear: both"></div>
-        </div>
-
-
-        <div class="description-cont">
-            <div class="description-title">
-                <span>Описание</span>
-            </div>
-            <div class="description-text">
-                <span>
-                    @{model.product.description}
-                </span>
+                <div class="product-card-social-2">
+                    <a>
+                        <img src="/../img/product-card-social-2.png">
+                    </a>
+                </div>
+                <div class="product-card-social-3">
+                    <a>
+                        <img src="/../img/product-card-social-3.png">
+                    </a>
+                </div>
             </div>
         </div>
+        <!--<div class="about">-->
+        <!--<a>-->
+        <!--<span>ОПИСАНИЕ</span>-->
+        <!--</a>-->
+        <!--</div>-->
+        <div class="in-shop">
+            <a><span>НАЛИЧИЕ В МАГАЗИНАХ</span></a>
+        </div>
+        <div class="adres">
+            @{foreach avl in model.available}
+            <span>
+                @{foreach elem in avl}
+                @{elem}<br />
+                @{end}
+            </span>
+            <br />
+            @{end}
+        </div>
+        <div class="phone">
+            <a href="#contact_us_modal" class="open_modal">
+                <span>СВЯЗАТЬСЯ С НАМИ</span>
+            </a>
+        </div>
+    </div>
+    <div style="clear: both"></div>
+</div>
+
+
+<div class="description-cont">
+    <div class="description-title">
+        <span>Описание</span>
+    </div>
+    <div class="description-text">
+        <span>
+            @{model.product.description}
+        </span>
+    </div>
+</div>
 
         @{if model.products_from_manufacturer.length > 1}
-        <div class="more-from-vendor">
-            <div class="more-from-vendor-title-conteiner">
-                <div class="more-from-vendor-title">
-                    <span class="text-vendor">Больше от этого производителя</span>
+<div class="more-from-vendor">
+    <div class="more-from-vendor-title-conteiner">
+        <div class="more-from-vendor-title">
+            <span class="text-vendor">Больше от этого производителя</span>
+        </div>
+    </div>
+    <div class="product-list">
+        @{foreach product in model.products_from_manufacturer}
+        @{if product.id == model.product.id}
+        @{else}
+        <div class="item">
+            <div class="product-list-icon-heart">
+                <img class="product-list-icon-heart-img" src="/../img/heart-1.png" onclick="favoriteActions(@{product.id}, this.nextSibling)">
+                <img class="product-list-icon-heart2-img" src="/../img/heart-2.png" onload="markSelected(@{product.id}, this)">
+            </div>
+            <div class="product-list-icon-info">
+                <img class="product-list-icon-info-img" src="/../img/info-icon.png" onclick="info_tile(this)">
+                <img class="product-list-icon-info2-img" src="/../img/info-icon-2.png" onclick="info_tile(this)">
+            </div>
+            <a href="/product/@{product.id}"><img class="item-main-img" src="@{product.title_img_src}" alt="Image 1"></a>
+            <div class="title-new-product">
+                <span class="tit">@{product.name}</span>
+                <span class="vendor">@{product.manufacturer}</span>
+                <br>
+                <span class="price">@{product.price} UAH</span>
+            </div>
+            <div class="product-info">
+                <div class="title-info">
+                    <span class="tit">@{product.name}</span>
+                    <br>
+                    <span class="vendor">@{product.manufacturer}</span>
+                    <div class="cross">
+                        <img class="simple cross-img" src="/../img/cross.png" onclick="close_info(this)">
+                        <!--<img class="border cross-img" src="img/cross-border.png">-->
+                    </div>
+                </div>
+                <div class="content">
+                    <p>
+                        @{product.description}
+                    </p>
                 </div>
             </div>
-            <div class="product-list">
-                @{foreach product in model.products_from_manufacturer}
-                @{if product.id == model.product.id}
-                @{else}
+        </div>
+        @{fi}
+        @{end}
+    </div>
+    <div class="container-button-look-all">
+        <a href="/manufacturer/@{model.product.manufacturer}">
+            <div class="button-look-all">
+                <span class="text-look-all">СМОТРЕТЬ ВСЕ</span>
+            </div>
+        </a>
+    </div>
+</div>
+@{fi}
+<div class="also-like">
+    <div class="also-like-title-conteiner">
+        <div class="also-like-title">
+            <span class="text-also-like">Вам так же понравится</span>
+        </div>
+    </div>
+    <div class="also-like-content">
+        <div class="gallery">
+            <div class="new-carousel product-card-carousel">
+                @{foreach product in model.see_also}
                 <div class="item">
-                    <div class="product-list-icon-heart">
-                        <img class="product-list-icon-heart-img" src="/../img/heart-1.png" onclick="favoriteActions(@{product.id}, this.nextSibling)">
-                        <img class="product-list-icon-heart2-img" src="/../img/heart-2.png" onload="markSelected(@{product.id}, this)">
-                    </div>
-                    <div class="product-list-icon-info">
-                        <img class="product-list-icon-info-img" src="/../img/info-icon.png" onclick="info_tile(this)">
-                        <img class="product-list-icon-info2-img" src="/../img/info-icon-2.png" onclick="info_tile(this)">
-                    </div>
-                    <a href="/product/@{product.id}"><img class="item-main-img" src="@{product.title_img_src}" alt="Image 1"></a>
-                    <div class="title-new-product">
+                    <a href="/product/@{product.id}"><img src="@{product.title_img_src}" alt="Image 1"></a>
+                    <div class="title-product-gall">
                         <span class="tit">@{product.name}</span>
                         <span class="vendor">@{product.manufacturer}</span>
                         <br>
                         <span class="price">@{product.price} UAH</span>
                     </div>
-                    <div class="product-info">
-                        <div class="title-info">
-                            <span class="tit">@{product.name}</span>
-                            <br>
-                            <span class="vendor">@{product.manufacturer}</span>
-                            <div class="cross">
-                                <img class="simple cross-img" src="/../img/cross.png" onclick="close_info(this)">
-                                <!--<img class="border cross-img" src="img/cross-border.png">-->
-                            </div>
-                        </div>
-                        <div class="content">
-                            <p>
-                                @{product.description}
-                            </p>
-                        </div>
-                    </div>
                 </div>
-                @{fi}
                 @{end}
             </div>
-            <div class="container-button-look-all">
-                <a href="/manufacturer/@{model.product.manufacturer}">
-                    <div class="button-look-all">
-                        <span class="text-look-all">СМОТРЕТЬ ВСЕ</span>
-                    </div>
-                </a>
-            </div>
         </div>
-@{fi}
-        <div class="also-like">
-            <div class="also-like-title-conteiner">
-                <div class="also-like-title">
-                    <span class="text-also-like">Вам так же понравится</span>
-                </div>
-            </div>
-            <div class="also-like-content">
-                <div class="gallery">
-                    <div class="new-carousel product-card-carousel">
-                        @{foreach product in model.see_also}
-                        <div class="item">
-                            <a href="/product/@{product.id}"><img src="@{product.title_img_src}" alt="Image 1"></a>
-                            <div class="title-product-gall">
-                                <span class="tit">@{product.name}</span>
-                                <span class="vendor">@{product.manufacturer}</span>
-                                <br>
-                                <span class="price">@{product.price} UAH</span>
-                            </div>
-                        </div>
-                        @{end}
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
+</div>
