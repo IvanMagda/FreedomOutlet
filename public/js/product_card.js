@@ -1,5 +1,9 @@
 $(document).ready(function () {
     $('.main-gallery')[0].addEventListener("click", currentImg);
+    var minSideH = $('.slick-track').height();
+    if (minSideH < 500) { minSideH = 660; };
+
+    $('.right-sidebar').css("height", minSideH);
 
     /*$('.main-gallery div.slick-slide img').on('bestfit', function () {
         var css;

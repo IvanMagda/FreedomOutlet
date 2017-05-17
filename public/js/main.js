@@ -26,8 +26,6 @@ $(document).ready(function() {
         // autoplay: true,
         // autoplaySpeed: 2000,
     });
-
-
 });
 
 function info_tile(node) {

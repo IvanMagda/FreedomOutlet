@@ -24,26 +24,32 @@
     </div>
     <div class="right-sidebar">
         <div class="cont-sizer">
-            <div class="title">
-                <span style="text-transform:capitalize">@{model.product.name}</span>
+            <div>
+                <div class="title">
+                    <span style="text-transform:capitalize">@{model.product.name}</span>
+                </div>
+                <div class="name">
+                    <span style="text-transform:uppercase">@{model.product.manufacturer}</span>
+                </div>
+                <div class="country">
+                    <span style="text-transform:capitalize">@{model.product.manufacturer_country}</span>
+                </div>
             </div>
-            <div class="name">
-                <span style="text-transform:uppercase">@{model.product.manufacturer}</span>
+            <div>
+                <div class="vendor">
+                    <span style="text-transform:uppercase">@{model.product.series}</span>
+                </div>
+                <div class="size">
+                    <span>@{model.product.dimensions}</span>
+                </div>
             </div>
-            <div class="country">
-                <span style="text-transform:capitalize">@{model.product.manufacturer_country}</span>
-            </div>
-            <div class="vendor">
-                <span style="text-transform:uppercase">@{model.product.series}</span>
-            </div>
-            <div class="size">
-                <span>@{model.product.dimensions}</span>
-            </div>
-            <div class="prise">
-                <span>@{model.product.price} UAH</span>
-            </div>
-            <div class="discount">
-                <span>Снижение с @{model.product.discount} UAH</span>
+            <div>
+                <div class="prise">
+                    <span>@{model.product.price} UAH</span>
+                </div>
+                <div class="discount">
+                    <span>Снижение с @{model.product.discount} UAH</span>
+                </div>
             </div>
         </div>
         @{if user !== null}
@@ -99,11 +105,11 @@
                 </div>
             </div>
         </div>
-        <!--<div class="about">-->
-        <!--<a>-->
-        <!--<span>ОПИСАНИЕ</span>-->
-        <!--</a>-->
-        <!--</div>-->
+        <div class="phone">
+            <a href="#contact_us_modal" class="open_modal">
+                <span>СВЯЗАТЬСЯ С НАМИ</span>
+            </a>
+        </div>
         <div class="in-shop">
             <a><span>НАЛИЧИЕ В МАГАЗИНАХ</span></a>
         </div>
@@ -117,26 +123,22 @@
             <br />
             @{end}
         </div>
-        <div class="phone">
-            <a href="#contact_us_modal" class="open_modal">
-                <span>СВЯЗАТЬСЯ С НАМИ</span>
-            </a>
+    </div>
+    <div class="description-cont">
+        <div class="description-title">
+            <span>Описание</span>
+        </div>
+        <div class="description-text">
+            <span>
+                @{model.product.description}
+            </span>
         </div>
     </div>
-    <div style="clear: both"></div>
 </div>
+<div style="clear: both"></div>
 
 
-<div class="description-cont">
-    <div class="description-title">
-        <span>Описание</span>
-    </div>
-    <div class="description-text">
-        <span>
-            @{model.product.description}
-        </span>
-    </div>
-</div>
+
 
         @{if model.products_from_manufacturer.length > 1}
 <div class="more-from-vendor">
