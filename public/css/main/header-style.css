@@ -97,13 +97,17 @@ a {
 #nav-menu .li .border {
     position: absolute;
     width: 100%;
-    top: 0;
-    bottom: 1px;
+    /*top: 0;*/
+    height: 0;
+    bottom: 3.5px;
+    outline: 2px solid red;
+    display: none;
 }
 
 /*#about_company .li:hover .border,*/
 #nav-menu .li:hover .border {
-    border-bottom: 4px solid red;
+    display: block;
+    /*border-bottom: 4px solid red;*/
 }
 
 #about_company a .li {
