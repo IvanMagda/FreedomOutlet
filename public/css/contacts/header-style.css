@@ -41,18 +41,23 @@
 
 .global-nav {
     width: 52%;
-    height: 88%;
+    height: 100%;
     margin-left: 2%;
-    margin-top: 0.5%;
+    /*margin-top: 0.5%;*/
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .global-nav .row1,
 .global-nav .row2 {
     position: relative;
+    height: 36%;
+}
+
+.global-nav .row1 {
+    margin-top: 1.4vw;
 }
 
 #about_company {
@@ -72,17 +77,25 @@
     cursor: pointer;
 }
 
+#nav-menu a .li {
+    display: inline-block;
+    height: 100%;
+}
+
 /*#about_company .li .border,*/
 #nav-menu .li .border {
     position: absolute;
     width: 100%;
-    top: 0;
-    bottom: -5px;
+    height: 0;
+    outline: 2px solid red;
+    /*top: 0;*/
+    bottom: 3.5px;
+    display: none;
 }
 
 /*#about_company .li:hover .border,*/
 #nav-menu .li:hover .border {
-    border-bottom: 2px solid red;
+    display: block;
 }
 
 #about_company a .li {
@@ -98,7 +111,7 @@
     /*left: 0;*/
     /*right: 0;*/
     /*bottom: 0;*/
-    height: 40%;
+    height: 100%;
     display: flex;
     justify-content: space-around;
     /*text-align: justify;*/
