@@ -53,34 +53,19 @@ Product.create_new = function (product, files, callback) {
     product.price = product.price || 0;
     product.discount = product.discount || 0;
     product.available_in = product.available_in || '';
+    product.is_new = (product.is_new == "on") ? true : false;
 
-    files.forEach(function (e) {
-        console.log(e)
-    })
-
-    var last_id;
+    var last_id = 0;
     if (Product.list && Product.list[Product.list.length - 1]) {
         last_id = Product.list[Product.list.length - 1].id;
-    } else {
-        last_id = 0;
     }
 
     var sql = DATABASE();
     var productDir = __dirname + '/../public/tmp/' + (last_id + 1) + '/';
 
-    if (product.is_new == "on") {
-        product.is_new = true;
-    } else {
-        product.is_new = false;
+    if (product.title_file) {
+        product.title_img_src = '/tmp/' + (last_id + 1) + '/' + 'Title.jpg';
     }
-
-    if (files[0].name == 'title_file') {
-        product.image_name = 'Title_';
-        product.image_name += files[0].filename;
-        product.title_img_src = '/tmp/' + (last_id + 1) + '/' + product.image_name;
-    } else {
-        console.log('Title img not selected!');
-    };
 
     files.forEach(function (e) {
         if (e.name == 'virtual_model') {
@@ -99,7 +84,7 @@ Product.create_new = function (product, files, callback) {
             discount: product.discount,
             description: product.description,
             category: product.category,
-            image_name: product.image_name,
+            image_name: 'Title.jpg',
             is_new: product.is_new,
             title_img_src: product.title_img_src,
             virtual_model_src: product.virtual_model_src,
@@ -114,40 +99,39 @@ Product.create_new = function (product, files, callback) {
         });
         sql.exec(function (err, response) {
             if (err) throw err;
-            fs.readFile(files[0].path, function (err, data) {
-                if (err) throw err;
-                fs.mkdir(productDir, function (err) {
-                    fs.writeFile(productDir + product.image_name, data, function (err) {
-                        if (err) throw err;
-                        console.log('Title img saved!');
-                        files.forEach(function (element, index) {
-                            if (index != 0 && element.name != 'virtual_model') {
-                                var galery = 'Galery' + index + '.';
-                                galery += element.filename.split('.')[1];
-                                fs.readFile(element.path, function (err, data) {
+            var buffer = new Buffer(product.title_file.split(",")[1], 'base64');
+            console.log(buffer);
+            fs.mkdir(productDir, function (err) {
+                fs.writeFile(productDir + 'Title.jpg', buffer, function (err) {
+                    if (err) throw err;
+                    console.log('Title img saved!');
+                    files.forEach(function (element, index) {
+                        if (element.name != 'virtual_model') {
+                            var galery = 'Galery' + index + '.';
+                            galery += element.filename.split('.')[1];
+                            fs.readFile(element.path, function (err, data) {
+                                if (err) throw err;
+
+                                fs.writeFile(productDir + galery, data, function (err) {
                                     if (err) throw err;
-
-                                    fs.writeFile(productDir + galery, data, function (err) {
-                                        if (err) throw err;
-                                        console.log('Galery img saved!');
-                                    });
+                                    console.log('Galery img saved!');
                                 });
-                            }
+                            });
+                        }
 
-                            if (element.name == 'virtual_model') {
-                                fs.readFile(element.path, function (err, data) {
+                        if (element.name == 'virtual_model') {
+                            fs.readFile(element.path, function (err, data) {
+                                if (err) throw err;
+
+                                fs.writeFile(productDir + element.filename, data, function (err) {
                                     if (err) throw err;
-
-                                    fs.writeFile(productDir + element.filename, data, function (err) {
-                                        if (err) throw err;
-                                        console.log('3D saved!');
-                                    });
+                                    console.log('3D saved!');
                                 });
-                            }
-                        })
-                        Product.add(response.new_product[0]);
-                        callback(SUCCESS(true));
-                    });
+                            });
+                        }
+                    })
+                    Product.add(response.new_product[0]);
+                    callback(SUCCESS(true));
                 });
             });
         });
@@ -158,24 +142,19 @@ Product.update = function (product, files, callback) {
     product.price = product.price || 0;
     product.discount = product.discount || 0;
     product.available_in = product.available_in || '';
-    if (product.is_new == "on") {
-        product.is_new = true;
-    } else {
-        product.is_new = false;
-    }
+    product.is_new = (product.is_new == "on") ? true : false;
 
     var productDir = __dirname + '/../public/tmp/' + product.id + '/';
 
-    if (files.length > 0) {
-        if (files[0].name == 'title_file') {
-            fs.unlinkSync(productDir + Product.by_id[product.id].image_name);
-            product.image_name = 'Title_';
-            product.image_name += files[0].filename;
-            product.title_img_src = '/tmp/' + product.id + '/' + product.image_name;
-        }
+    if (product.title_file) {
+        fs.unlinkSync(productDir + 'Title.jpg');
+        product.title_img_src = '/tmp/' + product.id + '/' + 'Title.jpg';
+        var buffer = new Buffer(product.title_file.split(",")[1], 'base64');
+        fs.writeFile(productDir + 'Title.jpg', buffer, function (err) {
+            if (err) throw err;
+            console.log('Title img saved!');
+        });
     }
-
-
 
     console.log('product update to db', product);
     var sql = DATABASE();
@@ -191,7 +170,7 @@ Product.update = function (product, files, callback) {
             discount: product.discount,
             description: product.description,
             category: product.category,
-            image_name: product.image_name,
+            image_name: 'Title.jpg',
             is_new: product.is_new,
             title_img_src: product.title_img_src,
             virtual_model_src: product.virtual_model_src,
@@ -216,15 +195,7 @@ Product.update = function (product, files, callback) {
         });
 
         files.forEach(function (element, index) {
-            if (element.name == 'title_file') {
-                fs.readFile(element.path, function (err, data) {
-                    if (err) throw err;
-                    fs.writeFile(productDir + product.image_name, data, function (err) {
-                        if (err) throw err;
-                        console.log('Title img saved!');
-                    });
-                });
-            } else if (element.name == 'virtual_model') {
+        if (element.name == 'virtual_model') {
                 fs.readFile(element.path, function (err, data) {
                     if (err) throw err;
 

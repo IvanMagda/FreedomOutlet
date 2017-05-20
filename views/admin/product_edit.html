@@ -46,15 +46,15 @@
                 <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--4-col-desktop">
                     <div class="outlet-card-image mdl-card mdl-shadow--2dp">
                         <div id="output" class="mdl-card__title mdl-card--expand padding-0">
-                            <span>
                                 <img id="myImg" class="thumb" title="@{model.product.image_name}" src="@{model.product.title_img_src}" />
-                            </span>
+                            <canvas id="canvas" width="0" height="0"></canvas>
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="width:100%">
                                 <input class="mdl-textfield__input" placeholder="Файл не выбран" type="text" id="TEXT_ID" value="@{model.product.image_name}" readonly />
                                 <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
                                     <i class="material-icons">attach_file</i>
+                                    <input id="fileTitle" name="title_file" type="hidden" />
                                     <input type="file" name="title_file" id="file1" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;" />
                                 </div>
                             </div>

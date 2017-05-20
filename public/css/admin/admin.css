@@ -438,3 +438,8 @@ ul#pagination {
 .ui-widget-content a {
     color: #222222;
 }
+
+#canvas {
+    width: 100%;
+    height: auto;
+}
