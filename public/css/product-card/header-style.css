@@ -34,27 +34,59 @@
     width: 100%;
 }
 
+
+
+/*.global-nav {*/
+    /*width: 65%;*/
+    /*height: 50%;*/
+    /*margin-left: 13%;*/
+    /*margin-top: 2.5%;*/
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
+/*}*/
+
+
+
+
 .global-nav {
+    position: relative;
     width: 65%;
-    height: 50%;
+    height: 100%;
     margin-left: 13%;
-    margin-top: 2.5%;
-    display: flex;
-    flex-direction: row;
+    /*margin-top: 2.5%;*/
+    display: inline-flex;
+    /*flex-direction: row;*/
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .global-nav .row1,
 .global-nav .row2 {
     position: relative;
+    display: inline-block;
+}
+
+.global-nav .row1 {
+    height: 45%;
+}
+
+.global-nav .row2 {
+    height: 57%;
+    width: 20%;
 }
 
 #nav-menu {
     position: relative;
-    height: 40%;
-    display: flex;
+    height: 100%;
+    display: inline-flex;
     justify-content: space-around;
+}
+
+#nav-menu a .li {
+    display: inline-block;
+    height: 100%;
 }
 
 #nav-menu .li {
@@ -64,25 +96,37 @@
     position: relative;
     cursor: pointer;
     margin-right: 1vw;
+    height: 100%;
 }
 
 #nav-menu .li .border {
     position: absolute;
     width: 100%;
-    top: 0;
-    bottom: -5px;
+    /*height: 100%;*/
+    /*top: 0;*/
+    bottom: 2px;
+    height: 0;
+    outline: 2px solid red;
+    /*border-bottom: 4px solid red;*/
+    display: none;
+}
+
+@-moz-document url-prefix() {
+    #nav-menu .li .border {
+        bottom: 3px;
+    }
 }
 
 #nav-menu .li:hover .border {
-    border-bottom: 2px solid red;
+    display: block;
 }
 
 .search_block {
-    right: 0;
-    top: 1%;
+    /*right: 0;*/
+    /*top: 1%;*/
     /*position: absolute;*/
     height: 100%;
-    left: 50%;
+    /*left: 50%;*/
     z-index: 5;
 }
 
@@ -91,6 +135,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    height: 70%;
 }
 
 .search_block button {
@@ -119,7 +164,7 @@
     height: 100%;
     /*position: absolute;*/
     font-size: 0.8vw;
-    padding: 4%;
+    /*padding: 4%;*/
     outline: none;
     text-indent: 10px;
     background: #e8ebef;
