@@ -78,7 +78,7 @@ function handleFileSelect(evt) {
                 var cur = {
                     width: Math.floor(crop_X),
                     height: Math.floor(crop_Y)
-                }
+                };
 
                 oc.width = cur.width;
                 oc.height = cur.height;
