@@ -24,7 +24,7 @@ exports.install = function () {
 
 function main() {
     var self = this;
-    var is_new = Product.list.filter(showOnMain).map(convertEURtoUAH);
+    var is_new = JSON.parse(JSON.stringify(Product.list)).filter(showOnMain).map(convertEURtoUAH);
 
     self.view('/main/main', {
         products: is_new
