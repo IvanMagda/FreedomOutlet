@@ -265,5 +265,6 @@ OUTLET_SAIT-backup
 debug.pid
 tmp/
 config
+config-debug
 node_modules/
 views/vb_index.html
