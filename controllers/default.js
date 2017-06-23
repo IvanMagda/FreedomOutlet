@@ -1,8 +1,8 @@
 var Product = GETSCHEMA('Product');
 var fs = require('fs');
-var shops = require('../definitions/shops.json')
-var breadcrumbs_mapping = require('../definitions/breadcrumbs_mapping.json')
-var convertCurrency = require('../modules/priceConverter')
+var shops = require('../definitions/shops.json');
+var breadcrumbs_mapping = require('../definitions/breadcrumbs_mapping.json');
+var convertCurrency = require('../modules/priceConverter');
 
 exports.install = function () {
     F.route('/', main);

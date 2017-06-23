@@ -1,5 +1,4 @@
 var fs = require('fs');
-var request = require("request")
 var curr = require('../definitions/currency.json');
 var type = curr['config']['type'];
 var https = require('https');
@@ -25,15 +24,15 @@ function RequestActualData(callback) {
                     //console.log(data.html_url);
                 } catch (e) {
                     console.log('Error parsing JSON!');
-                }
+                };
             } else {
                 console.log('Status:', res.statusCode);
-            }
+            };
         });
     }).on('error', function (err) {
         console.log('Error:', err);
     });
-}
+};
 
 function UpdateConverterValues(actualCurrency) {
     fs.readFile(__dirname + '/../definitions/currency.json', 'utf8', function readFileCallback(err, data) {
@@ -47,9 +46,9 @@ function UpdateConverterValues(actualCurrency) {
                 curr = json;
                 type = curr['config']['type'];
             });
-        }
+        };
     });
-}
+};
 
 function resetAtMidnight() {
     var now = new Date();
@@ -70,7 +69,7 @@ function resetAtMidnight() {
         });
         resetAtMidnight();    //      Then, reset again next midnight.
     }, msToMidnight);
-}
+};
 
 resetAtMidnight();
 
@@ -78,4 +77,4 @@ var converter = function (value) {
     return value * curr[type]["rate"];
 }
 
-module.exports = converter;
+module.exports= converter;
