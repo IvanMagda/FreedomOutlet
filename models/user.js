@@ -23,25 +23,6 @@ Reset_pass.add = function (reset) {
     Reset_pass.by_user_id[r.user_id] = r;
 }
 
-User.add = function (user) {
-    var u = User.make(user);
-    User.list.push(u);
-    User.by_id[u.id] = u;
-}
-
-User.upd = function (user) {
-    var u = User.make(user);
-    var index = User.list.indexOf(User.by_id[user.id]);
-
-    if (index > -1) {
-        User.list[index] = u;
-        User.by_id[user.id] = u;
-        console.log('updated');
-    } else {
-        console.log('Update Error!');
-    }
-}
-
 User.register = function (user, callback) {
     console.log('create user add to db', user);
     var hash = passwordHash.generate(user.pass);
@@ -71,9 +52,7 @@ User.register = function (user, callback) {
         sql.select('new_user', 'users').make(function (builder) {
             builder.where('id', response.user.identity);
         });
-
         sql.exec(function (err, response) {
-            User.add(response.new_user[0]);
             callback(response.new_user[0]);
         });
     });
@@ -106,7 +85,6 @@ User.update = function (user, callback) {
             builder.where('id', '=', user.id);
         });
         sql.exec(function (err, response) {
-            User.upd(response.use[0]);
             callback(SUCCESS(true));
         });
     });
@@ -116,6 +94,16 @@ User.get_by_email = function (user_mail, callback) {
     var sql = DATABASE();
     sql.select('current_user', 'users').make(function (builder) {
         builder.where('email', '=', user_mail);
+    });
+    sql.exec(function (err, response) {
+        callback(response.current_user);
+    });
+}
+
+User.by_id = function (user_id, callback) {
+    var sql = DATABASE();
+    sql.select('current_user', 'users').make(function (builder) {
+        builder.where('id', '=', user_id);
     });
     sql.exec(function (err, response) {
         callback(response.current_user);
@@ -144,14 +132,14 @@ User.generate_new_pass = function (mail, callback) {
 }
 
 User.setQuery(function (err, options, callback) {
-    var user = null;
-    User.list.forEach(function (e) {
-        if (e.email === options.email) {
-            user = e;
-            return true;
-        };
+    var sql = DATABASE();
+    sql.select('current_user', 'users').make(function (builder) {
+        builder.where('email', '=', options.email);
     });
-    callback(user);
+    sql.exec(function (err, response) {
+        console.log(response);
+        callback(response.current_user[0]);
+    });
 });
 
 User.pagination = function (page, items, sort, callback) {
@@ -207,17 +195,7 @@ exports.install = function () {
             //console.log(response.allUsers);
             console.log('allUsers DB init.');
             console.log(response);
-
-            User.list = [];
-            User.by_id = {};
-
             Reset_pass.by_user_id = {};
-
-            response.allUsers.forEach(function (e) {
-                User.add(e);
-            })
-
-
             console.log('users init complete');
         });
     });

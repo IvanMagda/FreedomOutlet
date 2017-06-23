@@ -94,7 +94,9 @@ function validate_register_Form() {
         });
         return false;
     } else {
+        console.log(registerForm);
         return true;
+        
     }
 }
 

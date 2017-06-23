@@ -2,6 +2,7 @@ var Product = GETSCHEMA('Product');
 var fs = require('fs');
 var shops = require('../definitions/shops.json')
 var breadcrumbs_mapping = require('../definitions/breadcrumbs_mapping.json')
+var convertCurrency = require('../modules/priceConverter')
 
 exports.install = function () {
     F.route('/', main);
@@ -23,14 +24,7 @@ exports.install = function () {
 
 function main() {
     var self = this;
-    var is_new = [];
-
-    Product.list.forEach(function (e) {
-        console.log(e);
-        if (e.is_new == 1) {
-            is_new.push(e);
-        }
-    });
+    var is_new = Product.list.filter(showOnMain).map(convertEURtoUAH);
 
     self.view('/main/main', {
         products: is_new
@@ -39,15 +33,14 @@ function main() {
 
 function view_products_list(categ) {
     var self = this;
-    var category = categ;
-    if (categ == 'all') { category = '%' }
+    var category = (categ != 'all') ? categ : '%';
     var sort = self.query.sort || 'name'
-
     var page = (self.query.page || '1').parseInt();
     var perpage = (self.query.number || '12').parseInt();
     
 
     Product.pagination(page, perpage, sort, category, function (prod, allLength) {
+        prod = prod.map(convertEURtoUAH);
         var pagination = new Builders.Pagination(allLength, page, perpage, '?page={0}');
         self.view('/list_product/list-product', {
             breadcrumbs: breadcrumbs_mapping[category],
@@ -62,35 +55,22 @@ function view_products_list(categ) {
 
 function view_product(product_id) {
     var product = Product.by_id[product_id];
+        product.price = Math.round(convertCurrency(product.price));
+        product.discount = Math.round(convertCurrency(product.discount));
     var img = [];
     var available = [];
-    var i = 1;
     var self = this;
-
 
     var avl = product.available_in.split(',');
     avl.forEach(function (e) {
         available.push(shops[e]);
     })
     Product.imgs(product_id, function (result) {
-        result.imgs_arr.forEach(function (e) {
-            if (e.name.indexOf('Galery') > -1) {
-                e.size = i;
-                img.push(e);
-                i++;
-            }
-        })
-        if (img.length === 'undefined') { img = 0; };
+        img = result.imgs_arr.filter(galeryImgs).map(ImgOrderNumber) || 0;
         Product.get_by_manufacturer(product.manufacturer, function (from_manufacturer) {
-            if (from_manufacturer.length > 8) {
-                from_manufacturer = shuffle(from_manufacturer);
-                from_manufacturer.length = 8;
-            };
+            from_manufacturer = isLongArr(from_manufacturer) ? shuffleAndCut(from_manufacturer) : from_manufacturer;
             Product.pagination(1, 200, "name", product.category, function (see_also_prod, allLength) {
-                if (see_also_prod.length > 8) {
-                    see_also_prod = shuffle(see_also_prod);
-                    see_also_prod.length = 8;
-                };
+                see_also_prod = isLongArr(see_also_prod) ? shuffleAndCut(see_also_prod) : see_also_prod;
                 self.view('/product_card/product-card', {
                     product: product,
                     breadcrumbs: breadcrumbs_mapping[product.category],
@@ -111,6 +91,7 @@ function view_products_manufacturer(manufacturer) {
     var perpage = (self.query.number || '12').parseInt();
 
     Product.get_by_manufacturer(manufacturer, function (result) {
+        result = result.map(convertEURtoUAH);
         var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
         self.view('/list_product/list-product', {
             breadcrumbs: result[0].manufacturer,
@@ -126,10 +107,9 @@ function view_products_manufacturer(manufacturer) {
 function search(search_text) {
     var self = this;
     Product.search(decodeURI(search_text), 5, "", function (result) {
-        console.log(result);
+        result = result.map(convertEURtoUAH);
         self.json(result);
     })
-    
 }
 
 function search_result(search_text) {
@@ -140,6 +120,7 @@ function search_result(search_text) {
 
     Product.search(decodeURI(search_text), 0, sort, function (result) {
         var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
+        result = result.map(convertEURtoUAH);
         self.view('/list_product/list-product', {
             breadcrumbs: breadcrumbs_mapping['search'],
             sort: sort,
@@ -177,8 +158,8 @@ function view_favorites_local(favor_id) {
     var perpage = (self.query.number || '12').parseInt();
 
     Product.favorites_by_product_id(favor_id, function (result) {
+        result = result.map(convertEURtoUAH);
         result.sort(dynamicSort(sort));
-        console.log(result);
         var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
         self.view('/list_product/list-product', {
             breadcrumbs: breadcrumbs_mapping['favorites'],
@@ -199,14 +180,13 @@ function favorites_add() {
 
 function view_favorites_user(user_id) {
     var self = this;
-    var sort = self.query.sort || 'name'
+    var sort = self.query.sort || 'name';
     var page = (self.query.page || '1').parseInt();
     var perpage = (self.query.number || '12').parseInt();
 
     Product.favorites_by_user_id(user_id, function (result) {
-        if (!result)
-            result=[];
-
+        result = result || [];
+        result = result.map(convertEURtoUAH);
         result.sort(dynamicSort(sort));
         var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
         self.view('/list_product/list-product', {
@@ -217,6 +197,35 @@ function view_favorites_user(user_id) {
             pagination: pagination
         });
     })
+}
+
+function shuffleAndCut(arr) {
+    arr = shuffle(arr);
+    arr.length = 8;
+    return arr;
+};
+
+function isLongArr(arr) {
+    return arr.length > 8;
+};
+
+function galeryImgs(image) {
+    return image.name.indexOf('Galery') > -1;
+};
+
+function ImgOrderNumber(image, i) {
+    image.size = i + 1;
+    return image;
+};
+
+function showOnMain(product) {
+    return product.is_new == 1;
+}
+
+function convertEURtoUAH(product){
+    product.price = Math.round(convertCurrency(product.price));
+    product.discount = Math.round(convertCurrency(product.discount));
+    return product;
 }
 
 function favorites(user_id) {
@@ -243,19 +252,6 @@ function dynamicSort(property) {
         var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
         return result * sortOrder;
     }
-}
-
-function actualFiles(incomingFilesArray, listToCheck) {
-    var filesResult = [];
-    listToCheck = listToCheck.split(',');
-    incomingFilesArray.forEach(function (file) {
-        listToCheck.forEach(function (listItem) {
-            if (listItem.indexOf(file.filename) !== -1) {
-                filesResult.push(file);
-            }
-        })
-    })
-    return filesResult;
 }
 
 function shuffle(array) {

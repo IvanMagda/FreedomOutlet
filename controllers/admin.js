@@ -1,7 +1,7 @@
 var Product = GETSCHEMA('Product');
 var User = GETSCHEMA('User');
 var fs = require('fs');
-
+var adminConv = require('../modules/adminPriceConverterSettings');
 exports.install = function () {
     F.route('/admin', view_admin, ['authorize', '@admin']);
     F.route('/admin/{product_id}', view_admin_product, ['authorize', '@admin']);
@@ -14,6 +14,10 @@ exports.install = function () {
     F.route('/admin', view_admin_login, ['unauthorize']);
     F.route('/admin/users', view_admin_users, ['authorize', '@admin']);
     F.route('/admin/search/{search_text}', view_admin_search, ['get','authorize', '@admin']);
+    F.route('/admin/currency', view_admin_currency, ['authorize', '@admin']);
+    F.route('/admin/currency', admin_currency_save, ['post','authorize', '@admin']);
+    F.route('/admin/shops', view_admin_shops, ['authorize', '@admin']);
+    F.route('/admin/shops/save', admin_shops_save, ['authorize', '@admin']);
 };
 
 
@@ -134,6 +138,34 @@ function view_admin_search(search_text) {
     })
 }
 
+function view_admin_currency() {
+    var self = this;
+    adminConv.getActualCurrency(function (cur) {
+        self.view('/admin/currency', {
+            currency: cur
+        });
+    });
+}
+
+function admin_currency_save() {
+    var self = this;
+    console.log(self.body);
+    adminConv.changeSetting(self.body.admin_rate, self.body.type, function(){
+        self.redirect('/admin');
+    });
+};
+
+function view_admin_shops() {
+    var self = this;
+    self.view('/admin/shops', {
+    });
+}
+
+function admin_shops_save() {
+    var self = this;
+
+}
+
 function actualFiles(incomingFilesArray, listToCheck) {
     var filesResult = [];
     listToCheck = listToCheck.split(',');
@@ -146,3 +178,4 @@ function actualFiles(incomingFilesArray, listToCheck) {
     })
     return filesResult;
 }
+

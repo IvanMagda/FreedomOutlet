@@ -1,0 +1,36 @@
+@{layout('/admin/admin_layout')}
+<form id="currency-form" method="POST" action="/admin/currency">
+    <div class="currency_holder mdl-cell mdl-cell--12-col mdl-grid mdl-color--white mdl-shadow--2dp">
+        <div class="outlet-product mdl-cell mdl-cell--9-col  mdl-cell--12-col-tablet mdl-cell--9-col-desktop mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col mdl-grid mdl-color--white">
+                <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--4-col-desktop">
+                    <div class="category_holder">
+                        <label>Настройка курса локально</label>
+                        <hr />
+                        <label class="category_holder_input mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                            <input type="radio" id="option-2" class="mdl-radio__button" name="type" value="admin" @{if model.currency.type=="admin" } checked @{endif}>
+                            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="admin_rate" value="@{model.currency.admin_rate}">
+                            <label class="mdl-textfield__label" for="admin_rate">Курс валюты</label>
+                            <span class="mdl-textfield__error">Введённые данные не являются числом!</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--4-col-desktop">
+                    <div class="category_holder">
+                    <label>Нац. Банк</label>
+                    <hr />
+                    <label class="category_holder_input mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-5">
+                        <input type="radio" id="option-5" class="mdl-radio__button" name="type" value="api" @{if model.currency.type=="api" } checked @{endif}>
+                        <span>@{model.currency.api_rate}&nbsp;&nbsp;</span>
+                        <span class="mdl-radio__label"></span>
+                    </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" id="create-product" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+            &nbsp;Сохранить&nbsp;
+        </button>
+    </div>
+    </div>
+</form>

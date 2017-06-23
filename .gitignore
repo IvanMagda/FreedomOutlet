@@ -266,3 +266,4 @@ debug.pid
 tmp/
 config
 node_modules/
+views/vb_index.html

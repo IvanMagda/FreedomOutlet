@@ -91,18 +91,16 @@ function register_change_pass() {
     } else {
         Reset_pass.operation('checkpasswordreset', self.body.pass, user.temp_pass, function (err, res) {
             if (res) {
-                console.log("register change");
-                console.log(res);
-                var userChanged = User.by_id[self.body.id];
-                userChanged.hash = passwordHash.generate(self.body.new_pass + "");
-                console.log(userChanged);
+                User.by_id(self.body.id, function (userChanged) {
+                    userChanged.hash = passwordHash.generate(self.body.new_pass + "");
                     User.update(userChanged, function (result) {
                         if (result) {
                             delete Reset_pass.by_user_id[self.body.id];
                             console.log(Reset_pass.by_user_id);
                             self.redirect('/relogin/' + userChanged.login);
-                        }
+                        } else { self.redirect('/'); };
                     });
+                });
             }
         });
     }

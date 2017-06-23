@@ -443,3 +443,16 @@ ul#pagination {
     width: 100%;
     height: auto;
 }
+
+.currency_holder{
+    display: block;
+}
+
+.category_holder_input{
+    display: flex;
+}
+
+.category_holder_input .mdl-textfield__input{
+    max-width: 200px;
+    margin-right: auto;
+}

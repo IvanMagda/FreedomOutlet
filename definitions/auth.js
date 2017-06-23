@@ -5,28 +5,27 @@ F.on('module#auth', function (type, name) {
 
     var auth = MODULE('auth');
     auth.onAuthorize = function (id, callback, flags) {
-        var user = User.by_id[id];
-
+        User.by_id(id, function (user) {
         if (user && user.auto_login) {
             return callback(user);
         } else
             return callback(null);
+        });
     };
 });
 
 F.on('controller', function (self, name) {
     var user = self.user;
-    if (user === null || name !== '~admin')
-        return;
+    if (name === 'admin' && user !== null) {
+        var role = '@' + user.role;
+        if (self.flags.indexOf(role) === -1) {
 
-    var role = '@' + user.role;
-    if (self.flags.indexOf(role) === -1) {
+            // Cancels executing of the controller
+            self.cancel();
 
-        // Cancels executing of the controller
-        self.cancel();
-
-        // Performs redirect
-        self.redirect('/')
-        return;
-    }
+            // Performs redirect
+            self.redirect('/')
+            return;
+        } else { return; }
+    } else { return; }
 });
