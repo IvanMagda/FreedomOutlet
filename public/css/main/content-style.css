@@ -653,7 +653,8 @@ body {
     display: inline-block;
     /*position: absolute;*/
     font-size: 2.5vw;
-    font-family: "Times New Roman";
+    font-family: "Roboto Slab", sans-serif;
+    font-weight: 300;
     cursor: pointer;
     white-space: nowrap;
 }
