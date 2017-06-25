@@ -3,6 +3,7 @@ var fs = require('fs');
 var shops = require('../definitions/shops.json');
 var breadcrumbs_mapping = require('../definitions/breadcrumbs_mapping.json');
 var convertCurrency = require('../modules/priceConverter');
+var shopsEditor = require('../modules/shopsEditor');
 
 exports.install = function () {
     F.route('/', main);
@@ -26,8 +27,11 @@ function main() {
     var self = this;
     var is_new = JSON.parse(JSON.stringify(Product.list)).filter(showOnMain).map(convertEURtoUAH);
 
-    self.view('/main/main', {
-        products: is_new
+    shopsEditor.readShops(function (shops) {
+        self.view('/main/main', {
+            products: is_new,
+            shops: shops
+        });
     });
 }
 
@@ -63,7 +67,9 @@ function view_product(product_id) {
 
     var avl = product.available_in.split(',');
     avl.forEach(function (e) {
-        available.push(shops[e]);
+        shopsEditor.readShops(function (shops) {
+            available.push(shops[e]);
+        });
     })
     Product.imgs(product_id, function (result) {
         img = result.imgs_arr.filter(galeryImgs).map(ImgOrderNumber) || 0;

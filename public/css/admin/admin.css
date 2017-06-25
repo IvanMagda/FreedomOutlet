@@ -456,3 +456,7 @@ ul#pagination {
     max-width: 200px;
     margin-right: auto;
 }
+
+.shops_holder textarea{
+    min-height: 150px;
+}

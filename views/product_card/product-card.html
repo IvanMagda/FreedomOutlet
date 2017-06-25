@@ -115,11 +115,8 @@
         </div>
         <div class="adres">
             @{foreach avl in model.available}
-            <span>
-                @{foreach elem in avl}
-                @{elem}<br />
-                @{end}
-            </span>
+            <span>@{avl}</span>
+            <br />
             <br />
             @{end}
         </div>

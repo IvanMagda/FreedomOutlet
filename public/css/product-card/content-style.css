@@ -825,6 +825,10 @@ a {
     z-index: 3;
 }
 
+.adres span{
+    white-space: pre;
+}
+
 
 
 @media screen and (min-width: 1200px) {
