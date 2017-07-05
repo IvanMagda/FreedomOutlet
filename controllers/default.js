@@ -77,6 +77,8 @@ function view_product(product_id) {
             from_manufacturer = isLongArr(from_manufacturer) ? shuffleAndCut(from_manufacturer) : from_manufacturer;
             Product.pagination(1, 200, "name", product.category, function (see_also_prod, allLength) {
                 see_also_prod = isLongArr(see_also_prod) ? shuffleAndCut(see_also_prod) : see_also_prod;
+                from_manufacturer = from_manufacturer.map(convertEURtoUAH);
+                see_also_prod = see_also_prod.map(convertEURtoUAH);
                 self.view('/product_card/product-card', {
                     product: product,
                     breadcrumbs: breadcrumbs_mapping[product.category],
