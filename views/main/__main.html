@@ -1,0 +1,335 @@
+﻿@{layout('/layouts/main/layout')}
+
+<head>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeCVF0-LF2T75pmOVD9nc33Gv7KTO9o1g"></script>
+</head>
+
+
+<div class="stub"></div>
+<div class="new">
+    <div class="new-tit-cont">
+        <div class="gallery-title">
+            <span class="text-new">Новое</span>
+        </div>
+    </div>
+    <div class="gallery">
+        <div class="main-page-carousel new-carousel">
+            @{foreach product in model.products}
+            <div class="item">
+
+                <a class="img-cont" href="/product/@{product.id}"><img src="@{product.title_img_src}" alt="Image 1"></a>
+                <div class="gallery-icon-heart">
+                    <img class="gallery-icon-heart-img" src="img/heart-1.png">
+                    <img class="gallery-icon-heart2-img" src="img/heart-2.png" onclick="favoriteActions(@{product.id}, this)" onload="markSelected(@{product.id}, this)">
+                </div>
+                <div class="gallery-icon-info">
+                    <img class="gallery-icon-info-img" src="img/new-carousel/info-icon.png" onclick="info_tile(this)">
+                    <img class="gallery-icon-info2-img" src="img/new-carousel/info-icon-2.png" onclick="info_tile(this)">
+                </div>
+                <div class="title-new-product">
+                    <span class="tit">@{product.name}</span>
+                    <br>
+                    <span class="vendor">@{product.manufacturer}</span>
+                    <br>
+                    <br>
+                    <span class="price">@{product.price} UAH</span>
+                </div>
+                <div class="product-info">
+                    <div class="title-info">
+                        <span class="tit">@{product.name}</span>
+                        <br>
+                        <span class="vendor">@{product.manufacturer}</span>
+                        <div class="cross">
+                            <img class="simple cross-img" src="img/cross.png" onclick="close_info(this)">
+                            <!--<img class="border cross-img" src="img/cross-border.png">-->
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>
+                            @{product.description}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            @{end}
+        </div>
+    </div>
+
+    <div class="new-stub"></div>
+</div>
+<div class="big_img">
+    <a href="/products/all">
+        <img src="img/first-big-outlet.png">
+        <div class="hover-border"></div>
+    </a>
+</div>
+<div class="categories">
+    <div class="title-categories-container">
+        <div class="title-categories">
+            <span class="text-categories">Категории</span>
+        </div>
+    </div>
+
+    <div class="categories-img">
+        <div class="categories__row1">
+            <div class="cat-cont cat-cont1">
+                <a href="/products/soft">
+                    <div>
+                        <img class="soft-furnisings" src="img/categories/soft-furnishings.png">
+                        <div class="dark-layer"></div>
+                        <div class="cat-cont__border"></div>
+                        <div class="cat-cont__text"><span>Мягкая мебель</span></div>
+                    </div>
+                </a>
+            </div>
+            <div class="cat-cont cat-cont2">
+                <a href="/products/bedroom">
+                    <div>
+                        <img class="bedroom" src="img/categories/bedroom.png">
+                        <div class="dark-layer"></div>
+                        <div class="cat-cont__border"></div>
+                        <div class="cat-cont__text"><span>Спальни</span></div>
+                    </div>
+                </a>
+            </div>
+            <div class="cat-cont cat-cont3">
+                <a href="/products/living">
+                    <div>
+                        <img class="living-room" src="img/categories/living-room.png">
+
+                        <div class="dark-layer"></div>
+                        <div class="cat-cont__border"></div>
+                        <div class="cat-cont__text"><span>Гостиные</span></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="categories__row2">
+            <div class="cat-cont cat-cont1">
+                <a href="/products/dining">
+                    <div>
+                        <img class="dining-room" src="img/categories/dining-room.png">
+
+                        <div class="dark-layer"></div>
+                        <div class="cat-cont__border"></div>
+                        <div class="cat-cont__text"><span>Столовые</span></div>
+                    </div>
+                </a>
+            </div>
+            <div class="cat-cont cat-cont2">
+                <a href="/products/kitchen">
+                    <div>
+                        <img class="kitchen" src="img/categories/kitchen.png">
+
+                        <div class="dark-layer"></div>
+                        <div class="cat-cont__border"></div>
+                        <div class="cat-cont__text"><span>Кухни</span></div>
+                    </div>
+                </a>
+            </div>
+            <div class="cat-cont cat-cont3">
+                <a href="/products/accessories">
+                    <div>
+                        <img class="accessories" src="img/categories/accessories.png">
+
+                        <div class="dark-layer"></div>
+                        <div class="cat-cont__border"></div>
+                        <div class="cat-cont__text"><span>Аксессуары</span></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="categories__row3">
+            <div class="cat-cont cat-cont1">
+                <a href="/products/chandelier">
+                    <div>
+                        <img class="chandeliers" src="img/categories/chandeliers.png">
+
+                        <div class="dark-layer"></div>
+                        <div class="cat-cont__border"></div>
+                        <div class="cat-cont__text"><span>Люстры</span></div>
+                    </div>
+                </a>
+            </div>
+            <div class="cat-cont cat-cont2">
+                <a href="/products/sanitary">
+                    <div>
+                        <img class="plumbing" src="img/categories/plumbing.png">
+
+                        <div class="dark-layer"></div>
+                        <div class="cat-cont__border"></div>
+                        <div class="cat-cont__text"><span>Сантехника</span></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="about_us">
+    <div id="title-container-about-us">
+        <div class="title-about-us">
+            <span class="text-about-us">О нас</span>
+        </div>
+    </div>
+    <div class="about_us-content">
+        <a class="about-cont" href="/about">
+            <div class="about-img-cont">
+                <div class="img-scale">
+                    <img class="about-img" src="img/about-us/picture1.png">
+                    <div class="about-img-border"></div>
+                    <div class="about-img-button">
+                        <div class="about-img-button-border">
+                            <div class="button">
+                                <div class="button-text-border"></div>
+                                <!--<a href="/about">-->
+                                    <span>О КОМПАНИИ</span>
+                                <!--</a>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-us-description">
+                <span class="text-description">
+                    Салон элитных итальянских кухонь в ARDE предлагает<br>
+                    богатый ассортимент гарнитуров от лучших
+                </span>
+            </div>
+            <div class="read-all">
+                <!--<a href="/about">-->
+                    <div class="button-read-all">
+                        <span>ЧИТАТЬ ВСЕ</span>
+                    </div>
+                <!--</a>-->
+            </div>
+        </a>
+        <a class="about-cont" href="#">
+            <div class="about-img-cont">
+                <div class="img-scale">
+                    <img class="about-img" src="img/about-us/picture2.png">
+                    <div class="about-img-border"></div>
+                    <div class="about-img-button">
+                        <div class="about-img-button-border">
+                            <div class="button">
+                                <div class="button-text-border"></div>
+                                <!--<a href="#">-->
+                                    <span>ИДЕИ ДЛЯ ДОМА</span>
+                                <!--</a>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-us-description">
+                <span class="text-description">
+                    Салон элитных итальянских кухонь в ARDE предлагает<br>
+                    богатый ассортимент гарнитуров от лучших
+                </span>
+            </div>
+            <div class="read-all">
+                <!--<a href="#">-->
+                    <div class="button-read-all">
+                        <span>ЧИТАТЬ ВСЕ</span>
+                    </div>
+                <!--</a>-->
+            </div>
+        </a>
+        <!--<div class="clear:both"></div>-->
+    </div>
+</div>
+<div class="contacts">
+    <div id="container-contacts-text">
+        <div class="title-contacts">
+            <span class="text-contacts">Контакты</span>
+        </div>
+    </div>
+    <div class="contacts-contacts">
+        <div class="kiev">
+            <div class="title-city">
+                <span class="text-city">КИЕВ</span>
+            </div>
+            <div class="cont-item">
+                <p>@{model.shops.kyiv1}</p>
+            </div>
+            <div class="cont-item">
+                <p>@{model.shops.kyiv4}</p>
+            </div>
+            <div class="cont-item">
+                <p>@{model.shops.kyiv2}</p>
+            </div>
+            <div class="cont-item">
+                <p>@{model.shops.kyiv5}</p>
+            </div>
+            <div class="cont-item">
+                <p>@{model.shops.kyiv3}</p>
+            </div>
+            <div class="cont-item">
+                <p>@{model.shops.kyiv6}</p>
+            </div>
+        </div>
+        <div class="kharkiv">
+            <div class="title-city">
+                <span class="text-city">ХАРЬКОВ</span>
+            </div>
+            <div class="cont-item">
+                <p>@{model.shops.kharkiv1}</p>
+            </div>
+            <div class="cont-item">
+                <p>@{model.shops.kharkiv2}</p>
+            </div>
+            <div class="cont-item">
+                <p>@{model.shops.kharkiv3}</p>
+            </div>
+        </div>
+        <div class="dnepr">
+            <div class="dnepr-cont">
+                <div class="title-city">
+                    <span class="text-city">ДНЕПР</span>
+                </div>
+                <div class="cont-item">
+                    <p>@{model.shops.dnepr1}</p>
+                </div>
+            <div class="cont-item">
+                    <p>@{model.shops.dnepr2}</p>
+                </div>
+            <div class="cont-item">
+                    <p>@{model.shops.dnepr3}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="contacts_map">
+    <img id="img_map" src="img/map.png">
+    <div id="map_c" style="position: fixed;">
+        <div id="map"></div>
+    </div>
+</div>
+<div class="contacts_feedback">
+    <div id="container-title-feedback">
+        <div class="title-feedback">
+            <span class="text-feedback">Свяжитесь с нами</span>
+        </div>
+    </div>
+    <div class="content-feedback">
+        <div class="form">
+            <form id="mail-form" action="/mail/send" method="post" name="mailForm" onsubmit="return validateForm()">
+                <div id="validateGlobal">*Обязательно</div>
+                <div class="row1">
+                    <input class="neat-input" type="text" name="name" placeholder="ИМЯ" value="" />
+                    <div id="validateName">*</div>
+                    <input id="tel" class="neat-input" type="text" name="phone" placeholder="+38 (000) 000 00 00" value="" />
+                    <div id="validatePhone">*</div>
+                </div>
+                <div class="row2">
+                    <div id="validateMessage">*</div>
+                    <textarea class="neat-textarea" name="message" placeholder="&#013;&#010;&#013;&#010;СООБЩЕНИЕ" value=""></textarea>
+                </div>
+                <div class="row3">
+                    <button id="mail-send" class="neat-button" type="submit">ОТПРАВИТЬ СООБЩЕНИЕ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

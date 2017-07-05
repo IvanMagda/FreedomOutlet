@@ -1,38 +1,83 @@
-$(document).ready(function() {
-    $('.main-page-carousel').slick({
-        dots: true,
+$(document).ready(function () {
+    $('.new-products__carousel_item').slick({
+        infinite: true,
+        // centerMode: true,
         slidesToShow: 4,
         slidesToScroll: 4,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 2000,
-    });
-
-    $('.main-product-card-gall').slick({
-        //dots: true,
-        arrows: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        // infinite: false,
-        // autoplay: true,
-        // autoplaySpeed: 2000,
-    });
-
-
-    $('.product-card-carousel').slick({
-        //dots: true,
-        arrows: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        // autoplay: true,
-        // autoplaySpeed: 2000,
+        dots: true,
+        arrows: false,
+        centerPadding: 0,
+        responsive: [
+            {
+                breakpoint: 1380,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 720,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    dots: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
     });
 });
 
-function info_tile(node) {
-    var parent = node.parentNode.parentNode;
-    parent.childNodes[4].style.display = 'flex';
-}
+$(window).resize(function () {
+    var categories = $("#main-header__middle-wrapper_bottom");
+    var width = window.innerWidth;
 
-function close_info(node) {
-    node.parentNode.parentNode.parentNode.style.display = 'none';
+    if (width < 950 || width > 1120) {
+        categories.css("display", "flex");
+    } else {
+        if (width > 950 && width < 1121)
+            categories.css("display", "none");
+    }
+
+    if (width > 950) {
+        $("#main-header__middle-wrapper").removeClass("display_flex");
+        $("#main-headr__user-actions").removeClass("display_flex");
+    }
+});
+
+$(document).ready(function () {
+    $(".tablet_menu").click(function () {
+        $("#main-header__middle-wrapper_bottom").toggle();
+    });
+
+    $(".mobile_menu").click(function () {
+        $("#main-header__middle-wrapper").toggleClass("display_flex");
+        $("#main-headr__user-actions").toggleClass("display_flex");
+    });
+});
+
+function toggle_visibility(id) {
+    var content = document.getElementById("content_" + id);
+    var description = document.getElementById("description_" + id);
+    if (content.style.display === 'block' || content.style.display === '') {
+        content.style.display = 'none';
+        description.style.display = 'block';
+    }
+    else {
+        content.style.display = 'block';
+        description.style.display = 'none';
+    }
 }

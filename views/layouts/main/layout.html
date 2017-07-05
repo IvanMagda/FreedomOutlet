@@ -1,16 +1,29 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=11" />
         <meta name="format-detection" content="telephone=no" />
-        <!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
         <meta name="robots" content="all,follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Title</title>
+        <title>Freedom Outlet</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="shortcut icon" href="img/favicon.ico" />
+
         @{import('jquery-3.2.0.min.js')}
 
-        @{import('main/content-style.css')}
+        @{import('global/global.css')}
+        @{import('global/product-item.css')}
+        @{import('main/main-header.css')}
+        @{import('main/footer.css')}
+        @{import('global/font-awesome.min.css')}
+        @{import('slick-1.6.0/slick/slick.css')}
+        @{import('slick-1.6.0/slick/slick-theme.css')}
+        @{import('slick-1.6.0/slick/slick.min.js')}
+        @{import('main/main.css')}
+
         @{import('modal.css')}
         @{import('mail_client.js')}
         @{import('map.js')}
@@ -18,33 +31,19 @@
         @{import('search.js')}
         @{import('jquery.maskedinput.js')}
         @{import('favorites.js')}
-
-        <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.3.7/slick.css"/>
-        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-        <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.3.7/slick.min.js"></script>
-        @{import('jquery-ui.js')}
-        @{import('jquery-ui.css')}
-
-        <script type="text/javascript" src="js/main.js"></script>
+        @{import('main.js')}
     </head>
+
     <body>
         <div id="overlay"></div>
         @{view('modal/login')}
         @{view('modal/reset_password')}
         @{view('modal/register')}
-        <!--@{view('modal/contact_us')}-->
 
         <div class="wrapper">
-            <div id="header">
-                @{view('layouts/main/header')}
-            </div>
-            <div id="content-wrapper">
-                @{body}
-            </div>
-            <div id="footer">
-                @{view('layouts/main/footer')}
-            </div>
+            @{view('layouts/main/header')}
+            @{body}
+            @{view('layouts/main/footer')}
         </div>
-
     </body>
 </html>
