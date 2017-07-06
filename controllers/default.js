@@ -28,7 +28,7 @@ function main() {
     var is_new = JSON.parse(JSON.stringify(Product.list)).filter(showOnMain).map(convertEURtoUAH);
 
     shopsEditor.readShops(function (shops) {
-        self.view('/main/main', {
+        self.view('/base_content/main', {
             products: is_new,
             shops: shops
         });
@@ -46,7 +46,7 @@ function view_products_list(categ) {
     Product.pagination(page, perpage, sort, category, function (prod, allLength) {
         prod = prod.map(convertEURtoUAH);
         var pagination = new Builders.Pagination(allLength, page, perpage, '?page={0}');
-        self.view('/list_product/list-product', {
+        self.view('/base_content/list-products', {
             breadcrumbs: breadcrumbs_mapping[category],
             sort:sort,
             items: perpage,
@@ -101,7 +101,7 @@ function view_products_manufacturer(manufacturer) {
     Product.get_by_manufacturer(manufacturer, function (result) {
         result = result.map(convertEURtoUAH);
         var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
-        self.view('/list_product/list-product', {
+        self.view('/base_content/list-products', {
             breadcrumbs: result[0].manufacturer,
             sort: sort,
             items: perpage,
@@ -129,7 +129,7 @@ function search_result(search_text) {
     Product.search(decodeURI(search_text), 0, sort, function (result) {
         var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
         result = result.map(convertEURtoUAH);
-        self.view('/list_product/list-product', {
+        self.view('/base_content/list-products', {
             breadcrumbs: breadcrumbs_mapping['search'],
             sort: sort,
             items: perpage,
@@ -169,7 +169,7 @@ function view_favorites_local(favor_id) {
         result = result.map(convertEURtoUAH);
         result.sort(dynamicSort(sort));
         var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
-        self.view('/list_product/list-product', {
+        self.view('/base_content/list-products', {
             breadcrumbs: breadcrumbs_mapping['favorites'],
             sort: sort,
             items: perpage,
@@ -197,7 +197,7 @@ function view_favorites_user(user_id) {
         result = result.map(convertEURtoUAH);
         result.sort(dynamicSort(sort));
         var pagination = new Builders.Pagination(result.length, page, perpage, '?page={0}');
-        self.view('/list_product/list-product', {
+        self.view('/base_content/list-products', {
             breadcrumbs: breadcrumbs_mapping['favorites'],
             sort: sort,
             items: perpage,

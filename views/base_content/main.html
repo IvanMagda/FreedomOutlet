@@ -1,0 +1,188 @@
+@{layout('/layouts/main_layout')}
+
+<head>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeCVF0-LF2T75pmOVD9nc33Gv7KTO9o1g"></script>
+</head>
+
+<section class="new-products">
+    <h2>НОВОЕ</h2>
+    <div class="new-products__carousel">
+        <div class="new-products__carousel_item">
+            @{foreach product in model.products}
+            <div class="product-item_container">
+                <div class="product-item">
+                    <div id="content_@{product.id}" class="product-item__main-content">
+                        <span class="product-item__main-content_heart">
+                        <span class="heart"></span>
+                        </span>
+                        <span class="product-item__main-content_info" onclick="toggle_visibility(@{product.id})">
+                        <span class="info_img"></span>
+                        </span>
+                        <a href="/product/@{product.id}"><img src="@{product.title_img_src}"></a>
+                        <hr />
+                        <h4>@{product.name}</h4>
+                        <h6>@{product.manufacturer}</h6>
+                        <h5>@{product.price}</h5>
+                    </div>
+                    <div id="description_@{product.id}" class="product-item__description">
+                        <span class="product-item__main-content_close_info" onclick="toggle_visibility(@{product.id})">
+                            <img src="img/cross.png" />
+                        </span>
+                        <h4>@{product.name}</h4>
+                        <h6>@{product.manufacturer}</h6>
+                        <p>@{product.description}</p>
+                    </div>
+                </div>
+            </div>
+            @{end}
+        </div>
+    </div>
+</section>
+<!--End Carousel-->
+<section class="first-outlet">
+    <a href="/products/all">
+            <img src="img/first-outlet.png">
+        </a>
+</section>
+<!--End First-outlet-->
+<section class="categories">
+    <h2>КАТЕГОРИИ</h2>
+    <div class="categories__grid">
+        <div class="categories__soft">
+            <h3>Мягкая мебель</h3>
+            <a href="/products/soft">
+                    <img src="img/categories/soft-furnishings.png">
+                </a>
+        </div>
+        <div class="categories__bedroom">
+            <h3>Спальни</h3>
+            <a href="/products/bedroom">
+                    <img src="img/categories/bedroom.png">
+                </a>
+        </div>
+        <div class="categories__living">
+            <h3>Гостиные</h3>
+            <a href="/products/living">
+                    <img src="img/categories/living-room.png">
+                </a>
+        </div>
+        <div class="categories__dining">
+            <h3>Столовые</h3>
+            <a href="/products/dining">
+                <img src="img/categories/dining-room.png">
+                </a>
+        </div>
+        <div class="categories__kitchen">
+            <h3>Кухни</h3>
+            <a href="/products/kitchen">
+                    <img src="img/categories/kitchen.png">
+                </a>
+        </div>
+        <div class="categories__accessories">
+            <h3>Аксессуары</h3>
+            <a href="/products/accessories">
+                    <img src="img/categories/accessories.png">
+                </a>
+        </div>
+        <div class="categories__chandeliers">
+            <h3>Люстры</h3>
+            <a href="/products/chandeliers">
+                    <img src="img/categories/chandeliers.png">
+                </a>
+        </div>
+        <div class="categories__sanitary">
+            <h3>Сантехника</h3>
+            <a href="/products/sanitary">
+                    <img src="img/categories/sanitary.png">
+                </a>
+        </div>
+    </div>
+</section>
+<!--End Categories-->
+<section class="about">
+    <h2>О НАС</h2>
+    <div class="about__content">
+        <article class="about__item">
+            <a href="/about">
+                <div class="about__item_img grow">
+                    <img src="img/about_img1.png">
+                    <div class="about__item_text">
+                        <span>О КОМПАНИИ</span>
+                    </div>
+                </div>
+            </a>
+            <p class="fulljustify">
+                Салон элитных итальянских кухонь в ARDE предлагает
+            </p>
+            <p class="fulljustify">
+                богатый ассортимент стильных гарнитуров от лучших
+            </p>
+            <a href="/about">
+                <div class="about__item_all">ЧИТАТЬ ВСЕ</div>
+            </a>
+        </article>
+        <article class="about__item">
+            <a href="/about">
+                <div class="about__item_img grow">
+                    <img src="img/about_img2.png">
+                    <div class="about__item_text">
+                        <span>ИДЕИ ДЛЯ ДОМА</span>
+                    </div>
+                </div>
+            </a>
+            <p class="fulljustify">
+                Салон элитных итальянских кухонь в ARDE предлагает
+            </p>
+            <p class="fulljustify">
+                богатый ассортимент стильных гарнитуров от лучших
+            </p>
+            <a href="/about">
+                <div class="about__item_all">ЧИТАТЬ ВСЕ</div>
+            </a>
+        </article>
+    </div>
+</section>
+<!--End About-->
+<section class="contacts">
+    <h2>КОНТАКТЫ</h2>
+    <div class="contacts__cities">
+        <div class="contacts__cities_kyiv">
+            <h4>КИЕВ</h4>
+            <p>@{model.shops.kyiv1}</p>
+            <p>@{model.shops.kyiv2}</p>
+            <p>@{model.shops.kyiv3}</p>
+        </div>
+        <div class="contacts__cities_kyiv">
+            <h4>_</h4>
+            <p>@{model.shops.kyiv4}</p>
+            <p>@{model.shops.kyiv5}</p>
+            <p>@{model.shops.kyiv6}</p>
+        </div>
+        <div class="contacts__cities_kharkiv">
+            <h4>ХАРЬКОВ</h4>
+            <p>@{model.shops.kharkiv1}</p>
+            <p>@{model.shops.kharkiv2}</p>
+            <p>@{model.shops.kharkiv3}</p>
+        </div>
+        <div class="contacts__cities_dnepr">
+            <h4>ДНЕПР</h4>
+            <p>@{model.shops.dnepr1}</p>
+        </div>
+    </div>
+</section>
+<!--End Contacts-->
+<section class="map">
+    <img id="img_map" src="img/map.png">
+    <div id="map_c" style="position: fixed;"><div id="map"></div></div>
+</section>
+<!--End Map-->
+<section class="feedback">
+    <h2>СВЯЖИТЕСЬ С НАМИ</h2>
+    <form id="mail-form" action="/mail/send" method="post" name="mailForm" onsubmit="return validateForm()">
+        <input class="feedback-input" type="text" name="name" placeholder="ИМЯ" value="" />
+        <input id="tel" class="feedback-input" type="text" name="phone" placeholder="+38 (000) 000 00 00" value="" />
+        <textarea class="feedback-textarea" name="message" placeholder="СООБЩЕНИЕ" value=""></textarea>
+        <button id="mail-send" class="feedback-button" type="submit">ОТПРАВИТЬ СООБЩЕНИЕ</button>
+    </form>
+</section>
+<!--End Feedback-->

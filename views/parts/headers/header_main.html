@@ -1,0 +1,50 @@
+<header>
+    <div id="main-header">
+        <div class="main-header_actions">
+            <a href="/" id="main-headr__logo"></a>
+            <a href="#" class="mobile_menu"></a>
+        </div>
+        <div id="main-header__middle-wrapper">
+            <div id="main-header__middle-wrapper_top">
+                <nav id="header__about-nav">
+                    <ul>
+                        <li><a href="/about" class="header__about-nav_current">О КОМПАНИИ</a></li>
+                        <li><a href="/idea-for-home">ИДЕИ ДЛЯ ДОМА</a></li>
+                        <li><a href="/contacts">КОНТАКТЫ</a></li>
+                    </ul>
+                </nav>
+                <a href="#" class="tablet_menu"></a>
+                <input id="search_box" type="text" placeholder="Поиск" />
+            </div>
+            <div id="main-header__middle-wrapper_bottom">
+                <nav id="header__categories-nav">
+                    <ul>
+                        <li><a href="/products/kitchen">КУХНИ</a></li>
+                        <li><a href="/products/bedroom">СПАЛЬНИ</a></li>
+                        <li><a href="/products/soft">МЯГКАЯ</a></li>
+                        <li><a href="/products/living">ГОСТИНЫЕ</a></li>
+                        <li><a href="/products/dining">СТОЛОВЫЕ</a></li>
+                        <li><a href="/products/chandelier">ЛЮСТРЫ</a></li>
+                        <li><a href="/products/sanitary">САНТЕХНИКА</a></li>
+                        <li><a href="/products/accessories">АКСЕССУАРЫ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div id="main-headr__user-actions">
+            <nav id="main-headr__user-actions_enter">
+                <ul>
+                    @{if user !== null}
+                    <li><a href="/user/@{user.login}/">@{user.login}</a></li>
+                    <li><a href="#" onclick="logout()">Выйти</a></li>
+                    @{else}
+                    <li><a href="#login_modal" class="open_modal">Войти</a></li>
+                    <li><a href="#register_modal" class="open_modal">Регистрация</a></li>
+                    @{fi}
+                </ul>
+            </nav>
+            <a href="#" id="main-headr__user-actions_favorites" onclick="viewMyFavorites()"></a>
+            <div class="main-headr__user-actions_phone">+38 (067) 329 08 45</div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,86 @@
+@{layout('/layouts/list-products_layout')}
+<input id="currentPage" type="hidden" value="@{model.pagination.page}" />
+<input id="currentLimit" type="hidden" value="@{model.pagination.count}" />
+<section class="path">
+    <ul>
+        <li>Главная</li>
+        <li>/</li>
+        <li>@{model.breadcrumbs}</li>
+    </ul>
+</section>
+<!--End Path-->
+<section class="filters">
+    <h1>@{model.breadcrumbs}</h1>
+    <div class="filters__select">
+        <span>Сортировать по</span>
+        <div class="filters__select_type">
+            <button class="filters__select_type-btn">
+                @{if model.sort=='' || model.sort=='name'} По умолчанию @{endif}
+                @{if model.sort=='manufacturer'} Фабрике @{endif}
+                @{if model.sort=='price'} Цене @{endif}
+            </button>
+            <ul>
+                <li @{if model.sort=='name'} class="active"@{endif}><a href="#" onclick="active(this)" name="name">По умолчанию</a></li>
+                <li @{if model.sort=='manufacturer'} class="active"@{endif}><a href="#" onclick="active(this)" name="manufacturer">Фабрике</a></li>
+                <li @{if model.sort=='price'} class="active"@{endif}><a href="#" onclick="active(this)" name="price">Цене</a></li>
+            </ul>
+        </div>
+        <span>Показать</span>
+        <div class="filters__select_quantity">
+            <button class="filters__select_quantity-btn">@{model.items}</button>
+            <ul>
+                <li @{if model.items=='12'} class="active"@{endif}><a href="#" onclick="active(this)" name="12">12</a></li>
+                <li @{if model.items=='24'} class="active"@{endif}><a href="#" onclick="active(this)" name="24">24</a></li>
+                <li @{if model.items=='48'} class="active"@{endif}><a href="#" onclick="active(this)" name="48">48</a></li>
+                <li @{if model.items=='72'} class="active"@{endif}><a href="#" onclick="active(this)" name="72">72</a></li>
+                <li @{if model.items=='96'} class="active"@{endif}><a href="#" onclick="active(this)" name="96">96</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End Filters-->
+<section class="products">
+    @{foreach product in model.products}
+    <div class="product-item">
+        <div id="content_@{product.id}" class="product-item__main-content">
+            <span class="product-item__main-content_heart">
+                        <span class="heart"></span>
+            </span>
+            <span class="product-item__main-content_info" onclick="toggle_visibility(@{product.id})">
+                        <span class="info_img"></span>
+            </span>
+            <a href="/product/@{product.id}"><img src="@{product.title_img_src}"></a>
+            <hr />
+            <h4>@{product.name}</h4>
+            <h6>@{product.manufacturer}</h6>
+            <h5>@{product.price}</h5>
+            <h5>Снижение с @{product.discount}</h5>
+        </div>
+        <div id="description_@{product.id}" class="product-item__description">
+            <span class="product-item__main-content_close_info" onclick="toggle_visibility(@{product.id})">
+                            <img src="img/cross.png" />
+                        </span>
+            <h4>@{product.name}</h4>
+            <h6>@{product.manufacturer}</h6>
+            <p>@{product.description}</p>
+        </div>
+    </div>
+    @{end}
+</section>
+<!--End Products-->
+<div class="paging">
+    <ul>
+        <li><a href="#" id="paging__backward"></a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">...</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#" class="active">7</a></li>
+        <li><a href="#">8</a></li>
+        <li><a href="#">9</a></li>
+        <li><a href="#">...</a></li>
+        <li><a href="#">30</a></li>
+        <li><a href="#" id="paging__forward"></a></li>
+    </ul>
+</div>
+<!--End Paging-->

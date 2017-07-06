@@ -1,0 +1,200 @@
+footer{
+    background-color: #2a2a2a;
+    height: 315px;
+}
+
+.footer__logo{
+    float:left;
+    width:342px;
+    height:180px;
+    background: url(../img/logo-main.png) no-repeat center;
+}
+
+.footer__wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1380px;
+    margin: 0px auto 0px auto;
+    padding-top: 67px;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+    list-style-type: none;
+}
+
+footer li{
+    list-style-type: none;
+}
+
+.footer__products,
+.footer__contacts{
+    font-family: "Roboto Light", sans-serif;
+    font-size: 90%;
+    height: 180px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.footer__contacts{
+    height: 60px;
+}
+
+.footer__products li:hover a,
+.footer__contacts li:hover a{
+    border-bottom: 2px solid #ed1c24;
+}
+
+.footer__wrapper_right-section p{
+    font-family: "Roboto Light", sans-serif;
+    font-size: 35pt;
+    color: #e8ebef;
+    letter-spacing: 4px;
+    height: 50px;
+}
+
+.footer__wrapper_right-section p:first-child{
+    letter-spacing: 2px;
+}
+
+.footer__social{
+    display: flex;
+    width: 96px;
+    margin: 0px auto;
+}
+
+.footer__social a{
+    display: block;
+    z-index: 1;
+    min-width: 42px;
+    min-height: 42px;
+}
+
+.footer__social_instagram,
+.footer__social_facebook{
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-color: #454546;
+    width: 42px;
+    height: 42px;
+    background-position: center;
+    margin: 50px 3px 0px 3px;
+}
+
+.footer__social_instagram{
+    background-image: url(../img/insta.png);
+}
+
+.footer__social_instagram:hover{
+    background-image: url(../img/insta_hover.png);
+}
+
+.footer__social_facebook{
+    background-image: url(../img/face.png);
+}
+
+.footer__social_facebook:hover{
+    background-image: url(../img/face_hover.png);
+}
+
+.fulljustify {
+    text-align:justify;
+}
+
+.fulljustify:after {
+    content: "";
+    display: inline-block;
+    width: 100%;    
+}
+
+
+/*----------------------- Media ------------*/
+
+@media screen and (max-width: 1100px){
+    .footer__products,
+    .footer__contacts{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .footer__wrapper_right-section p{
+        font-size: 30pt;
+    }
+}
+
+@media screen and (max-width: 812px){
+    .footer__wrapper_right-section p{
+        font-size: 24pt;
+    }
+}
+
+@media screen and (max-width: 720px){
+    footer{
+        height: auto;
+    }
+
+    .footer__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1380px;
+        margin: 25px auto 0px auto;
+        padding-top: 10px;
+        position: relative;
+    }
+
+    .footer__logo{
+        width: 341px;
+        margin: auto;
+    }
+
+    .footer__products,
+    .footer__contacts{
+        width: 120px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .footer__contacts{
+        position: relative;
+        width: 120px;
+        margin-left: auto;
+        top: -180px;
+        text-align: right;
+    }
+
+    .footer__wrapper_right-section{
+        max-width: 360px;
+        margin: auto;
+        margin-top: 10px;
+    }
+
+    .footer__wrapper_right-section p{
+        font-size: 22pt;
+    }
+
+    .footer__social_instagram,
+    .footer__social_facebook{
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 359px){
+    .footer__logo{
+        width: 171px;
+        height: 90px;
+        background: url(../img/logo-main_tablet.png) no-repeat center;
+    }
+
+    .footer__wrapper_right-section p {
+        font-size: 12pt;
+        height: 16pt;
+    }
+}

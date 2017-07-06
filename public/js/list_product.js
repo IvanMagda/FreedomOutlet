@@ -96,3 +96,75 @@ NodeList.prototype.forEach = function (fn) {
 };
 
 HTMLCollection.prototype.forEach = NodeList.prototype.forEach;
+
+
+
+
+
+
+
+
+
+    $(window).resize(function () {
+        var search_box = $("#search_box");
+        var width = window.innerWidth;
+
+        if (width > 1100) {
+            $(".header__categories-nav").css("display", "flex");
+        }else{
+            $(".header__categories-nav").css("display", "none");
+        }
+
+        if (width > 560) {
+            search_box.css("display", "flex");
+        }else{
+            search_box.css("display", "none");
+            $(".header__categories-nav").css("display", "none");
+        }
+    });
+
+    $(document).ready(function () {
+        $(".mobile_menu").click(function () {
+            if (window.innerWidth > 560) {
+                $(".header__categories-nav").toggle();
+            } else {
+                $(".header__categories-nav").toggle();
+                $("#search_box").toggle();
+            }
+        });
+
+        $(".filters__select_type-btn").click(function () {
+            $(".filters__select_type ul").toggle();
+        });
+
+        $(".filters__select_quantity-btn").click(function () {
+            $(".filters__select_quantity ul").toggle();
+        });
+
+        $("#search_box").focus(function () {
+            $(".search__result").css("display", "block");
+        });
+
+        $("#search_box").focusout(function () {
+            $(".search__result").css("display", "none");
+        });
+
+        $(".sub-dir_box").toggle();
+
+        $(".header__categories-nav_list>li").click(function () {
+            $(this).find(".sub-dir_box").toggle();
+        });
+    });
+
+    function toggle_visibility(id) {
+        var content = document.getElementById("content_" + id);
+        var description = document.getElementById("description_" + id);
+        if (content.style.display === 'block' || content.style.display === '') {
+            content.style.display = 'none';
+            description.style.display = 'block';
+        }
+        else {
+            content.style.display = 'block';
+            description.style.display = 'none';
+        }
+    }
