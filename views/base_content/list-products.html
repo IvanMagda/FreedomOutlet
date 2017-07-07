@@ -19,7 +19,7 @@
                 @{if model.sort=='manufacturer'} Фабрике @{endif}
                 @{if model.sort=='price'} Цене @{endif}
             </button>
-            <ul>
+            <ul id="filterSort">
                 <li @{if model.sort=='name'} class="active"@{endif}><a href="#" onclick="active(this)" name="name">По умолчанию</a></li>
                 <li @{if model.sort=='manufacturer'} class="active"@{endif}><a href="#" onclick="active(this)" name="manufacturer">Фабрике</a></li>
                 <li @{if model.sort=='price'} class="active"@{endif}><a href="#" onclick="active(this)" name="price">Цене</a></li>
@@ -28,7 +28,7 @@
         <span>Показать</span>
         <div class="filters__select_quantity">
             <button class="filters__select_quantity-btn">@{model.items}</button>
-            <ul>
+            <ul id="filterNumber">
                 <li @{if model.items=='12'} class="active"@{endif}><a href="#" onclick="active(this)" name="12">12</a></li>
                 <li @{if model.items=='24'} class="active"@{endif}><a href="#" onclick="active(this)" name="24">24</a></li>
                 <li @{if model.items=='48'} class="active"@{endif}><a href="#" onclick="active(this)" name="48">48</a></li>
@@ -58,7 +58,7 @@
         </div>
         <div id="description_@{product.id}" class="product-item__description">
             <span class="product-item__main-content_close_info" onclick="toggle_visibility(@{product.id})">
-                            <img src="img/cross.png" />
+                            <img src="/img/cross.png" />
                         </span>
             <h4>@{product.name}</h4>
             <h6>@{product.manufacturer}</h6>
@@ -69,7 +69,7 @@
 </section>
 <!--End Products-->
 <div class="paging">
-    <ul>
+    <ul id="paging_ul">
         <li><a href="#" id="paging__backward"></a></li>
         <li><a href="#">1</a></li>
         <li><a href="#">...</a></li>
