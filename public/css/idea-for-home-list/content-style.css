@@ -393,3 +393,11 @@ a {
 .more-ideas-title:hover span{
     text-decoration-color: red;
 }
+
+.footer__wrapper_right-section p{
+    margin: 0px;
+}
+
+.footer__social{
+    padding: 0px;
+}

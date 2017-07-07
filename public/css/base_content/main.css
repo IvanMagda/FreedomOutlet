@@ -13,7 +13,7 @@ h2 {
     color: #3e4546;
     font-size: 24pt;
     letter-spacing: 2pt;
-    margin-top: 80px;
+    margin-top: 75px;
     margin-bottom: 30px;
 }
 
@@ -34,6 +34,7 @@ h2 {
 
 .contacts h2{
     margin-bottom: 45px;
+    margin-top: 90px;
 }
 
 h2:first-letter{
@@ -317,12 +318,12 @@ about__item_img div{
     width: 100%;
     max-width: 1375px;
     justify-content: space-between;
-    margin: 0px auto 30px auto;
+    margin: 0px auto 60px auto;
     font-size: 13pt;
 }
 
 .contacts__cities p{
-    margin: 60px 0px;
+    height: 145px;
     white-space: pre;
 }
 
@@ -533,6 +534,10 @@ form .feedback-button:hover{
     .contacts__cities div h4{
         padding-left: 15px;
         padding-right: 15px;
+    }
+
+    .contacts__cities p{
+        white-space: normal;
     }
 
     .contacts__cities div h4 {

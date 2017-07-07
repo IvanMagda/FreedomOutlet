@@ -25,6 +25,10 @@ $(document).ready(function () {
     });
     $('body,html').click(function (e) {
         $(".search__result").css("display", "none");
+        // ToDo fix display event
+        if ($('#main-headr__user-actions') !== 'undefined' && window.innerWidth < 950) {
+            $('#main-headr__user-actions').css("z-index", 1);
+        }
     });
 });
 
@@ -38,5 +42,9 @@ function showSearchResult(data) {
     if (data.length != 0) {
         $(".search__result").html(html_string);
         $(".search__result").css("display", "block");
+        // ToDo fix display event
+        if ($('#main-headr__user-actions') !== 'undefined' && window.innerWidth < 950) {
+            $('#main-headr__user-actions').css("z-index", 0);
+        }
     };
 };

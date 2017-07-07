@@ -225,3 +225,11 @@ a {
     margin-top: 3%;
     vertical-align: top;
 }
+
+.footer__wrapper_right-section p{
+    margin: 0px;
+}
+
+.footer__social{
+    padding: 0px;
+}

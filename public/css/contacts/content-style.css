@@ -360,3 +360,11 @@ height: 24px;
     padding-left: 49%;
     padding-top: 10px;
 }
+
+.footer__wrapper_right-section p{
+    margin: 0px;
+}
+
+.footer__social{
+    padding: 0px;
+}

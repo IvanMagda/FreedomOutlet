@@ -92,14 +92,14 @@
     display: inline-block;
     margin-top: 5%;
     color: #9ba3aa;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     font-size: 13px;
 }
 
 #login_modal .login-form .row2 label {
     display: flex;
     font-size: 17px;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     color: #2a2a2a;
     margin-top: 5%;
 }
@@ -124,7 +124,7 @@
     width:20px;
     outline:1px solid #939598;
     top:0;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
 }
 
 #login_modal input[type=checkbox] {
@@ -243,7 +243,7 @@
 #register_modal .register-form .row4 label {
     display: flex;
     font-size: 17px;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     color: #2a2a2a;
     margin-top: 5%;
 }
@@ -257,7 +257,7 @@
     display: inline-block;
     margin-top: 5%;
     color: #9ba3aa;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     font-size: 13px;
 }
 
@@ -277,7 +277,7 @@
     /*display: flex;*/
     /*flex-direction: row-reverse;*/
     /*font-size: 17px;*/
-    /*font-family: RobotoLight;*/
+    /*font-family: Roboto Light;*/
     /*color: #2a2a2a;*/
     /*margin-right: 3%;*/
 /*}*/
@@ -285,7 +285,7 @@
 #register_modal label {
     display: flex;
     font-size: 17px;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     color: #2a2a2a;
 }
 
@@ -331,7 +331,7 @@ input[type=checkbox] {
     width: 20px;
     outline: 1px solid #939598;
     top: 0;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     cursor: pointer;
 }
 
@@ -355,7 +355,7 @@ input[type="checkbox"] + label span {
     width: 20px;
     outline: 1px solid #939598;
     top: 0;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     margin-right: 10px;
     cursor:pointer;
 }
@@ -452,7 +452,7 @@ height: 24px;
     height: 57px;
     color: #2a2a2a !important;
     font-size: 1.1vw;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     text-align: center;
 }
 
@@ -470,7 +470,7 @@ height: 24px;
     height: 112px;
     margin-top: 10px;
     color: #2a2a2a !important;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
 
     text-align: center;
     text-align-last: center;
@@ -496,7 +496,7 @@ height: 24px;
     height: 65px;
     background: white;
     color: #2a2a2a;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     font-size: 1.1vw;
     box-shadow: none !important;
     margin-top: 5px
@@ -546,7 +546,7 @@ height: 24px;
     height: 57px;
     color: #2a2a2a !important;
     font-size: 1.1vw;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     text-align: center;
     width: 50%;
     margin-left: 5px;
@@ -563,7 +563,7 @@ height: 24px;
     height: 112px;
     margin-top: 10px;
     color: #2a2a2a !important;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     text-align: center;
     font-size: 1.1vw;
     resize: none;
@@ -579,7 +579,7 @@ height: 24px;
     height: 65px;
     background: white;
     color: #2a2a2a;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     font-size: 1.1vw;
     box-shadow: none !important;
     margin-top: 5px
@@ -603,7 +603,7 @@ height: 24px;
     height: 57px;
     color: #2a2a2a !important;
     font-size: 1.1vw;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     text-align: center;
 }
 
@@ -619,7 +619,7 @@ height: 24px;
 #validate_modal_Pass,
 #validate_modal_Reg,
 .validate_modal_Title {
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     color: red;
     visibility: hidden;
     /*display: none;*/ contact_us-form
@@ -690,14 +690,14 @@ height: 24px;
     height: 65px;
     background: white;
     color: #2a2a2a;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     font-size: 1.1vw;
     box-shadow: none !important;
     margin-top: 5px
 }
 
 .validateTitle {
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     color: red;
     visibility: hidden;
 }
@@ -736,7 +736,7 @@ input[name="reset_password"] {
     display: inline-block;
     margin-top: 5%;
     color: #9ba3aa;
-    font-family: RobotoLight;
+    font-family: Roboto Light;
     font-size: 13px;
     text-align: center;
 }

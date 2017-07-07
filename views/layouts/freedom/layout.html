@@ -12,6 +12,7 @@
     @{import('contacts.css')}
     @{import('user_cabinet.css')}
     @{import('search.js')}
+    @{import('parts/footer/footer.css')}
 
 </head>
 <body>
@@ -19,8 +20,6 @@
         @{view('layouts/freedom/header')}
     </div>
     @{body}
-    <div id="footer">
-        @{view('layouts/main/footer')}
-    </div>
+        @{view('parts/footer/footer')}
 </body>
 </html>

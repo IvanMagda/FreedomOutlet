@@ -82,6 +82,15 @@ header {
     padding-left: 10px;
 }
 
+.search__result {
+    top: 60px;
+}
+
+.search_holder {
+    width: 100%;
+    max-width: 245px;
+}
+
 #main-headr__user-actions {
     float: right;
     padding: 25px 0 0 0;
@@ -160,6 +169,7 @@ nav ul li a {
 
 #main-headr__user-actions nav{
     line-height: 20px;
+    margin-top: 5px;
 }
 
 #main-headr__user-actions nav ul li:first-child{
@@ -238,7 +248,7 @@ nav ul li a {
 
     #header__categories-nav ul li a:hover {
     border-bottom: none;
-}
+    }
 
     #header__about-nav{
         padding-right: 10px;
@@ -254,6 +264,10 @@ nav ul li a {
         position: absolute;
         width: 135px;
         background-color: #2a2a2a;
+    }
+
+    .search__result {
+        top: 50px;
     }
 }
 
@@ -319,8 +333,16 @@ nav ul li a {
         flex-direction: column;
     }
 
+    .search_holder{
+        max-width: 300px;
+    }
+
     #search_box{
         max-width: 300px;
+    }
+
+    .search__result {
+        top: 45px;
     }
 
     #main-header__middle-wrapper_bottom{

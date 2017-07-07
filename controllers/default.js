@@ -79,7 +79,7 @@ function view_product(product_id) {
                 see_also_prod = isLongArr(see_also_prod) ? shuffleAndCut(see_also_prod) : see_also_prod;
                 from_manufacturer = from_manufacturer.map(convertEURtoUAH);
                 see_also_prod = see_also_prod.map(convertEURtoUAH);
-                self.view('/product_card/product-card', {
+                self.view('/base_content/product-card', {
                     product: product,
                     breadcrumbs: breadcrumbs_mapping[product.category],
                     immages: img,

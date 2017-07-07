@@ -1,0 +1,128 @@
+@{layout('/layouts/product-card_layout')}
+<section class="path">
+    <ul>
+        <li><a href="/">Главная</a></li>
+        <li>/</li>
+        <li><a href="/products/@{model.product.category}">@{model.breadcrumbs}</a></li>
+        <li>/</li>
+        <li><a href="/manufacturer/@{model.product.manufacturer}">@{model.product.manufacturer}</a></li>
+    </ul>
+</section>
+<!--End Path-->
+<section class="product-card">
+    <div class="product-card__carousel-block">
+        <div class="product-card__carousel">
+            @{foreach img in model.immages}
+            <div class="product-card__carousel_img">
+                <img src="@{img.file}" />
+            </div>
+            @{end}
+        </div>
+        <span class="sliderInfo"></span>
+        <div class="product-card_description">
+            <h4>Описание</h4>
+            <p>@{model.product.description}</p>
+        </div>
+    </div>
+    <!--End Carousel-->
+    <div class="product-card__parametrs">
+        <h4 class="product-card__parametrs_name">@{model.product.name}</h4>
+        <h6 class="product-card__parametrs_manufacturer">@{model.product.manufacturer}</h6>
+        <h6 class="product-card__parametrs_country">@{model.product.manufacturer_country}</h6>
+        <h6 class="product-card__parametrs_series">@{model.product.series}</h6>
+        <h6 class="product-card__parametrs_dimensions">@{model.product.dimensions}</h6>
+        <h6 class="product-card__parametrs_price">@{model.product.price}</h6>
+        <h6 class="product-card__parametrs_discount">Снижение с @{model.product.discount}</h5>
+            @{if user !== null}
+            @{if user.role === 'admin'}
+                <a href="/products/update/@{model.product.id}">РЕДАКТИРОВАТЬ ПРОДУКТ</a>
+                @{else}
+                <a href="#offer_modal" class="open_modal">КУПИТЬ В ОДИН КЛИК</a>
+                @{fi}
+                @{else}
+                <a href="#offer_modal" class="open_modal">КУПИТЬ В ОДИН КЛИК</a> 
+             @{fi}
+            <div class="product-card__actions">
+                <a href="#" class="product-card__actions_3D"></a>
+                <p> Активно только для<br> зарегистрированых<br> пользователей<br></p>
+                <a href="#" class="product-card__actions_inst"></a>
+                <a href="#" class="product-card__actions_face"></a>
+                <a href="#" class="product-card__actions_pint"></a>
+            </div>
+            <h6 class="product-card__parametrs_info">Связаться с нами</h6>
+            <h6 class="product-card__parametrs_info">Наличие в магазинах</h6>
+            @{foreach avl in model.available}
+            <p>@{avl}</p>
+            <br />
+            @{end}
+    </div>
+</section>
+<!--End Product-Card-->
+@{if model.products_from_manufacturer.length > 1}
+<h2>Больше от этого производителя</h2>
+<section class="more">
+    @{foreach product in model.products_from_manufacturer}
+    @{if product.id == model.product.id}
+    @{else}
+    <div class="product-item">
+        <div id="content_@{product.id}" class="product-item__main-content">
+            <span class="product-item__main-content_heart">
+                <span class="heart"></span>
+            </span>
+            <span class="product-item__main-content_info" onclick="toggle_visibility(@{product.id})">
+                <span class="info_img"></span>
+            </span>
+            <a href="/product/@{product.id}"><img src="@{product.title_img_src}"></a>
+            <hr />
+            <h4>@{product.name}</h4>
+            <h6>@{product.manufacturer}</h6>
+            <h5>@{product.price}</h5>
+        </div>
+        <div id="description_@{product.id}" class="product-item__description">
+            <span class="product-item__main-content_close_info" onclick="toggle_visibility(@{product.id})">
+                <img src="/img/cross.png" />
+            </span>
+            <h4>@{product.name}</h4>
+            <h6>@{product.manufacturer}</h6>
+            <p>@{product.description}</p>
+        </div>
+    </div>
+    @{fi}
+    @{end}
+</section>
+<a href="/manufacturer/@{model.product.manufacturer}" class="all">Смотреть все</a>
+@{fi}
+<!--End More-->
+<h2>Вам так же понравится</h2>
+<div class="more-products__carousel">
+    <div class="more-products__carousel_item">
+        @{foreach product in model.see_also}
+        <div class="product-item_container">
+            <div class="product-item">
+                <div id="content_@{product.id}" class="product-item__main-content">
+                    <span class="product-item__main-content_heart">
+                        <span class="heart"></span>
+                    </span>
+                    <span class="product-item__main-content_info" onclick="toggle_visibility(@{product.id})">
+                        <span class="info_img"></span>
+                    </span>
+                    <a href="/product/@{product.id}"><img src="@{product.title_img_src}"></a>
+                    <hr />
+                    <h4>@{product.name}</h4>
+                    <h6>@{product.manufacturer}</h6>
+                    <h5>@{product.price}</h5>
+                </div>
+                <div id="description_@{product.id}" class="product-item__description">
+                    <span class="product-item__main-content_close_info" onclick="toggle_visibility(@{product.id})">
+                            <img src="/img/cross.png" />
+                        </span>
+                    <h4>@{product.name}</h4>
+                    <h6>@{product.manufacturer}</h6>
+                    <p>@{product.description}</p>
+                </div>
+            </div>
+        </div>
+        @{end}
+    </div>
+</div>
+<!--End Like-->

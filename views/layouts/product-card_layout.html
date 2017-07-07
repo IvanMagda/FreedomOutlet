@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="img/favicon.ico" />
 
+
     @{import('jquery-3.2.0.min.js')}
 
     @{import('global/global.css')}
@@ -16,20 +18,25 @@
     @{import('global/search.css')}
     @{import('parts/headers/header_compact.css')}
     @{import('parts/footer/footer.css')}
-    @{import('base_content/list-products.css')}
+    @{import('global/product-item.css')}
+    @{import('slick-1.6.0/slick/slick.css')}
+    @{import('slick-1.6.0/slick/slick-theme.css')}
+    @{import('slick-1.6.0/slick/slick.min.js')}
+    @{import('base_content/product-card.css')}
 
-    @{import('modal.css')}
-    @{import('list_product.js')}
-    @{import('modal.js')}
+    @{import('product_card.js')}
     @{import('jquery.maskedinput.js')}
     @{import('search.js')}
     @{import('favorites.js')}
+    @{import('modal.js')}
+    @{import('modal.css')}
 </head>
-
 <body>
     <div id="overlay"></div>
     @{view('modal/login')}
     @{view('modal/reset_password')}
+    @{view('modal/contact_us')}
+    @{view('modal/offer')}
 
         @{view('parts/headers/header_compact')}
         @{body}
