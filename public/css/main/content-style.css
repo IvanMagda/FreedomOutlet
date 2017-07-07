@@ -131,11 +131,11 @@ body {
     border-bottom: 2px solid red;
 }
 
-.item .img-cont {
+.item .item-cont {
     display: inline-block;
     height: 11vw;
     width: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .gallery .item span {
