@@ -107,6 +107,7 @@ body {
 .new-carousel .item img {
     width: 100%;
     height: 100%;
+    padding-bottom: 20px;
 }
 
 .slick-dots li button:before {
@@ -160,7 +161,7 @@ body {
 }
 
 .gallery .title-new-product {
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     padding-top: 20px;
     border-top: 2px solid #e8ebef;
 }
