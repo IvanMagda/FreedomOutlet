@@ -16,40 +16,42 @@
         <div class="main-page-carousel new-carousel">
             @{foreach product in model.products}
             <div class="item">
-
-                <a class="img-cont" href="/product/@{product.id}"><img src="@{product.title_img_src}" alt="Image 1"></a>
-                <div class="gallery-icon-heart">
-                    <img class="gallery-icon-heart-img" src="img/heart-1.png">
-                    <img class="gallery-icon-heart2-img" src="img/heart-2.png" onclick="favoriteActions(@{product.id}, this)" onload="markSelected(@{product.id}, this)">
-                </div>
-                <div class="gallery-icon-info">
-                    <img class="gallery-icon-info-img" src="img/new-carousel/info-icon.png" onclick="info_tile(this)">
-                    <img class="gallery-icon-info2-img" src="img/new-carousel/info-icon-2.png" onclick="info_tile(this)">
-                </div>
-                <div class="title-new-product">
-                    <span class="tit">@{product.name}</span>
-                    <br>
-                    <span class="vendor">@{product.manufacturer}</span>
-                    <br>
-                    <br>
-                    <span class="price">@{product.price} UAH</span>
-                </div>
-                <div class="product-info">
-                    <div class="title-info">
+                <a class="item-cont" href="/product/@{product.id}">
+                    <img src="@{product.title_img_src}" alt="Image 1">
+                    <div class="gallery-icon-heart">
+                        <img class="gallery-icon-heart-img" src="img/heart-1.png">
+                        <img class="gallery-icon-heart2-img" src="img/heart-2.png" onclick="favoriteActions(@{product.id}, (this)" onload="markSelected(@{product.id}, (this)">
+                    </div>
+                    <div class="gallery-icon-info">
+                        <img class="gallery-icon-info-img" src="img/new-carousel/info-icon.png" onclick="info_tile(this)">
+                        <img class="gallery-icon-info2-img" src="img/new-carousel/info-icon-2.png" onclick="info_tile(this)">
+                    </div>
+                    <div class="title-new-product">
                         <span class="tit">@{product.name}</span>
                         <br>
                         <span class="vendor">@{product.manufacturer}</span>
-                        <div class="cross">
-                            <img class="simple cross-img" src="img/cross.png" onclick="close_info(this)">
-                            <!--<img class="border cross-img" src="img/cross-border.png">-->
+                        <br>
+                        <br>
+                        <span class="price">@{product.price} UAH</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="title-info">
+                            <span class="tit">@{product.name}</span>
+                            <br>
+                            <span class="vendor">@{product.manufacturer}</span>
+                            <div class="cross">
+                                <img class="simple cross-img" src="img/cross.png" onclick="close_info(this)">
+                                <!--<img class="border cross-img" src="img/cross-border.png">-->
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>
+                                @{product.description}
+                            </p>
                         </div>
                     </div>
-                    <div class="content">
-                        <p>
-                            @{product.description}
-                        </p>
-                    </div>
-                </div>
+                </a>
+
             </div>
             @{end}
         </div>

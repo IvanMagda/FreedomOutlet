@@ -622,7 +622,7 @@ height: 24px;
     font-family: Roboto Light;
     color: red;
     visibility: hidden;
-    /*display: none;*/ contact_us-form
+    /*!*display: none;*! contact_us-form*/
 }
 
 .modal_reg #validate_modal_Global,
@@ -714,7 +714,7 @@ height: 24px;
 
 input[name="reset_password"] {
     width: 80%;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 .reset_button {
