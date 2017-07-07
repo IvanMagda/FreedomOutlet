@@ -335,10 +335,14 @@ nav ul li a {
 
     .search_holder{
         max-width: 300px;
+        height: 30px;
     }
 
     #search_box{
         max-width: 300px;
+        display: block;
+        margin-right: 5px;
+        margin-top: 0px;
     }
 
     .search__result {
@@ -359,7 +363,7 @@ nav ul li a {
 
     #main-headr__user-actions{
         position: relative;
-        top: -155px;
+        top: -161px;
         left: 0;
         padding-top: 30px;
         z-index: 1;
@@ -375,6 +379,10 @@ nav ul li a {
         border-right: 1px solid white;
         margin-right: 5px;
         padding-right: 5px;
+    }
+
+    #main-headr__user-actions nav{
+        margin-top: 0px;
     }
 
     .main-headr__user-actions_phone{

@@ -67,6 +67,21 @@ $(document).ready(function () {
         $("#main-header__middle-wrapper").toggleClass("display_flex");
         $("#main-headr__user-actions").toggleClass("display_flex");
     });
+
+    var categories = $("#main-header__middle-wrapper_bottom");
+    var width = window.innerWidth;
+
+    if (width < 950 || width > 1120) {
+        categories.css("display", "flex");
+    } else {
+        if (width > 950 && width < 1121)
+            categories.css("display", "none");
+    }
+
+    if (width > 950) {
+        $("#main-header__middle-wrapper").removeClass("display_flex");
+        $("#main-headr__user-actions").removeClass("display_flex");
+    }
 });
 
 function toggle_visibility(id) {
