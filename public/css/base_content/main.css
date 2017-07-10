@@ -323,7 +323,7 @@ about__item_img div{
 }
 
 .contacts__cities p{
-    height: 145px;
+    height: 180px;
     white-space: pre;
 }
 
@@ -377,7 +377,11 @@ form .feedback-input{
     height: 60px;
     margin-bottom: 5px;
     text-align: center;
-    outline-color: #2a2a2a;
+}
+
+form .feedback-input:focus,
+form .feedback-textarea:focus{
+    outline:1px solid #2a2a2a;
 }
 
 form .feedback-input:first-child{
@@ -392,7 +396,7 @@ form .feedback-textarea{
     height: 100px;
     text-align: center;
     text-align-last: center;
-    line-height: 15pt;
+    line-height: 14pt;
     outline-color: #2a2a2a;
 }
 
@@ -410,7 +414,7 @@ form .feedback-textarea:-ms-input-placeholder{
 }
 
 form .feedback-textarea:focus{
-    line-height: 15pt;
+    line-height: 17pt;
 }
 
 form .feedback-button{

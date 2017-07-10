@@ -1,0 +1,257 @@
+#overlay {
+    z-index: 7;
+    position: fixed;
+    background-color: #000;
+    opacity: 0.8;
+    -moz-opacity: 0.8;
+    filter: alpha(opacity=80);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    display: none;
+}
+
+.modal-container{
+    border: 3px #000 solid;
+    background: #fff;
+    position: fixed;
+    width: 100%;
+    max-width: 790px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    opacity: 0;
+    z-index: 8;
+    padding: 20px 0px;
+    flex-direction: column;
+}
+
+.modal-container form{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-container_close{
+    transform: translateY(-87px);
+    width: 32px;
+    height: 32px;
+    margin-left: auto;
+}
+
+.modal-container_close img{
+    border: 1px solid transparent;
+    padding: 3px 2px 3px 2px;
+    cursor: pointer;
+}
+
+.modal-container_close img:hover{
+    border: 1px solid #595657;
+}
+
+.modal-container h2{
+    margin-top: 0px;
+    margin-bottom: 16px;
+}
+.modal-container h2::after{
+    margin: 15pt auto 0pt auto;
+}
+
+.log-form_inputs{
+    display: flex;
+    margin: 0px;
+    width: 100%;
+    justify-content: center;
+}
+
+.modal-input{
+    border: 1px solid #2a2a2a;
+    width: 345px;
+    height: 60px;
+    text-align: center;
+    font-family: "Roboto Light", sans-serif;
+    font-size: 15pt;
+    margin: 0px 5px;
+}
+
+.modal-input:focus{
+    outline: 1px solid #2a2a2a;
+}
+
+.modal-button{
+    margin: 0px auto;
+    height: 60px;
+    width: 100%;
+    max-width: 310px;
+    background-color: white;
+    border: 1px solid #2a2a2a;
+    font-family: "Roboto Light", sans-serif;
+    font-size: 15pt;
+    margin-top: 20px;
+}
+
+.modal-button:hover{
+    background-color: #2a2a2a;
+    color: white;
+}
+
+.custom-check,
+.custom-radio{
+    display: none;
+}
+
+.custom-check_label,
+.custom-radio_label{
+    font-family: "Roboto Light", sans-serif;
+    width: 100%;
+    max-width: 310px;
+    margin: auto;
+    position: relative;
+    margin-top: 21px;
+}
+.custom-radio_label{
+    margin: 10px 5px;
+}
+
+.custom-check_label::before,
+.custom-radio_label:nth-child(2)::after,
+.custom-radio_label:nth-child(4)::before{
+    content: "";
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #5f5f5f;
+    margin-right: 15px;
+}
+.custom-radio_label:nth-child(2)::after{
+    margin-right: 0px;
+    margin-left: 15px;
+}
+.custom-radio_label:nth-child(2){
+    text-align: end;
+}
+
+.custom-check:checked + .custom-check_label::after,
+.custom-radio:checked + .custom-radio_label:nth-child(2)::before,
+.custom-radio:checked + .custom-radio_label:nth-child(4)::after{
+    content: "";
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    vertical-align: middle;
+    background: url(../../../img/check.png) no-repeat center;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+}
+.custom-radio:checked + .custom-radio_label:nth-child(2)::before{
+    left: unset;
+    right: 0px;
+}
+
+.modal-container a.open_modal{
+    font-family: "Roboto Light", sans-serif;
+    width: 100%;
+    max-width: 310px;
+    margin: auto;
+    text-decoration: none;
+    color: #9ba3aa;
+    margin-top: 18px;
+}
+
+/*End Login*/
+
+.reg-form_inputs,
+.mail-form_inputs{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.reg-form_inputs .modal-input{
+    margin: 4px;
+}
+
+.role-holder{
+    display: flex;
+    justify-content: center;
+}
+
+/*End Register*/
+
+#reset_password_modal{
+    z-index: 9;
+}
+
+.reset_help{
+    font-family: "Roboto Light", sans-serif;
+    color: #9ba3aa;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+#reset-form .modal-input{
+    margin: auto;
+    width: 100%;
+    max-width: 435px;
+}
+
+#reset-form button{
+    margin-top: 55px;
+}
+
+/*Offer*/
+
+.modal-textarea{
+    border: 1px solid #2a2a2a;
+    width: 700px;
+    height: 100px;
+    text-align: center;
+    font-family: "Roboto Light", sans-serif;
+    font-size: 15pt;
+    margin: 5px 5px 0px 5px;
+    text-align: center;
+    text-align-last: center;
+    line-height: 14pt;
+    outline-color: #2a2a2a;
+    resize: none;
+}
+
+.modal-textarea:focus{
+    outline: 1px solid #2a2a2a;
+}
+
+#mail-form button,
+#contact-form button{
+    margin-top: 30px;
+}
+
+form .modal-textarea::-webkit-input-placeholder{
+    line-height: 75pt;
+}
+form .modal-textarea:-moz-placeholder{
+    line-height: 75pt;
+}
+form .modal-textarea::-moz-placeholder{
+    line-height: 75pt;
+}
+form .modal-textarea:-ms-input-placeholder{
+    line-height: 75pt;
+}
+
+form .modal-textarea:focus{
+    line-height: 17pt;
+}
+
+/*#offer_modal h2,
+#contact_us_modal h2{
+    margin-bottom: 25px;
+}*/
+
+#offer_modal .modal-container_close,
+#contact_us_modal .modal-container_close {
+    transform: translateY(-105px);
+}

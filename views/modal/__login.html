@@ -1,0 +1,33 @@
+<div id="login_modal" class="modal_div">
+    <span class="modal_close">
+        <img class="simple cross-img" src="@{import('cross.png')}">
+    </span>
+    <div class="login_modal__title-container">
+        <div class="login_modal__title-cont">
+            <span class="login_modal__title-text">Вход</span>
+            <div class="login_modal__title-border"></div>
+        </div>
+    </div>
+
+
+    <div class="login-form">
+        <form id="log-form" action="/authorization" method="post" name="login_Form" onsubmit="return validate_login_Form()">
+            <div class="validateTitle">*Обязательно</div>
+            <div class="row1">
+                <input class="neat-input" type="email" name="email" placeholder="E-mail" />
+                <input class="neat-input" type="password" name="pass" placeholder="Пароль" />
+            </div>
+            <div class="validateTitle">*Обязательно</div>
+            <div class="row2">
+                <div>
+                    <button class="neat-button" type="submit">Войти</button>
+                    <input id="remember-me-login" type="checkbox" name="auto_login">
+                    <label for="remember-me-login">
+                        <span></span>Запомнить меня
+                    </label>
+                    <a href="#reset_password_modal" class="open_modal">Забыли пароль?</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

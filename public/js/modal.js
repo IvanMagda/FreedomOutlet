@@ -2,16 +2,17 @@ $(document).ready(function () {
 
     var overlay = $('#overlay');
     var open_modal = $('.open_modal');
-    var close = $('.modal_close, #overlay');
-    var modal = $('.modal_div');
+    var close = $('.modal-container_close, #overlay');
+    var modal = $('.modal-container');
 
     open_modal.click(function (event) {
         event.preventDefault();
         var div = $(this).attr('href');
+        if(div == "#reset_password_modal"){modal.css('display', 'none');}
         overlay.fadeIn(400,
             function () {
                 $(div)
-                    .css('display', 'block')
+                    .css('display', 'flex')
                     .animate({ opacity: 1, top: '50%' }, 200);
             });
     });
@@ -31,8 +32,8 @@ $(document).ready(function () {
         $("#tel, #tel2,#tel_register").mask("+38(999) 999 99 99");
     });
 
-    $('#reset_password_modal').css('width', $("#login_modal").width());
-    $('#reset_password_modal').css('height', $("#login_modal").height());
+    // $('#reset_password_modal').css('width', $("#login_modal").width());
+    // $('#reset_password_modal').css('height', $("#login_modal").height());
 });
 
 function logout() {

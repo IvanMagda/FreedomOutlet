@@ -1,46 +1,12 @@
-<div id="contact_us_modal" class="modal_div">
-    <span class="modal_close">
-        <img class="simple cross-img" src="@{import('cross.png')}">
-    </span>
-    <div class="contact_us_modal__title-container">
-        <div class="contact_us_modal__title-cont">
-            <span class="contact_us_modal__title-text">Свяжитесь с нами</span>
-            <div class="contact_us_modal__title-border"></div>
+<div id="contact_us_modal" class="modal-container">
+    <h2>Свяжитесь с нами</h2>
+    <span class="modal-container_close"><img src="@{import('cross.png')}"></span>
+     <form id="contact-form" action="/mail/send" method="post" name="contact_us_modal_Form" onsubmit="return validate_contact_us_modal_Form()">
+        <div class="mail-form_inputs">
+            <input class="modal-input" type="text" name="name" placeholder="ИМЯ" value="" />
+            <input id="tel2" class="modal-input" type="text" name="phone" placeholder="+38 (000) 000 00 00" value="" />
+            <textarea class="modal-textarea" name="message" placeholder="СООБЩЕНИЕ" value=""></textarea>
         </div>
-    </div>
-
-
-    <div class="contact_us-form">
-        <div class="form">
-            <form id="mail-form" action="/mail/send" method="post" name="contact_us_modal_Form" onsubmit="return validate_contact_us_modal_Form()">
-                <div id="validate_modal_contact_us_Global">*Обязательно</div>
-                <div class="row1">
-                    <input class="neat-input" type="text" name="name" placeholder="ИМЯ" value="" />
-                    <div id="validate_modal_contact_us_Name">*</div>
-                    <input id="tel2" class="neat-input" type="text" name="phone" placeholder="+38 (000) 000 00 00" value="" />
-                    <div id="validate_modal_contact_us_Phone">*</div>
-                </div>
-                <div class="row2">
-                    <div id="validate_modal_contact_us_Message">*</div>
-                    <textarea class="neat-textarea" name="message" placeholder="&#013;&#010;&#013;&#010;СООБЩЕНИЕ" value=""></textarea>
-                </div>
-                <div class="row3">
-                    <button id="mail-send" class="neat-button" type="submit">ОТПРАВИТЬ СООБЩЕНИЕ</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-
-
-        <!--<div class="contact_us-form">-->
-        <!--<form id="log-form" action="/authorization" method="post" name="countact_us_Form">-->
-            <!--<div class="validateTitle">*Обязательно</div>-->
-            <!--<div class="row1">-->
-                <!--<input class="neat-input" type="text" name="email" placeholder="E-mail" />-->
-                <!--<input class="neat-input" type="password" name="pass" placeholder="Пароль" />-->
-            <!--</div>-->
-            <!--<div class="validateTitle">*Обязательно</div>-->
-        <!--</form>-->
-    <!--</div>-->
+        <button class="modal-button" type="submit">ОТПРАВИТЬ СООБЩЕНИЕ</button>
+    </form>
 </div>
