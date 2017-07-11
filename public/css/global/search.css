@@ -9,11 +9,12 @@
     max-width: 200px;
     float: right;
     z-index: 3;
+    text-indent: 10px;
 }
 
 #search_box::-webkit-input-placeholder { 
     color: #000;
-    padding-left: 10px;
+    padding-left: 0px;
 }
 
 .search_holder{

@@ -133,6 +133,10 @@ h6{
     cursor: pointer;
 }
 
+.product-item__description p{
+    font-family: 'Roboto Light', sans-serif;
+}
+
 @media screen and (max-width: 1377px){
     .product-item{
         max-width: 300px;

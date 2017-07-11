@@ -110,17 +110,8 @@ $(document).ready(function () {
         }
     });
 
-
-
-    $('.header__categories-nav_list>li').click(function (e) {
-        e.stopPropagation();
-        $(this).find(".sub-dir_box").toggleClass("visible-sub");
-    });
-    $('.sub-dir_box').click(function (e) {
-        e.stopPropagation();
-    });
-
     $('.filters__select_type-btn').click(function (e) {
+        $('.filters__select_quantity ul').css("display", "none");
         e.stopPropagation();
         $(".filters__select_type ul").toggle();
     });
@@ -129,6 +120,7 @@ $(document).ready(function () {
     });
 
     $('.filters__select_quantity-btn').click(function (e) {
+        $('.filters__select_type ul').css("display", "none");
         e.stopPropagation();
         $(".filters__select_quantity ul").toggle();
     });
@@ -140,7 +132,6 @@ $(document).ready(function () {
     $('body,html').click(function (e) {
         $('.filters__select_quantity ul').css("display", "none");
         $('.filters__select_type ul').css("display", "none");
-        $('.sub-dir_box').removeClass('visible-sub');
     });
 });
 

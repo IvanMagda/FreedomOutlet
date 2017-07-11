@@ -59,6 +59,10 @@ h5::after{
     margin-bottom: 15px;
 }
 
+.product-item__description p{
+    font-family: 'Roboto Light', sans-serif;
+}
+
 /*End Global*/
 
 .path{
@@ -409,7 +413,6 @@ h5::after{
         margin-top: 5px;
         margin-bottom: 12px;
     }
-
 }
 
 @media screen and (max-width: 1050px){

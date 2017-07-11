@@ -76,11 +76,12 @@ header {
     width: 100%;
     max-width: 245px;
     z-index: 1;
+    text-indent: 10px;
 }
 
 #search_box::-webkit-input-placeholder { 
     color: #000;
-    padding-left: 10px;
+    padding-left: 0px;
 }
 
 .search__result{
@@ -126,7 +127,7 @@ nav ul li a {
     color: #ed1c24;
 }
 
-#header__categories-nav ul li a:hover {
+.header__categories-nav_list>li a:hover {
     padding-bottom: 21px;
     border-bottom: 4px solid #ed1c24;
 }
@@ -159,6 +160,13 @@ nav ul li a {
     width: 100%;
     max-width: 245px;
     margin-top: 20px;
+}
+
+.sub-dir_box.chandelier {
+    transform: translate(-456px, 24px);
+}
+.sub-dir_box.sanitary{
+    transform: translate(-408px, 24px);
 }
 
 /*----------------------- Media ------------*/
@@ -220,16 +228,16 @@ nav ul li a {
         padding-top: 5px;
     }
 
-    #header__categories-nav ul li{
+    .header__categories-nav_list>li{
         padding-left: 10px;
         border-left: 4px solid transparent;
     }
 
-    #header__categories-nav ul li:hover{
+    .header__categories-nav_list>li:hover{
         border-left: 4px solid #ed1c24;
     }
 
-    #header__categories-nav ul li a:hover {
+    .header__categories-nav_list>li a:hover {
     border-bottom: none;
 }
 
@@ -376,12 +384,12 @@ nav ul li a {
     top:35px;
     }
 
-    #header__categories-nav ul li a{
+    .header__categories-nav_list>li a{
         padding-left: 5px;
         border-left: 4px solid transparent;
     }
 
-    #header__categories-nav ul li a:hover {
+    .header__categories-nav_list>li a:hover {
         padding-bottom: 0px;
         border-left: 4px solid #ed1c24;
         border-bottom: 0px solid transparent;
