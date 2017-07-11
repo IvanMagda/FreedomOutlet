@@ -14,7 +14,6 @@
 }
 
 .modal-container{
-    border: 3px #000 solid;
     background: #fff;
     position: fixed;
     width: 100%;
@@ -35,7 +34,7 @@
 }
 
 .modal-container_close{
-    transform: translateY(-87px);
+    transform: translateY(-86px);
     width: 32px;
     height: 32px;
     margin-left: auto;
@@ -53,9 +52,16 @@
 
 .modal-container h2{
     margin-top: 0px;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+
+#offer_modal h2,
+#contact_us_modal h2{
     margin-bottom: 16px;
 }
-.modal-container h2::after{
+#offer_modal h2::after,
+#contact_us_modal h2::after{
     margin: 15pt auto 0pt auto;
 }
 
@@ -80,6 +86,27 @@
     outline: 1px solid #2a2a2a;
 }
 
+.modal-input.invalid,
+.modal-textarea.invalid{
+    background-image: url(../../../img/star.png);
+    background-position-x: calc(100% - 5px);
+    background-position-y: calc(5px);
+    background-repeat: no-repeat;
+    border-color: #f00;
+}
+
+div[class*="form_inputs"].invalid::after {
+    content: "* Обязательно";
+    color: #f00;
+    font-family: "Roboto Light", sans-serif;
+    font-size: 12pt;
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    transform: translateY(-25pt);
+    font-style: italic;
+}
+
 .modal-button{
     margin: 0px auto;
     height: 60px;
@@ -89,7 +116,7 @@
     border: 1px solid #2a2a2a;
     font-family: "Roboto Light", sans-serif;
     font-size: 15pt;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .modal-button:hover{
@@ -112,7 +139,7 @@
     margin-top: 21px;
 }
 .custom-radio_label{
-    margin: 10px 5px;
+    margin: 10px 5px 0px 5px;
 }
 
 .custom-check_label::before,
@@ -165,7 +192,8 @@
 /*End Login*/
 
 .reg-form_inputs,
-.mail-form_inputs{
+.mail-form_inputs,
+.offer-form_inputs{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -178,6 +206,17 @@
 .role-holder{
     display: flex;
     justify-content: center;
+}
+
+.checkbox-info{
+    font: 10pt "Roboto Light", sans-serif;
+    width: 100%;
+    max-width: 340px;
+    margin: 0px 0px 0px auto;
+    color: #9ba3aa;
+    justify-content: flex-start;
+    display: flex;
+    font-style: italic;
 }
 
 /*End Register*/
@@ -207,7 +246,7 @@
 
 .modal-textarea{
     border: 1px solid #2a2a2a;
-    width: 700px;
+    width: 702px;
     height: 100px;
     text-align: center;
     font-family: "Roboto Light", sans-serif;

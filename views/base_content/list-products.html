@@ -44,7 +44,7 @@
     <div class="product-item">
         <div id="content_@{product.id}" class="product-item__main-content">
             <span class="product-item__main-content_heart">
-                        <span class="heart"></span>
+                        <span class="heart" onclick="favoriteActions(@{product.id}, this)" onload="markSelected(@{product.id}, this)"></span>
             </span>
             <span class="product-item__main-content_info" onclick="toggle_visibility(@{product.id})">
                         <span class="info_img"></span>

@@ -217,7 +217,7 @@ h5::after{
 }
 
     .product-item__main-content_heart .heart:hover,
-    .heart .selected{
+    .heart.selected{
         background: url(../../img/product/heart-hover.png) no-repeat center;
     }
 

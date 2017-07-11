@@ -13,7 +13,7 @@
                 <div class="product-item">
                     <div id="content_@{product.id}" class="product-item__main-content">
                         <span class="product-item__main-content_heart">
-                        <span class="heart"></span>
+                        <span class="heart" onclick="favoriteActions(@{product.id}, this)" onload="markSelected(@{product.id}, this)"></span>
                         </span>
                         <span class="product-item__main-content_info" onclick="toggle_visibility(@{product.id})">
                         <span class="info_img"></span>
@@ -178,7 +178,7 @@
 <!--End Map-->
 <section class="feedback">
     <h2>СВЯЖИТЕСЬ С НАМИ</h2>
-    <form id="mail-form" action="/mail/send" method="post" name="mailForm" onsubmit="return validateForm()">
+    <form id="mail-form" action="/mail/send" method="post" name="mailForm" onsubmit="return validate_mail_Form()">
         <input class="feedback-input" type="text" name="name" placeholder="ИМЯ" value="" />
         <input id="tel" class="feedback-input" type="text" name="phone" placeholder="+38 (000) 000 00 00" value="" />
         <textarea class="feedback-textarea" name="message" placeholder="СООБЩЕНИЕ" value=""></textarea>

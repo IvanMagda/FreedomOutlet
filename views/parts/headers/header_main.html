@@ -40,6 +40,7 @@
                     @{if user !== null}
                     <li><a href="/user/@{user.login}/">@{user.login}</a></li>
                     <li><a href="#" onclick="logout()">Выйти</a></li>
+                    <input id="user_id" type="hidden" value="@{user.id}" />
                     @{else}
                     <li><a href="#login_modal" class="open_modal">Войти</a></li>
                     <li><a href="#register_modal" class="open_modal">Регистрация</a></li>

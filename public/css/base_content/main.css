@@ -369,6 +369,7 @@ about__item_img div{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    position: relative;
 }
 
 form .feedback-input{
@@ -377,6 +378,27 @@ form .feedback-input{
     height: 60px;
     margin-bottom: 5px;
     text-align: center;
+}
+
+form .feedback-input.invalid,
+form .feedback-textarea.invalid{
+    background-image: url(../../../img/star.png);
+    background-position-x: calc(100% - 5px);
+    background-position-y: calc(5px);
+    background-repeat: no-repeat;
+    border-color: #f00;
+}
+
+#mail-form.invalid::after {
+    content: "* Обязательно";
+    color: #f00;
+    font-family: "Roboto Light", sans-serif;
+    font-size: 12pt;
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    transform: translateY(-25pt);
+    font-style: italic;
 }
 
 form .feedback-input:focus,

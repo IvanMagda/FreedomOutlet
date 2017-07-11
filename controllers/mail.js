@@ -7,6 +7,7 @@ exports.install = function () {
 
 function redirect_mail() {
     var self = this;
+    console.log(this.body);
 
     // Function is reading view /temp/mail_template which is a template for mail
     // The first parameter specifies the address to which it is necessary to send

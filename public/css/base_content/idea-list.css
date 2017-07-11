@@ -1,0 +1,404 @@
+@font-face {
+    font-family: RobotoLight;
+    src: url(../fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: Roboto-ThinItalic;
+    src: url(../fonts/Roboto/Roboto-ThinItalic.ttf); /* Путь к файлу со шрифтом */
+}
+
+
+@font-face {
+    font-family: Roboto-Medium;
+    src: url(../fonts/Roboto/Roboto-Medium.ttf); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: RobotoSlab-Light;
+    src: url(../fonts/Roboto/RobotoSlab-Light.ttf); /* Путь к файлу со шрифтом */
+}
+
+
+
+
+body {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: #e8ebef;
+}
+
+#content {
+    position: relative;
+    margin-top: 2%;
+    margin-left: 7%;
+    margin-right: 7%;
+    min-width: 900px;
+}
+
+
+.list-ideas .main-ideas {
+    position: relative;
+    height: 41.15vw;
+}
+
+.list-ideas .main-ideas img {
+    width: 100%;
+    position: absolute;
+    z-index: -2;
+}
+
+.list-ideas .main-ideas .cont {
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    left: 9%;
+}
+
+.list-ideas .main-ideas .cont .main-title {
+    position: absolute;
+    z-index: 5;
+    color: white;
+    font-family: RobotoSlab-Light;
+    font-size: 3vw;
+    top: 13%;
+}
+
+.list-ideas .main-ideas .cont .cont-idea {
+    position: absolute;
+    top: 40%;
+    width: 50%;
+    height: 60%
+}
+
+.list-ideas .main-ideas .cont .cont-idea .title {
+    position: absolute;
+    z-index: 5;
+    color: white;
+    font-family: RobotoLight;
+    font-size: 2.5vw;
+    top: 0;
+}
+
+.list-ideas .main-ideas .cont .cont-idea .text{
+    position: absolute;
+    z-index: 5;
+    color: white;
+    font-family: RobotoLight;
+    font-size: 1.1vw;
+    top: 30%;
+}
+
+.list-ideas .main-ideas .cont .cont-idea .button {
+    position: absolute;
+    bottom: 30%;
+}
+
+.list-ideas .main-ideas .cont .cont-idea .button a {
+    position: absolute;
+    z-index: 5;
+    color: white;
+    font-family: RobotoLight;
+    font-size: 1.5vw;
+    bottom: 30%;
+    white-space: nowrap;
+}
+
+.list-ideas .main-ideas .cont .cont-idea .button .border {
+    visibility: hidden;
+    border-bottom: 2px solid white;
+    margin-bottom: 10px;
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    bottom: -1vw;
+    left: 0;
+}
+
+.list-ideas .main-ideas .cont .cont-idea .button {
+    cursor: pointer;
+}
+
+.list-ideas .main-ideas .cont .cont-idea .button:hover .border {
+    visibility: visible;
+}
+
+.list-ideas .main-ideas .dark-layer {
+    z-index: -1;
+    opacity: 0.3;
+    background: black;
+    /* width: 100%; */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.list-ideas .another-ideas {
+    /*outline: 1px solid red;*/
+    height: 70vw;
+    position: relative;
+    margin-bottom: 5%;
+}
+
+.another-ideas .idea-item {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    /*outline: 1px solid red;*/
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.another-ideas .idea-item img {
+    position: absolute;
+    z-index: -2;
+}
+
+.another-ideas .idea-item .img-1,
+.another-ideas .idea-item .img-4,
+.another-ideas .idea-item .img-5 {
+    width: 100%;
+}
+
+.another-ideas .idea-item .img-2,
+.another-ideas .idea-item .img-3,
+.another-ideas .idea-item .img-6 {
+    height: 100%;
+}
+
+.another-ideas .idea-item .title,
+.another-ideas .idea-item .text {
+    z-index: 5;
+    font-family: RobotoLight;
+    color: white;
+    text-align: center;
+}
+
+.another-ideas .idea-item .button a span {
+    z-index: 5;
+    font-family: RobotoLight;
+    color: white;
+    text-align: center;
+}
+
+.another-ideas .idea-item .title {
+    font-size: 2vw;
+}
+
+.another-ideas .idea-item .text {
+    font-size: 1.1vw;
+}
+
+.another-ideas .idea-item .button a {
+    font-size: 1.5vw;
+    position: relative;
+    cursor: pointer;
+}
+
+.another-ideas .idea-item .dark-layer {
+    z-index: -1;
+    opacity: 0.3;
+    background: black;
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+}
+
+.another-ideas .idea-item .button a .border {
+    visibility: hidden;
+    border-bottom: 2px solid white;
+    /*margin-bottom: 10px;*/
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+}
+
+.another-ideas .idea-item .button:hover .border {
+    visibility: visible;
+}
+
+.img-border {
+    position: absolute;
+    z-index: -1;
+    border: 2px solid white;
+    top: 3.5%;
+    bottom: 3.5%;
+    left: 5%;
+    right: 5%;
+    opacity: 0;
+    transition: 1s;
+}
+
+.another-ideas .idea-item:hover .img-border {
+    opacity: 1;
+
+}
+
+
+
+.another-ideas .idea-item:nth-child(1) .text, .another-ideas .idea-item:nth-child(1) .button,
+.another-ideas .idea-item:nth-child(2) .text, .another-ideas .idea-item:nth-child(2) .button,
+.another-ideas .idea-item:nth-child(3) .text, .another-ideas .idea-item:nth-child(3) .button,
+.another-ideas .idea-item:nth-child(5) .text, .another-ideas .idea-item:nth-child(5) .button,
+.another-ideas .idea-item:nth-child(6) .text, .another-ideas .idea-item:nth-child(6) .button {
+    display: none;
+}
+
+.another-ideas .idea-item:nth-child(1),
+.another-ideas .idea-item:nth-child(2),
+.another-ideas .idea-item:nth-child(5),
+.another-ideas .idea-item:nth-child(6) {
+    width: 32%;
+}
+
+.another-ideas .idea-item:nth-child(3),
+.another-ideas .idea-item:nth-child(4) {
+    width: 36%;
+    left: 50%;
+    margin-left: -18%;
+}
+
+.another-ideas .idea-item:nth-child(1),
+.another-ideas .idea-item:nth-child(4),
+.another-ideas .idea-item:nth-child(5) {
+    height: 75%;
+}
+
+.another-ideas .idea-item:nth-child(2),
+.another-ideas .idea-item:nth-child(3),
+.another-ideas .idea-item:nth-child(6) {
+    height: 25%;
+}
+
+
+
+.another-ideas .idea-item:nth-child(1) {
+    left: 0;
+    top: 0;
+
+}
+
+.another-ideas .idea-item:nth-child(2) {
+    left: 0;
+    bottom: 0;
+
+}
+
+.another-ideas .idea-item:nth-child(3) {
+    top: 0;
+    /*outline: 1px solid gold;*/
+}
+
+.another-ideas .idea-item:nth-child(4) {
+    bottom: 0;
+    /*outline: 1px solid gold;*/
+}
+
+.another-ideas .idea-item:nth-child(5) {
+    right: 0;
+    top: 0;
+}
+
+.another-ideas .idea-item:nth-child(6) {
+    right: 0;
+    bottom: 0;
+}
+
+.more-ideas {
+     position: relative;
+     /*height: 500px;*/
+ }
+
+.title-cont {
+    width: 100%;
+    position: relative;
+    height: 7vw;
+}
+
+.text-more-ideas-comtainer {
+    position: absolute;
+    left: 46%;
+}
+
+.text-more-ideas-comtainer .border-text-more-ideas {
+    display: inline-block;
+    left: 50%;
+    width: 110px;
+    height: 80px;
+    border-bottom: 2px solid red;
+    white-space: nowrap
+}
+
+.text-more-ideas-comtainer .border-text-more-ideas span {
+    font-family: Georgia;
+    font-size: 3vw;
+    color: #3e4546;
+    position: absolute;
+    margin-left: -6vw;
+}
+
+.more-ideas-item {
+    position: relative;
+    margin-bottom: 7vw;
+}
+
+.more-ideas-item1,
+.more-ideas-item2,
+.more-ideas-item3,
+.more-ideas-item4,
+.more-ideas-item5,
+.more-ideas-item6 {
+    display: inline-flex;
+    width: 48%;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.more-ideas-img {
+    display: inline-block;
+    border-radius: 55%;
+    overflow: hidden;
+    width: 10vw;
+    height: 10vw;
+}
+
+.more-ideas-img img {
+    height: 100%;
+}
+
+.more-ideas-title {
+    display: inline-block;
+    width: 63%;
+    cursor: pointer;
+}
+
+.more-ideas-title span {
+    color: #3e4546;
+    font-family: RobotoLight;
+    font-size: 1.2vw;
+    white-space: nowrap;
+    text-decoration: underline;
+    line-height: 1.5;
+}
+
+.more-ideas-title:hover span{
+    text-decoration-color: red;
+}
+
+.footer__wrapper_right-section p{
+    margin: 0px;
+}
+
+.footer__social{
+    padding: 0px;
+}

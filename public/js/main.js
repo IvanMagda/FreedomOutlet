@@ -96,3 +96,20 @@ function toggle_visibility(id) {
         description.style.display = 'none';
     }
 }
+
+function validate_mail_Form() {
+    var mailForm = document.forms["mailForm"];
+    var name = mailForm.name.value;
+    var phone = mailForm.phone.value;
+    var message = mailForm.message.value;
+
+    if (name == "" || phone == "" || message == "") {
+        $("#mail-form").addClass("invalid");
+        mailForm.name.classList.add("invalid");
+        mailForm.phone.classList.add("invalid");
+        mailForm.message.classList.add("invalid");
+        return false;
+    } else {
+        return true;
+    }
+}

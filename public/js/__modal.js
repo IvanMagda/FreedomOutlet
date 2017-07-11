@@ -31,6 +31,9 @@ $(document).ready(function () {
         $.mask.definitions['~'] = '[+-]';
         $("#tel, #tel2,#tel_register").mask("+38(999) 999 99 99");
     });
+
+    // $('#reset_password_modal').css('width', $("#login_modal").width());
+    // $('#reset_password_modal').css('height', $("#login_modal").height());
 });
 
 function logout() {
@@ -40,20 +43,16 @@ function logout() {
 }
 
 function validate_modal_Form() {
-    var mailModalForm = document.forms["offer_modal_Form"];
-    var name = mailModalForm.name;
-    var phone = mailModalForm.phone;
-    var message = mailModalForm.message;
+    var mailModalForm = document.forms["mail_modal_Form"];
+    var name = mailModalForm.name.value;
+    var phone = mailModalForm.phone.value;
+    var message = mailModalForm.message.value;
 
-    var inputs = { name, phone, message};
-
-    if (name.value == "" || phone.value == "" || message.value == "") {
-        $(".offer-form_inputs").addClass("invalid");
-        for (var key in inputs) {
-            if (mailModalForm[key].value == "") {
-                mailModalForm[key].classList.add("invalid");
-            }
-        };
+    if (name == "" || phone == "" || message == "") {
+        validateField('validate_modal_Global');
+        validateField('validate_modal_Phone');
+        validateField('validate_modal_Message');
+        validateField('validate_modal_Name');
         return false;
     } else {
         return true;
@@ -64,16 +63,10 @@ function validate_login_Form() {
     var loginForm = document.forms["login_Form"];
     var email = loginForm.email;
     var pass = loginForm.pass;
-
-    var inputs = { email, pass};
-
+    //ToDo validate stars
     if (email.value == "" || pass.value == "") {
-        $(".log-form_inputs").addClass("invalid");
-        for (var key in inputs) {
-            if (loginForm[key].value == "") {
-                loginForm[key].classList.add("invalid");
-            }
-        };
+        loginForm['pass'].style.border = "1px solid red";
+        loginForm['email'].style.border = "1px solid red";
         return false;
     } else {
         return true;
@@ -88,16 +81,21 @@ function validate_register_Form() {
     var pass = registerForm.pass;
 
     var inputs = { login, phone, email, pass };
+    var validate_ids = ['validate_modal_Name', 'validate_modal_Phone', 'validate_modal_Mail', 'validate_modal_Pass', 'validate_modal_Global'];
 
     if (login.value == "" || phone.value == "" || email.value == "" || pass.value == "") {
-        $(".reg-form_inputs").addClass("invalid");
         for (var key in inputs) {
             if (registerForm[key].value == "") {
-                registerForm[key].classList.add("invalid");
+                registerForm[key].style.border = "1px solid red";
             }
         };
+        validate_ids.forEach(function (id) {
+            console.log(id);
+            document.getElementById(id).style.visibility = "visible";
+        });
         return false;
     } else {
+        console.log(registerForm);
         return true;
         
     }
@@ -105,21 +103,21 @@ function validate_register_Form() {
 
 function validate_contact_us_modal_Form() {
     var mailModalForm = document.forms["contact_us_modal_Form"];
-    var name = mailModalForm.name;
-    var phone = mailModalForm.phone;
-    var message = mailModalForm.message;
+    var name = mailModalForm.name.value;
+    var phone = mailModalForm.phone.value;
+    var message = mailModalForm.message.value;
 
-    var inputs = { name, phone, message};
-
-    if (name.value == "" || phone.value == "" || message.value == "") {
-        $(".mail-form_inputs").addClass("invalid");
-        for (var key in inputs) {
-            if (mailModalForm[key].value == "") {
-                mailModalForm[key].classList.add("invalid");
-            }
-        };
+    if (name == "" || phone == "" || message == "") {
+        validateField('validate_modal_contact_us_Global');
+        validateField('validate_modal_contact_us_Phone');
+        validateField('validate_modal_contact_us_Message');
+        validateField('validate_modal_contact_us_Name');
         return false;
     } else {
         return true;
     }
+}
+
+function validateField(fieldId) {
+    document.getElementById(fieldId).style.visibility = "visible";
 }

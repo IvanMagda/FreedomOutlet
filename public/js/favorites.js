@@ -1,6 +1,10 @@
+$(document).ready(function () {
+    $('.heart').trigger("onload");
+});
+
 function favoriteActions(product_id, local_element) {
     var user_id = $('#user_id').val();
-    if (local_element.previousSibling.src.indexOf("heart-1.png") !== -1) {
+    if (!local_element.classList.contains("selected")) {
         addToFavorites(product_id, local_element, user_id);
     } else {
         deleteFromFavorites(product_id, local_element, user_id);
@@ -8,14 +12,12 @@ function favoriteActions(product_id, local_element) {
 }
 
 function addToFavorites(product_id, local_element, user_id) {
-    local_element.previousSibling.src = local_element.previousSibling.src.replace('heart-1', 'heart-2');
+    local_element.classList.add("selected");
 
     if (user_id) {
         var favor = { 'user_id': user_id, 'product_id': product_id };
-        console.log(favor);
         $.post('/favorites/add/', favor, function (answer) {
             if (answer) {
-                console.log(answer);
                 return;
             }
         });
@@ -29,7 +31,7 @@ function addToFavorites(product_id, local_element, user_id) {
 }
 
 function deleteFromFavorites(product_id, local_element, user_id) {
-    local_element.previousSibling.src = local_element.previousSibling.src.replace('heart-2', 'heart-1');
+    local_element.classList.remove("selected");
 
     if (user_id) {
         var data = { 'user_id': user_id, 'product_id': product_id };
@@ -61,7 +63,7 @@ function markSelected(product_id, local_element) {
         $.get("/favorites/" + user_id, function (result) {
             result.forEach(function (e) {
                 if (parseInt(e, 10) == parseInt(product_id, 10)) {
-                    local_element.previousSibling.src = local_element.previousSibling.src.replace('heart-1', 'heart-2');
+                    local_element.classList.add("selected");
                 }
             });
         });
@@ -71,7 +73,7 @@ function markSelected(product_id, local_element) {
             favorites = favorites.split(',');
             favorites.forEach(function (e) {
                 if (parseInt(e, 10) == parseInt(product_id, 10)) {
-                    local_element.previousSibling.src = local_element.previousSibling.src.replace('heart-1', 'heart-2');
+                    local_element.classList.add("selected");
                 }
             })
         }

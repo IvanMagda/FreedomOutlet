@@ -108,7 +108,12 @@
             </div>
             <a href="#" class="mobile_menu"></a>
         </div>
-        <a href="#" id="product-headr__actions"></a>
-        <a href="#" id="product-headr__favorites"></a>
+        @{if user !== null}
+            <input id="user_id" type="hidden" value="@{user.id}" />
+            <a href="#" id="product-headr__actions" class="active" onclick="logout()"></a>
+        @{else}
+            <a href="#login_modal" id="product-headr__actions" class="open_modal"></a>
+        @{fi}
+        <a href="#" id="product-headr__favorites" onclick="viewMyFavorites()"></a>
     </div>
 </header>

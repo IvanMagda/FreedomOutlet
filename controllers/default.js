@@ -141,22 +141,22 @@ function search_result(search_text) {
 
 function view_about() {
     var self = this;
-    self.view('/company/about-company');
+    self.view('/base_content/about-company');
 }
 
 function view_contacts() {
     var self = this;
-    self.view('/contacts/contacts');
+    self.view('/base_content/contacts');
 }
 
 function view_idea_for_home_list() {
     var self = this;
-    self.view('/idea-for-home-list/list');
+    self.view('/base_content/idea-list');
 }
 
 function view_idea_for_home_one() {
     var self = this;
-    self.view('/idea-for-home-one/one');
+    self.view('/base_content/idea-one');
 }
 
 function view_favorites_local(favor_id) {
