@@ -36,6 +36,7 @@ a {
 
 .idea-background {
     position: relative;
+    z-index:-1;
 }
 
 .idea-background img {

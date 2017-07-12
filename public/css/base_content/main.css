@@ -313,35 +313,32 @@ about__item_img div{
 .contacts__cities{
     font-family: "Roboto Light", sans-serif;
     color: #3e4546;
-    display: flex;
-    flex-direction: row;
     width: 100%;
     max-width: 1375px;
-    justify-content: space-between;
     margin: 0px auto 60px auto;
     font-size: 13pt;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 25% 25% 25% 25%;
+    grid-gap: 10px;
+    grid-auto-flow: column;
+    justify-content: space-between;
 }
 
 .contacts__cities p{
-    height: 180px;
     white-space: pre;
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
 
-.contacts__cities div p:nth-child(2){
-    margin-top: 70px;
-}
-
-.contacts__cities div h4::first-letter{
+.contacts__cities h4::first-letter{
     font-size: 100%;
 }
 
-.contacts__cities div h4{
+.contacts__cities h4{
     font-size: 175%;
 }
 
-.contacts__cities_kyiv:nth-child(2) > h4{
-    color: white;
-}
 
 /*End Contacts*/
 
@@ -552,28 +549,27 @@ form .feedback-button:hover{
         margin-bottom: 25px;
     }
 
-    .contacts__cities div p:nth-child(2) {
-        margin-top: 25px;
+    .contacts__cities{
+        grid-template-rows: 25% 25% 25% 25% 25% 25% 25% 25%;
+        justify-content: space-around;
     }
 
+    /*.contacts__cities div p:nth-child(2) {
+        margin-top: 25px;
+    }*/
+
     .contacts__cities p,
-    .contacts__cities div h4{
+    .contacts__cities h4{
         padding-left: 15px;
         padding-right: 15px;
     }
 
-    .contacts__cities p{
+    /*.contacts__cities p{
         white-space: normal;
-    }
+    }*/
 
-    .contacts__cities div h4 {
+    .contacts__cities h4 {
         font-size: 150%;
-    }
-
-    .contacts__cities_kyiv,
-    .contacts__cities_kharkiv,
-    .contacts__cities_dnepr{
-        min-width: 25%;
     }
 
     .about__item_img span{
@@ -683,27 +679,9 @@ form .feedback-button:hover{
         font-size: 3vw;
     }
 
-    .contacts__cities{
-        flex-wrap: wrap;
-    }
-
-    .contacts__cities_kyiv,
-    .contacts__cities_kharkiv,
-    .contacts__cities_dnepr{
-        width: 50%;
-        text-align: left;
-    }
-
-    .contacts__cities_kyiv:nth-child(1),
-    .contacts__cities_kharkiv{
-        text-align: right;
-    }
-
     .contacts__cities p,
     .contacts__cities h4{
-        padding-left: 15px;
-        padding-right: 15px;
-        white-space: normal;
+        white-space: pre-line;
     }
 
     .feedback h2 {

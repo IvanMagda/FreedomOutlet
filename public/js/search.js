@@ -36,6 +36,7 @@ function showSearchResult(data) {
     var html_string = "";
 
     data.forEach(function (element) {
+        console.log(element);
         html_string += `<li class="search_result_item"><a href="/product/${element.id}"><div class="search__result-img"><img src="${element.title_img_src}"></div><div class="search__result-text"><h4>${element.name}</h4><h6>${element.manufacturer}</h6><h5>${element.price}</h5></div></a></li>`;
     }, this);
 

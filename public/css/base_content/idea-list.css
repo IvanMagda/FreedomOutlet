@@ -51,6 +51,7 @@ a {
     width: 100%;
     position: absolute;
     z-index: -2;
+    left: 0;
 }
 
 .list-ideas .main-ideas .cont {
