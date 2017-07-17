@@ -460,3 +460,7 @@ ul#pagination {
 .shops_holder textarea{
     min-height: 150px;
 }
+
+.sub_category {
+    margin-left: 25px;
+}

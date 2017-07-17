@@ -13,6 +13,29 @@
     display: none;
 }
 
+.modal-container h2 {
+    font-family: 'Georgia';
+    font-weight: normal;
+    text-align: center;
+    color: #3e4546;
+    font-size: 24pt;
+    letter-spacing: 2pt;
+    margin-top: 75px;
+    margin-bottom: 30px;
+}
+
+.modal-container h2:first-letter{
+    font-size: 150%;
+}
+
+.modal-container h2:after {
+    border-bottom: 2px solid #f00;
+    content: '';
+    display: block;
+    margin: 8pt auto 0pt auto;
+    width: 104px;
+}
+
 .modal-container{
     background: #fff;
     position: fixed;

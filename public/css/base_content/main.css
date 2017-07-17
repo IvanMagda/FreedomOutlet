@@ -345,11 +345,10 @@ about__item_img div{
 .map{
     margin: 0px auto;
     width: 100%;
-    max-width: 1600px;
+    max-width: 1680px;
 }
 .map img{
     width: 100%;
-    max-width: 1600px;
 }
 
 /*End Map*/

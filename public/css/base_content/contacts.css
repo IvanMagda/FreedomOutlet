@@ -1,370 +1,231 @@
-@font-face {
-    font-family: RobotoLight;
-    src: url(../fonts/Roboto/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
-}
-
-@font-face {
-    font-family: Roboto-ThinItalic;
-    src: url(../fonts/Roboto/Roboto-ThinItalic.ttf); /* Путь к файлу со шрифтом */
-}
-
-
-@font-face {
-    font-family: Roboto-Medium;
-    src: url(../fonts/Roboto/Roboto-Medium.ttf); /* Путь к файлу со шрифтом */
-}
-
-@font-face {
-    font-family: RobotoSlab-Light;
-    src: url(../fonts/Roboto/RobotoSlab-Light.ttf); /* Путь к файлу со шрифтом */
-}
-
-
-
-
-body {
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-}
-
-a {
-    text-decoration: none;
-    color: #e8ebef;
-}
-
-#content {
-    position: relative;
-    margin-top: 2%;
-    margin-left: 7%;
-    margin-right: 7%;
-    min-width: 900px;
-}
-
-
-#container-contacts-text {
-    position: relative;
-    height: 130px;
-    margin-top: 20px;
-    margin-bottom: 55px;
-}
-
-.title-contacts {
-    position: absolute;
-    display: inline-block;
-    left: 50%;
-    width: 115px;
-    height: 190px;
-    margin: -56px;
-    border-bottom: 2px solid red;
-    white-space: nowrap;
-}
-
-.text-contacts {
-    font-family: Georgia;
-    margin-left: -60px;
-    top: 125px;
-    font-size: 50px;
+h2 {
+    font-family: 'Georgia';
+    font-weight: normal;
+    text-align: center;
     color: #3e4546;
-    position: absolute;
+    font-size: 24pt;
+    letter-spacing: 2pt;
+    margin-top: 75px;
+    margin-bottom: 30px;
 }
 
-.contacts-img-map {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+.feedback h2{
+    margin-top: 100px;
+    margin-bottom: 50px;
 }
 
-.contacts-img-map img {
+.contacts h2{
+    margin-bottom: 45px;
+    margin-top: 90px;
+}
+
+h2:first-letter{
+    font-size: 150%;
+}
+
+h2:after {
+    border-bottom: 2px solid #f00;
+    content: '';
+    display: block;
+    margin: 8pt auto 0pt auto;
+    width: 104px;
+}
+
+h4 {
+    font-family: 'Georgia';
+    font-weight: normal;
+    color: #3e4546;
+    font-size: 15pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+/*End Global Elements*/
+
+
+
+.map{
+    margin: 0px auto;
+    width: 100%;
+    max-width: 1680px;
+}
+.map img{
     width: 100%;
 }
 
-.kiev-cont-1,
-.kiev-cont-2,
-.kiev-cont-3,
-.kiev-cont-4,
-.kiev-cont-5,
-.kiev-cont-6 {
-    display: flex;
-    justify-content: flex-start;
-    /*outline: 1px solid red;*/
-    margin-bottom: 2.5%;
-}
+/*End Map*/
 
-.cont-img,
-.cont-text {
-    display: inline-block;
-    position: relative;
-}
 
-.cont-img {
-    width: 62%;
-}
 
-.cont-text {
-    margin-left: 2vw;
-    width: 35%;
-}
-
-.cont-text .container-title .plamb {
-    font-size: 1.8vw;
-    color: #2a2a2a;
-    font-family: RobotoLight;
-    padding-left: 3%;
-}
-
-.dark-layer {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background: black;
-    opacity: 0.3;
-}
-
-.cont-img img {
-    filter: grayscale(100%);
+.cities{
+    margin: 0px auto;
     width: 100%;
-    height: 100%;
+    max-width: 1440px;
 }
 
-
-.cont-img:hover img {
-    filter: none;
+.cities h4{
+    margin-top: 70px;
+    margin-bottom: 50px;
+    font-size: 21pt;
 }
 
-.cont-text-title {
+.shop{
+    display: flex;
+}
+
+.shop__img{
+    filter: grayscale();
+    line-height: 0px;
+    margin-bottom: 35px;
+}
+.shop__img:hover{
+    filter: unset;
+}
+
+.shop__info{
+    width: 100%;
+    max-width: 585px;
+    margin-left: auto;
+    font-family: "Roboto Light", sans-serif;
     color: #2a2a2a;
-    font-family: RobotoLight;
-    font-size: 2.2vw;
+}
+
+.shop__info_name{
+    font: 36pt "Roboto Light", sans-serif;
+    line-height: 28pt;
     display: inline-block;
-    line-height: 1.7vw;
 }
 
-.container-cont {
+.shop__info_data{
     display: flex;
-    margin-top: 5%;
+    margin-top: 35px;
+    flex-wrap: wrap;
 }
 
-.container-cont div {
-    display: flex;
-    flex-direction: column;
+.address,
+.work_time{
     width: 50%;
 }
 
-.container-title {
-    white-space: nowrap;
-}
+/* End Shop */
 
-.dnepr-container-title {
-    white-space: normal;
-}
-
-.container-cont span {
-    display: inline-block;
-    width: 50%;
-    font-family: RobotoLight;
-    color: #2a2a2a;
-    font-size: 0.9vw;
-    line-height: 1.3vw;
-    white-space: nowrap;
-}
-
-.kiev-title,
-.kharkiv-title,
-.dnepr-title {
-    margin-bottom: 2%;
-    margin-top: 5%;
-}
-
-.kiev-title span,
-.kharkiv-title span,
-.dnepr-title span {
-    font-family: Georgia;
-    color: #3e4546;
-    font-size: 1.3vw;
-}
-
-.kharkiv-cont-1,
-.kharkiv-cont-2,
-.kharkiv-cont-3 {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 2.5%;
-}
-
-.dnepr-cont-1 {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 2.5%;
-}
-
-
-
-
-
-
-.contacts_feedback {
-    position: relative;
-    /*outline: 1px solid blanchedalmond;*/
-    margin-bottom: 100px;
-}
-
-#container-title-feedback {
-    position: relative;
-    height: 130px;
-    /*outline: 5px dashed green;*/
-    margin-top: 20px;
-}
-
-.title-feedback {
-    position: absolute;
-    display: inline-block;
-    left: 50%;
-    width: 90px;
-    height: 180px;
-    margin: -56px;
-    border-bottom: 2px solid red;
-    white-space: nowrap;
-}
-
-.text-feedback {
-    font-family: Georgia;
-    margin-left: -120px;
-    top: 125px;
-    font-size: 40px;
-    color: #3e4546;
-    position: absolute;
-}
-
-.content-feedback {
-    text-align: center;
-    position: relative;
+.feedback{
+    margin: 0px auto 95px auto;
     width: 100%;
-    /*outline: 2px solid red;*/
+    max-width: 700px;
 }
 
-.form {
+.feedback form{
+    font-family: "Roboto Light", sans-serif;
+    font-size: 15pt;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+form .feedback-input{
+    flex: 1 0 45%;
+    border: 1px solid #2a2a2a;
+    height: 60px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+form .feedback-input.invalid,
+form .feedback-textarea.invalid{
+    background-image: url(../../../img/star.png);
+    background-position-x: calc(100% - 5px);
+    background-position-y: calc(5px);
+    background-repeat: no-repeat;
+    border-color: #f00;
+}
+
+#mail-form.invalid::after {
+    content: "* Обязательно";
+    color: #f00;
+    font-family: "Roboto Light", sans-serif;
+    font-size: 12pt;
     display: inline-block;
-    position: static;
+    position: absolute;
+    right: 20px;
+    transform: translateY(-25pt);
+    font-style: italic;
+}
+
+form .feedback-input:focus,
+form .feedback-textarea:focus{
+    outline:1px solid #2a2a2a;
+}
+
+form .feedback-input:first-child{
+    margin-right: 8px;
+}
+
+form .feedback-textarea{
+    flex: 0 1 100%;
+    width: 100%;
+    border: 1px solid #2a2a2a;
+    resize: none;
+    height: 100px;
+    text-align: center;
+    text-align-last: center;
+    line-height: 14pt;
+    outline-color: #2a2a2a;
+}
+
+form .feedback-textarea::-webkit-input-placeholder{
+    line-height: 75pt;
+}
+form .feedback-textarea:-moz-placeholder{
+    line-height: 75pt;
+}
+form .feedback-textarea::-moz-placeholder{
+    line-height: 75pt;
+}
+form .feedback-textarea:-ms-input-placeholder{
+    line-height: 75pt;
+}
+
+form .feedback-textarea:focus{
+    line-height: 17pt;
+}
+
+form .feedback-button{
+    margin: 0px auto;
+    height: 60px;
     width: 50%;
-    height: 300px;
-    /*outline: 1px solid blue;*/
-    margin-top: 55px;
+    max-width: 310px;
+    margin-top: 28px;
+    background-color: white;
+    border: 1px solid #2a2a2a;
 }
 
-.contacts_feedback .row1 {
-    display: flex;
-    justify-content: space-between;
+form .feedback-button:hover{
+    background-color: #2a2a2a;
+    color: white;
 }
 
-.contacts_feedback .row2 {
-    margin-top: -5px;
+.feedback-input, .feedback-textarea, .feedback-button{
+    font-family: "Roboto Light", sans-serif;
+    font-size: 15pt;
 }
 
-.contacts_feedback .row3 {
-    margin-top: 2%;
-}
-
-.neat-input {
-    background: #ffffff !important; // желательно прописывать, так как в Chrome при сохранных данных оно может быть желтым
-outline: none; // удаляет обводку в браузерах хром(желтая) и сафари(синяя)
-height: 24px;
-    height: 57px;
-    color: #2a2a2a !important;
-    font-size: 1.1vw;
-    font-family: RobotoLight;
+.feedback-input::-webkit-input-placeholder {
     text-align: center;
 }
 
-.contacts_feedback .neat-input {
-    width: 49.3%;
-}
-
-.neat-input:focus {
-    outline: 1px solid #2a2a2a;
-    border: 1px solid #2a2a2a;
-}
-
-.neat-textarea {
-    width: 99%;
-    height: 112px;
-    margin-top: 10px;
-    color: #2a2a2a !important;
-    font-family: RobotoLight;
+.feedback-input:-moz-placeholder { /* Firefox 18- */
     text-align: center;
-    font-size: 1.1vw;
 }
 
-.neat-textarea:focus {
-    outline: 1px solid #292929;
-    border: 1px solid #292929;
+.feedback-input::-moz-placeholder {  /* Firefox 19+ */
+    text-align: center;
 }
 
-.neat-button {
-    width: 40%;
-    height: 65px;
-    background: white;
-    color: #2a2a2a;
-    font-family: RobotoLight;
-    font-size: 1.1vw;
-    box-shadow: none !important;
-    margin-top: 5px
+.feedback-input:-ms-input-placeholder {
+    text-align: center; 
 }
 
-.neat-button:focus {
-    outline: 1px solid #2a2a2a;
-    border: 1px solid #2a2a2a;
-}
-
-.neat-input,
-.neat-textarea,
-.neat-button {
-    border: 1px solid #2a2a2a;
-}
-
-#validateGlobal,
-#validateName,
-#validatePhone,
-#validateMessage,
-.validateTitle {
-    font-family: RobotoLight;
-    color: red;
-    visibility: hidden;
-}
-
-#validateName {
-    position: absolute;
-    padding-left: 24%;
-}
-
-#validateGlobal,
-.validateTitle {
-    display: flex;
-    justify-content: flex-end;
-}
-
-
-
-#validatePhone {
-    position: absolute;
-    padding-left: 49%;
-}
-
-#validateMessage {
-    position: absolute;
-    padding-left: 49%;
-    padding-top: 10px;
-}
-
-.footer__wrapper_right-section p{
-    margin: 0px;
-}
-
-.footer__social{
-    padding: 0px;
-}
+/*End Feedback*/
