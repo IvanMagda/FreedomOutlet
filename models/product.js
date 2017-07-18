@@ -306,12 +306,12 @@ Product.imgs = function (id, callback) {
 Product.pagination = function (page, items, sort, category, callback) {
     var sql = DATABASE();
     sql.select('prod', 'products').make(function (builder) {
-        builder.like('category', category);
+        builder.like('category', '%' + category + '%');
         builder.order(sort);
         builder.page(page, items);
     });
     sql.select('allCategory', 'products').make(function (builder) {
-        builder.like('category', category);
+        builder.like('category', '%' + category + '%');
     });
     sql.exec(function (err, response) {
         var list = [];

@@ -229,3 +229,103 @@ form .feedback-button:hover{
 }
 
 /*End Feedback*/
+
+/* -------------Media------------- */
+
+@media screen and (max-width: 1440px){
+    .cities{
+        margin: 0px 15px;
+    }
+}
+
+@media screen and (max-width: 1420px){
+    .cities{
+        margin: 0px;
+    }
+
+    h4{
+        width: 100%;
+        max-width: 790px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .shop{
+        flex-direction: column;
+        max-width: 790px;
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    .shop__img {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 820px){
+    .shop__info{
+        margin-left: 10px;
+    }
+
+    .shop__img img{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 720px){
+    .shop__info_name{
+        font-size: 30pt;
+    }
+
+    .shop__info_data{
+        margin-top: 15px;
+    }
+
+    .shop__info_data p{
+        font-size: 10pt;
+    }
+}
+
+@media screen and (max-width: 720px){
+    .content h2{
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .shop__info_name {
+        font-size: 5vw;
+    }
+
+    .shop__info_data p {
+        font-size: 2vw;
+    }
+
+    .shop__img {
+        margin-bottom: 0px;
+    }
+
+    .shop__info_data {
+        margin-top: 0px;
+    }
+
+    .cities h4 {
+        margin-top: 0px; 
+        margin-bottom: 0px; 
+        font-size: 5vw;
+    }
+}
+
+@media screen and (max-width: 485px){
+    form .feedback-input:first-child {
+        margin-right: 0px;
+    }
+
+    h2,
+    .feedback h2{
+        margin: 0;
+        margin-bottom: 10px;
+        font-size: 16pt;
+    }
+}

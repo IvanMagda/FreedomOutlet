@@ -83,7 +83,8 @@ header {
     cursor: pointer;
 }
 
-.header__categories-nav_list li a:hover{
+.header__categories-nav_list li a:hover,
+.header__categories-nav_list li a.active{
     padding-bottom: 14px;
     border-bottom: 4px solid #ed1c24;
 }
@@ -190,7 +191,8 @@ header {
         line-height: 20px;
     }
 
-    .header__categories-nav>ul>li>a:hover{
+    .header__categories-nav>ul>li>a:hover,
+    .header__categories-nav>ul>li>a.active{
         padding-left: 5px;
         padding-bottom: 0px;
         border-bottom: 0px solid #ed1c24;
