@@ -25,7 +25,7 @@ exports.install = function () {
 
 function main() {
     var self = this;
-    var is_new = JSON.parse(JSON.stringify(Product.list)).filter(showOnMain).map(convertEURtoUAH);
+    var is_new = JSON.parse(JSON.stringify(Product.list)).filter(showOnMain).filter(isHidden).map(convertEURtoUAH);
 
     shopsEditor.readShops(function (shops) {
         self.view('/base_content/main', {
@@ -227,7 +227,11 @@ function ImgOrderNumber(image, i) {
 };
 
 function showOnMain(product) {
-    return product.is_new == 1;
+        return product.is_new == 1;
+}
+
+function isHidden(product) {
+        return product.is_hidden == 0;
 }
 
 function convertEURtoUAH(product){

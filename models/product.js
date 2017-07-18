@@ -15,6 +15,7 @@ Product.define('description', String);
 Product.define('category', String);
 Product.define('image_name', String);
 Product.define('is_new', Boolean);
+Product.define('is_hidden', Boolean);
 Product.define('title_img_src', String);
 Product.define('virtual_model_src', String);
 Product.define('available_in', String);
@@ -54,6 +55,7 @@ Product.create_new = function (product, files, callback) {
     product.discount = product.discount || 0;
     product.available_in = product.available_in || '';
     product.is_new = (product.is_new == "on") ? true : false;
+    product.is_hidden = (product.is_hidden == "on") ? true : false;
 
     var last_id = 0;
     if (Product.list && Product.list[Product.list.length - 1]) {
@@ -86,6 +88,7 @@ Product.create_new = function (product, files, callback) {
             category: product.category,
             image_name: 'Title.jpg',
             is_new: product.is_new,
+            is_hidden: product.is_hidden,
             title_img_src: product.title_img_src,
             virtual_model_src: product.virtual_model_src,
             available_in: product.available_in
@@ -143,6 +146,7 @@ Product.update = function (product, files, callback) {
     product.discount = product.discount || 0;
     product.available_in = product.available_in || '';
     product.is_new = (product.is_new == "on") ? true : false;
+    product.is_hidden = (product.is_hidden == "on") ? true : false;
 
     var productDir = __dirname + '/../public/tmp/' + product.id + '/';
 
@@ -172,6 +176,7 @@ Product.update = function (product, files, callback) {
             category: product.category,
             image_name: 'Title.jpg',
             is_new: product.is_new,
+            is_hidden: product.is_hidden,
             title_img_src: product.title_img_src,
             virtual_model_src: product.virtual_model_src,
             available_in: product.available_in.toString()
@@ -307,6 +312,33 @@ Product.pagination = function (page, items, sort, category, callback) {
     var sql = DATABASE();
     sql.select('prod', 'products').make(function (builder) {
         builder.like('category', '%' + category + '%');
+        builder.where('is_hidden', 0);
+        builder.order(sort);
+        builder.page(page, items);
+    });
+    sql.select('allCategory', 'products').make(function (builder) {
+        builder.like('category', '%' + category + '%');
+        builder.where('is_hidden', 0);
+    });
+    sql.exec(function (err, response) {
+        var list = [];
+        var allLength = response.allCategory.length;
+
+        if (response.prod) {
+            response.prod.forEach(function (e) {
+                var p = Product.make(e);
+                list.push(p);
+            })
+        }
+
+        callback(list, allLength);
+    });
+}
+
+Product.pagination_admin = function (page, items, sort, category, callback) {
+    var sql = DATABASE();
+    sql.select('prod', 'products').make(function (builder) {
+        builder.like('category', '%' + category + '%');
         builder.order(sort);
         builder.page(page, items);
     });
@@ -346,6 +378,7 @@ Product.search = function (search_text, limit, sort, callback) {
         builder.like('description', search_text + '%');
         builder.or();
         builder.like('description', '%' + search_text);
+        builder.where('is_hidden', 0);
         if (sort != "") {
             builder.order(sort);
         }
@@ -362,6 +395,7 @@ Product.get_by_manufacturer = function (manufacturer, callback) {
     var sql = DATABASE();
     sql.select('search_result', 'products').make(function (builder) {
         builder.where('manufacturer', manufacturer);
+        builder.where('is_hidden', 0);
     });
     sql.exec(function (err, response) {
         callback(response.search_result);
@@ -420,9 +454,11 @@ Product.favorites_list = function (user_id, callback) {
         builder.where('user_id', user_id);
     });
     sql.exec(function (err, response) {
-        response.user_favor.forEach(function (e) {
-            favorite_products.push(e.favorite_id);
-        })
+        if (Object.keys(response).length !== 0 && response.constructor === Object) {
+            response.user_favor.forEach(function (e) {
+                favorite_products.push(e.favorite_id);
+            });
+        };
         callback(favorite_products);
     });
 }

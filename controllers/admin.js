@@ -91,7 +91,7 @@ function view_admin() {
     var sort = self.query.sort || 'name'
     var category = '%';
 
-    Product.pagination(page, perpage, sort, category, function (prod, allLength) {
+    Product.pagination_admin(page, perpage, sort, category, function (prod, allLength) {
         var pagination = new Builders.Pagination(allLength, page, perpage, '?page={0}');
         self.view('/admin/admin', {
             sort: sort,

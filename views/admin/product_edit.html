@@ -70,6 +70,14 @@
                         @{fi}
                         <span class="mdl-checkbox__label">Показать на главной</span>
                     </label>
+                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-11">
+                        @{if model.product.is_hidden == 1}
+                        <input type="checkbox" id="checkbox-11" class="mdl-checkbox__input" name="is_hidden" checked>
+                        @{else}
+                        <input type="checkbox" id="checkbox-11" class="mdl-checkbox__input" name="is_hidden">
+                        @{fi}
+                        <span class="mdl-checkbox__label">Показать на главной</span>
+                    </label>
                     <hr />
                     <div class="category_holder">
                         <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
