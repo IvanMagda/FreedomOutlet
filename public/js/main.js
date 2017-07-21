@@ -1,10 +1,10 @@
 $(document).ready(function () {
     $('.new-products__carousel_item').slick({
-        infinite: true,
-        // centerMode: true,
+        //infinite: true,
+        //centerMode: true,
         slidesToShow: 4,
         slidesToScroll: 4,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 2000,
         dots: true,
         arrows: false,

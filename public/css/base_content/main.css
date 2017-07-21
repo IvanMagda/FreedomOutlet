@@ -279,6 +279,15 @@ about__item_img div{
     margin: 0px auto;
 }
 
+.fulljustify-top {
+    text-align:center;
+}
+
+.fulljustify-bottom {
+    text-align:center;
+    word-spacing:1px;
+}
+
 .fulljustify {
     text-align:justify;
 }
@@ -517,6 +526,10 @@ form .feedback-button:hover{
 
     .about__item > p:nth-child(2){
         margin-top: 10px;
+    }
+
+    .fulljustify-bottom {
+        word-spacing:normal;
     }
 }
 

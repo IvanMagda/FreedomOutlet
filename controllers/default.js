@@ -61,6 +61,7 @@ function view_product(product_id) {
     var product = JSON.parse(JSON.stringify(Product.by_id[product_id]));
         product.price = Math.round(convertCurrency(product.price));
         product.discount = Math.round(convertCurrency(product.discount));
+        product.category = product.category.split(" ").splice(-1);
     var img = [];
     var available = [];
     var self = this;
