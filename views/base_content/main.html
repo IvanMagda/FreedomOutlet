@@ -48,54 +48,63 @@
 <section class="categories">
     <h2>КАТЕГОРИИ</h2>
     <div class="categories__grid">
-        <div class="categories__soft">
-            <h3>Мягкая мебель</h3>
-            <a href="/products/soft">
-                    <img src="img/categories/soft-furnishings.png">
-                </a>
-        </div>
-        <div class="categories__bedroom">
-            <h3>Спальни</h3>
-            <a href="/products/bedroom">
-                    <img src="img/categories/bedroom.png">
-                </a>
-        </div>
-        <div class="categories__living">
-            <h3>Гостиные</h3>
-            <a href="/products/living">
-                    <img src="img/categories/living-room.png">
-                </a>
-        </div>
-        <div class="categories__dining">
-            <h3>Столовые</h3>
-            <a href="/products/dining">
+
+        <a href="/products/soft" class="categories__soft">
+            <div class="grow">
+                <h3>Мягкая мебель</h3>
+                <img src="img/categories/soft-furnishings.png">
+            </div>
+        </a>
+
+        <a href="/products/bedroom" class="categories__bedroom">
+            <div class="grow sq">
+                <h3>Спальни</h3>
+                <img src="img/categories/bedroom.png">
+            </div>
+        </a>
+
+        <a href="/products/living" class="categories__living">
+            <div class="grow sq">
+                <h3>Гостиные</h3>
+                <img src="img/categories/living-room.png">
+            </div>
+        </a>
+
+        <a href="/products/dining" class="categories__dining">
+            <div class="grow sq">
+                <h3>Столовые</h3>
                 <img src="img/categories/dining-room.png">
-                </a>
-        </div>
-        <div class="categories__kitchen">
-            <h3>Кухни</h3>
-            <a href="/products/kitchen">
-                    <img src="img/categories/kitchen.png">
-                </a>
-        </div>
-        <div class="categories__accessories">
-            <h3>Аксессуары</h3>
-            <a href="/products/accessories">
-                    <img src="img/categories/accessories.png">
-                </a>
-        </div>
-        <div class="categories__chandeliers">
-            <h3>Люстры</h3>
-            <a href="/products/chandeliers">
-                    <img src="img/categories/chandeliers.png">
-                </a>
-        </div>
-        <div class="categories__sanitary">
-            <h3>Сантехника</h3>
-            <a href="/products/sanitary">
-                    <img src="img/categories/sanitary.png">
-                </a>
-        </div>
+            </div>
+        </a>
+
+        <a href="/products/kitchen" class="categories__kitchen">
+            <div class="grow">
+                <h3>Кухни</h3>
+                <img src="img/categories/kitchen.png">
+            </div>
+        </a>
+
+        <a href="/products/accessories" class="categories__accessories">
+            <div class="grow sq">
+                <h3>Аксессуары</h3>
+                <img src="img/categories/accessories.png">
+            </div>
+        </a>
+
+        <a href="/products/chandeliers" class="categories__chandeliers">
+            <div class="grow">
+                <h3>Люстры</h3>
+                <img src="img/categories/chandeliers.png">
+            </div>
+        </a>
+
+        <a href="/products/sanitary" class="categories__sanitary">
+            <div class="grow">
+                <h3>Сантехника</h3>
+                <img src="img/categories/sanitary.png">
+            </div>
+        </a>
+
     </div>
 </section>
 <!--End Categories-->
@@ -151,10 +160,35 @@
         <h4>ХАРЬКОВ</h4>
         <h4>ДНЕПР</h4>
 
-        <p>@{model.shops.kyiv1}</p>
-        <p>@{model.shops.kyiv2}</p>
-        <p>@{model.shops.kharkiv1}</p>
-        <p>@{model.shops.dnepr1}</p>
+
+        <div class="kyiv1">
+            <p>@{model.shops.kyiv1}</p>
+            <p>@{model.shops.kyiv2}</p>
+            <p>@{model.shops.kyiv3}</p>
+            <p>@{model.shops.kyiv4}</p>
+            <p>@{model.shops.kyiv5}</p>
+        </div>
+        <div class="kyiv2">
+            <p>@{model.shops.kyiv6}</p>
+            <p>@{model.shops.kyiv7}</p>
+            <p>@{model.shops.kyiv8}</p>
+            <p>@{model.shops.kyiv9}</p>
+            <p>@{model.shops.kyiv10}</p>
+        </div>
+        <div class="kharkiv1">
+            <p>@{model.shops.kharkiv1}</p>
+            <p>@{model.shops.kharkiv2}</p>
+            <p>@{model.shops.kharkiv3}</p>
+            <p>@{model.shops.kharkiv4}</p>
+            <p>@{model.shops.kharkiv5}</p>
+        </div>
+        <div class="dnepr1">
+            <p>@{model.shops.dnepr1}</p>
+            <p>@{model.shops.dnepr2}</p>
+            <p>@{model.shops.dnepr3}</p>
+            <p>@{model.shops.dnepr4}</p>
+            <p>@{model.shops.dnepr5}</p>
+        </div>
     </div>
 </section>
 <!--End Contacts-->

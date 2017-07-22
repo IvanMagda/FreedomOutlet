@@ -128,6 +128,10 @@ li.slick-active button {
     position:relative;
 }
 
+.categories__grid>a{
+    overflow:hidden;
+}
+
 .categories__grid div h3{
     z-index: 1;
     position: absolute;
@@ -144,7 +148,7 @@ li.slick-active button {
     position: relative;
 }
 
-.categories__grid div:hover>a::after{
+/* .categories__grid div:hover>a::after{
     position: absolute;
     border: 1px solid #fff;
     left: 30px;
@@ -152,7 +156,7 @@ li.slick-active button {
     top: 30px;
     bottom: 30px;
     content: "";
-}
+} */
 
 .categories__grid{
     max-width: 1435px;
@@ -202,9 +206,10 @@ li.slick-active button {
     width: 100%;
 }
 
-.grow { transition: all .2s ease-in-out; }
+.grow { transition: all .6s ease-in-out; }
 
-.about__item a:hover >.grow::after{
+.about__item a:hover >.grow::after,
+.categories__grid a:hover>.grow::after{
     position: absolute;
     border: 1px solid #fff;
     left: 6.5%;
@@ -213,8 +218,18 @@ li.slick-active button {
     bottom: 8%;
     content: "";
 }
+.categories__grid a:hover>.sq.grow::after{
+    position: absolute;
+    border: 1px solid #fff;
+    left: 8%;
+    right: 8%;
+    top: 8%;
+    bottom: 8%;
+    content: "";
+}
 
-.about__item a:hover>.grow{
+.about__item a:hover>.grow,
+.categories__grid a:hover>.grow{
     transform: scale(1.1);
 }
 
