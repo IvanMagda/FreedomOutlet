@@ -83,7 +83,7 @@ HTMLCollection.prototype.forEach = NodeList.prototype.forEach;
 
 
 $(window).resize(function () {
-    var search_box = $("#search_box");
+    var search_box = $(".search_box");
     var width = window.innerWidth;
 
     if (width > 1100) {
@@ -106,7 +106,7 @@ $(document).ready(function () {
             $(".header__categories-nav").toggle();
         } else {
             $(".header__categories-nav").toggle();
-            $("#search_box").toggle();
+            $(".search_box").toggle();
         }
     });
 

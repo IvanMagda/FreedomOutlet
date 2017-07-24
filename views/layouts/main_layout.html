@@ -23,9 +23,11 @@
         @{import('slick-1.6.0/slick/slick.css')}
         @{import('slick-1.6.0/slick/slick-theme.css')}
         @{import('slick-1.6.0/slick/slick.min.js')}
-        @{import('global/sub-dir.css')}
         @{import('sub-dir.js')}
         @{import('base_content/main.css')}
+        @{import('parts/headers/header_compact.css')}
+        @{import('global/sub-dir.css')}
+        @{import('list_product.js')}
 
         @{import('global/modal.css')}
         @{import('mail_client.js')}
@@ -35,6 +37,8 @@
         @{import('jquery.maskedinput.js')}
         @{import('favorites.js')}
         @{import('main.js')}
+        @{import('header_toggle.js')}
+        @{import('global/header_toggle.css')}
     </head>
 
     <body>
@@ -44,6 +48,7 @@
         @{view('modal/register')}
 
             @{view('parts/headers/header_main')}
+            @{view('parts/headers/header_compact')}
             @{body}
             @{view('parts/footer/footer')}
     </body>

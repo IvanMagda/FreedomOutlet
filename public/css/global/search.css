@@ -1,4 +1,4 @@
-#search_box {
+.search_box{
     height: 30px;
     background: #e8ebef;
     background-image: url(../../../img/product/searchicon.png);
@@ -12,7 +12,7 @@
     text-indent: 10px;
 }
 
-#search_box::-webkit-input-placeholder { 
+.search_box,::-webkit-input-placeholder{ 
     color: #000;
     padding-left: 0px;
 }
@@ -89,8 +89,9 @@
 }
 
 @media screen and (max-width: 1475px){
-    #search_box{
+    .search_box{
         margin-left: auto;
+        margin-top: auto;
     }
 }
 
@@ -103,7 +104,7 @@
 }
 
 @media screen and (max-width: 560px){
-    #search_box{
+    .search_box{
         display: none;
         position: absolute;
         margin-top: 17px;

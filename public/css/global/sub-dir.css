@@ -41,7 +41,7 @@ ul.sub-dir_links{
 }
 .sub-dir_links li a:hover{
     text-decoration: underline;
-    padding: none;
+    padding: unset;
     border: 0px solid transparent;
 }
 
