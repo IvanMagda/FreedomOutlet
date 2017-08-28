@@ -1,6 +1,7 @@
 var Product = GETSCHEMA('Product');
 var User = GETSCHEMA('User');
 var fs = require('fs');
+var os = require('os');
 var adminConv = require('../modules/adminPriceConverterSettings');
 var shopsEditor = require('../modules/shopsEditor');
 var shops = require('../definitions/shops.json');
@@ -35,13 +36,16 @@ function view_admin_product(product_id) {
 
 function view_product_add() {
     var self = this;
-    self.view('/admin/product_add');
+    var shops_data = Object.keys(shops).map(getShopInfo).filter(removeEmptyShops).map(splitter);
+    self.view('/admin/product_add', {
+        shops_data: shops_data
+    });
 }
 
 function product_create() {
     var self = this;
     Product.create_new(self.body, self.files, function (result) {
-        self.view('/admin/product_add');
+        self.redirect('/');
     });
 }
 
@@ -49,12 +53,14 @@ function view_product_update(product_id) {
     var self = this;
     var product = Product.by_id[product_id];
     var immages = [];
+    var shops_data = Object.keys(shops).map(getShopInfo).filter(removeEmptyShops).map(splitter);    
     Product.imgs(product_id, function (result) {
         immages = JSON.stringify(result.imgs_arr);
         self.view('/admin/product_edit', {
             product: product,
             immages: immages,
-            cities: result.cities
+            cities: result.cities,
+            shops_data: shops_data
         });
     });
 }
@@ -188,17 +194,56 @@ function actualFiles(incomingFilesArray, listToCheck) {
     return filesResult;
 }
 
+function getShopInfo(currentValue, index, array) {
+    var cityMap = { Kyiv: 'Киев', Kharkiv: 'Харьков', Dnepr: 'Днепр' }
+    var editedShop = { shop_id: '', name: '', city: '', split: false };
+    editedShop.shop_id = currentValue;
+    editedShop.name = shops[currentValue].split(os.EOL).slice(0, 1);
+    editedShop.city = editedShop.shop_id.replace(/[0-9]/g, '');
+    editedShop.city = editedShop.city[0].toUpperCase() + editedShop.city.slice(1);
+    if (editedShop.city == 'Kyiv' && editedShop.name.toString().indexOf('HOUSE') !== -1) {
+        if (shops[currentValue].indexOf(101) !== -1){
+            editedShop.name = editedShop.name + ' 101';
+        }else if (shops[currentValue].indexOf(17) !== -1){
+            editedShop.name = editedShop.name + ' 17/2';
+        }
+    }
+
+    editedShop.city = cityMap[editedShop.city];
+    return editedShop;
+}
+
+function splitter(currentValue, index, array) {
+    if(index>0 && index<array.length-1 && currentValue.city != array[index+1].city){
+        currentValue.split = true;
+    }
+
+    return currentValue;
+}
+
+function removeEmptyShops(shop) {
+    return shop.name != '';
+}
+
 /*{
-  "kyiv1": ["FREEDOM INTERIOR","пр. Победы, 7","+38 044 238 01 81","+38 067 325 41 80" ],
-  "kyiv2": [ "Visionnaire Showroom", "Столичное шоссе, 101,", "ТЦ \"Домосфера\"", "+38 067 571 85 90", "+38 044 259 31 10" ],
-  "kyiv3": [ "FREEDOM HOUSE сантехника", "Днепровская наб., 14, 2 этаж", "ЖК River Stone", "+38 067 329 08 16" ],
-  "kyiv4": [ "FREEDOM LUXURY HOME", "Столичное шоссе, 101,", "ТЦ \"Домосфера\"", "+38 067 468 29 09", "+38 044 259 31 10" ],
-  "kyiv5": [ "FREEDOM HOUSE", "Днепровская ноб., 17/2", "(напротив яхт-клуба)", "+38 067 328 98 04" ],
-  "kyiv6": [ "FREEDOM HOUSE", "Столичное шоссе, 101,", "ТЦ \"Домосфера\", 2 этаж", "+38 067 329 08 48" ],
-
-  "kharkiv1": [ "FREEDOM LUXURY", "ул. 23 Августа, 29", "+38 057 751 92 29", "+38 067 325 41 90" ],
-  "kharkiv2": [ "FREEDOM", "ул. Веснина, 5", "+38 057 757 44 00", "+38 067 571 75 66"],
-  "kharkiv3": [ "DOMITALIA", "пр. Московский, 257", "+38 057 758 79 97", "+38 067 539 18 53" ],
-
-  "dnepr1": [ "FREEDOM ГАЛЕРЕЯ ИНТЕРЬЕРОВ", "пр. Гагарина 18", "+38 056 713 55 15", "+38 067 560 06 82"]
+    "kyiv1": "FREEDOM LUXURY HOME\r\nСтоличное шоссе, 101\r\nТЦ \"Домосфера\", 1 этаж\r\n+38 067 468 29 09\r\n+38 044 259 31 10\r\n\r\n",
+    "kyiv2": "Visionnaire Showroom\r\nСтоличное шоссе, 101 \r\nТЦ \"Домосфера\", 1 этаж\r\n+38 067 571 85 90\r\n+38 044 259 31 10\r\n\r\n",
+    "kyiv3": "FREEDOM HOUSE \r\nСтоличное шоссе, 101\r\nТЦ \"Домосфера\", 2 этаж \r\n+38 067 329 08 48\r\n\r\n",
+    "kyiv4": "FREEDOM INTERIORS\r\nул. Драгомирова, 20\r\n+38 067 325 41 90",
+    "kyiv5": "",
+    "kyiv6": "FREEDOM INTERIOR\r\nпр. Победы, 7\r\n+38 044 238 01 81\r\n+38 067 325 41 80\r\n\r\n",
+    "kyiv7": "FREEDOM HOUSE \r\nДнепровская наб., 17 д/2 \r\n(напротив яхт-клуба)\r\n+38 067 328 98 04\r\n\r\n",
+    "kyiv8": "FREEDOM \r\nсантехника   плитка   двери\r\n\r\nДнепровская наб., 14 \r\nЖК River Stone \r\n+38 067 329 08 46",
+    "kyiv9": "",
+    "kyiv10": "",
+    "kharkiv1": "FREEDOM LUXURY\r\nул. 23 Августа, 29\r\n+38 057 751 92 29\r\n+38 067 325 41 91\r\n\r\n",
+    "kharkiv2": "FREEDOM\r\nул. Веснина, 5\r\nкухни   мебель   свет: 1 этаж \r\n+38 057 757 44 00 \r\n+38 067 571 75 66\r\n\r\nсантехника   плитка   двери:  2 этаж\r\n+38 057 751 92 28 \r\n+38 067 572 54 32\r\n\r\n",
+    "kharkiv3": "DOMITALIA\r\nпр. Московский, 257\r\n+38 057 758 79 97\r\n+38 067 539 18 53",
+    "kharkiv4": "",
+    "kharkiv5": "",
+    "dnepr1": "FREEDOM ГАЛЕРЕЯ ИНТЕРЬЕРОВ\r\nпр. Гагарина, 18\r\nкухни   мебель   свет \r\n+38 056 713 55 15 \r\n+38 067 560 06 82\r\n\r\nсантехника   плитка   двери\r\n+38 067 974 41 05",
+    "dnepr2": "",
+    "dnepr3": "",
+    "dnepr4": "",
+    "dnepr5": ""
 }*/

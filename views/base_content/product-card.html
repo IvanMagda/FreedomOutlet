@@ -43,8 +43,8 @@
                 <a href="#offer_modal" class="open_modal">КУПИТЬ В ОДИН КЛИК</a> 
              @{fi}
             <div class="product-card__actions">
-                <a href="#" class="product-card__actions_3D"></a>
-                <p> Активно только для<br> зарегистрированых<br> пользователей<br></p>
+                <!-- <a href="#" class="product-card__actions_3D"></a> -->
+                <!-- <p> Активно только для<br> зарегистрированых<br> пользователей<br></p> -->
                 <a href="#" class="product-card__actions_inst"></a>
                 <a href="#" class="product-card__actions_face"></a>
                 <!-- <a href="#" class="product-card__actions_pint"></a> -->
@@ -93,6 +93,7 @@
 <a href="/manufacturer/@{model.product.manufacturer}" class="all">Смотреть все</a>
 @{fi}
 <!--End More-->
+@{if model.see_also.length > 1}
 <h2>Вам так же понравится</h2>
 <div class="more-products__carousel">
     <div class="more-products__carousel_item">
@@ -125,4 +126,5 @@
         @{end}
     </div>
 </div>
+@{fi}
 <!--End Like-->

@@ -2,22 +2,31 @@ $(document).ready(function () {
     var hidden = true;
 
     window.addEventListener("scroll", function (event) {
-        var top = this.scrollY;
-        if (top > 125) {
-            if (hidden) {
-                $('header.minified-header').animate({
-                    height: "show",
-                }, 1000, function () {
+        if (this.scrollY < 185) {
+            $('header.minified-header').animate({
+                height: "hide",
+            }, 500, function () {
+                hidden = true;
+            });
+        } else {
+            if (this.scrollY > 125) {
+                if (hidden) {
                     hidden = false;
-                });
-            };
-        } else if(top<185){
-            if (!hidden) {
-                $('header.minified-header').animate({
-                    height: "hide",
-                }, 500, function () {
+                    $('header.minified-header').animate({
+                        height: "show",
+                    }, 1000, function () {
+                        hidden = false;
+                    });
+                };
+            } else if (this.scrollY < 185) {
+                if (!hidden) {
                     hidden = true;
-                });
+                    $('header.minified-header').animate({
+                        height: "hide",
+                    }, 500, function () {
+                        hidden = true;
+                    });
+                };
             };
         };
     }, false);

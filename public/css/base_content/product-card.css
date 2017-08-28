@@ -39,7 +39,7 @@ h2:after {
 /*End Global*/
 
 .path{
-    margin-top: 55px;
+    margin-top: 140px;
     margin-bottom: 55px;
 }
 
@@ -72,6 +72,7 @@ h2:after {
     display: flex;
     margin: auto;
     justify-content: space-between;
+    margin-bottom:10px;
 }
 
 .product-card__carousel-block{

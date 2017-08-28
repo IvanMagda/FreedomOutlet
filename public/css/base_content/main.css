@@ -98,7 +98,7 @@ li.slick-active button {
 /*End Product Caurusel*/
 
 .first-outlet {
-    max-width: 1680px;
+    max-width: 1920px;
     margin: 0px auto;
     width: 100%;
 }
@@ -130,9 +130,10 @@ li.slick-active button {
 
 .categories__grid>a{
     overflow:hidden;
+    position: relative;
 }
 
-.categories__grid div h3{
+.categories__grid h3{
     z-index: 1;
     position: absolute;
     top: 50%;
@@ -370,7 +371,7 @@ about__item_img div{
 .map{
     margin: 0px auto;
     width: 100%;
-    max-width: 1680px;
+    max-width: 1920px;
 }
 .map img{
     width: 100%;

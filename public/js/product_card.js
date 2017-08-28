@@ -161,12 +161,18 @@ $(document).ready(function () {
         ]
     };
 
-    var carousel_check = $('.more-products__carousel_item');
+    var carousel_check = $('.more-products__carousel_item .product-item_container');
 
-    if(carousel_check[0].children.length>0 && carousel_check[0].children.length<4){
-        sl_param.slidesToShow = carousel_check[0].children.length-1;
+    if(carousel_check.length>1 && carousel_check.length<4){
+        sl_param.slidesToShow = carousel_check.length-1;
         sl_param.slidesToScroll = 1;
+        $('.more-products__carousel_item').slick(sl_param);
+    }else if(carousel_check.length==1){
+        sl_param.slidesToShow = 1;
+        sl_param.slidesToScroll = 1;
+    }else{
+        $('.more-products__carousel_item').slick(sl_param);
     }
 
-    $('.more-products__carousel_item').slick(sl_param);
+    //$('.more-products__carousel_item').slick(sl_param);
 });

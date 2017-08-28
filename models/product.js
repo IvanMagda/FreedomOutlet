@@ -51,24 +51,27 @@ Product.dell = function (id) {
 }
 
 Product.create_new = function (product, files, callback) {
+    var sql = DATABASE();
+    
     product.price = product.price || 0;
     product.discount = product.discount || 0;
-    product.available_in = product.available_in || '';
+    product.available_in = product.available_in.join(',') || '';
     product.is_new = (product.is_new == "on") ? true : false;
     product.is_hidden = (product.is_hidden == "on") ? true : false;
+    var image_Title = 'Title.jpg';
 
     var last_id = 0;
     if (Product.list && Product.list[Product.list.length - 1]) {
         last_id = Product.list[Product.list.length - 1].id;
     }
 
-    var sql = DATABASE();
     var productDir = __dirname + '/../public/tmp/' + (last_id + 1) + '/';
 
     if (product.title_file) {
         product.title_img_src = '/tmp/' + (last_id + 1) + '/' + 'Title.jpg';
     }
 
+    product.virtual_model_src = '';
     files.forEach(function (e) {
         if (e.name == 'virtual_model') {
             product.virtual_model_src = '/tmp/' + (last_id + 1) + '/' + e.filename;
@@ -86,7 +89,7 @@ Product.create_new = function (product, files, callback) {
             discount: product.discount,
             description: product.description,
             category: product.category,
-            image_name: 'Title.jpg',
+            image_name: image_Title,
             is_new: product.is_new,
             is_hidden: product.is_hidden,
             title_img_src: product.title_img_src,
