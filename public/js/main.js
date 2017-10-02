@@ -1,11 +1,12 @@
 $(document).ready(function () {
     $('.new-products__carousel_item').slick({
-        //infinite: true,
-        //centerMode: true,
         slidesToShow: 4,
         slidesToScroll: 4,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 3000,
+        infinite: true,
+        speed:0,
+        cssEase: 'linear',
         dots: true,
         arrows: false,
         centerPadding: 0,

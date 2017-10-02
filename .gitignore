@@ -268,3 +268,4 @@ config
 config-debug
 node_modules/
 views/vb_index.html
+npm-debug.log.1024570520

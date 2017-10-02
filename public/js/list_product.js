@@ -1,5 +1,7 @@
 $(document).ready(function () {
+    if(window.location.pathname !== '/'){
     pagination();
+    }
 });
 
 function pagination() {

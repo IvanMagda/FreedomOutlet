@@ -12,7 +12,7 @@ function redirect_mail() {
     // Function is reading view /temp/mail_template which is a template for mail
     // The first parameter specifies the address to which it is necessary to send
     // Mail sender is set in config file, located in root directory
-    self.mail('iv.y.magda@gmail.com', 'Product Offer', '/temp/mail_template', { name: this.body.name, phone: this.body.phone, message: this.body.message });
+    self.mail('outlet@freedom.ua', 'Product Offer', '/temp/mail_template', { name: this.body.name, phone: this.body.phone, message: this.body.message });
     //self.json(SUCCESS(true));
     self.redirect('/');
 }
