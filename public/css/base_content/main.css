@@ -57,6 +57,24 @@ h3{
 
 /*End Global Elements*/
 
+.slick-slide {
+    opacity: .0;
+    transition: opacity 250ms ease-in-out;
+}
+.slick-slide.opacidown {
+opacity: 0;
+}
+
+div.slick-current {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out;
+}
+
+div.slick-active{
+    opacity: 1;
+    transition: opacity 250ms ease-in-out;
+}
+
 .new-products {
     margin-top: 55px;
 }

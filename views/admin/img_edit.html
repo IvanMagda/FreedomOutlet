@@ -1,0 +1,220 @@
+@{layout('/admin/admin_layout')}
+<form id="currency-form" method="POST" action="/admin/img_edit" enctype="multipart/form-data">
+    <div class="currency_holder mdl-cell mdl-cell--12-col mdl-grid mdl-color--white mdl-shadow--2dp">
+        <div class="outlet-product mdl-cell mdl-cell--9-col  mdl-cell--12-col-tablet mdl-cell--9-col-desktop mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col mdl-grid mdl-color--white">
+                <div class="mdl-cell mdl-cell--12-col flexRow">
+                    <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
+                        <div class="outlet-card-image mdl-card mdl-shadow--2dp">
+                            <div id="outputFirst" class="mdl-card__title mdl-card--expand padding-0">
+                                <img class="thumb myImg" title="FirstOutlet" src="../../img/categories/first-outlet.png" />
+                                <canvas id="canvas" width="0" height="0"></canvas>
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="width:100%">
+                                    <input class="mdl-textfield__input" placeholder="Файл не выбран" type="text" id="TEXT_ID" value="FirstOutlet"
+                                        readonly />
+                                    <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
+                                        <i class="material-icons">attach_file</i>
+                                        <input id="fileTitle" name="first-outlet" type="hidden" />
+                                        <input type="file" name="first-outlet" id="firstOutlet" class="imgHolder" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet mdl-cell--8-col-desktop">
+                        <p>Для нормального отображения должны соблюдаться размеры и использоваться формат <b>.png</b></p>
+                        <p>Допускаются другие размеры но с сохранением соотношения сторон и/или использовать формат <b>.jpg</b></p>
+                        <ul>
+                            <li>FirstOutlet 1600x600 px</li>
+                            <li>№1 Cегмент плитки 700x365 px</li>
+                            <li>№2 Cегмент плитки 335x365 px</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr/>
+
+                <div class="mdl-cell mdl-cell--12-col flexRow">
+                    <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--4-col-desktop">
+                        <div class="outlet-card-image mdl-card mdl-shadow--2dp">
+                            <div id="outputFirst" class="mdl-card__title mdl-card--expand padding-0">
+                                <img class="thumb myImg" title="FirstOutlet" src="../../img/categories/soft-furnishings.png" />
+                                <canvas id="canvas" width="0" height="0"></canvas>
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="width:100%">
+                                    <input class="mdl-textfield__input" placeholder="Файл не выбран" type="text" id="TEXT_ID" value="Soft-Furnishings"
+                                        readonly />
+                                    <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
+                                        <i class="material-icons">attach_file</i>
+                                        <input id="fileTitle" name="soft-furnishings" type="hidden" />
+                                        <input type="file" name="soft-furnishings" id="firstOutlet" class="imgHolder" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--4-col-desktop">
+                        <div class="outlet-card-image mdl-card mdl-shadow--2dp">
+                            <div id="outputFirst" class="mdl-card__title mdl-card--expand padding-0">
+                                <img class="thumb myImg" title="FirstOutlet" src="../../img/categories/bedroom.png" />
+                                <canvas id="canvas" width="0" height="0"></canvas>
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="width:100%">
+                                    <input class="mdl-textfield__input" placeholder="Файл не выбран" type="text" id="TEXT_ID" value="Bedroom"
+                                        readonly />
+                                    <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
+                                        <i class="material-icons">attach_file</i>
+                                        <input id="fileTitle" name="bedroom" type="hidden" />
+                                        <input type="file" name="bedroom" id="firstOutlet" class="imgHolder" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--4-col-desktop">
+                        <div class="outlet-card-image mdl-card mdl-shadow--2dp">
+                            <div id="outputFirst" class="mdl-card__title mdl-card--expand padding-0">
+                                <img class="thumb myImg" title="FirstOutlet" src="../../img/categories/living-room.png" />
+                                <canvas id="canvas" width="0" height="0"></canvas>
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="width:100%">
+                                    <input class="mdl-textfield__input" placeholder="Файл не выбран" type="text" id="TEXT_ID" value="Living-room"
+                                        readonly />
+                                    <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
+                                        <i class="material-icons">attach_file</i>
+                                        <input id="fileTitle" name="living-room" type="hidden" />
+                                        <input type="file" name="living-room" id="firstOutlet" class="imgHolder" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdl-cell mdl-cell--12-col flexRow">
+                    <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--4-col-desktop">
+                        <div class="outlet-card-image mdl-card mdl-shadow--2dp">
+                            <div id="outputFirst" class="mdl-card__title mdl-card--expand padding-0">
+                                <img class="thumb myImg" title="FirstOutlet" src="../../img/categories/dining-room.png" />
+                                <canvas id="canvas" width="0" height="0"></canvas>
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="width:100%">
+                                    <input class="mdl-textfield__input" placeholder="Файл не выбран" type="text" id="TEXT_ID" value="Dining-room"
+                                        readonly />
+                                    <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
+                                        <i class="material-icons">attach_file</i>
+                                        <input id="fileTitle" name="dining-room" type="hidden" />
+                                        <input type="file" name="dining-room" id="firstOutlet" class="imgHolder" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--4-col-desktop">
+                        <div class="outlet-card-image mdl-card mdl-shadow--2dp">
+                            <div id="outputFirst" class="mdl-card__title mdl-card--expand padding-0">
+                                <img class="thumb myImg" title="FirstOutlet" src="../../img/categories/kitchen.png" />
+                                <canvas id="canvas" width="0" height="0"></canvas>
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="width:100%">
+                                    <input class="mdl-textfield__input" placeholder="Файл не выбран" type="text" id="TEXT_ID" value="Kitchen"
+                                        readonly />
+                                    <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
+                                        <i class="material-icons">attach_file</i>
+                                        <input id="fileTitle" name="kitchen" type="hidden" />
+                                        <input type="file" name="kitchen" id="firstOutlet" class="imgHolder" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--4-col-desktop">
+                        <div class="outlet-card-image mdl-card mdl-shadow--2dp">
+                            <div id="outputFirst" class="mdl-card__title mdl-card--expand padding-0">
+                                <img class="thumb myImg" title="FirstOutlet" src="../../img/categories/accessories.png" />
+                                <canvas id="canvas" width="0" height="0"></canvas>
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="width:100%">
+                                    <input class="mdl-textfield__input" placeholder="Файл не выбран" type="text" id="TEXT_ID" value="Accessories"
+                                        readonly />
+                                    <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
+                                        <i class="material-icons">attach_file</i>
+                                        <input id="fileTitle" name="accessories" type="hidden" />
+                                        <input type="file" name="accessories" id="firstOutlet" class="imgHolder" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdl-cell mdl-cell--12-col flexRow">
+                    <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--4-col-desktop">
+                        <div class="outlet-card-image mdl-card mdl-shadow--2dp">
+                            <div id="outputFirst" class="mdl-card__title mdl-card--expand padding-0">
+                                <img class="thumb myImg" title="FirstOutlet" src="../../img/categories/chandeliers.png" />
+                                <canvas id="canvas" width="0" height="0"></canvas>
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="width:100%">
+                                    <input class="mdl-textfield__input" placeholder="Файл не выбран" type="text" id="TEXT_ID" value="Chandeliers"
+                                        readonly />
+                                    <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
+                                        <i class="material-icons">attach_file</i>
+                                        <input id="fileTitle" name="chandeliers" type="hidden" />
+                                        <input type="file" name="chandeliers" id="firstOutlet" class="imgHolder" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--4-col-desktop">
+                        <div class="outlet-card-image mdl-card mdl-shadow--2dp">
+                            <div id="outputFirst" class="mdl-card__title mdl-card--expand padding-0">
+                                <img class="thumb myImg" title="FirstOutlet" src="../../img/categories/sanitary.png" />
+                                <canvas id="canvas" width="0" height="0"></canvas>
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="width:100%">
+                                    <input class="mdl-textfield__input" placeholder="Файл не выбран" type="text" id="TEXT_ID" value="Sanitary"
+                                        readonly />
+                                    <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
+                                        <i class="material-icons">attach_file</i>
+                                        <input id="fileTitle" name="sanitary" type="hidden" />
+                                        <input type="file" name="sanitary" id="firstOutlet" class="imgHolder" onchange="document.getElementById('TEXT_ID').value=this.files[0].name;"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <button type="submit" id="create-product" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+            &nbsp;Сохранить&nbsp;
+        </button>
+    </div>
+    </div>
+</form>

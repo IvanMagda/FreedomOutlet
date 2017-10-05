@@ -43,25 +43,6 @@
     </head>
 
     <body>
-        <style>
-        .slick-slide {
-            opacity: .0;
-            transition: opacity 250ms ease-in-out;
-        }
-        .slick-slide.opacidown {
-        opacity: 0;
-        }
-        
-        div.slick-current {
-            opacity: 1;
-            transition: opacity 250ms ease-in-out;
-        }
-        
-        div.slick-active{
-            opacity: 1;
-            transition: opacity 250ms ease-in-out;
-        }
-        </style>
         <div id="overlay"></div>
         @{view('modal/login')}
         @{view('modal/reset_password')}
@@ -71,9 +52,5 @@
             @{view('parts/headers/header_compact')}
             @{body}
             @{view('parts/footer/footer')}
-
-        <script>
-            
-        </script>
     </body>
 </html>

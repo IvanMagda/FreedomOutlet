@@ -5,7 +5,9 @@ $(document).ready(function () {
     };
 
     var product_form = document.getElementById('create-product-form');
-    product_form.addEventListener("submit", deleteTitleSourseImgFromSubmiting, false);
+    if (product_form) {
+        product_form.addEventListener("submit", deleteTitleSourseImgFromSubmiting, false);
+    }
 });
 
 function deleteTitleSourseImgFromSubmiting() {

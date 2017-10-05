@@ -298,7 +298,8 @@ hr{
     right: 0;
 }
 
-#myImg{
+#myImg,
+.myImg{
     width: 100%
 }
 
@@ -463,4 +464,8 @@ ul#pagination {
 
 .sub_category {
     margin-left: 25px;
+}
+
+.flexRow{
+    display: flex;
 }

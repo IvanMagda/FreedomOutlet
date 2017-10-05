@@ -4,6 +4,7 @@ var fs = require('fs');
 var os = require('os');
 var adminConv = require('../modules/adminPriceConverterSettings');
 var shopsEditor = require('../modules/shopsEditor');
+var imgSaver = require('../modules/imgSaver');
 var shops = require('../definitions/shops.json');
 
 exports.install = function () {
@@ -22,6 +23,8 @@ exports.install = function () {
     F.route('/admin/currency', admin_currency_save, ['post', 'authorize', '@admin']);
     F.route('/admin/shops', view_admin_shops, ['authorize', '@admin']);
     F.route('/admin/shops', admin_shops_save, ['post', 'authorize', '@admin']);
+    F.route('/admin/img_edit', view_admin_img_edit, ['authorize', '@admin']);
+    F.route('/admin/img_edit', admin_img_edit_save, ['upload', 'authorize', '@admin'], { flags: ['upload'], length: 25 * 1024 * 1024, timeout: 30 * 60 * 1000 });
 };
 
 
@@ -177,6 +180,19 @@ function admin_shops_save() {
     var self = this;
     console.log(self.body);
     shopsEditor.editShops(self.body, function () {
+        self.redirect('/admin');
+    });
+}
+
+function view_admin_img_edit() {
+    var self = this;
+    self.view('/admin/img_edit');
+}
+
+function admin_img_edit_save() {
+    var self = this;
+    console.log(self.files);
+    imgSaver.saveImg(self.files, function () {
         self.redirect('/admin');
     });
 }
