@@ -157,6 +157,10 @@
                             <input type="file" name="virtual_model" id="file3d" onchange="document.getElementById('TEXT').value=this.files[0].name;" />
                         </div>
                     </div>
+                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="hide_3d">
+                            <input type="checkbox" id="hide_3d" class="mdl-checkbox__input" name="hide_3d">
+                            <span class="mdl-checkbox__label">Скрыть 3D</span>
+                    </label>
                 </div>
                 <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--4-col-desktop">
                     @{foreach shop in model.shops_data}

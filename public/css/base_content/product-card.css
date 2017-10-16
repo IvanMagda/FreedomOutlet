@@ -126,7 +126,9 @@ h2:after {
 
 .product-card__carousel_img{
     outline: none;
-    display: flex;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .product-card__parametrs{
@@ -306,6 +308,11 @@ h2:after {
     max-width: 1075px;
 }
 
+.shops_scrol {
+    overflow: auto;
+    max-height: 100px;
+}
+
 /*End Product-Card*/
 
 .more{
@@ -366,7 +373,7 @@ a.all:hover{
 
 @media screen and (max-width: 1400px){
     .product-card__carousel.slick-slider {
-        height: auto;
+        /* height: auto; */
     }
 
     .more{
@@ -380,7 +387,7 @@ a.all:hover{
 
 @media screen and (max-width: 1280px){
     .product-card__parametrs {
-        height: auto;
+        /* height: auto; */
         padding: 5px;
     }
 }

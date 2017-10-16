@@ -105,4 +105,12 @@ function init() {
         title: 'FREEDOM'
     });
 
+    var markers = [Kyiv_shop1,Kyiv_shop2,Kyiv_shop3,Kyiv_shop4, Kharkiv_shop1, Kharkiv_shop2,Kharkiv_shop3,Dnepr_shop1];
+    markers.forEach(function(marker){
+        marker.addListener('click', function() {
+            map.setZoom(12);
+            map.setCenter(marker.getPosition());
+          });
+    });
+
 }

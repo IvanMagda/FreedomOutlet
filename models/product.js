@@ -58,7 +58,7 @@ Product.create_new = function (product, files, callback) {
     product.available_in = product.available_in.join(',') || '';
     product.is_new = (product.is_new == "on") ? true : false;
     product.is_hidden = (product.is_hidden == "on") ? true : false;
-    var image_Title = 'Title.jpg';
+    var image_Title = (product.hide_3d == "on") ? 'true' : 'false';
 
     var last_id = 0;
     if (Product.list && Product.list[Product.list.length - 1]) {
@@ -150,6 +150,12 @@ Product.update = function (product, files, callback) {
     product.available_in = product.available_in || '';
     product.is_new = (product.is_new == "on") ? true : false;
     product.is_hidden = (product.is_hidden == "on") ? true : false;
+    var virtual_model_src_Name = files.filter(function(file){if(file.name == 'virtual_model') return file;});
+    var image_Title = (product.hide_3d == "on") ? 'true' : 'false';
+
+    if(virtual_model_src_Name.length>0){
+        product.virtual_model_src = virtual_model_src_Name[0].filename;
+    }
 
     var productDir = __dirname + '/../public/tmp/' + product.id + '/';
 
@@ -177,7 +183,7 @@ Product.update = function (product, files, callback) {
             discount: product.discount,
             description: product.description,
             category: product.category,
-            image_name: 'Title.jpg',
+            image_name: image_Title,
             is_new: product.is_new,
             is_hidden: product.is_hidden,
             title_img_src: product.title_img_src,
@@ -298,7 +304,7 @@ Product.imgs = function (id, callback) {
                 img.type = "image/" + type;
                 img.file = "/tmp/" + id + "/" + file;
 		if (img.name.indexOf("Galery") != -1) {
-                response.imgs_arr[index] = img;
+                response.imgs_arr.push(img);
 		}
             });
         }

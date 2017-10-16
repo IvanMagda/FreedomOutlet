@@ -56,6 +56,7 @@ function view_product_update(product_id) {
     var self = this;
     var product = Product.by_id[product_id];
     var immages = [];
+    product.hide_3d = product.image_name;
     var shops_data = Object.keys(shops).map(getShopInfo).filter(removeEmptyShops).map(splitter);    
     Product.imgs(product_id, function (result) {
         immages = JSON.stringify(result.imgs_arr);

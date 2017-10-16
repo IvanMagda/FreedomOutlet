@@ -162,12 +162,16 @@
                     </div>
                     <hr />
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="width:100%">
-                        <input class="mdl-textfield__input" placeholder="3D модель не выбранна" type="text" id="TEXT" readonly />
+                        <input class="mdl-textfield__input" placeholder="3D модель не выбранна" type="text" id="TEXT" @{if model.product.virtual_model_src != "" } value="@{model.product.virtual_model_src}" @{endif} readonly />
                         <div class="h_34 mdl-button mdl-button--icon mdl-button--file">
                             <i class="material-icons">attach_file</i>
                             <input type="file" name="virtual_model" id="file3d" onchange="document.getElementById('TEXT').value=this.files[0].name;" />
                         </div>
                     </div>
+                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="hide_3d">
+                            <input type="checkbox" id="hide_3d" class="mdl-checkbox__input" name="hide_3d" @{if model.product.hide_3d=="true" } checked @{endif}>
+                            <span class="mdl-checkbox__label">Скрыть 3D</span>
+                    </label>
                 </div>
                 <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--4-col-desktop">
                     <div class="category_holder">

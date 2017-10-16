@@ -43,7 +43,9 @@
                 <a href="#offer_modal" class="open_modal">КУПИТЬ В ОДИН КЛИК</a> 
              @{fi}
             <div class="product-card__actions">
-                <!-- <a href="#" class="product-card__actions_3D"></a> -->
+                @{if model.product.image_name === 'false'}
+                    <a href="/tmp/@{model.product.id}/@{model.product.virtual_model_src}" class="product-card__actions_3D" download></a>
+                @{fi}
                 <!-- <p> Активно только для<br> зарегистрированых<br> пользователей<br></p> -->
                 <a href="#" class="product-card__actions_inst"></a>
                 <a href="#" class="product-card__actions_face"></a>
@@ -51,10 +53,12 @@
             </div>
             <h6 class="product-card__parametrs_info open_modal" href="#contact_us_modal">Связаться с нами</h6>
             <h6 class="product-card__parametrs_info">Наличие в магазинах</h6>
-            @{foreach avl in model.available}
-            <p>@{avl}</p>
-            <br />
-            @{end}
+            <div class="shops_scrol">
+                @{foreach avl in model.available}
+                <p>@{avl}</p>
+                <br />
+                @{end}
+            </div>
     </div>
 </section>
 <!--End Product-Card-->
